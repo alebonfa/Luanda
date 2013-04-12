@@ -1,0 +1,44 @@
+Screen Set d:\sistema\sisquali\code\cad_cli.spr has the following errors:
+    Unknown VERACESS - Undefined
+
+Report d:\sistema\sisquali\code\afdstud1.frx has the following errors:
+    Unknown LST_SUBA - Undefined
+    Unknown LST_AREA - Undefined
+
+Screen Set d:\sistema\sisquali\code\cad_cli2.spr has the following errors:
+    Unknown VERACESS - Undefined
+    Unknown LIST_STA - Undefined
+    Unknown LEVPERCENT - Undefined
+    Unknown LIST_CUR - Undefined
+    Unknown LIST_ARE - Undefined
+
+Screen Set d:\sistema\sisquali\code\cad_crm.spr has the following errors:
+    Unknown VERACESS - Undefined
+    Unknown LIST_CUR - Undefined
+    Unknown LIST_ARE - Undefined
+    Unknown LST_ICUR - Undefined
+    Unknown LST_IARE - Undefined
+
+Screen Set d:\sistema\sisquali\code\cli_docs.spr has the following errors:
+    Unknown VERACESS - Undefined
+
+Screen Set d:\sistema\sisquali\code\clicurso.spr has the following errors:
+    Unknown LST_AREA - Undefined
+
+Program d:\sistema\sisquali\code\cli_pres.prg has the following errors:
+    Unknown L_CLICUR - Undefined
+
+Screen Set d:\sistema\sisquali\code\lanc_tcc.spr has the following errors:
+    Unknown VERACESS - Undefined
+    Unknown L_CLICUR - Undefined
+
+Screen Set d:\sistema\sisquali\code\ativgrup.spr has the following errors:
+    Unknown VERACESS - Undefined
+
+Screen Set d:\sistema\sisquali\code\assugrup.spr has the following errors:
+    Unknown VERACESS - Undefined
+
+Report d:\sistema\sisquali\code\afdstud2.frx has the following errors:
+    Unknown LST_SUBA - Undefined
+    Unknown LST_AREA - Undefined
+

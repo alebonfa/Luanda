@@ -1,0 +1,33 @@
+PARAMETER WTIT, wmens
+PRIVATE R
+R = .F.
+DEFINE WINDOW wconf AT 0, 0 SIZE    ;
+	4.850 ,  50.250  FONT  ;
+	'MS Sans Serif', 12 FLOAT  ;
+	NOCLOSE TITLE WTIT SYSTEM  ;
+	COLOR RGB(255,255,255,107,35,142)
+ACTIVATE WINDOW wconf
+MOVE WINDOW wconf CENTER
+@   0.400 ,   1.750  SAY wmens  ;
+	FONT 'MS Sans Serif', 8 STYLE  ;
+	'B' SIZE 2.000 , 58.889
+@   3.450 ,  18.000  GET BOTT  ;
+	DEFAULT 1 FONT  ;
+	'MS Sans Serif', 8 STYLE 'B'  ;
+	SIZE 2.000 , 8.667 , 1.333   ;
+	PICTURE '@*HN Sim;Não' VALID  ;
+	fim(BOTT)
+READ CYCLE MODAL
+RELEASE WINDOW wconf
+RETURN R
+*
+PROCEDURE fim
+	PARAMETER num
+	CLEAR READ
+	IF num = 2
+		R = .F.
+	ELSE
+		R = .T.
+	ENDIF
+	RETURN
+	*
