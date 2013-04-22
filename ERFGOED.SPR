@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 04/03/2013            ERFGOED.SPR              09:30:30 
+*       * 21/04/2013            ERFGOED.SPR              22:30:13 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -38,8 +38,8 @@ SET READBORDER ON
 *       *********************************************************
 *
 
-IF NOT WEXIST("_3qa6a50hd")
-	DEFINE WINDOW _3qa6a50hd ;
+IF NOT WEXIST("_3rm1cc52d")
+	DEFINE WINDOW _3rm1cc52d ;
 		AT  0.000, 0.000  ;
 		SIZE 47.857,198.000 ;
 		TITLE "Itens Imobilizados" ;
@@ -48,7 +48,7 @@ IF NOT WEXIST("_3qa6a50hd")
 		NOCLOSE ;
 		NOMINIMIZE ;
 		SYSTEM
-	MOVE WINDOW _3qa6a50hd CENTER
+	MOVE WINDOW _3rm1cc52d CENTER
 ENDIF
 
 
@@ -60,8 +60,8 @@ ENDIF
 *
 
 #REGION 1
-STORE .f.  TO visIndruk, booPunt, booGroep, booMagaz, booReeks
-STORE ''   TO snelPunt, snelGroep, snelMagaz, lokReeks, gef
+STORE .f.  TO visIndruk, booPunt, booGroep, booMagaz, booReeks, booMarca, booModelo
+STORE ''   TO snelPunt, snelGroep, snelMagaz, lokReeks, gef, lokMarca, lokModelo
 STORE 1    TO lokPunt, lokGroep, lokMagazijn
 STORE {}   TO lokAankoop
 STORE 0    TO lokCode
@@ -90,10 +90,10 @@ DO erfLij
 *
 
 #REGION 1
-IF WVISIBLE("_3qa6a50hd")
-	ACTIVATE WINDOW _3qa6a50hd SAME
+IF WVISIBLE("_3rm1cc52d")
+	ACTIVATE WINDOW _3rm1cc52d SAME
 ELSE
-	ACTIVATE WINDOW _3qa6a50hd NOSHOW
+	ACTIVATE WINDOW _3rm1cc52d NOSHOW
 ENDIF
 @ 0.000,0.000 TO 3.500,198.000 ;
 	PATTERN 1 ;
@@ -107,7 +107,7 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "BT" ;
 	COLOR RGB(128,128,128,,,,)
-@ 15.714,0.000 TO 15.714,197.600 ;
+@ 18.000,0.000 TO 18.000,197.600 ;
 	PEN 1, 8 ;
 	STYLE "1" ;
 	COLOR RGB(0,128,128,0,128,128)
@@ -119,11 +119,11 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,,,,)
-@ 10.929,131.200 SAY "Aquisição" ;
+@ 6.357,131.200 SAY "Aquisição" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,,,,)
-@ 13.214,131.200 SAY "Valor" ;
+@ 6.357,170.400 SAY "Valor" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,,,,)
@@ -132,7 +132,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	PICTURE "@K" ;
-	VALID _3qa6a50hj() ;
+	VALID _3rm1cc53r() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 6.286,34.400 GET knopCode ;
 	PICTURE "@*HN ..." ;
@@ -140,13 +140,25 @@ ENDIF
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "B" ;
-	VALID _3qa6a50hl()
+	VALID _3rm1cc53w()
+@ 6.357,145.200 GET lokAankoop ;
+	SIZE 1.000,13.600 ;
+	DEFAULT " " ;
+	FONT "Arial", 8 ;
+	PICTURE "@K!" ;
+	COLOR ,RGB(,,,255,255,255)
+@ 6.357,180.400 GET lokWaarde ;
+	SIZE 1.000,13.600 ;
+	DEFAULT " " ;
+	FONT "Arial", 8 ;
+	PICTURE "@K!" ;
+	COLOR ,RGB(,,,255,255,255)
 @ 8.643,18.000 GET snelPunt ;
 	SIZE 1.000,13.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
-	VALID _3qa6a50hm() ;
+	VALID _3rm1cc55w() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 8.571,34.400 GET lokPunt ;
 	PICTURE "@^" ;
@@ -154,20 +166,20 @@ ENDIF
 	SIZE 1.500,83.400 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a50i3()
+	VALID _3rm1cc55z()
 @ 8.571,118.400 GET schermPunt ;
 	PICTURE "@*HN ..." ;
 	SIZE 1.615,4.167,0.667 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "B" ;
-	VALID _3qa6a50i4()
-@ 8.643,143.600 GET lokReeks ;
-	SIZE 1.000,50.400 ;
+	VALID _3rm1cc56o()
+@ 8.643,145.400 GET lokReeks ;
+	SIZE 1.000,48.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
-	VALID _3qa6a50i5() ;
+	VALID _3rm1cc57r() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 8.643,3.200 GET booPunt ;
 	PICTURE "@*C Item" ;
@@ -175,7 +187,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3qa6a50i6() ;
+	VALID _3rm1cc57x() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 8.643,131.200 GET booReeks ;
 	PICTURE "@*C Série" ;
@@ -183,14 +195,14 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3qa6a50i7() ;
+	VALID _3rm1cc58j() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 10.929,18.000 GET snelGroep ;
 	SIZE 1.000,13.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
-	VALID _3qa6a50i8() ;
+	VALID _3rm1cc59p() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 10.857,34.400 GET lokGroep ;
 	PICTURE "@^" ;
@@ -198,19 +210,20 @@ ENDIF
 	SIZE 1.500,83.400 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a50i9()
+	VALID _3rm1cc5aa()
 @ 10.857,118.400 GET schermGroep ;
 	PICTURE "@*HN ..." ;
 	SIZE 1.615,4.167,0.667 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "B" ;
-	VALID _3qa6a50ia()
-@ 10.929,143.600 GET lokAankoop ;
-	SIZE 1.000,13.600 ;
+	VALID _3rm1cc5av()
+@ 10.929,145.400 GET lokMarca ;
+	SIZE 1.000,48.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
+	VALID _3rm1cc5b5() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 10.929,3.200 GET booGroep ;
 	PICTURE "@*C Grupo" ;
@@ -218,14 +231,22 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3qa6a50ib() ;
+	VALID _3rm1cc5bi() ;
+	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
+@ 10.929,131.200 GET booMarca ;
+	PICTURE "@*C Marca" ;
+	SIZE 1.214,10.600 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	VALID _3rm1cc5cn() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 13.214,18.000 GET snelMagaz ;
 	SIZE 1.000,13.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
-	VALID _3qa6a50ic() ;
+	VALID _3rm1cc5d0() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 13.143,34.400 GET lokMagaz ;
 	PICTURE "@^" ;
@@ -233,41 +254,50 @@ ENDIF
 	SIZE 1.500,83.400 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a50id()
+	VALID _3rm1cc5dg()
 @ 13.143,118.400 GET schermMagazijn ;
 	PICTURE "@*HN ..." ;
 	SIZE 1.615,4.167,0.667 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "B" ;
-	VALID _3qa6a50ie()
-@ 13.214,143.600 GET lokWaarde ;
-	SIZE 1.000,13.600 ;
+	VALID _3rm1cc5dh()
+@ 13.214,145.400 GET lokModelo ;
+	SIZE 1.000,48.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
+	VALID _3rm1cc5e6() ;
 	COLOR ,RGB(,,,255,255,255)
-@ 13.143,165.600 GET knopErfSalie ;
-	PICTURE "@*HN Adicionar;Cancelar" ;
-	SIZE 1.143,14.600,0.000 ;
-	DEFAULT 1 ;
-	FONT "Arial", 8 ;
-	VALID _3qa6a50if()
 @ 13.214,3.200 GET booMagaz ;
 	PICTURE "@*C Local" ;
 	SIZE 1.214,9.800 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3qa6a50ig() ;
+	VALID _3rm1cc5fa() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
-@ 16.929,3.400 GET lokErf ;
+@ 13.214,131.200 GET booModelo ;
+	PICTURE "@*C Modelo" ;
+	SIZE 1.214,11.400 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	VALID _3rm1cc5fj() ;
+	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
+@ 15.714,164.800 GET knopErfSalie ;
+	PICTURE "@*HN Adicionar;Cancelar" ;
+	SIZE 1.143,14.600,0.000 ;
+	DEFAULT 1 ;
+	FONT "Arial", 8 ;
+	VALID _3rm1cc5gh()
+@ 19.286,3.400 GET lokErf ;
  	PICTURE "@&N" ;
 	FROM lijErf ;
-	SIZE 24.000,136.429 ;
+	SIZE 21.714,136.429 ;
 	DEFAULT 1 ;
 	FONT "Courier New", 8 ;
-	VALID _3qa6a50ih() ;
+	VALID _3rm1cc5gk() ;
 	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
 @ 42.000,3.200 GET visIndruk ;
 	PICTURE "@*C Visualiza" ;
@@ -281,16 +311,16 @@ ENDIF
 	SIZE 1.643,63.800,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a50ii()
+	VALID _3rm1cc5hm()
 
-IF NOT WVISIBLE("_3qa6a50hd")
-	ACTIVATE WINDOW _3qa6a50hd
+IF NOT WVISIBLE("_3rm1cc52d")
+	ACTIVATE WINDOW _3rm1cc52d
 ENDIF
 
 READ CYCLE ;
-	WHEN _3qa6a50iz()
+	WHEN _3rm1cc5is()
 
-RELEASE WINDOW _3qa6a50hd
+RELEASE WINDOW _3rm1cc52d
 
 #REGION 0
 
@@ -316,6 +346,8 @@ ENDIF
 PROCEDURE eLokaalSchone
 	STORE 0    TO lokCode
 	STORE ''   TO lokReeks
+	STORE ''   TO lokMarca
+	STORE ''   TO lokModelo
 	STORE {}   TO lokAankoop
 	STORE 0.00 TO lokWaarde
 	STORE .t. TO booOmvatE
@@ -331,6 +363,8 @@ PROCEDURE eLokaalSchone
 	SHOW GET booGroep ENABLE
 	SHOW GET booMagaz ENABLE
 	SHOW GET booReeks ENABLE
+	SHOW GET booMarca ENABLE
+	SHOW GET booModelo ENABLE
 RETURN
 
 PROCEDURE eGefilterd
@@ -350,6 +384,14 @@ PROCEDURE eGefilterd
 	
 	IF booReeks
 		gef = gef + ' AND ALLTRIM(lokReeks) $ e.Reeks '
+	ENDIF
+
+	IF booMarca
+		gef = gef + ' AND ALLTRIM(lokMarca) $ e.Marca '
+	ENDIF
+
+	IF booModelo
+		gef = gef + ' AND ALLTRIM(lokModelo) $ e.Modelo '
 	ENDIF
 RETURN
 
@@ -388,6 +430,8 @@ PROCEDURE verslagErf
 		REPLACE erfgoed.erfGroe_id WITH lijGroep[lokGroep,2]
 		REPLACE erfgoed.magazij_id WITH lijMagaz[lokMagaz,2]
 		REPLACE erfgoed.reeks WITH lokReeks
+		REPLACE erfgoed.marca WITH lokMarca
+		REPLACE erfgoed.modelo WITH lokModelo
 		REPLACE erfgoed.waarde WITH lokWaarde
 		REPLACE erfgoed.aankoop WITH lokAankoop
 	ENDIF
@@ -416,13 +460,17 @@ PROCEDURE overlagErf
 	SHOW GET booGroep DISABLE
 	SHOW GET booMagaz DISABLE
 	SHOW GET booReeks DISABLE
-	STORE .f. TO booPunt, booGroep, booMagaz, booReeks
+	SHOW GET booMarca DISABLE
+	SHOW GET booModelo DISABLE
+	STORE .f. TO booPunt, booGroep, booMagaz, booReeks, booMarca, booModelo
 
 	STORE erfgoed.code TO lokCode
 	lokPunt = ASCAN( regPunt, erfgoed.erfPunt_id)
 	lokGroep = ASCAN( regGroep, erfgoed.erfGroe_id)
 	lokMagaz = ASCAN( regMagaz, erfgoed.magazij_id)
 	STORE erfgoed.reeks TO lokReeks
+	STORE erfgoed.marca TO lokMarca
+	STORE erfgoed.modelo TO lokModelo
 	STORE erfgoed.waarde TO lokWaarde
 	STORE erfgoed.aankoop TO lokAankoop
 	
@@ -547,7 +595,7 @@ RETURN
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50HJ           lokCode VALID                      
+*       * _3RM1CC53R           lokCode VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -560,7 +608,7 @@ RETURN
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50hj     &&  lokCode VALID
+FUNCTION _3rm1cc53r     &&  lokCode VALID
 #REGION 1
 IF lokCode > 0
 	SELECT erfgoed.id ;
@@ -597,7 +645,7 @@ RETURN
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50HL           knopCode VALID                     
+*       * _3RM1CC53W           knopCode VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -610,7 +658,7 @@ RETURN
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50hl     &&  knopCode VALID
+FUNCTION _3rm1cc53w     &&  knopCode VALID
 #REGION 1
 SELE erfgoed
 CALC MAX(erfgoed.code) TO lokCode
@@ -619,12 +667,12 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50HM           snelPunt VALID                     
+*       * _3RM1CC55W           snelPunt VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         ERFGOED,     Record Number:   12   
+*       * From Screen:         ERFGOED,     Record Number:   14   
 *       * Variable:            snelPunt                           
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Field                              
@@ -632,7 +680,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50hm     &&  snelPunt VALID
+FUNCTION _3rm1cc55w     &&  snelPunt VALID
 #REGION 1
 DO ePuntLij
 IF booPunt
@@ -643,12 +691,12 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50I3           lokPunt VALID                      
+*       * _3RM1CC55Z           lokPunt VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         ERFGOED,     Record Number:   13   
+*       * From Screen:         ERFGOED,     Record Number:   15   
 *       * Variable:            lokPunt                            
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Popup                              
@@ -656,7 +704,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50i3     &&  lokPunt VALID
+FUNCTION _3rm1cc55z     &&  lokPunt VALID
 #REGION 1
 IF booPunt
 	DO erfLij
@@ -665,12 +713,12 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50I4           schermPunt VALID                   
+*       * _3RM1CC56O           schermPunt VALID                   
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         ERFGOED,     Record Number:   14   
+*       * From Screen:         ERFGOED,     Record Number:   16   
 *       * Variable:            schermPunt                         
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
@@ -678,7 +726,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50i4     &&  schermPunt VALID
+FUNCTION _3rm1cc56o     &&  schermPunt VALID
 #REGION 1
 ACCESS = veracess(wcoduser,38, 'CON')
 IF ACCESS
@@ -689,12 +737,12 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50I5           lokReeks VALID                     
+*       * _3RM1CC57R           lokReeks VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         ERFGOED,     Record Number:   15   
+*       * From Screen:         ERFGOED,     Record Number:   17   
 *       * Variable:            lokReeks                           
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Field                              
@@ -702,7 +750,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50i5     &&  lokReeks VALID
+FUNCTION _3rm1cc57r     &&  lokReeks VALID
 #REGION 1
 IF booReeks
 	DO erfLij
@@ -711,12 +759,12 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50I6           booPunt VALID                      
+*       * _3RM1CC57X           booPunt VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         ERFGOED,     Record Number:   16   
+*       * From Screen:         ERFGOED,     Record Number:   18   
 *       * Variable:            booPunt                            
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Check Box                          
@@ -724,19 +772,19 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50i6     &&  booPunt VALID
+FUNCTION _3rm1cc57x     &&  booPunt VALID
 #REGION 1
 DO erfLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50I7           booReeks VALID                     
+*       * _3RM1CC58J           booReeks VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         ERFGOED,     Record Number:   17   
+*       * From Screen:         ERFGOED,     Record Number:   19   
 *       * Variable:            booReeks                           
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Check Box                          
@@ -744,19 +792,19 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50i7     &&  booReeks VALID
+FUNCTION _3rm1cc58j     &&  booReeks VALID
 #REGION 1
 DO erfLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50I8           snelGroep VALID                    
+*       * _3RM1CC59P           snelGroep VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         ERFGOED,     Record Number:   18   
+*       * From Screen:         ERFGOED,     Record Number:   20   
 *       * Variable:            snelGroep                          
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Field                              
@@ -764,7 +812,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50i8     &&  snelGroep VALID
+FUNCTION _3rm1cc59p     &&  snelGroep VALID
 #REGION 1
 DO eGroepLij
 IF booGroep
@@ -775,12 +823,12 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50I9           lokGroep VALID                     
+*       * _3RM1CC5AA           lokGroep VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         ERFGOED,     Record Number:   19   
+*       * From Screen:         ERFGOED,     Record Number:   21   
 *       * Variable:            lokGroep                           
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Popup                              
@@ -788,7 +836,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50i9     &&  lokGroep VALID
+FUNCTION _3rm1cc5aa     &&  lokGroep VALID
 #REGION 1
 IF booGroep
 	DO erfLij
@@ -797,12 +845,12 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50IA           schermGroep VALID                  
+*       * _3RM1CC5AV           schermGroep VALID                  
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         ERFGOED,     Record Number:   20   
+*       * From Screen:         ERFGOED,     Record Number:   22   
 *       * Variable:            schermGroep                        
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
@@ -810,7 +858,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50ia     &&  schermGroep VALID
+FUNCTION _3rm1cc5av     &&  schermGroep VALID
 #REGION 1
 ACCESS = veracess(wcoduser,39, 'CON')
 IF ACCESS
@@ -822,40 +870,82 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50IB           booGroep VALID                     
+*       * _3RM1CC5B5           lokMarca VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         ERFGOED,     Record Number:   22   
-*       * Variable:            booGroep                           
+*       * From Screen:         ERFGOED,     Record Number:   23   
+*       * Variable:            lokMarca                           
 *       * Called By:           VALID Clause                       
-*       * Object Type:         Check Box                          
+*       * Object Type:         Field                              
 *       * Snippet Number:      12                                 
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50ib     &&  booGroep VALID
+FUNCTION _3rm1cc5b5     &&  lokMarca VALID
+#REGION 1
+IF booReeks
+	DO erfLij
+	SHOW GETS
+ENDIF
+
+*       *********************************************************
+*       *                                                         
+*       * _3RM1CC5BI           booGroep VALID                     
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         ERFGOED,     Record Number:   24   
+*       * Variable:            booGroep                           
+*       * Called By:           VALID Clause                       
+*       * Object Type:         Check Box                          
+*       * Snippet Number:      13                                 
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _3rm1cc5bi     &&  booGroep VALID
 #REGION 1
 DO erfLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50IC           snelMagaz VALID                    
+*       * _3RM1CC5CN           booMarca VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         ERFGOED,     Record Number:   23   
-*       * Variable:            snelMagaz                          
+*       * From Screen:         ERFGOED,     Record Number:   25   
+*       * Variable:            booMarca                           
 *       * Called By:           VALID Clause                       
-*       * Object Type:         Field                              
-*       * Snippet Number:      13                                 
+*       * Object Type:         Check Box                          
+*       * Snippet Number:      14                                 
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50ic     &&  snelMagaz VALID
+FUNCTION _3rm1cc5cn     &&  booMarca VALID
+#REGION 1
+DO erfLij
+SHOW GETS
+
+*       *********************************************************
+*       *                                                         
+*       * _3RM1CC5D0           snelMagaz VALID                    
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         ERFGOED,     Record Number:   26   
+*       * Variable:            snelMagaz                          
+*       * Called By:           VALID Clause                       
+*       * Object Type:         Field                              
+*       * Snippet Number:      15                                 
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _3rm1cc5d0     &&  snelMagaz VALID
 #REGION 1
 DO eMagazLij
 IF booMagaz
@@ -866,20 +956,20 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50ID           lokMagaz VALID                     
+*       * _3RM1CC5DG           lokMagaz VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         ERFGOED,     Record Number:   24   
+*       * From Screen:         ERFGOED,     Record Number:   27   
 *       * Variable:            lokMagaz                           
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Popup                              
-*       * Snippet Number:      14                                 
+*       * Snippet Number:      16                                 
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50id     &&  lokMagaz VALID
+FUNCTION _3rm1cc5dg     &&  lokMagaz VALID
 #REGION 1
 IF booMagaz
 	DO erfLij
@@ -888,20 +978,20 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50IE           schermMagazijn VALID               
+*       * _3RM1CC5DH           schermMagazijn VALID               
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         ERFGOED,     Record Number:   25   
+*       * From Screen:         ERFGOED,     Record Number:   28   
 *       * Variable:            schermMagazijn                     
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
-*       * Snippet Number:      15                                 
+*       * Snippet Number:      17                                 
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50ie     &&  schermMagazijn VALID
+FUNCTION _3rm1cc5dh     &&  schermMagazijn VALID
 #REGION 1
 ACCESS = veracess(wcoduser,38, 'CON')
 IF ACCESS
@@ -912,20 +1002,82 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50IF           knopErfSalie VALID                 
+*       * _3RM1CC5E6           lokModelo VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         ERFGOED,     Record Number:   27   
-*       * Variable:            knopErfSalie                       
+*       * From Screen:         ERFGOED,     Record Number:   29   
+*       * Variable:            lokModelo                          
 *       * Called By:           VALID Clause                       
-*       * Object Type:         Push Button                        
-*       * Snippet Number:      16                                 
+*       * Object Type:         Field                              
+*       * Snippet Number:      18                                 
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50if     &&  knopErfSalie VALID
+FUNCTION _3rm1cc5e6     &&  lokModelo VALID
+#REGION 1
+IF booReeks
+	DO erfLij
+	SHOW GETS
+ENDIF
+
+*       *********************************************************
+*       *                                                         
+*       * _3RM1CC5FA           booMagaz VALID                     
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         ERFGOED,     Record Number:   30   
+*       * Variable:            booMagaz                           
+*       * Called By:           VALID Clause                       
+*       * Object Type:         Check Box                          
+*       * Snippet Number:      19                                 
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _3rm1cc5fa     &&  booMagaz VALID
+#REGION 1
+DO erfLij
+SHOW GETS
+
+*       *********************************************************
+*       *                                                         
+*       * _3RM1CC5FJ           booModelo VALID                    
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         ERFGOED,     Record Number:   31   
+*       * Variable:            booModelo                          
+*       * Called By:           VALID Clause                       
+*       * Object Type:         Check Box                          
+*       * Snippet Number:      20                                 
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _3rm1cc5fj     &&  booModelo VALID
+#REGION 1
+DO erfLij
+SHOW GETS
+
+*       *********************************************************
+*       *                                                         
+*       * _3RM1CC5GH           knopErfSalie VALID                 
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         ERFGOED,     Record Number:   32   
+*       * Variable:            knopErfSalie                       
+*       * Called By:           VALID Clause                       
+*       * Object Type:         Push Button                        
+*       * Snippet Number:      21                                 
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _3rm1cc5gh     &&  knopErfSalie VALID
 #REGION 1
 DO CASE
 CASE knopErfSalie = 1
@@ -945,40 +1097,20 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50IG           booMagaz VALID                     
+*       * _3RM1CC5GK           lokErf VALID                       
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         ERFGOED,     Record Number:   28   
-*       * Variable:            booMagaz                           
-*       * Called By:           VALID Clause                       
-*       * Object Type:         Check Box                          
-*       * Snippet Number:      17                                 
-*       *                                                         
-*       *********************************************************
-*
-FUNCTION _3qa6a50ig     &&  booMagaz VALID
-#REGION 1
-DO erfLij
-SHOW GETS
-
-*       *********************************************************
-*       *                                                         
-*       * _3QA6A50IH           lokErf VALID                       
-*       *                                                         
-*       * Function Origin:                                        
-*       *                                                         
-*       * From Platform:       Windows                            
-*       * From Screen:         ERFGOED,     Record Number:   29   
+*       * From Screen:         ERFGOED,     Record Number:   33   
 *       * Variable:            lokErf                             
 *       * Called By:           VALID Clause                       
 *       * Object Type:         List                               
-*       * Snippet Number:      18                                 
+*       * Snippet Number:      22                                 
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50ih     &&  lokErf VALID
+FUNCTION _3rm1cc5gk     &&  lokErf VALID
 #REGION 1
 SELE erfgoed
 SEEK lijErf[lokErf,2]
@@ -989,20 +1121,20 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50II           knopErf VALID                      
+*       * _3RM1CC5HM           knopErf VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         ERFGOED,     Record Number:   31   
+*       * From Screen:         ERFGOED,     Record Number:   35   
 *       * Variable:            knopErf                            
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
-*       * Snippet Number:      19                                 
+*       * Snippet Number:      23                                 
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50ii     &&  knopErf VALID
+FUNCTION _3rm1cc5hm     &&  knopErf VALID
 #REGION 1
 DO CASE
 CASE knopErf = 1
@@ -1026,7 +1158,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A50IZ           Read Level When                    
+*       * _3RM1CC5IS           Read Level When                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1034,11 +1166,11 @@ SHOW GETS
 *       * From Platform:       Windows                            
 *       * From Screen:         ERFGOED                            
 *       * Called By:           READ Statement                     
-*       * Snippet Number:      20                                 
+*       * Snippet Number:      24                                 
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a50iz     && Read Level When
+FUNCTION _3rm1cc5is     && Read Level When
 *
 * When Code from screen: ERFGOED
 *
