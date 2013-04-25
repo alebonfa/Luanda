@@ -1,6 +1,10 @@
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * 21/04/2013            ERFGOED.SPR              22:30:13 
+=======
+*       * 22/04/2013            ERFGOED.SPR              08:56:16 
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -38,8 +42,13 @@ SET READBORDER ON
 *       *********************************************************
 *
 
+<<<<<<< HEAD
 IF NOT WEXIST("_3rm1cc52d")
 	DEFINE WINDOW _3rm1cc52d ;
+=======
+IF NOT WEXIST("_3rn0j5llw")
+	DEFINE WINDOW _3rn0j5llw ;
+>>>>>>> Patrimônio - Marca e Modelo
 		AT  0.000, 0.000  ;
 		SIZE 47.857,198.000 ;
 		TITLE "Itens Imobilizados" ;
@@ -48,7 +57,11 @@ IF NOT WEXIST("_3rm1cc52d")
 		NOCLOSE ;
 		NOMINIMIZE ;
 		SYSTEM
+<<<<<<< HEAD
 	MOVE WINDOW _3rm1cc52d CENTER
+=======
+	MOVE WINDOW _3rn0j5llw CENTER
+>>>>>>> Patrimônio - Marca e Modelo
 ENDIF
 
 
@@ -90,10 +103,17 @@ DO erfLij
 *
 
 #REGION 1
+<<<<<<< HEAD
 IF WVISIBLE("_3rm1cc52d")
 	ACTIVATE WINDOW _3rm1cc52d SAME
 ELSE
 	ACTIVATE WINDOW _3rm1cc52d NOSHOW
+=======
+IF WVISIBLE("_3rn0j5llw")
+	ACTIVATE WINDOW _3rn0j5llw SAME
+ELSE
+	ACTIVATE WINDOW _3rn0j5llw NOSHOW
+>>>>>>> Patrimônio - Marca e Modelo
 ENDIF
 @ 0.000,0.000 TO 3.500,198.000 ;
 	PATTERN 1 ;
@@ -132,7 +152,11 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	PICTURE "@K" ;
+<<<<<<< HEAD
 	VALID _3rm1cc53r() ;
+=======
+	VALID _3rn0j5lmb() ;
+>>>>>>> Patrimônio - Marca e Modelo
 	COLOR ,RGB(,,,255,255,255)
 @ 6.286,34.400 GET knopCode ;
 	PICTURE "@*HN ..." ;
@@ -140,7 +164,11 @@ ENDIF
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "B" ;
+<<<<<<< HEAD
 	VALID _3rm1cc53w()
+=======
+	VALID _3rn0j5lmt()
+>>>>>>> Patrimônio - Marca e Modelo
 @ 6.357,145.200 GET lokAankoop ;
 	SIZE 1.000,13.600 ;
 	DEFAULT " " ;
@@ -158,7 +186,11 @@ ENDIF
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
+<<<<<<< HEAD
 	VALID _3rm1cc55w() ;
+=======
+	VALID _3rn0j5lmv() ;
+>>>>>>> Patrimônio - Marca e Modelo
 	COLOR ,RGB(,,,255,255,255)
 @ 8.571,34.400 GET lokPunt ;
 	PICTURE "@^" ;
@@ -166,20 +198,32 @@ ENDIF
 	SIZE 1.500,83.400 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
+<<<<<<< HEAD
 	VALID _3rm1cc55z()
+=======
+	VALID _3rn0j5lmx()
+>>>>>>> Patrimônio - Marca e Modelo
 @ 8.571,118.400 GET schermPunt ;
 	PICTURE "@*HN ..." ;
 	SIZE 1.615,4.167,0.667 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "B" ;
+<<<<<<< HEAD
 	VALID _3rm1cc56o()
+=======
+	VALID _3rn0j5lmy()
+>>>>>>> Patrimônio - Marca e Modelo
 @ 8.643,145.400 GET lokReeks ;
 	SIZE 1.000,48.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
+<<<<<<< HEAD
 	VALID _3rm1cc57r() ;
+=======
+	VALID _3rn0j5ln0() ;
+>>>>>>> Patrimônio - Marca e Modelo
 	COLOR ,RGB(,,,255,255,255)
 @ 8.643,3.200 GET booPunt ;
 	PICTURE "@*C Item" ;
@@ -187,7 +231,11 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
+<<<<<<< HEAD
 	VALID _3rm1cc57x() ;
+=======
+	VALID _3rn0j5ln2() ;
+>>>>>>> Patrimônio - Marca e Modelo
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 8.643,131.200 GET booReeks ;
 	PICTURE "@*C S�rie" ;
@@ -195,14 +243,22 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
+<<<<<<< HEAD
 	VALID _3rm1cc58j() ;
+=======
+	VALID _3rn0j5ln6() ;
+>>>>>>> Patrimônio - Marca e Modelo
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 10.929,18.000 GET snelGroep ;
 	SIZE 1.000,13.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
+<<<<<<< HEAD
 	VALID _3rm1cc59p() ;
+=======
+	VALID _3rn0j5lnm() ;
+>>>>>>> Patrimônio - Marca e Modelo
 	COLOR ,RGB(,,,255,255,255)
 @ 10.857,34.400 GET lokGroep ;
 	PICTURE "@^" ;
@@ -210,20 +266,32 @@ ENDIF
 	SIZE 1.500,83.400 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
+<<<<<<< HEAD
 	VALID _3rm1cc5aa()
+=======
+	VALID _3rn0j5lno()
+>>>>>>> Patrimônio - Marca e Modelo
 @ 10.857,118.400 GET schermGroep ;
 	PICTURE "@*HN ..." ;
 	SIZE 1.615,4.167,0.667 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "B" ;
+<<<<<<< HEAD
 	VALID _3rm1cc5av()
+=======
+	VALID _3rn0j5lnp()
+>>>>>>> Patrimônio - Marca e Modelo
 @ 10.929,145.400 GET lokMarca ;
 	SIZE 1.000,48.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
+<<<<<<< HEAD
 	VALID _3rm1cc5b5() ;
+=======
+	VALID _3rn0j5lnr() ;
+>>>>>>> Patrimônio - Marca e Modelo
 	COLOR ,RGB(,,,255,255,255)
 @ 10.929,3.200 GET booGroep ;
 	PICTURE "@*C Grupo" ;
@@ -231,7 +299,11 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
+<<<<<<< HEAD
 	VALID _3rm1cc5bi() ;
+=======
+	VALID _3rn0j5lnt() ;
+>>>>>>> Patrimônio - Marca e Modelo
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 10.929,131.200 GET booMarca ;
 	PICTURE "@*C Marca" ;
@@ -239,14 +311,22 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
+<<<<<<< HEAD
 	VALID _3rm1cc5cn() ;
+=======
+	VALID _3rn0j5lnu() ;
+>>>>>>> Patrimônio - Marca e Modelo
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 13.214,18.000 GET snelMagaz ;
 	SIZE 1.000,13.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
+<<<<<<< HEAD
 	VALID _3rm1cc5d0() ;
+=======
+	VALID _3rn0j5lnv() ;
+>>>>>>> Patrimônio - Marca e Modelo
 	COLOR ,RGB(,,,255,255,255)
 @ 13.143,34.400 GET lokMagaz ;
 	PICTURE "@^" ;
@@ -254,20 +334,32 @@ ENDIF
 	SIZE 1.500,83.400 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
+<<<<<<< HEAD
 	VALID _3rm1cc5dg()
+=======
+	VALID _3rn0j5lny()
+>>>>>>> Patrimônio - Marca e Modelo
 @ 13.143,118.400 GET schermMagazijn ;
 	PICTURE "@*HN ..." ;
 	SIZE 1.615,4.167,0.667 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "B" ;
+<<<<<<< HEAD
 	VALID _3rm1cc5dh()
+=======
+	VALID _3rn0j5lo0()
+>>>>>>> Patrimônio - Marca e Modelo
 @ 13.214,145.400 GET lokModelo ;
 	SIZE 1.000,48.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
+<<<<<<< HEAD
 	VALID _3rm1cc5e6() ;
+=======
+	VALID _3rn0j5lo2() ;
+>>>>>>> Patrimônio - Marca e Modelo
 	COLOR ,RGB(,,,255,255,255)
 @ 13.214,3.200 GET booMagaz ;
 	PICTURE "@*C Local" ;
@@ -275,7 +367,11 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
+<<<<<<< HEAD
 	VALID _3rm1cc5fa() ;
+=======
+	VALID _3rn0j5lo3() ;
+>>>>>>> Patrimônio - Marca e Modelo
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 13.214,131.200 GET booModelo ;
 	PICTURE "@*C Modelo" ;
@@ -283,21 +379,33 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
+<<<<<<< HEAD
 	VALID _3rm1cc5fj() ;
+=======
+	VALID _3rn0j5lo5() ;
+>>>>>>> Patrimônio - Marca e Modelo
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 15.714,164.800 GET knopErfSalie ;
 	PICTURE "@*HN Adicionar;Cancelar" ;
 	SIZE 1.143,14.600,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
+<<<<<<< HEAD
 	VALID _3rm1cc5gh()
+=======
+	VALID _3rn0j5lo6()
+>>>>>>> Patrimônio - Marca e Modelo
 @ 19.286,3.400 GET lokErf ;
  	PICTURE "@&N" ;
 	FROM lijErf ;
 	SIZE 21.714,136.429 ;
 	DEFAULT 1 ;
 	FONT "Courier New", 8 ;
+<<<<<<< HEAD
 	VALID _3rm1cc5gk() ;
+=======
+	VALID _3rn0j5lo8() ;
+>>>>>>> Patrimônio - Marca e Modelo
 	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
 @ 42.000,3.200 GET visIndruk ;
 	PICTURE "@*C Visualiza" ;
@@ -311,6 +419,7 @@ ENDIF
 	SIZE 1.643,63.800,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
+<<<<<<< HEAD
 	VALID _3rm1cc5hm()
 
 IF NOT WVISIBLE("_3rm1cc52d")
@@ -321,6 +430,18 @@ READ CYCLE ;
 	WHEN _3rm1cc5is()
 
 RELEASE WINDOW _3rm1cc52d
+=======
+	VALID _3rn0j5loa()
+
+IF NOT WVISIBLE("_3rn0j5llw")
+	ACTIVATE WINDOW _3rn0j5llw
+ENDIF
+
+READ CYCLE ;
+	WHEN _3rn0j5lod()
+
+RELEASE WINDOW _3rn0j5llw
+>>>>>>> Patrimônio - Marca e Modelo
 
 #REGION 0
 
@@ -595,7 +716,11 @@ RETURN
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC53R           lokCode VALID                      
+=======
+*       * _3RN0J5LMB           lokCode VALID                      
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -608,7 +733,11 @@ RETURN
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc53r     &&  lokCode VALID
+=======
+FUNCTION _3rn0j5lmb     &&  lokCode VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 IF lokCode > 0
 	SELECT erfgoed.id ;
@@ -645,7 +774,11 @@ RETURN
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC53W           knopCode VALID                     
+=======
+*       * _3RN0J5LMT           knopCode VALID                     
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -658,7 +791,11 @@ RETURN
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc53w     &&  knopCode VALID
+=======
+FUNCTION _3rn0j5lmt     &&  knopCode VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 SELE erfgoed
 CALC MAX(erfgoed.code) TO lokCode
@@ -667,7 +804,11 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC55W           snelPunt VALID                     
+=======
+*       * _3RN0J5LMV           snelPunt VALID                     
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -680,7 +821,11 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc55w     &&  snelPunt VALID
+=======
+FUNCTION _3rn0j5lmv     &&  snelPunt VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 DO ePuntLij
 IF booPunt
@@ -691,7 +836,11 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC55Z           lokPunt VALID                      
+=======
+*       * _3RN0J5LMX           lokPunt VALID                      
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -704,7 +853,11 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc55z     &&  lokPunt VALID
+=======
+FUNCTION _3rn0j5lmx     &&  lokPunt VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 IF booPunt
 	DO erfLij
@@ -713,7 +866,11 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC56O           schermPunt VALID                   
+=======
+*       * _3RN0J5LMY           schermPunt VALID                   
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -726,7 +883,11 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc56o     &&  schermPunt VALID
+=======
+FUNCTION _3rn0j5lmy     &&  schermPunt VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 ACCESS = veracess(wcoduser,38, 'CON')
 IF ACCESS
@@ -737,7 +898,11 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC57R           lokReeks VALID                     
+=======
+*       * _3RN0J5LN0           lokReeks VALID                     
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -750,7 +915,11 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc57r     &&  lokReeks VALID
+=======
+FUNCTION _3rn0j5ln0     &&  lokReeks VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 IF booReeks
 	DO erfLij
@@ -759,7 +928,11 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC57X           booPunt VALID                      
+=======
+*       * _3RN0J5LN2           booPunt VALID                      
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -772,14 +945,22 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc57x     &&  booPunt VALID
+=======
+FUNCTION _3rn0j5ln2     &&  booPunt VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 DO erfLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC58J           booReeks VALID                     
+=======
+*       * _3RN0J5LN6           booReeks VALID                     
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -792,14 +973,22 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc58j     &&  booReeks VALID
+=======
+FUNCTION _3rn0j5ln6     &&  booReeks VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 DO erfLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC59P           snelGroep VALID                    
+=======
+*       * _3RN0J5LNM           snelGroep VALID                    
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -812,7 +1001,11 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc59p     &&  snelGroep VALID
+=======
+FUNCTION _3rn0j5lnm     &&  snelGroep VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 DO eGroepLij
 IF booGroep
@@ -823,7 +1016,11 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC5AA           lokGroep VALID                     
+=======
+*       * _3RN0J5LNO           lokGroep VALID                     
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -836,7 +1033,11 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc5aa     &&  lokGroep VALID
+=======
+FUNCTION _3rn0j5lno     &&  lokGroep VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 IF booGroep
 	DO erfLij
@@ -845,7 +1046,11 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC5AV           schermGroep VALID                  
+=======
+*       * _3RN0J5LNP           schermGroep VALID                  
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -858,7 +1063,11 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc5av     &&  schermGroep VALID
+=======
+FUNCTION _3rn0j5lnp     &&  schermGroep VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 ACCESS = veracess(wcoduser,39, 'CON')
 IF ACCESS
@@ -870,7 +1079,11 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC5B5           lokMarca VALID                     
+=======
+*       * _3RN0J5LNR           lokMarca VALID                     
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -883,7 +1096,11 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc5b5     &&  lokMarca VALID
+=======
+FUNCTION _3rn0j5lnr     &&  lokMarca VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 IF booReeks
 	DO erfLij
@@ -892,7 +1109,11 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC5BI           booGroep VALID                     
+=======
+*       * _3RN0J5LNT           booGroep VALID                     
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -905,14 +1126,22 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc5bi     &&  booGroep VALID
+=======
+FUNCTION _3rn0j5lnt     &&  booGroep VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 DO erfLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC5CN           booMarca VALID                     
+=======
+*       * _3RN0J5LNU           booMarca VALID                     
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -925,14 +1154,22 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc5cn     &&  booMarca VALID
+=======
+FUNCTION _3rn0j5lnu     &&  booMarca VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 DO erfLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC5D0           snelMagaz VALID                    
+=======
+*       * _3RN0J5LNV           snelMagaz VALID                    
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -945,7 +1182,11 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc5d0     &&  snelMagaz VALID
+=======
+FUNCTION _3rn0j5lnv     &&  snelMagaz VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 DO eMagazLij
 IF booMagaz
@@ -956,7 +1197,11 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC5DG           lokMagaz VALID                     
+=======
+*       * _3RN0J5LNY           lokMagaz VALID                     
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -969,7 +1214,11 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc5dg     &&  lokMagaz VALID
+=======
+FUNCTION _3rn0j5lny     &&  lokMagaz VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 IF booMagaz
 	DO erfLij
@@ -978,7 +1227,11 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC5DH           schermMagazijn VALID               
+=======
+*       * _3RN0J5LO0           schermMagazijn VALID               
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -991,7 +1244,11 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc5dh     &&  schermMagazijn VALID
+=======
+FUNCTION _3rn0j5lo0     &&  schermMagazijn VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 ACCESS = veracess(wcoduser,38, 'CON')
 IF ACCESS
@@ -1002,7 +1259,11 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC5E6           lokModelo VALID                    
+=======
+*       * _3RN0J5LO2           lokModelo VALID                    
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1015,7 +1276,11 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc5e6     &&  lokModelo VALID
+=======
+FUNCTION _3rn0j5lo2     &&  lokModelo VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 IF booReeks
 	DO erfLij
@@ -1024,7 +1289,11 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC5FA           booMagaz VALID                     
+=======
+*       * _3RN0J5LO3           booMagaz VALID                     
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1037,14 +1306,22 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc5fa     &&  booMagaz VALID
+=======
+FUNCTION _3rn0j5lo3     &&  booMagaz VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 DO erfLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC5FJ           booModelo VALID                    
+=======
+*       * _3RN0J5LO5           booModelo VALID                    
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1057,14 +1334,22 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc5fj     &&  booModelo VALID
+=======
+FUNCTION _3rn0j5lo5     &&  booModelo VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 DO erfLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC5GH           knopErfSalie VALID                 
+=======
+*       * _3RN0J5LO6           knopErfSalie VALID                 
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1077,7 +1362,11 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc5gh     &&  knopErfSalie VALID
+=======
+FUNCTION _3rn0j5lo6     &&  knopErfSalie VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 DO CASE
 CASE knopErfSalie = 1
@@ -1097,7 +1386,11 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC5GK           lokErf VALID                       
+=======
+*       * _3RN0J5LO8           lokErf VALID                       
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1110,7 +1403,11 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc5gk     &&  lokErf VALID
+=======
+FUNCTION _3rn0j5lo8     &&  lokErf VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 SELE erfgoed
 SEEK lijErf[lokErf,2]
@@ -1121,7 +1418,11 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC5HM           knopErf VALID                      
+=======
+*       * _3RN0J5LOA           knopErf VALID                      
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1134,7 +1435,11 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc5hm     &&  knopErf VALID
+=======
+FUNCTION _3rn0j5loa     &&  knopErf VALID
+>>>>>>> Patrimônio - Marca e Modelo
 #REGION 1
 DO CASE
 CASE knopErf = 1
@@ -1158,7 +1463,11 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
+<<<<<<< HEAD
 *       * _3RM1CC5IS           Read Level When                    
+=======
+*       * _3RN0J5LOD           Read Level When                    
+>>>>>>> Patrimônio - Marca e Modelo
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1170,7 +1479,11 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
+<<<<<<< HEAD
 FUNCTION _3rm1cc5is     && Read Level When
+=======
+FUNCTION _3rn0j5lod     && Read Level When
+>>>>>>> Patrimônio - Marca e Modelo
 *
 * When Code from screen: ERFGOED
 *
