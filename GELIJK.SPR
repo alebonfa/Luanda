@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 04/03/2013            GELIJK.SPR               09:30:22 
+*       * 21/04/2013            GELIJK.SPR               22:29:10 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -38,8 +38,8 @@ SET READBORDER ON
 *       *********************************************************
 *
 
-IF NOT WEXIST("_3qa6a4uya")
-	DEFINE WINDOW _3qa6a4uya ;
+IF NOT WEXIST("_3rm1c9f34")
+	DEFINE WINDOW _3rm1c9f34 ;
 		AT  0.000, 0.000  ;
 		SIZE 47.857,198.000 ;
 		TITLE "Relação de Semelhanças" ;
@@ -48,7 +48,7 @@ IF NOT WEXIST("_3qa6a4uya")
 		NOCLOSE ;
 		MINIMIZE ;
 		SYSTEM
-	MOVE WINDOW _3qa6a4uya CENTER
+	MOVE WINDOW _3rm1c9f34 CENTER
 ENDIF
 
 
@@ -60,10 +60,10 @@ ENDIF
 *
 
 #REGION 1
-IF WVISIBLE("_3qa6a4uya")
-	ACTIVATE WINDOW _3qa6a4uya SAME
+IF WVISIBLE("_3rm1c9f34")
+	ACTIVATE WINDOW _3rm1c9f34 SAME
 ELSE
-	ACTIVATE WINDOW _3qa6a4uya NOSHOW
+	ACTIVATE WINDOW _3rm1c9f34 NOSHOW
 ENDIF
 @ 0.000,0.000 TO 3.500,198.000 ;
 	PATTERN 1 ;
@@ -91,7 +91,7 @@ ENDIF
 	SIZE 27.429,136.429 ;
 	DEFAULT 1 ;
 	FONT "Courier New", 8 ;
-	VALID _3qa6a4uye() ;
+	VALID _3rm1c9f4d() ;
 	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
 @ 10.857,0.000 TO 10.857,198.000 ;
 	PEN 1, 8 ;
@@ -105,7 +105,7 @@ ENDIF
 	SIZE 1.571,95.600,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a4uyg()
+	VALID _3rm1c9f4h()
 @ 42.643,3.600 SAY gelijkFooter ;
 	SIZE 1.000,133.714 ;
 	FONT "Courier New", 8 ;
@@ -115,14 +115,14 @@ ENDIF
 	FONT "Courier New", 8 ;
 	COLOR RGB(,,,255,255,255)
 
-IF NOT WVISIBLE("_3qa6a4uya")
-	ACTIVATE WINDOW _3qa6a4uya
+IF NOT WVISIBLE("_3rm1c9f34")
+	ACTIVATE WINDOW _3rm1c9f34
 ENDIF
 
 READ CYCLE ;
-	SHOW _3qa6a4uyh()
+	SHOW _3rm1c9f68()
 
-RELEASE WINDOW _3qa6a4uya
+RELEASE WINDOW _3rm1c9f34
 
 #REGION 0
 
@@ -138,7 +138,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A4UYE           alss VALID                         
+*       * _3RM1C9F4D           alss VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -151,7 +151,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a4uye     &&  alss VALID
+FUNCTION _3rm1c9f4d     &&  alss VALID
 #REGION 1
 terugkeren = .T.
 CLEAR READ
@@ -159,7 +159,7 @@ CLEAR READ
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A4UYG           knopGelijk VALID                   
+*       * _3RM1C9F4H           knopGelijk VALID                   
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -172,7 +172,7 @@ CLEAR READ
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a4uyg     &&  knopGelijk VALID
+FUNCTION _3rm1c9f4h     &&  knopGelijk VALID
 #REGION 1
 IF knopgelijk = 1
 	terugkeren = .T.
@@ -181,7 +181,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A4UYH           Read Level Show                    
+*       * _3RM1C9F68           Read Level Show                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -193,15 +193,15 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a4uyh     && Read Level Show
+FUNCTION _3rm1c9f68     && Read Level Show
 PRIVATE currwind
 STORE WOUTPUT() TO currwind
 *
 * Show Code from screen: GELIJK
 *
 #REGION 1
-IF SYS(2016) = "_3QA6A4UYA" OR SYS(2016) = "*"
-	ACTIVATE WINDOW _3qa6a4uya SAME
+IF SYS(2016) = "_3RM1C9F34" OR SYS(2016) = "*"
+	ACTIVATE WINDOW _3rm1c9f34 SAME
 	@ 6.357,3.600 SAY ingevoerdeGegevens ;
 		SIZE 3.000,191.200, 0.000 ;
 		FONT "Arial", 8 ;

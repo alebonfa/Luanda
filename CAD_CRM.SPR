@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 04/03/2013            CAD_CRM.SPR              09:29:32 
+*       * 21/04/2013            CAD_CRM.SPR              22:27:41 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -380,7 +380,7 @@ ENDIF
 	SIZE 1.500,8.200,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a3rxw()
+	VALID _3rm1c5mbk()
 @ 21.846,105.600 GET ares ;
 	PICTURE "@^" ;
 	FROM List_are ;
@@ -393,7 +393,7 @@ ENDIF
 	SIZE 1.500,8.200,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a3rxx()
+	VALID _3rm1c5md6()
 @ 21.923,150.800 EDIT wobs ;
 	SIZE 8.000,42.800,0.000 ;
 	PICTURE "@K" ;
@@ -407,7 +407,7 @@ ENDIF
 	SIZE 5.714,33.400 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a3rxy() ;
+	VALID _3rm1c5mde() ;
 	COLOR RGB(0,0,0,255,255,255),RGB(0,0,0,255,255,255)
 @ 24.385,105.800 GET iares ;
  	PICTURE "@&N" ;
@@ -415,7 +415,7 @@ ENDIF
 	SIZE 5.714,39.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a3ry0() ;
+	VALID _3rm1c5mdr() ;
 	COLOR RGB(0,0,0,255,255,255),RGB(0,0,0,255,255,255)
 @ 32.385,3.200 GET lcrmpend ;
 	PICTURE "@*C Somente os Pendentes" ;
@@ -423,7 +423,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3qa6a3ry2() ;
+	VALID _3rm1c5meu() ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 34.231,3.400 GET listcrm ;
  	PICTURE "@&N" ;
@@ -444,13 +444,13 @@ ENDIF
 	SIZE 1.500,3.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a3ry8()
+	VALID _3rm1c5mgr()
 @ 15.692,190.000 GET knopHoof ;
 	PICTURE "@*HN ..." ;
 	SIZE 1.500,3.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a3ry9()
+	VALID _3rm1c5mh8()
 @ 14.538,19.600 EDIT wctexto2 ;
 	SIZE 4.000,89.400,0.000 ;
 	PICTURE "@K" ;
@@ -465,7 +465,7 @@ ENDIF
 
 READ CYCLE MODAL ;
 	WHEN _2VO0YOWDC() ;
-	SHOW _3qa6a3ryb()
+	SHOW _3rm1c5mhd()
 
 RELEASE WINDOW _2vo0yowc3
 
@@ -891,7 +891,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3RXW           btIntCurso VALID                   
+*       * _3RM1C5MBK           btIntCurso VALID                   
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -904,7 +904,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3rxw     &&  btIntCurso VALID
+FUNCTION _3rm1c5mbk     &&  btIntCurso VALID
 #REGION 1
 SELECT int_suba
 SET ORDER TO TAG Cliente
@@ -930,7 +930,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3RXX           btIntArea VALID                    
+*       * _3RM1C5MD6           btIntArea VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -943,7 +943,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3rxx     &&  btIntArea VALID
+FUNCTION _3rm1c5md6     &&  btIntArea VALID
 #REGION 1
 SELECT int_area
 SET ORDER TO TAG Cliente
@@ -969,7 +969,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3RXY           icurs VALID                        
+*       * _3RM1C5MDE           icurs VALID                        
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -982,7 +982,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3rxy     &&  icurs VALID
+FUNCTION _3rm1c5mde     &&  icurs VALID
 #REGION 1
 Conf = WINCONF("ATENÇÃO","Tem certeza que deseja excluir este interesse?")
 IF Conf
@@ -996,7 +996,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3RY0           iares VALID                        
+*       * _3RM1C5MDR           iares VALID                        
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1009,7 +1009,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3ry0     &&  iares VALID
+FUNCTION _3rm1c5mdr     &&  iares VALID
 #REGION 1
 CONF = winconf("ATENÇÃO","Tem certeza que deseja excluir este interesse?")
 IF CONF
@@ -1027,7 +1027,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3RY2           lcrmpend VALID                     
+*       * _3RM1C5MEU           lcrmpend VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1040,7 +1040,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3ry2     &&  lcrmpend VALID
+FUNCTION _3rm1c5meu     &&  lcrmpend VALID
 #REGION 1
 DO crm_list
 SHOW GETS
@@ -1130,7 +1130,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3RY8           knopBend VALID                     
+*       * _3RM1C5MGR           knopBend VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1143,7 +1143,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3ry8     &&  knopBend VALID
+FUNCTION _3rm1c5mgr     &&  knopBend VALID
 #REGION 1
 wcurso = list_cur[bends,1]
 lokBend = list_cur[bends,2]
@@ -1151,7 +1151,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3RY9           knopHoof VALID                     
+*       * _3RM1C5MH8           knopHoof VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1164,7 +1164,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3ry9     &&  knopHoof VALID
+FUNCTION _3rm1c5mh8     &&  knopHoof VALID
 #REGION 1
 wlocal = list_are[hoofs,1]
 lokHoof = list_are[hoofs,2]
@@ -1201,7 +1201,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3RYB           Read Level Show                    
+*       * _3RM1C5MHD           Read Level Show                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1213,7 +1213,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3ryb     && Read Level Show
+FUNCTION _3rm1c5mhd     && Read Level Show
 PRIVATE currwind
 STORE WOUTPUT() TO currwind
 *

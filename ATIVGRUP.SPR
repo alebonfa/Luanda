@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 04/03/2013           ATIVGRUP.SPR              09:29:59 
+*       * 21/04/2013           ATIVGRUP.SPR              22:28:28 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -128,7 +128,7 @@ exc = .F.
 *--
 
 #REGION 1
-DEFINE POPUP _3qa6a4cxm ;
+DEFINE POPUP _3rm1c7mup ;
 	PROMPT FIELD STR(crm_ativ.codigo, 4) + " - " + crm_ativ.descricao ;
 	SCROLL
 
@@ -165,7 +165,7 @@ ENDIF
 	COLOR RGB(0,0,0,,,,)
 @ 3.769,2.600 GET list ;
  	PICTURE "@&N" ;
-	POPUP _3qa6a4cxm ;
+	POPUP _3rm1c7mup ;
 	SIZE 13.714,59.857 ;
 	DEFAULT " " ;
 	FONT "Courier New", 8 ;
@@ -202,7 +202,7 @@ ENDIF
 READ CYCLE MODAL
 
 RELEASE WINDOW _2vo0ypejv
-RELEASE POPUPS _3qa6a4cxm
+RELEASE POPUPS _3rm1c7mup
 
 #REGION 0
 

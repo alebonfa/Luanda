@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 04/03/2013           FORNGRUP.SPR              09:29:55 
+*       * 21/04/2013           FORNGRUP.SPR              22:28:21 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -128,7 +128,7 @@ exc = .F.
 *--
 
 #REGION 1
-DEFINE POPUP _3qa6a49sf ;
+DEFINE POPUP _3rm1c7bzq ;
 	PROMPT FIELD STR(forngrup.codigo, 1) + " - " + forngrup.descricao ;
 	SCROLL
 
@@ -165,7 +165,7 @@ ENDIF
 	COLOR RGB(0,0,0,,,,)
 @ 3.769,2.600 GET list ;
  	PICTURE "@&N" ;
-	POPUP _3qa6a49sf ;
+	POPUP _3rm1c7bzq ;
 	SIZE 9.143,59.857 ;
 	DEFAULT " " ;
 	FONT "Courier New", 8 ;
@@ -206,7 +206,7 @@ ENDIF
 READ CYCLE MODAL
 
 RELEASE WINDOW _2vo0ypbs1
-RELEASE POPUPS _3qa6a49sf
+RELEASE POPUPS _3rm1c7bzq
 
 #REGION 0
 

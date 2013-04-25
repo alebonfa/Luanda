@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 04/03/2013           ZOEKSTAD.SPR              09:30:23 
+*       * 21/04/2013           ZOEKSTAD.SPR              22:29:11 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -38,8 +38,8 @@ SET READBORDER ON
 *       *********************************************************
 *
 
-IF NOT WEXIST("_3qa6a4vqe")
-	DEFINE WINDOW _3qa6a4vqe ;
+IF NOT WEXIST("_3rm1c9hq7")
+	DEFINE WINDOW _3rm1c9hq7 ;
 		AT  0.000, 0.000  ;
 		SIZE 37.786,116.600 ;
 		TITLE "Relação de UF's e Cidades" ;
@@ -48,7 +48,7 @@ IF NOT WEXIST("_3qa6a4vqe")
 		NOCLOSE ;
 		MINIMIZE ;
 		SYSTEM
-	MOVE WINDOW _3qa6a4vqe CENTER
+	MOVE WINDOW _3rm1c9hq7 CENTER
 ENDIF
 
 
@@ -86,10 +86,10 @@ DO stadLijst
 *
 
 #REGION 1
-IF WVISIBLE("_3qa6a4vqe")
-	ACTIVATE WINDOW _3qa6a4vqe SAME
+IF WVISIBLE("_3rm1c9hq7")
+	ACTIVATE WINDOW _3rm1c9hq7 SAME
 ELSE
-	ACTIVATE WINDOW _3qa6a4vqe NOSHOW
+	ACTIVATE WINDOW _3rm1c9hq7 NOSHOW
 ENDIF
 @ 0.000,0.000 TO 3.500,116.600 ;
 	PATTERN 1 ;
@@ -113,7 +113,7 @@ ENDIF
 	SIZE 1.500,110.600 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a4vqj() ;
+	VALID _3rm1c9hsg() ;
 	COLOR ,,,,,,,,RGB(0,0,0,255,255,255),RGB(0,0,0,255,255,255)
 @ 10.071,3.400 GET stads ;
  	PICTURE "@&N" ;
@@ -121,7 +121,7 @@ ENDIF
 	SIZE 22.857,110.200 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a4vqk() ;
+	VALID _3rm1c9hsh() ;
 	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
 @ 34.286,0.000 TO 34.286,116.600 ;
 	PEN 1, 8 ;
@@ -132,15 +132,15 @@ ENDIF
 	SIZE 1.643,55.200,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a4vqm()
+	VALID _3rm1c9htq()
 
-IF NOT WVISIBLE("_3qa6a4vqe")
-	ACTIVATE WINDOW _3qa6a4vqe
+IF NOT WVISIBLE("_3rm1c9hq7")
+	ACTIVATE WINDOW _3rm1c9hq7
 ENDIF
 
 READ CYCLE
 
-RELEASE WINDOW _3qa6a4vqe
+RELEASE WINDOW _3rm1c9hq7
 
 #REGION 0
 
@@ -176,7 +176,7 @@ RETURN
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A4VQJ           staats VALID                       
+*       * _3RM1C9HSG           staats VALID                       
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -189,14 +189,14 @@ RETURN
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a4vqj     &&  staats VALID
+FUNCTION _3rm1c9hsg     &&  staats VALID
 #REGION 1
 DO stadLijst
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A4VQK           stads VALID                        
+*       * _3RM1C9HSH           stads VALID                        
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -209,7 +209,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a4vqk     &&  stads VALID
+FUNCTION _3rm1c9hsh     &&  stads VALID
 #REGION 1
 terugStaat = lijStaat[staats,2]
 terugStad  = lijsStad[stads]
@@ -217,7 +217,7 @@ CLEAR READ
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A4VQM           knopZoekstad VALID                 
+*       * _3RM1C9HTQ           knopZoekstad VALID                 
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -230,7 +230,7 @@ CLEAR READ
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a4vqm     &&  knopZoekstad VALID
+FUNCTION _3rm1c9htq     &&  knopZoekstad VALID
 #REGION 1
 IF knopZoekStad = 1
 	terugStaat = lijStaat[staats,2]

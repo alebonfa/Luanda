@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 04/03/2013           AANMANIN.SPR              09:30:32 
+*       * 21/04/2013           AANMANIN.SPR              22:30:17 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -38,8 +38,8 @@ SET READBORDER ON
 *       *********************************************************
 *
 
-IF NOT WEXIST("_3qa6a523j")
-	DEFINE WINDOW _3qa6a523j ;
+IF NOT WEXIST("_3rm1ccaux")
+	DEFINE WINDOW _3rm1ccaux ;
 		AT  0.000, 0.000  ;
 		SIZE 51.538,198.000 ;
 		TITLE "Cartas de Cobrança" ;
@@ -48,7 +48,7 @@ IF NOT WEXIST("_3qa6a523j")
 		NOCLOSE ;
 		MINIMIZE ;
 		SYSTEM
-	MOVE WINDOW _3qa6a523j CENTER
+	MOVE WINDOW _3rm1ccaux CENTER
 ENDIF
 
 
@@ -71,10 +71,10 @@ DO debitLij
 *
 
 #REGION 1
-IF WVISIBLE("_3qa6a523j")
-	ACTIVATE WINDOW _3qa6a523j SAME
+IF WVISIBLE("_3rm1ccaux")
+	ACTIVATE WINDOW _3rm1ccaux SAME
 ELSE
-	ACTIVATE WINDOW _3qa6a523j NOSHOW
+	ACTIVATE WINDOW _3rm1ccaux NOSHOW
 ENDIF
 @ 0.000,0.000 TO 3.769,198.000 ;
 	PATTERN 1 ;
@@ -93,14 +93,14 @@ ENDIF
 	SIZE 1.769,96.000,0.000 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
-	VALID _3qa6a523o()
+	VALID _3rm1ccawa()
 @ 5.308,3.400 GET lokDebits ;
  	PICTURE "@&N" ;
 	FROM lijDebit ;
 	SIZE 36.571,136.429 ;
 	DEFAULT 1 ;
 	FONT "Courier New", 8 ;
-	VALID _3qa6a523p() ;
+	VALID _3rm1ccawo() ;
 	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
 @ 45.615,3.200 GET visIndruk ;
 	PICTURE "@*C Visualiza Impressão" ;
@@ -110,14 +110,14 @@ ENDIF
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 
-IF NOT WVISIBLE("_3qa6a523j")
-	ACTIVATE WINDOW _3qa6a523j
+IF NOT WVISIBLE("_3rm1ccaux")
+	ACTIVATE WINDOW _3rm1ccaux
 ENDIF
 
 READ CYCLE ;
-	WHEN _3qa6a523q()
+	WHEN _3rm1ccay2()
 
-RELEASE WINDOW _3qa6a523j
+RELEASE WINDOW _3rm1ccaux
 
 #REGION 0
 
@@ -318,7 +318,7 @@ RETURN
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A523O           menu_cob VALID                     
+*       * _3RM1CCAWA           menu_cob VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -331,7 +331,7 @@ RETURN
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a523o     &&  menu_cob VALID
+FUNCTION _3rm1ccawa     &&  menu_cob VALID
 #REGION 1
 DO CASE
 CASE menu_cob = 1
@@ -340,7 +340,7 @@ ENDCASE
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A523P           lokDebits VALID                    
+*       * _3RM1CCAWO           lokDebits VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -353,7 +353,7 @@ ENDCASE
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a523p     &&  lokDebits VALID
+FUNCTION _3rm1ccawo     &&  lokDebits VALID
 #REGION 1
 SELECT clicurso
 SEEK lijDebit[lokDebits,2]
@@ -362,7 +362,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A523Q           Read Level When                    
+*       * _3RM1CCAY2           Read Level When                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -374,7 +374,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a523q     && Read Level When
+FUNCTION _3rm1ccay2     && Read Level When
 *
 * When Code from screen: AANMANIN
 *

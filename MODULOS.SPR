@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 04/03/2013            MODULOS.SPR              09:29:37 
+*       * 21/04/2013            MODULOS.SPR              22:27:50 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -215,7 +215,7 @@ ENDIF
 	FONT "MS Sans Serif", 8 ;
 	STYLE "B" ;
 	PICTURE "@K" ;
-	VALID _3qa6a3w6d() ;
+	VALID _3rm1c60mz() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 6.538,36.400 GET wdi ;
 	SIZE 1.000,13.600 ;
@@ -233,7 +233,7 @@ ENDIF
 	SIZE 1.154,14.400,0.800 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
-	VALID _3qa6a3w6g()
+	VALID _3rm1c60o8()
 @ 12.154,2.600 GET mods ;
  	PICTURE "@&N" ;
 	FROM List_mod ;
@@ -274,14 +274,14 @@ ENDIF
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "B" ;
-	VALID _3qa6a3w6m()
+	VALID _3rm1c60qs()
 
 IF NOT WVISIBLE("_2vo0yozgv")
 	ACTIVATE WINDOW _2vo0yozgv
 ENDIF
 
 READ CYCLE MODAL ;
-	WHEN _3qa6a3w6p() ;
+	WHEN _3rm1c60s0() ;
 	SHOW _2VO0YOZIG()
 
 RELEASE WINDOW _2vo0yozgv
@@ -457,7 +457,7 @@ RETURN
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3W6D           wnumero VALID                      
+*       * _3RM1C60MZ           wnumero VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -470,7 +470,7 @@ RETURN
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3w6d     &&  wnumero VALID
+FUNCTION _3rm1c60mz     &&  wnumero VALID
 #REGION 1
 DO Cons_modul
 SHOW GETS
@@ -498,7 +498,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3W6G           men_mod VALID                      
+*       * _3RM1C60O8           men_mod VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -511,7 +511,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3w6g     &&  men_mod VALID
+FUNCTION _3rm1c60o8     &&  men_mod VALID
 #REGION 1
 IF incluim
 	ACCESS = veracess(wcoduser,28,"INC")
@@ -692,7 +692,7 @@ DO Avulsent.SPR
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3W6M           btTrocaModulo VALID                
+*       * _3RM1C60QS           btTrocaModulo VALID                
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -705,7 +705,7 @@ DO Avulsent.SPR
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3w6m     &&  btTrocaModulo VALID
+FUNCTION _3rm1c60qs     &&  btTrocaModulo VALID
 #REGION 1
 ACCESS = veracess(wcoduser,28,"ALT")
 IF ACCESS
@@ -771,7 +771,7 @@ PROCEDURE trocaacima
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3W6P           Read Level When                    
+*       * _3RM1C60S0           Read Level When                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -783,7 +783,7 @@ PROCEDURE trocaacima
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3w6p     && Read Level When
+FUNCTION _3rm1c60s0     && Read Level When
 *
 * When Code from screen: MODULOS
 *

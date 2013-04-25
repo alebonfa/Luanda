@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 04/03/2013           CLI_DOCS.SPR              09:30:21 
+*       * 21/04/2013           CLI_DOCS.SPR              22:29:07 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -262,7 +262,7 @@ IF NOT WVISIBLE("_2vo0z4rm7")
 ENDIF
 
 READ CYCLE ;
-	SHOW _3qa6a4u0s()
+	SHOW _3rm1c9bx9()
 
 RELEASE WINDOW _2vo0z4rm7
 
@@ -336,7 +336,7 @@ ENDCASE
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A4U0S           Read Level Show                    
+*       * _3RM1C9BX9           Read Level Show                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -348,7 +348,7 @@ ENDCASE
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a4u0s     && Read Level Show
+FUNCTION _3rm1c9bx9     && Read Level Show
 PRIVATE currwind
 STORE WOUTPUT() TO currwind
 *

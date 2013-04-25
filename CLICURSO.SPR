@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 04/03/2013           CLICURSO.SPR              09:30:03 
+*       * 21/04/2013           CLICURSO.SPR              22:28:35 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -147,7 +147,7 @@ ENDIF
 	SIZE 1.643,15.400,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a4g50()
+	VALID _3rm1c7x7p()
 @ 4.385,12.400 SAY wnome ;
 	SIZE 1.000,126.400 ;
 	FONT "Arial", 8 ;
@@ -212,7 +212,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A4G50           men_cc VALID                       
+*       * _3RM1C7X7P           men_cc VALID                       
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -225,7 +225,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a4g50     &&  men_cc VALID
+FUNCTION _3rm1c7x7p     &&  men_cc VALID
 #REGION 1
 DO CASE
 CASE men_cc = 1

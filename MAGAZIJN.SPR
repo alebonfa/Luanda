@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 04/03/2013           MAGAZIJN.SPR              09:30:29 
+*       * 21/04/2013           MAGAZIJN.SPR              22:30:11 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -38,8 +38,8 @@ SET READBORDER ON
 *       *********************************************************
 *
 
-IF NOT WEXIST("_3qa6a4znb")
-	DEFINE WINDOW _3qa6a4znb ;
+IF NOT WEXIST("_3rm1cc28b")
+	DEFINE WINDOW _3rm1cc28b ;
 		AT  0.000, 0.000  ;
 		SIZE 39.643,118.200 ;
 		TITLE "Itens Imobilizados" ;
@@ -48,7 +48,7 @@ IF NOT WEXIST("_3qa6a4znb")
 		NOCLOSE ;
 		NOMINIMIZE ;
 		SYSTEM
-	MOVE WINDOW _3qa6a4znb CENTER
+	MOVE WINDOW _3rm1cc28b CENTER
 ENDIF
 
 
@@ -76,10 +76,10 @@ DO MagazLij
 *
 
 #REGION 1
-IF WVISIBLE("_3qa6a4znb")
-	ACTIVATE WINDOW _3qa6a4znb SAME
+IF WVISIBLE("_3rm1cc28b")
+	ACTIVATE WINDOW _3rm1cc28b SAME
 ELSE
-	ACTIVATE WINDOW _3qa6a4znb NOSHOW
+	ACTIVATE WINDOW _3rm1cc28b NOSHOW
 ENDIF
 @ 0.000,0.000 TO 3.500,118.200 ;
 	PATTERN 1 ;
@@ -127,34 +127,34 @@ ENDIF
 	SIZE 1.000,48.000 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a4znh() ;
+	VALID _3rm1cc2af() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 11.214,77.200 GET wuf ;
 	SIZE 1.000,8.800 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@!T" ;
-	VALID _3qa6a4zni() ;
+	VALID _3rm1cc2aq() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 11.143,87.600 GET mudanome ;
 	PICTURE "@*HN ..." ;
 	SIZE 1.143,3.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a4znj()
+	VALID _3rm1cc2au()
 @ 11.143,93.600 GET knopSalie ;
 	PICTURE "@*HN Adicionar;Cancelar" ;
 	SIZE 1.143,11.200,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a4znk()
+	VALID _3rm1cc2bx()
 @ 14.143,3.400 GET mails ;
  	PICTURE "@&N" ;
 	FROM lst_mail ;
 	SIZE 19.429,80.429 ;
 	DEFAULT 1 ;
 	FONT "Courier New", 8 ;
-	VALID _3qa6a4zo1() ;
+	VALID _3rm1cc2d2() ;
 	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
 @ 34.071,3.200 GET vis_impr ;
 	PICTURE "@*C Visualiza" ;
@@ -168,7 +168,7 @@ ENDIF
 	SIZE 1.643,38.200,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a4zo2()
+	VALID _3rm1cc2dh()
 @ 11.214,3.200 GET booCidade ;
 	PICTURE "@*C Cidade" ;
 	SIZE 1.214,11.200 ;
@@ -198,14 +198,14 @@ ENDIF
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 
-IF NOT WVISIBLE("_3qa6a4znb")
-	ACTIVATE WINDOW _3qa6a4znb
+IF NOT WVISIBLE("_3rm1cc28b")
+	ACTIVATE WINDOW _3rm1cc28b
 ENDIF
 
 READ CYCLE ;
-	WHEN _3qa6a4zo4()
+	WHEN _3rm1cc2dr()
 
-RELEASE WINDOW _3qa6a4znb
+RELEASE WINDOW _3rm1cc28b
 
 #REGION 0
 
@@ -366,7 +366,7 @@ RETURN
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A4ZNH           wcidade VALID                      
+*       * _3RM1CC2AF           wcidade VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -379,14 +379,14 @@ RETURN
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a4znh     &&  wcidade VALID
+FUNCTION _3rm1cc2af     &&  wcidade VALID
 #REGION 1
 wcidade = schonetekst(wcidade)
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A4ZNI           wuf VALID                          
+*       * _3RM1CC2AQ           wuf VALID                          
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -399,14 +399,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a4zni     &&  wuf VALID
+FUNCTION _3rm1cc2aq     &&  wuf VALID
 #REGION 1
 wuf = schonetekst(wuf)
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A4ZNJ           mudanome VALID                     
+*       * _3RM1CC2AU           mudanome VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -419,7 +419,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a4znj     &&  mudanome VALID
+FUNCTION _3rm1cc2au     &&  mudanome VALID
 #REGION 1
 STORE '' TO terugStaat, terugStad
 DO zoekStad.SPR
@@ -435,7 +435,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A4ZNK           knopSalie VALID                    
+*       * _3RM1CC2BX           knopSalie VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -448,7 +448,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a4znk     &&  knopSalie VALID
+FUNCTION _3rm1cc2bx     &&  knopSalie VALID
 #REGION 1
 DO CASE
 CASE knopsalie = 1
@@ -468,7 +468,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A4ZO1           mails VALID                        
+*       * _3RM1CC2D2           mails VALID                        
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -481,14 +481,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a4zo1     &&  mails VALID
+FUNCTION _3rm1cc2d2     &&  mails VALID
 #REGION 1
 DO consulta
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A4ZO2           knopMagaz VALID                    
+*       * _3RM1CC2DH           knopMagaz VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -501,7 +501,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a4zo2     &&  knopMagaz VALID
+FUNCTION _3rm1cc2dh     &&  knopMagaz VALID
 #REGION 1
 DO CASE
 CASE knopMagaz = 1
@@ -525,7 +525,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A4ZO4           Read Level When                    
+*       * _3RM1CC2DR           Read Level When                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -537,7 +537,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a4zo4     && Read Level When
+FUNCTION _3rm1cc2dr     && Read Level When
 *
 * When Code from screen: MAGAZIJN
 *

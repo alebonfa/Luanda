@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 04/03/2013           CR_NEGOC.SPR              09:30:34 
+*       * 21/04/2013           CR_NEGOC.SPR              22:30:20 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -38,8 +38,8 @@ SET READBORDER ON
 *       *********************************************************
 *
 
-IF NOT WEXIST("_3qa6a53tt")
-	DEFINE WINDOW _3qa6a53tt ;
+IF NOT WEXIST("_3rm1ccgso")
+	DEFINE WINDOW _3rm1ccgso ;
 		AT  0.000, 0.000  ;
 		SIZE 34.286,148.200 ;
 		TITLE "Contas a Receber - Negociação" ;
@@ -48,7 +48,7 @@ IF NOT WEXIST("_3qa6a53tt")
 		NOCLOSE ;
 		MINIMIZE ;
 		SYSTEM
-	MOVE WINDOW _3qa6a53tt CENTER
+	MOVE WINDOW _3rm1ccgso CENTER
 ENDIF
 
 
@@ -79,10 +79,10 @@ STORE '' TO listAbe[1], listNeg[1], listCob[1]
 *
 
 #REGION 1
-IF WVISIBLE("_3qa6a53tt")
-	ACTIVATE WINDOW _3qa6a53tt SAME
+IF WVISIBLE("_3rm1ccgso")
+	ACTIVATE WINDOW _3rm1ccgso SAME
 ELSE
-	ACTIVATE WINDOW _3qa6a53tt NOSHOW
+	ACTIVATE WINDOW _3rm1ccgso NOSHOW
 ENDIF
 @ 4.357,4.800 SAY "Aluno" ;
 	FONT "Arial", 8 ;
@@ -178,7 +178,7 @@ ENDIF
 	SIZE 1.143,14.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a53tz()
+	VALID _3rm1ccgv3()
 @ 22.071,5.000 GET negs ;
  	PICTURE "@&N" ;
 	FROM listNeg ;
@@ -196,16 +196,16 @@ ENDIF
 	SIZE 1.643,46.400,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a53u1()
+	VALID _3rm1ccgvs()
 
-IF NOT WVISIBLE("_3qa6a53tt")
-	ACTIVATE WINDOW _3qa6a53tt
+IF NOT WVISIBLE("_3rm1ccgso")
+	ACTIVATE WINDOW _3rm1ccgso
 ENDIF
 
 READ CYCLE ;
-	SHOW _3qa6a53u2()
+	SHOW _3rm1ccgxa()
 
-RELEASE WINDOW _3qa6a53tt
+RELEASE WINDOW _3rm1ccgso
 
 #REGION 0
 
@@ -221,7 +221,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A53TZ           btAdParcela VALID                  
+*       * _3RM1CCGV3           btAdParcela VALID                  
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -234,7 +234,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a53tz     &&  btAdParcela VALID
+FUNCTION _3rm1ccgv3     &&  btAdParcela VALID
 #REGION 1
 if ISBLANK(listNeg[1])
 	i = 1
@@ -258,7 +258,7 @@ show gets
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A53U1           btNegoc VALID                      
+*       * _3RM1CCGVS           btNegoc VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -271,7 +271,7 @@ show gets
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a53u1     &&  btNegoc VALID
+FUNCTION _3rm1ccgvs     &&  btNegoc VALID
 #REGION 1
 DO CASE
 CASE btNegoc = 3
@@ -280,7 +280,7 @@ ENDCASE
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A53U2           Read Level Show                    
+*       * _3RM1CCGXA           Read Level Show                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -292,15 +292,15 @@ ENDCASE
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a53u2     && Read Level Show
+FUNCTION _3rm1ccgxa     && Read Level Show
 PRIVATE currwind
 STORE WOUTPUT() TO currwind
 *
 * Show Code from screen: CR_NEGOC
 *
 #REGION 1
-IF SYS(2016) = "_3QA6A53TT" OR SYS(2016) = "*"
-	ACTIVATE WINDOW _3qa6a53tt SAME
+IF SYS(2016) = "_3RM1CCGSO" OR SYS(2016) = "*"
+	ACTIVATE WINDOW _3rm1ccgso SAME
 	@ 15.786,126.000 SAY saldoTotal ;
 		SIZE 1.000,14.400, 0.000 ;
 		FONT "Arial", 8 ;

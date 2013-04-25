@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 04/03/2013           CAD_CLI2.SPR              09:29:33 
+*       * 21/04/2013           CAD_CLI2.SPR              22:27:43 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -285,7 +285,7 @@ ENDIF
 	FONT "Arial", 8 ;
 	PICTURE "@!T" ;
 	WHEN editnome ;
-	VALID _3qa6a3sts() ;
+	VALID _3rm1c5oys() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 4.923,93.600 GET mudanome ;
 	PICTURE "@*HN ..." ;
@@ -302,7 +302,7 @@ ENDIF
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K! XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" ;
-	VALID _3qa6a3stw() ;
+	VALID _3rm1c5p06() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 7.462,87.600 GET wnume ;
 	SIZE 1.000,8.800 ;
@@ -315,7 +315,7 @@ ENDIF
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
-	VALID _3qa6a3stx() ;
+	VALID _3rm1c5p17() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 7.462,137.400 GET wcep ;
 	SIZE 1.000,13.400 ;
@@ -332,7 +332,7 @@ ENDIF
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@! XXXXXXXXXXXXXXXXXXXXXXXXX" ;
-	VALID _3qa6a3stz() ;
+	VALID _3rm1c5p28() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 9.923,87.600 SAY wcidade ;
 	SIZE 1.000,35.200 ;
@@ -349,7 +349,7 @@ ENDIF
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K! XXXXXXXXXXXXXXXXXXXXXXXXX" ;
-	VALID _3qa6a3su0() ;
+	VALID _3rm1c5p2l() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 12.385,87.600 SAY wnatural ;
 	SIZE 1.000,35.200 ;
@@ -390,28 +390,28 @@ ENDIF
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K" ;
-	VALID _3qa6a3su2() ;
+	VALID _3rm1c5p33() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 17.308,87.600 GET wemail2 ;
 	SIZE 1.000,63.200 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K" ;
-	VALID _3qa6a3su3() ;
+	VALID _3rm1c5p34() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 19.769,15.000 GET wemail3 ;
 	SIZE 1.000,56.800 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K" ;
-	VALID _3qa6a3su4() ;
+	VALID _3rm1c5p3u() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 19.769,87.600 GET wemail4 ;
 	SIZE 1.000,63.200 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K" ;
-	VALID _3qa6a3su5() ;
+	VALID _3rm1c5p4y() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 4.923,175.200 GET wsituacao ;
 	PICTURE "@^ Formado;Graduando;Outros" ;
@@ -487,14 +487,14 @@ ENDIF
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@! XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" ;
-	VALID _3qa6a3sun() ;
+	VALID _3rm1c5p66() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 25.308,73.800 GET wpai ;
 	SIZE 1.000,53.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@! XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" ;
-	VALID _3qa6a3suo() ;
+	VALID _3rm1c5p68() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 25.308,138.600 GET wcodaval ;
 	SIZE 1.000,6.400 ;
@@ -538,7 +538,7 @@ ENDIF
 	SIZE 1.538,8.200,0.800 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
-	VALID _3qa6a3sut()
+	VALID _3rm1c5p9q()
 @ 30.462,105.600 GET ares ;
 	PICTURE "@^" ;
 	FROM List_are ;
@@ -550,7 +550,7 @@ ENDIF
 	SIZE 1.538,8.200,0.800 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
-	VALID _3qa6a3suv()
+	VALID _3rm1c5pav()
 @ 30.538,149.400 EDIT wobs ;
 	SIZE 12.000,32.286,0.000 ;
 	PICTURE "@K" ;
@@ -564,7 +564,7 @@ ENDIF
 	SIZE 12.692,33.400 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
-	VALID _3qa6a3sux() ;
+	VALID _3rm1c5pby() ;
 	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
 @ 32.538,105.800 GET iares ;
  	PICTURE "@&N" ;
@@ -572,7 +572,7 @@ ENDIF
 	SIZE 12.692,39.800 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
-	VALID _3qa6a3suy() ;
+	VALID _3rm1c5pcg() ;
 	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
 @ 44.231,162.000 GET wdesconto ;
 	SIZE 1.000,7.200 ;
@@ -606,20 +606,20 @@ ENDIF
 	SIZE 1.143,3.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a3sv1()
+	VALID _3rm1c5pcw()
 @ 12.308,147.600 GET mudanome ;
 	PICTURE "@*HN ..." ;
 	SIZE 1.143,3.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a3sv2()
+	VALID _3rm1c5pdx()
 
 IF NOT WVISIBLE("_2vo0yox57")
 	ACTIVATE WINDOW _2vo0yox57
 ENDIF
 
 READ CYCLE MODAL ;
-	WHEN _3qa6a3sv3() ;
+	WHEN _3rm1c5pdy() ;
 	SHOW _2VO0YOX6K()
 
 RELEASE WINDOW _2vo0yox57
@@ -816,7 +816,7 @@ PARAMETER psit
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3STS           wnome VALID                        
+*       * _3RM1C5OYS           wnome VALID                        
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -829,7 +829,7 @@ PARAMETER psit
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3sts     &&  wnome VALID
+FUNCTION _3rm1c5oys     &&  wnome VALID
 #REGION 1
 wnome = schonetekst(wnome)
 SHOW GETS
@@ -938,7 +938,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3STW           wend VALID                         
+*       * _3RM1C5P06           wend VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -951,14 +951,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3stw     &&  wend VALID
+FUNCTION _3rm1c5p06     &&  wend VALID
 #REGION 1
 wend = schonetekst(wend)
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3STX           wcomp VALID                        
+*       * _3RM1C5P17           wcomp VALID                        
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -971,14 +971,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3stx     &&  wcomp VALID
+FUNCTION _3rm1c5p17     &&  wcomp VALID
 #REGION 1
 wcomp = schonetekst(wcomp)
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3STZ           wbairro VALID                      
+*       * _3RM1C5P28           wbairro VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -991,14 +991,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3stz     &&  wbairro VALID
+FUNCTION _3rm1c5p28     &&  wbairro VALID
 #REGION 1
 wbairro = schonetekst(wbairro)
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3SU0           wnacional VALID                    
+*       * _3RM1C5P2L           wnacional VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1011,14 +1011,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3su0     &&  wnacional VALID
+FUNCTION _3rm1c5p2l     &&  wnacional VALID
 #REGION 1
 wnacional = schonetekst(wnacional)
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3SU2           wemail VALID                       
+*       * _3RM1C5P33           wemail VALID                       
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1031,14 +1031,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3su2     &&  wemail VALID
+FUNCTION _3rm1c5p33     &&  wemail VALID
 #REGION 1
 wemail= schonetekst(wemail)
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3SU3           wemail2 VALID                      
+*       * _3RM1C5P34           wemail2 VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1051,14 +1051,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3su3     &&  wemail2 VALID
+FUNCTION _3rm1c5p34     &&  wemail2 VALID
 #REGION 1
 wemail2 = schonetekst(wemail2)
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3SU4           wemail3 VALID                      
+*       * _3RM1C5P3U           wemail3 VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1071,14 +1071,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3su4     &&  wemail3 VALID
+FUNCTION _3rm1c5p3u     &&  wemail3 VALID
 #REGION 1
 wemail3 = schonetekst(wemail3)
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3SU5           wemail4 VALID                      
+*       * _3RM1C5P4Y           wemail4 VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1091,7 +1091,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3su5     &&  wemail4 VALID
+FUNCTION _3rm1c5p4y     &&  wemail4 VALID
 #REGION 1
 wemail4 = schonetekst(wemail4)
 SHOW GETS
@@ -1134,7 +1134,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3SUN           wmae VALID                         
+*       * _3RM1C5P66           wmae VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1147,14 +1147,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3sun     &&  wmae VALID
+FUNCTION _3rm1c5p66     &&  wmae VALID
 #REGION 1
 wmae = schonetekst(wmae)
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3SUO           wpai VALID                         
+*       * _3RM1C5P68           wpai VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1167,7 +1167,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3suo     &&  wpai VALID
+FUNCTION _3rm1c5p68     &&  wpai VALID
 #REGION 1
 wpai = schonetekst(wpai)
 SHOW GETS
@@ -1312,7 +1312,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3SUT           btIntCurso VALID                   
+*       * _3RM1C5P9Q           btIntCurso VALID                   
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1325,7 +1325,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3sut     &&  btIntCurso VALID
+FUNCTION _3rm1c5p9q     &&  btIntCurso VALID
 #REGION 1
 IF Inclui
 	IF ALEN(Lst_icur) = 1
@@ -1364,7 +1364,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3SUV           btIntArea VALID                    
+*       * _3RM1C5PAV           btIntArea VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1377,7 +1377,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3suv     &&  btIntArea VALID
+FUNCTION _3rm1c5pav     &&  btIntArea VALID
 #REGION 1
 IF Inclui
 	IF ALEN(Lst_iare) = 1
@@ -1416,7 +1416,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3SUX           icurs VALID                        
+*       * _3RM1C5PBY           icurs VALID                        
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1429,7 +1429,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3sux     &&  icurs VALID
+FUNCTION _3rm1c5pby     &&  icurs VALID
 #REGION 1
 Conf = WINCONF("ATENÇÃO","Tem certeza que deseja excluir este interesse?")
 IF Conf
@@ -1455,7 +1455,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3SUY           iares VALID                        
+*       * _3RM1C5PCG           iares VALID                        
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1468,7 +1468,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3suy     &&  iares VALID
+FUNCTION _3rm1c5pcg     &&  iares VALID
 #REGION 1
 CONF = winconf("ATENÇÃO","Tem certeza que deseja excluir este interesse?")
 IF CONF
@@ -1538,7 +1538,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3SV1           mudanome VALID                     
+*       * _3RM1C5PCW           mudanome VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1551,7 +1551,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3sv1     &&  mudanome VALID
+FUNCTION _3rm1c5pcw     &&  mudanome VALID
 #REGION 1
 STORE '' TO terugStaat, terugStad
 DO zoekStad.SPR
@@ -1567,7 +1567,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3SV2           mudanome VALID                     
+*       * _3RM1C5PDX           mudanome VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1580,7 +1580,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3sv2     &&  mudanome VALID
+FUNCTION _3rm1c5pdx     &&  mudanome VALID
 #REGION 1
 STORE '' TO terugStaat, terugStad
 DO zoekStad.SPR
@@ -1596,7 +1596,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3SV3           Read Level When                    
+*       * _3RM1C5PDY           Read Level When                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1608,7 +1608,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3sv3     && Read Level When
+FUNCTION _3rm1c5pdy     && Read Level When
 *
 * When Code from screen: CAD_CLI2
 *

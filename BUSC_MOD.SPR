@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 04/03/2013           BUSC_MOD.SPR              09:28:56 
+*       * 21/04/2013           BUSC_MOD.SPR              22:26:21 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -239,7 +239,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "T" ;
-	VALID _3qa6a308s() ;
+	VALID _3rm1c3fg8() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 
 IF NOT WVISIBLE("_2vo0yodxv")
@@ -988,7 +988,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A308S           booCamtasia VALID                  
+*       * _3RM1C3FG8           booCamtasia VALID                  
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1001,7 +1001,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a308s     &&  booCamtasia VALID
+FUNCTION _3rm1c3fg8     &&  booCamtasia VALID
 #REGION 1
 DO mod_busc
 SHOW GETS

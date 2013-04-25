@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 04/03/2013           CAD_PARC.SPR              09:29:20 
+*       * 21/04/2013           CAD_PARC.SPR              22:27:23 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -155,7 +155,7 @@ ENDIF
 	SIZE 21.714,45.571 ;
 	DEFAULT 1 ;
 	FONT "Courier New", 8 ;
-	VALID _3qa6a3iwm() ;
+	VALID _3rm1c4tj6() ;
 	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
 @ 6.462,99.200 GET subs ;
 	PICTURE "@^" ;
@@ -182,7 +182,7 @@ ENDIF
 	SIZE 1.143,12.400,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a3iwn() ;
+	VALID _3rm1c4tjt() ;
 	COLOR ,,,,,,,,RGB(,,,255,255,255)
 @ 13.615,99.400 GET itms ;
  	PICTURE "@&N" ;
@@ -190,14 +190,14 @@ ENDIF
 	SIZE 21.714,45.571 ;
 	DEFAULT 1 ;
 	FONT "Courier New", 8 ;
-	VALID _3qa6a3iwp() ;
+	VALID _3rm1c4tlf() ;
 	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
 @ 39.385,4.000 GET parc_fim ;
 	PICTURE "@*HN Exporta;Sair" ;
 	SIZE 1.500,79.600,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3qa6a3iwq() ;
+	VALID _3rm1c4tlj() ;
 	COLOR ,,,,,,,,RGB(,,,255,255,255)
 @ 1.077,111.400 SAY "CADASTRO DE PARCEIROS" ;
 	FONT "Arial", 14 ;
@@ -221,7 +221,7 @@ IF NOT WVISIBLE("_2vo0yoq5n")
 ENDIF
 
 READ CYCLE MODAL ;
-	WHEN _3qa6a3iwr() ;
+	WHEN _3rm1c4tms() ;
 	SHOW _2VO0YOQ6P()
 
 RELEASE WINDOW _2vo0yoq5n
@@ -348,7 +348,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3IWM           cabs VALID                         
+*       * _3RM1C4TJ6           cabs VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -361,7 +361,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3iwm     &&  cabs VALID
+FUNCTION _3rm1c4tj6     &&  cabs VALID
 #REGION 1
 SELECT parc_cab
 SEEK list_cab(cabs,2)
@@ -376,7 +376,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3IWN           ad_itm VALID                       
+*       * _3RM1C4TJT           ad_itm VALID                       
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -389,7 +389,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3iwn     &&  ad_itm VALID
+FUNCTION _3rm1c4tjt     &&  ad_itm VALID
 #REGION 1
 ACCESS = veracess(wcoduser,16,"INC")
 IF ACCESS
@@ -415,7 +415,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3IWP           itms VALID                         
+*       * _3RM1C4TLF           itms VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -428,7 +428,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3iwp     &&  itms VALID
+FUNCTION _3rm1c4tlf     &&  itms VALID
 #REGION 1
 CONF = winconf("ATENÇÃO", "Tem certeza que deseja excluir este curso?")
 IF CONF
@@ -442,7 +442,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3IWQ           parc_fim VALID                     
+*       * _3RM1C4TLJ           parc_fim VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -455,7 +455,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3iwq     &&  parc_fim VALID
+FUNCTION _3rm1c4tlj     &&  parc_fim VALID
 #REGION 1
 DO CASE
 CASE parc_fim = 1
@@ -466,7 +466,7 @@ ENDCASE
 
 *       *********************************************************
 *       *                                                         
-*       * _3QA6A3IWR           Read Level When                    
+*       * _3RM1C4TMS           Read Level When                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -478,7 +478,7 @@ ENDCASE
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3qa6a3iwr     && Read Level When
+FUNCTION _3rm1c4tms     && Read Level When
 *
 * When Code from screen: CAD_PARC
 *
