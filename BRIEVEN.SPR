@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 21/04/2013            BRIEVEN.SPR              22:30:18 
+*       * 29/04/2013            BRIEVEN.SPR              09:03:14 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -38,8 +38,8 @@ SET READBORDER ON
 *       *********************************************************
 *
 
-IF NOT WEXIST("_3rm1ccd8g")
-	DEFINE WINDOW _3rm1ccd8g ;
+IF NOT WEXIST("_3ru0jei5d")
+	DEFINE WINDOW _3ru0jei5d ;
 		AT  0.000, 0.000  ;
 		SIZE 25.385,120.800 ;
 		TITLE "Cartas de Cobrança" ;
@@ -48,7 +48,7 @@ IF NOT WEXIST("_3rm1ccd8g")
 		NOCLOSE ;
 		MINIMIZE ;
 		SYSTEM
-	MOVE WINDOW _3rm1ccd8g CENTER
+	MOVE WINDOW _3ru0jei5d CENTER
 ENDIF
 
 
@@ -75,10 +75,10 @@ lokCob06 = clicurso.cob06
 *
 
 #REGION 1
-IF WVISIBLE("_3rm1ccd8g")
-	ACTIVATE WINDOW _3rm1ccd8g SAME
+IF WVISIBLE("_3ru0jei5d")
+	ACTIVATE WINDOW _3ru0jei5d SAME
 ELSE
-	ACTIVATE WINDOW _3rm1ccd8g NOSHOW
+	ACTIVATE WINDOW _3ru0jei5d NOSHOW
 ENDIF
 @ 0.000,0.000 TO 3.769,120.800 ;
 	PATTERN 1 ;
@@ -161,15 +161,15 @@ ENDIF
 	SIZE 1.643,54.000,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3rm1ccd9q()
+	VALID _3ru0jei5p()
 
-IF NOT WVISIBLE("_3rm1ccd8g")
-	ACTIVATE WINDOW _3rm1ccd8g
+IF NOT WVISIBLE("_3ru0jei5d")
+	ACTIVATE WINDOW _3ru0jei5d
 ENDIF
 
 READ CYCLE
 
-RELEASE WINDOW _3rm1ccd8g
+RELEASE WINDOW _3ru0jei5d
 
 #REGION 0
 
@@ -205,7 +205,7 @@ RETURN
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1CCD9Q           knopBrieven VALID                  
+*       * _3RU0JEI5P           knopBrieven VALID                  
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -218,7 +218,7 @@ RETURN
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1ccd9q     &&  knopBrieven VALID
+FUNCTION _3ru0jei5p     &&  knopBrieven VALID
 #REGION 1
 DO CASE
 CASE knopBrieven = 1

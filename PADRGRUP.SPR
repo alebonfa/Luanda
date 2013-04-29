@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 21/04/2013           PADRGRUP.SPR              22:28:31 
+*       * 29/04/2013           PADRGRUP.SPR              09:02:39 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -128,7 +128,7 @@ exc = .F.
 *--
 
 #REGION 1
-DEFINE POPUP _3rm1c7s2u ;
+DEFINE POPUP _3ru0jdr9s ;
 	PROMPT FIELD STR(crm_padr.codigo, 1) + " - " + crm_padr.descricao ;
 	SCROLL
 
@@ -165,7 +165,7 @@ ENDIF
 	COLOR RGB(0,0,0,,,,)
 @ 3.769,2.600 GET list ;
  	PICTURE "@&N" ;
-	POPUP _3rm1c7s2u ;
+	POPUP _3ru0jdr9s ;
 	SIZE 13.714,59.857 ;
 	DEFAULT " " ;
 	FONT "Courier New", 8 ;
@@ -202,7 +202,7 @@ ENDIF
 READ CYCLE MODAL
 
 RELEASE WINDOW _2vo0ypg7c
-RELEASE POPUPS _3rm1c7s2u
+RELEASE POPUPS _3ru0jdr9s
 
 #REGION 0
 

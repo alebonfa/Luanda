@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 21/04/2013           CAD_TPAG.SPR              22:27:05 
+*       * 29/04/2013           CAD_TPAG.SPR              09:01:30 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -130,7 +130,7 @@ exc = .F.
 *--
 
 #REGION 1
-DEFINE POPUP _3rm1c4dn0 ;
+DEFINE POPUP _3ru0jcab4 ;
 	PROMPT FIELD STR(tip_paga.codigo, 2) + " - " + tip_paga.descricao + " " + STR(tip_paga.juros, 6, 2) ;
 	SCROLL
 
@@ -174,7 +174,7 @@ ENDIF
 	COLOR RGB(0,0,0,,,,)
 @ 3.769,2.600 GET list ;
  	PICTURE "@&N" ;
-	POPUP _3rm1c4dn0 ;
+	POPUP _3ru0jcab4 ;
 	SIZE 9.143,59.857 ;
 	DEFAULT " " ;
 	FONT "Courier New", 8 ;
@@ -218,7 +218,7 @@ ENDIF
 READ CYCLE MODAL
 
 RELEASE WINDOW _2vo0yon4v
-RELEASE POPUPS _3rm1c4dn0
+RELEASE POPUPS _3ru0jcab4
 
 #REGION 0
 

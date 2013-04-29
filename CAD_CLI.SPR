@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 21/04/2013            CAD_CLI.SPR              22:29:03 
+*       * 29/04/2013            CAD_CLI.SPR              09:02:58 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -324,7 +324,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3rm1c95rg() ;
+	VALID _3ru0je67r() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 6.462,16.000 GET ents ;
 	PICTURE "@^" ;
@@ -332,21 +332,21 @@ ENDIF
 	SIZE 1.500,18.600 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3rm1c95t6() ;
+	VALID _3ru0je67t() ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 6.538,38.800 GET ent_i ;
 	SIZE 1.000,11.200 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!T" ;
-	VALID _3rm1c95ta() ;
+	VALID _3ru0je67u() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 6.538,53.200 GET ent_f ;
 	SIZE 1.000,10.400 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!T" ;
-	VALID _3rm1c95uf() ;
+	VALID _3ru0je67w() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 8.385,16.400 GET fwcodigo ;
 	SIZE 1.000,13.600 ;
@@ -396,7 +396,7 @@ ENDIF
 	FONT "Arial", 8 ;
 	PICTURE "@K!T" ;
 	WHEN kunUF ;
-	VALID _3rm1c95yn() ;
+	VALID _3ru0je683() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 8.385,69.600 GET lsituacao ;
 	PICTURE "@*C Situacao" ;
@@ -404,7 +404,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3rm1c95zp() ;
+	VALID _3ru0je684() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 8.308,84.000 GET sits ;
 	PICTURE "@^" ;
@@ -412,7 +412,7 @@ ENDIF
 	SIZE 1.500,50.600 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3rm1c9608() ;
+	VALID _3ru0je686() ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 10.538,84.400 GET fwinteress ;
 	SIZE 1.000,49.600 ;
@@ -427,14 +427,14 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3rm1c960d() ;
+	VALID _3ru0je68r() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 4.385,183.600 GET fwano ;
 	SIZE 1.000,11.200 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	PICTURE "@K" ;
-	VALID _3rm1c9618() ;
+	VALID _3ru0je68t() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 5.923,144.800 GET booCursus ;
 	PICTURE "@*C      " ;
@@ -442,7 +442,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "BT" ;
-	VALID _3rm1c962c()
+	VALID _3ru0je68v()
 @ 5.846,150.400 GET crss ;
 	PICTURE "@^" ;
 	FROM list_crs ;
@@ -457,7 +457,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3rm1c9630() ;
+	VALID _3ru0je68y() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 8.308,162.400 GET subas ;
 	PICTURE "@^" ;
@@ -473,7 +473,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3rm1c963p() ;
+	VALID _3ru0je691() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 10.462,162.400 GET areas ;
 	PICTURE "@^" ;
@@ -520,14 +520,14 @@ ENDIF
 	SIZE 26.286,137.571 ;
 	DEFAULT 1 ;
 	FONT "Courier New", 8 ;
-	VALID _3rm1c966r() ;
+	VALID _3ru0je69s() ;
 	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
 @ 45.692,2.200 GET all_fich ;
 	PICTURE "@*HN Imprimir todas as Fichas Individuais" ;
 	SIZE 1.143,42.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3rm1c967v()
+	VALID _3ru0je69u()
 @ 45.923,178.800 SAY qdecli ;
 	SIZE 1.000,13.600 ;
 	FONT "Arial", 8 ;
@@ -552,14 +552,14 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3rm1c969k() ;
+	VALID _3ru0je69x() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 13.538,162.400 GET groeps ;
 	PICTURE "@^ Cidade" ;
 	SIZE 1.500,33.000 ;
 	DEFAULT "Cidade" ;
 	FONT "Arial", 8 ;
-	VALID _3rm1c969o() ;
+	VALID _3ru0je69z() ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 13.615,97.600 GET lAusente ;
 	PICTURE "@*C Sem contato" ;
@@ -567,14 +567,14 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3rm1c96ah() ;
+	VALID _3ru0je6a1() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 13.538,123.400 GET tipoAusente ;
 	PICTURE "@^ ano(s);mes(es);dia(s)" ;
 	SIZE 1.500,11.200 ;
 	DEFAULT "ano(s)" ;
 	FONT "Arial", 8 ;
-	VALID _3rm1c96bl() ;
+	VALID _3ru0je6a3() ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 13.615,115.000 GET fwAusente ;
 	SIZE 1.000,6.000 ;
@@ -582,7 +582,7 @@ ENDIF
 	FONT "Arial", 8 ;
 	PICTURE "@K!T" ;
 	WHEN kunUF ;
-	VALID _3rm1c96bz() ;
+	VALID _3ru0je6a4() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 
 IF NOT WVISIBLE("_2vo0z4oxq")
@@ -1535,7 +1535,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C95RG           lentidade VALID                    
+*       * _3RU0JE67R           lentidade VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1548,7 +1548,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c95rg     &&  lentidade VALID
+FUNCTION _3ru0je67r     &&  lentidade VALID
 #REGION 1
 DO cli_list
 SHOW GETS
@@ -1556,7 +1556,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C95T6           ents VALID                         
+*       * _3RU0JE67T           ents VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1569,7 +1569,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c95t6     &&  ents VALID
+FUNCTION _3ru0je67t     &&  ents VALID
 #REGION 1
 DO cli_list
 SHOW GETS
@@ -1577,7 +1577,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C95TA           ent_i VALID                        
+*       * _3RU0JE67U           ent_i VALID                        
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1590,7 +1590,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c95ta     &&  ent_i VALID
+FUNCTION _3ru0je67u     &&  ent_i VALID
 #REGION 1
 DO cli_list
 SHOW GETS
@@ -1598,7 +1598,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C95UF           ent_f VALID                        
+*       * _3RU0JE67W           ent_f VALID                        
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1611,7 +1611,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c95uf     &&  ent_f VALID
+FUNCTION _3ru0je67w     &&  ent_f VALID
 #REGION 1
 DO cli_list
 SHOW GETS
@@ -1745,7 +1745,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C95YN           fwuf VALID                         
+*       * _3RU0JE683           fwuf VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1758,7 +1758,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c95yn     &&  fwuf VALID
+FUNCTION _3ru0je683     &&  fwuf VALID
 #REGION 1
 DO cli_list
 SHOW GETS
@@ -1766,7 +1766,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C95ZP           lsituacao VALID                    
+*       * _3RU0JE684           lsituacao VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1779,7 +1779,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c95zp     &&  lsituacao VALID
+FUNCTION _3ru0je684     &&  lsituacao VALID
 #REGION 1
 IF lsituacao AND sits = 9
 	STORE .F. TO lcurso2, booCursus, lcurso, llocal
@@ -1799,7 +1799,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C9608           sits VALID                         
+*       * _3RU0JE686           sits VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1812,7 +1812,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c9608     &&  sits VALID
+FUNCTION _3ru0je686     &&  sits VALID
 #REGION 1
 IF lsituacao AND sits = 9
 	STORE .F. TO lcurso2, booCursus, lcurso, llocal
@@ -1853,7 +1853,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C960D           lcurso2 VALID                      
+*       * _3RU0JE68R           lcurso2 VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1866,7 +1866,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c960d     &&  lcurso2 VALID
+FUNCTION _3ru0je68r     &&  lcurso2 VALID
 #REGION 1
 IF lcurso2
 	IF lcurso
@@ -1881,7 +1881,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C9618           fwano VALID                        
+*       * _3RU0JE68T           fwano VALID                        
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1894,7 +1894,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c9618     &&  fwano VALID
+FUNCTION _3ru0je68t     &&  fwano VALID
 #REGION 1
 DO crs_list
 IF lcurso2
@@ -1905,7 +1905,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C962C           booCursus VALID                    
+*       * _3RU0JE68V           booCursus VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1918,7 +1918,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c962c     &&  booCursus VALID
+FUNCTION _3ru0je68v     &&  booCursus VALID
 #REGION 1
 IF lcurso2
 	IF lcurso
@@ -1956,7 +1956,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C9630           lcurso VALID                       
+*       * _3RU0JE68Y           lcurso VALID                       
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1969,7 +1969,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c9630     &&  lcurso VALID
+FUNCTION _3ru0je68y     &&  lcurso VALID
 #REGION 1
 IF lcurso
 	lcurso2 = .F.
@@ -2002,7 +2002,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C963P           llocal VALID                       
+*       * _3RU0JE691           llocal VALID                       
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -2015,7 +2015,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c963p     &&  llocal VALID
+FUNCTION _3ru0je691     &&  llocal VALID
 #REGION 1
 IF llocal
 	IF lcurso2
@@ -2147,7 +2147,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C966R           list VALID                         
+*       * _3RU0JE69S           list VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -2160,7 +2160,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c966r     &&  list VALID
+FUNCTION _3ru0je69s     &&  list VALID
 #REGION 1
 IF !booGroep
 	ACCESS = veracess(wcoduser,1,"CON")
@@ -2183,7 +2183,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C967V           all_fich VALID                     
+*       * _3RU0JE69U           all_fich VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -2196,7 +2196,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c967v     &&  all_fich VALID
+FUNCTION _3ru0je69u     &&  all_fich VALID
 #REGION 1
 ACCESS = veracess(wcoduser,1,"IMP")
 IF ACCESS
@@ -2309,7 +2309,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C969K           booGroep VALID                     
+*       * _3RU0JE69X           booGroep VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -2322,7 +2322,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c969k     &&  booGroep VALID
+FUNCTION _3ru0je69x     &&  booGroep VALID
 #REGION 1
 DO cli_list
 SHOW GETS
@@ -2330,7 +2330,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C969O           groeps VALID                       
+*       * _3RU0JE69Z           groeps VALID                       
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -2343,7 +2343,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c969o     &&  groeps VALID
+FUNCTION _3ru0je69z     &&  groeps VALID
 #REGION 1
 DO cli_list
 SHOW GETS
@@ -2351,7 +2351,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C96AH           lAusente VALID                     
+*       * _3RU0JE6A1           lAusente VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -2364,7 +2364,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c96ah     &&  lAusente VALID
+FUNCTION _3ru0je6a1     &&  lAusente VALID
 #REGION 1
 DO cli_list
 SHOW GETS
@@ -2372,7 +2372,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C96BL           tipoAusente VALID                  
+*       * _3RU0JE6A3           tipoAusente VALID                  
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -2385,7 +2385,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c96bl     &&  tipoAusente VALID
+FUNCTION _3ru0je6a3     &&  tipoAusente VALID
 #REGION 1
 DO cli_list
 SHOW GETS
@@ -2393,7 +2393,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C96BZ           fwAusente VALID                    
+*       * _3RU0JE6A4           fwAusente VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -2406,7 +2406,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c96bz     &&  fwAusente VALID
+FUNCTION _3ru0je6a4     &&  fwAusente VALID
 #REGION 1
 IF fwAusente < 1
 	fwAusente = 1

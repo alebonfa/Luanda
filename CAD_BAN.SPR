@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 25/04/2013            CAD_BAN.SPR              12:45:28 
+*       * 29/04/2013            CAD_BAN.SPR              09:01:27 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -144,7 +144,7 @@ SELECT id FROM empresas ORDER BY empresas.nome INTO ARRAY  ;
 *--
 
 #REGION 1
-DEFINE POPUP _3rq0rceme ;
+DEFINE POPUP _3ru0jc88h ;
 	PROMPT FIELD bancos.codigo + " - " + STR(bancos.banco, 3) + " - " + bancos.nome + " - " + bancos.agencia + " - " + bancos.conta ;
 	SCROLL
 
@@ -242,7 +242,7 @@ ENDIF
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 16.385,5.000 GET list ;
  	PICTURE "@&N" ;
-	POPUP _3rq0rceme ;
+	POPUP _3ru0jc88h ;
 	SIZE 17.143,85.571 ;
 	DEFAULT " " ;
 	FONT "Courier New", 8 ;
@@ -263,7 +263,7 @@ ENDIF
 READ CYCLE MODAL
 
 RELEASE WINDOW _2vo0yolns
-RELEASE POPUPS _3rq0rceme
+RELEASE POPUPS _3ru0jc88h
 
 #REGION 0
 

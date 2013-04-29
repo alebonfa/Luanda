@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 21/04/2013           CAD_FUNC.SPR              22:26:57 
+*       * 29/04/2013           CAD_FUNC.SPR              09:01:26 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -253,7 +253,7 @@ ENDIF
 	SIZE 1.143,3.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3rm1c47it()
+	VALID _3ru0jc7a3()
 @ 17.308,17.200 GET wcep ;
 	SIZE 1.000,20.800 ;
 	DEFAULT 0 ;
@@ -375,7 +375,7 @@ ENDIF
 
 READ CYCLE ;
 	WHEN _2VO0YOKW5() ;
-	SHOW _3rm1c47n1()
+	SHOW _3ru0jc7ad()
 
 RELEASE WINDOW _2vo0yokve
 
@@ -582,7 +582,7 @@ FUNCTION cmes
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C47IT           mudanome VALID                     
+*       * _3RU0JC7A3           mudanome VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -595,7 +595,7 @@ FUNCTION cmes
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c47it     &&  mudanome VALID
+FUNCTION _3ru0jc7a3     &&  mudanome VALID
 #REGION 1
 STORE '' TO terugStaat, terugStad
 DO zoekStad.SPR
@@ -798,7 +798,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C47N1           Read Level Show                    
+*       * _3RU0JC7AD           Read Level Show                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -810,7 +810,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c47n1     && Read Level Show
+FUNCTION _3ru0jc7ad     && Read Level Show
 PRIVATE currwind
 STORE WOUTPUT() TO currwind
 *

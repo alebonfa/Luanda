@@ -1,0 +1,98 @@
+Screen Set c:\xampp\htdocs\luanda\int_cons.spr has the following errors:
+    Unknown LIST_UF - Undefined
+
+Screen Set c:\xampp\htdocs\luanda\cad_area.spr has the following errors:
+    Unknown LIST_UF - Undefined
+
+Screen Set c:\xampp\htdocs\luanda\cxbancos.spr has the following errors:
+    Unknown LIST_LOJ - Undefined
+
+Screen Set c:\xampp\htdocs\luanda\cad_crm.spr has the following errors:
+    Unknown LIST_CUR - Undefined
+    Unknown LIST_ARE - Undefined
+    Unknown LST_ICUR - Undefined
+    Unknown LST_IARE - Undefined
+
+Screen Set c:\xampp\htdocs\luanda\cad_cli2.spr has the following errors:
+    Unknown LIST_CUR - Undefined
+    Unknown LIST_ARE - Undefined
+    Unknown LIST_STA - Undefined
+
+Screen Set c:\xampp\htdocs\luanda\modulos.spr has the following errors:
+    Unknown LST_CURS - Undefined
+
+Screen Set c:\xampp\htdocs\luanda\discprof.spr has the following errors:
+    Unknown LIST_DISC - Undefined
+
+Screen Set c:\xampp\htdocs\luanda\profdisc.spr has the following errors:
+    Unknown LST_PROF - Undefined
+
+Report c:\xampp\htdocs\luanda\imp_tar.frx has the following errors:
+    Unknown LIST_BAN - Undefined
+
+Screen Set c:\xampp\htdocs\luanda\cont_rat.spr has the following errors:
+    Unknown LIST_BAN - Undefined
+    Unknown LIST_FOR - Undefined
+    Unknown LIST_CCU - Undefined
+    Unknown LST_AREA - Undefined
+    Unknown LST_SUBA - Undefined
+    Unknown LIST_TIP - Undefined
+
+Screen Set c:\xampp\htdocs\luanda\quita_co.spr has the following errors:
+    Unknown LIST_EMP - Undefined
+
+Screen Set c:\xampp\htdocs\luanda\clicurso.spr has the following errors:
+    Unknown LST_AREA - Undefined
+
+Screen Set c:\xampp\htdocs\luanda\lanc_tcc.spr has the following errors:
+    Unknown L_CLICUR - Undefined
+
+Screen Set c:\xampp\htdocs\luanda\lancacad.spr has the following errors:
+    Unknown LST_CURS - Undefined
+
+Screen Set c:\xampp\htdocs\luanda\imp_mod.spr has the following errors:
+    Unknown LIST_MOD - Undefined
+
+Screen Set c:\xampp\htdocs\luanda\lanc_la.spr has the following errors:
+    Unknown LIST_LA - Undefined
+
+Program c:\xampp\htdocs\luanda\mod_pres.prg has the following errors:
+    Unknown LST_CURS - Undefined
+
+Program c:\xampp\htdocs\luanda\exp_parc.prg has the following errors:
+    Unknown LIST_CAB - Undefined
+
+Program c:\xampp\htdocs\luanda\exp_fin.prg has the following errors:
+    Unknown LIST_CAB - Undefined
+
+Program c:\xampp\htdocs\luanda\cli_pres.prg has the following errors:
+    Unknown L_CLICUR - Undefined
+
+Program c:\xampp\htdocs\luanda\geraacei.prg has the following errors:
+    Unknown LIST_MES - Undefined
+
+Report c:\xampp\htdocs\luanda\espelho.frx has the following errors:
+    Unknown LST_CURS - Undefined
+
+Report c:\xampp\htdocs\luanda\espelho2.frx has the following errors:
+    Unknown LST_CURS - Undefined
+
+Report c:\xampp\htdocs\luanda\listcli1.frx has the following errors:
+    Unknown LST_AREA - Undefined
+    Unknown LST_SUBA - Undefined
+
+Program c:\xampp\htdocs\luanda\fluxo.prg has the following errors:
+    Unknown LST_AREA - Undefined
+    Unknown LST_SUBA - Undefined
+
+Report c:\xampp\htdocs\luanda\afdstud1.frx has the following errors:
+    Unknown LST_AREA - Undefined
+    Unknown LST_SUBA - Undefined
+
+Report c:\xampp\htdocs\luanda\relcob.frx has the following errors:
+    Unknown LISTCOB - Undefined
+
+Report c:\xampp\htdocs\luanda\afdstud2.frx has the following errors:
+    Unknown LST_AREA - Undefined
+    Unknown LST_SUBA - Undefined
+

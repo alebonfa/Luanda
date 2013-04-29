@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 21/04/2013           ERFGROEP.SPR              22:30:09 
+*       * 29/04/2013           ERFGROEP.SPR              09:03:08 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -38,8 +38,8 @@ SET READBORDER ON
 *       *********************************************************
 *
 
-IF NOT WEXIST("_3rm1cbz8g")
-	DEFINE WINDOW _3rm1cbz8g ;
+IF NOT WEXIST("_3ru0jedne")
+	DEFINE WINDOW _3ru0jedne ;
 		AT  0.000, 0.000  ;
 		SIZE 35.714,117.800 ;
 		TITLE "Itens Imobilizados" ;
@@ -48,7 +48,7 @@ IF NOT WEXIST("_3rm1cbz8g")
 		NOCLOSE ;
 		NOMINIMIZE ;
 		SYSTEM
-	MOVE WINDOW _3rm1cbz8g CENTER
+	MOVE WINDOW _3ru0jedne CENTER
 ENDIF
 
 
@@ -76,10 +76,10 @@ DO GroepLij
 *
 
 #REGION 1
-IF WVISIBLE("_3rm1cbz8g")
-	ACTIVATE WINDOW _3rm1cbz8g SAME
+IF WVISIBLE("_3ru0jedne")
+	ACTIVATE WINDOW _3ru0jedne SAME
 ELSE
-	ACTIVATE WINDOW _3rm1cbz8g NOSHOW
+	ACTIVATE WINDOW _3ru0jedne NOSHOW
 ENDIF
 @ 0.000,0.000 TO 3.500,117.800 ;
 	PATTERN 1 ;
@@ -128,19 +128,19 @@ ENDIF
 	SIZE 1.143,10.400,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3rm1cbzad()
+	VALID _3ru0jedns()
 @ 10.857,17.600 GET keuzeNaam ;
 	PICTURE "@^ Iniciando...;Contendo..." ;
 	SIZE 1.500,21.800 ;
 	DEFAULT "Iniciando..." ;
 	FONT "Arial", 8 ;
-	VALID _3rm1cbzaj()
+	VALID _3ru0jednv()
 @ 10.929,41.400 GET gefNaam ;
 	SIZE 1.000,72.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
-	VALID _3rm1cbzc1() ;
+	VALID _3ru0jednw() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 14.143,3.400 GET lokgroep ;
  	PICTURE "@&N" ;
@@ -148,7 +148,7 @@ ENDIF
 	SIZE 14.857,79.286 ;
 	DEFAULT 1 ;
 	FONT "Courier New", 8 ;
-	VALID _3rm1cbzci() ;
+	VALID _3ru0jedny() ;
 	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
 @ 29.500,3.200 GET visIndruk ;
 	PICTURE "@*C Visualiza" ;
@@ -162,16 +162,16 @@ ENDIF
 	SIZE 1.643,37.000,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3rm1cbzcs()
+	VALID _3ru0jedo0()
 
-IF NOT WVISIBLE("_3rm1cbz8g")
-	ACTIVATE WINDOW _3rm1cbz8g
+IF NOT WVISIBLE("_3ru0jedne")
+	ACTIVATE WINDOW _3ru0jedne
 ENDIF
 
 READ CYCLE ;
-	WHEN _3rm1cbzd0()
+	WHEN _3ru0jedo3()
 
-RELEASE WINDOW _3rm1cbz8g
+RELEASE WINDOW _3ru0jedne
 
 #REGION 0
 
@@ -300,7 +300,7 @@ RETURN
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1CBZAD           knopSalie VALID                    
+*       * _3RU0JEDNS           knopSalie VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -313,7 +313,7 @@ RETURN
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1cbzad     &&  knopSalie VALID
+FUNCTION _3ru0jedns     &&  knopSalie VALID
 #REGION 1
 DO CASE
 CASE knopsalie = 1
@@ -333,7 +333,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1CBZAJ           keuzeNaam VALID                    
+*       * _3RU0JEDNV           keuzeNaam VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -346,14 +346,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1cbzaj     &&  keuzeNaam VALID
+FUNCTION _3ru0jednv     &&  keuzeNaam VALID
 #REGION 1
 DO groepLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1CBZC1           gefNaam VALID                      
+*       * _3RU0JEDNW           gefNaam VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -366,14 +366,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1cbzc1     &&  gefNaam VALID
+FUNCTION _3ru0jednw     &&  gefNaam VALID
 #REGION 1
 DO groepLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1CBZCI           lokgroep VALID                     
+*       * _3RU0JEDNY           lokgroep VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -386,14 +386,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1cbzci     &&  lokgroep VALID
+FUNCTION _3ru0jedny     &&  lokgroep VALID
 #REGION 1
 DO overlagGroep
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1CBZCS           knopGroep VALID                    
+*       * _3RU0JEDO0           knopGroep VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -406,7 +406,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1cbzcs     &&  knopGroep VALID
+FUNCTION _3ru0jedo0     &&  knopGroep VALID
 #REGION 1
 DO CASE
 CASE knopGroep = 1
@@ -430,7 +430,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1CBZD0           Read Level When                    
+*       * _3RU0JEDO3           Read Level When                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -442,7 +442,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1cbzd0     && Read Level When
+FUNCTION _3ru0jedo3     && Read Level When
 *
 * When Code from screen: ERFGROEP
 *

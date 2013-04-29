@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 21/04/2013           CAD_USER.SPR              22:27:38 
+*       * 29/04/2013           CAD_USER.SPR              09:01:55 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -220,7 +220,7 @@ ENDIF
 	SIZE 1.500,4.800,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3rm1c5gyq()
+	VALID _3ru0jct75()
 @ 9.923,70.800 SAY lokStaat ;
 	SIZE 1.000,82.400 ;
 	FONT "Arial", 8 ;
@@ -323,7 +323,7 @@ ENDIF
 	SIZE 1.500,16.200,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3rm1c5h6v()
+	VALID _3ru0jct85()
 
 IF NOT WVISIBLE("_2vo0your0")
 	ACTIVATE WINDOW _2vo0your0
@@ -331,7 +331,7 @@ ENDIF
 
 READ CYCLE MODAL ;
 	WHEN _2VO0YOUSP() ;
-	SHOW _3rm1c5h8b()
+	SHOW _3ru0jct88()
 
 RELEASE WINDOW _2vo0your0
 
@@ -500,7 +500,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C5GYQ           knopStaat VALID                    
+*       * _3RU0JCT75           knopStaat VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -513,7 +513,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c5gyq     &&  knopStaat VALID
+FUNCTION _3ru0jct75     &&  knopStaat VALID
 #REGION 1
 DO CASE
 CASE knopStaat = 1
@@ -822,7 +822,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C5H6V           butCopia VALID                     
+*       * _3RU0JCT85           butCopia VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -835,7 +835,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c5h6v     &&  butCopia VALID
+FUNCTION _3ru0jct85     &&  butCopia VALID
 #REGION 1
 origem  = list_usr[copyusrs,2]
 destino = list_usr[usrs,2]
@@ -886,7 +886,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C5H8B           Read Level Show                    
+*       * _3RU0JCT88           Read Level Show                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -898,7 +898,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c5h8b     && Read Level Show
+FUNCTION _3ru0jct88     && Read Level Show
 PRIVATE currwind
 STORE WOUTPUT() TO currwind
 *

@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 25/04/2013            CONTAS.SPR               12:45:25 
+*       * 29/04/2013            CONTAS.SPR               09:05:02 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -129,6 +129,7 @@ DIMENSION lst_suba[ 1]
 SELECT sigla, codigo FROM subarea ORDER BY sigla INTO ARRAY  ;
        lst_suba
 wloja = 0
+wdatanf = {}
 wdatemiss = DATE()
 wdatalanc = DATE()
 wvalor = 0.00
@@ -253,7 +254,7 @@ ENDIF
 	PEN 1, 8 ;
 	STYLE "1" ;
 	COLOR RGB(0,128,128,0,128,128)
-@ 6.385,140.400 SAY "Emissão" ;
+@ 6.385,140.400 SAY "Lancamento" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,,,,)
@@ -277,6 +278,22 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(0,0,0,,,,)
+@ 21.231,0.000 TO 21.231,197.800 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(0,128,128,0,128,128)
+@ 0.000,0.000 TO 3.769,198.000 ;
+	PATTERN 1 ;
+	PEN 1, 8 ;
+	COLOR RGB(0,128,128,0,128,128)
+@ 1.077,160.800 SAY "CONTAS A PAGAR" ;
+	FONT "Arial", 14 ;
+	STYLE "T" ;
+	COLOR RGB(255,255,255,,,,)
+@ 6.385,171.200 SAY "Emissão" ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,128,128,,,,)
 @ 6.154,18.000 GET fors ;
 	PICTURE "@^" ;
 	FROM list_for ;
@@ -341,7 +358,12 @@ ENDIF
 	VALID _2VO0YOHV4() ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 6.385,154.000 GET wdatemiss ;
-	SIZE 1.000,19.600 ;
+	SIZE 1.000,12.800 ;
+	DEFAULT {  /  /  } ;
+	FONT "Arial", 8 ;
+	COLOR ,RGB(0,0,0,255,255,255)
+@ 6.385,181.200 GET wdatanf ;
+	SIZE 1.000,12.800 ;
 	DEFAULT {  /  /  } ;
 	FONT "Arial", 8 ;
 	COLOR ,RGB(0,0,0,255,255,255)
@@ -575,18 +597,6 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 21.231,0.000 TO 21.231,197.800 ;
-	PEN 1, 8 ;
-	STYLE "1" ;
-	COLOR RGB(0,128,128,0,128,128)
-@ 0.000,0.000 TO 3.769,198.000 ;
-	PATTERN 1 ;
-	PEN 1, 8 ;
-	COLOR RGB(0,128,128,0,128,128)
-@ 1.077,160.800 SAY "CONTAS A PAGAR" ;
-	FONT "Arial", 14 ;
-	STYLE "T" ;
-	COLOR RGB(255,255,255,,,,)
 @ 18.462,18.000 GET emps ;
 	PICTURE "@^" ;
 	FROM list_emp ;
@@ -656,1057 +666,1059 @@ ENDIF
 
 #REGION 1
 PROCEDURE atua_situa
-SELECT contas
-auxfilt = FILTER()
-SET FILTER TO contas.datavencim < DATE();
-.AND. contas.situacao = "A"
-SCAN
- REPLACE contas.situacao WITH "V"
-ENDSCAN
-SET FILTER TO &auxfilt
-RETURN
-*--
+	SELECT contas
+	auxfilt = FILTER()
+	SET FILTER TO contas.datavencim < DATE();
+		.AND. contas.situacao = "A"
+	SCAN
+		REPLACE contas.situacao WITH "V"
+	ENDSCAN
+	SET FILTER TO &auxfilt
+	RETURN
+	*--
 
-*--
+	*--
 PROCEDURE zera_var
-wnparc = 1
-wvalor = 0.00
-venc1 = 0
-inclui = .T.
-SHOW GET menu, 1 PROMPT "Adiciona"
-SHOW GET menu, 3 ENABLE
-SHOW GET menu, 4 ENABLE
-SHOW GET menu, 5 ENABLE
-SHOW GET wsit ENABLE
-SHOW GET di ENABLE
-SHOW GET df ENABLE
-RETURN
-*--
+	wnparc = 1
+	wvalor = 0.00
+	venc1 = 0
+	inclui = .T.
+	SHOW GET MENU, 1 PROMPT "Adiciona"
+	SHOW GET MENU, 3 ENABLE
+	SHOW GET MENU, 4 ENABLE
+	SHOW GET MENU, 5 ENABLE
+	SHOW GET wsit ENABLE
+	SHOW GET di ENABLE
+	SHOW GET df ENABLE
+	RETURN
+	*--
 
-*--
+	*--
 PROCEDURE filtra
-SELECT contas
-c = 0
-auxfilt = " "
-auxord = "Contas.Datavencim, Contas.Valpgtorec "
-DO CASE
- CASE tipo_dat = 1
-  DO CASE
-   CASE di <> {} .AND. df = {}
-    c = 1
-    auxfilt = "Contas.Datavencim >= Di "
-   CASE di = {} .AND. df <> {}
-    c = 1
-    auxfilt = "Contas.Datavencim <= Df "
-   CASE di <> {} .AND. df <> {}
-    c = 1
-    auxfilt = "Contas.Datavencim >= Di AND Contas.Datavencim <= Df "
-  ENDCASE
- CASE tipo_dat = 2
-  DO CASE
-   CASE di <> {} .AND. df = {}
-    c = 1
-    auxfilt = "Contas.Datapagtos >= Di "
-   CASE di = {} .AND. df <> {}
-    c = 1
-    auxfilt = "Contas.Datapagtos <= Df "
-   CASE di <> {} .AND. df <> {}
-    c = 1
-    auxfilt = "Contas.Datapagtos >= Di AND Contas.Datapagtos <= Df "
-  ENDCASE
- CASE tipo_dat = 3
-  DO CASE
-   CASE di <> {} .AND. df = {}
-    c = 1
-    auxfilt = "Contas.Datalancam >= Di "
-   CASE di = {} .AND. df <> {}
-    c = 1
-    auxfilt = "Contas.Datalancam <= Df "
-   CASE di <> {} .AND. df <> {}
-    c = 1
-    auxfilt = "Contas.Datalancam >= Di AND Contas.Datalancam <= Df "
-  ENDCASE
-ENDCASE
-DO CASE
- CASE SUBSTR(wsit, 1, 1) = "A"
-  IF c = 1
-   auxfilt = auxfilt + "AND "
-  ENDIF
-  c = 1
-  auxfilt = auxfilt +  ;
-            "(Contas.Situacao <> 'L' AND Contas.Situacao <> 'E')"
- CASE SUBSTR(wsit, 1, 1) = "L"
-  IF c = 1
-   auxfilt = auxfilt + "AND "
-  ENDIF
-  c = 1
-  auxfilt = auxfilt +  ;
-            "(Contas.Situacao = 'L' AND Contas.Situacao <> 'E')"
- CASE SUBSTR(wsit, 1, 1) = "V"
-  IF c = 1
-   auxfilt = auxfilt + "AND "
-  ENDIF
-  c = 1
-  auxfilt = auxfilt +  ;
-            "(Contas.Situacao = 'V' AND Contas.Situacao <> 'E')"
-ENDCASE
-IF filt_cede
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt +  ;
-           "Contas.Razaosocia = ALLTRIM(List_for[Fors,1]) "
-ELSE
- IF !ISBLANK(wc_nfor)
-  IF c = 1
-   auxfilt = auxfilt + "AND "
-  ENDIF
-  c = 1
-  IF tip_nome = 1
-   auxfilt = auxfilt + "Contas.Razaosocia = ALLTRIM(Wc_nfor) "
-  ELSE
-   auxfilt = auxfilt + "ALLTRIM(Wc_nfor) $ Contas.Razaosocia "
-  ENDIF
- ENDIF
-ENDIF
-IF filt_plan
- wc_ccu = list_ccu(ccus,2)
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Contas.Plano = Wc_ccu "
-ENDIF
-IF filt_area
- wc_area = lst_area(areas,2)
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Contas.Area = Wc_area "
-ENDIF
-IF filt_suba
- wc_suba = lst_suba(subas,2)
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Contas.Subarea = Wc_suba "
-ENDIF
-IF filt_cart
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Contas.Cartao_id = List_cart[carts,2] "
-ENDIF
-IF filt_form
- wc_form = list_tip(tips,2)
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Contas.Forma = Wc_form "
-ENDIF
-IF filt_banc
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Codigobanc = List_ban[bans,2] "
-ENDIF
-IF lempr
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "empresa_id = List_emp[emps,2] "
-ENDIF
-IF filt_mod
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Modulo = Wmodulo "
-ENDIF
-IF filt_tipo
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Tipo = Wtipo "
-ENDIF
-IF filt_nota
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- IF !ISBLANK(wnota) .AND. !ISBLANK(wnotaf)
-  auxfilt = auxfilt +  ;
-            "Contas.Numnotadoc >= Wnota AND			 Contas.Numnotadoc <= Wnotaf "
-  auxord = "Contas.Numnotadoc, Contas.Datavencim, Contas.Valpgtorec "
- ELSE
-  auxfilt = auxfilt + "Contas.Numnotadoc = Wnota "
- ENDIF
-ENDIF
-IF filt_valo
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Contas.Valpgtorec = Wvalor "
-ENDIF
-IF filt_obs
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "UPPER(ALLTRIM(wobs)) $ UPPER(Contas.Obs) "
-ENDIF
-IF c = 1
- DIMENSION list_cont[ 1]
- DIMENSION list_rec[ 1]
- list_cont[ 1] = "NÃO EXISTEM CONTAS A LISTAR NESTAS CONDIÇÕES"
- SELECT contas.situacao+". "+ SUBSTR(ccust2.descricao,1,17)+"  "+ SUBSTR(contas.razaosocia,1,30)+"  "+;
-contas.numnotadoc+"  "+ DTOC(contas.datavencim)+" "+ STR(contas.valpgtorec,10,2)+"   "+;
-contas.curso+" "+ area.sigla, contas.numerolanc, contas.valpgtorec FROM contas,;
-ccust2, area WHERE contas.area == area.codigo AND contas.plano == ccust2.codigo;
-AND &auxfilt ORDER BY &auxord INTO ARRAY list_cont
- nrec = ALEN(list_cont) / 3
- totabe = 0.00
- FOR i = 1 TO nrec
-  totabe = totabe + list_cont(i,3)
- ENDFOR
-ELSE
- DIMENSION list_cont[ 1, 3]
- list_cont[ 1, 1] =  ;
-          "SELECIONE UM DOS FILTROS QUE SEJA GERADA A LISTA..."
- list_cont[ 1, 2] = 0
- list_cont[ 1, 3] = 0
-ENDIF
-SELECT contas
-RETURN
-*--
+	SELECT contas
+	C = 0
+	auxfilt = " "
+	auxord = "Contas.Datavencim, Contas.Valpgtorec "
+	DO CASE
+	CASE tipo_dat = 1
+		DO CASE
+		CASE di <> {} .AND. df = {}
+			C = 1
+			auxfilt = "Contas.Datavencim >= Di "
+		CASE di = {} .AND. df <> {}
+			C = 1
+			auxfilt = "Contas.Datavencim <= Df "
+		CASE di <> {} .AND. df <> {}
+			C = 1
+			auxfilt = "Contas.Datavencim >= Di AND Contas.Datavencim <= Df "
+		ENDCASE
+	CASE tipo_dat = 2
+		DO CASE
+		CASE di <> {} .AND. df = {}
+			C = 1
+			auxfilt = "Contas.Datapagtos >= Di "
+		CASE di = {} .AND. df <> {}
+			C = 1
+			auxfilt = "Contas.Datapagtos <= Df "
+		CASE di <> {} .AND. df <> {}
+			C = 1
+			auxfilt = "Contas.Datapagtos >= Di AND Contas.Datapagtos <= Df "
+		ENDCASE
+	CASE tipo_dat = 3
+		DO CASE
+		CASE di <> {} .AND. df = {}
+			C = 1
+			auxfilt = "Contas.Datalancam >= Di "
+		CASE di = {} .AND. df <> {}
+			C = 1
+			auxfilt = "Contas.Datalancam <= Df "
+		CASE di <> {} .AND. df <> {}
+			C = 1
+			auxfilt = "Contas.Datalancam >= Di AND Contas.Datalancam <= Df "
+		ENDCASE
+	ENDCASE
+	DO CASE
+	CASE SUBSTR(wsit, 1, 1) = "A"
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt +  ;
+			"(Contas.Situacao <> 'L' AND Contas.Situacao <> 'E')"
+	CASE SUBSTR(wsit, 1, 1) = "L"
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt +  ;
+			"(Contas.Situacao = 'L' AND Contas.Situacao <> 'E')"
+	CASE SUBSTR(wsit, 1, 1) = "V"
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt +  ;
+			"(Contas.Situacao = 'V' AND Contas.Situacao <> 'E')"
+	ENDCASE
+	IF filt_cede
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt +  ;
+			"Contas.Razaosocia = ALLTRIM(List_for[Fors,1]) "
+	ELSE
+		IF !isblank(wc_nfor)
+			IF C = 1
+				auxfilt = auxfilt + "AND "
+			ENDIF
+			C = 1
+			IF tip_nome = 1
+				auxfilt = auxfilt + "Contas.Razaosocia = ALLTRIM(Wc_nfor) "
+			ELSE
+				auxfilt = auxfilt + "ALLTRIM(Wc_nfor) $ Contas.Razaosocia "
+			ENDIF
+		ENDIF
+	ENDIF
+	IF filt_plan
+		wc_ccu = list_ccu(ccus,2)
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Contas.Plano = Wc_ccu "
+	ENDIF
+	IF filt_area
+		wc_area = lst_area(areas,2)
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Contas.Area = Wc_area "
+	ENDIF
+	IF filt_suba
+		wc_suba = lst_suba(subas,2)
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Contas.Subarea = Wc_suba "
+	ENDIF
+	IF filt_cart
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Contas.Cartao_id = List_cart[carts,2] "
+	ENDIF
+	IF filt_form
+		wc_form = list_tip(tips,2)
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Contas.Forma = Wc_form "
+	ENDIF
+	IF filt_banc
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Codigobanc = List_ban[bans,2] "
+	ENDIF
+	IF lempr
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "empresa_id = List_emp[emps,2] "
+	ENDIF
+	IF filt_mod
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Modulo = Wmodulo "
+	ENDIF
+	IF filt_tipo
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Tipo = Wtipo "
+	ENDIF
+	IF filt_nota
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		IF !isblank(wnota) .AND. !isblank(wnotaf)
+			auxfilt = auxfilt +  ;
+				"Contas.Numnotadoc >= Wnota AND			 Contas.Numnotadoc <= Wnotaf "
+			auxord = "Contas.Numnotadoc, Contas.Datavencim, Contas.Valpgtorec "
+		ELSE
+			auxfilt = auxfilt + "Contas.Numnotadoc = Wnota "
+		ENDIF
+	ENDIF
+	IF filt_valo
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Contas.Valpgtorec = Wvalor "
+	ENDIF
+	IF filt_obs
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "UPPER(ALLTRIM(wobs)) $ UPPER(Contas.Obs) "
+	ENDIF
+	IF C = 1
+		DIMENSION list_cont[ 1]
+		DIMENSION list_rec[ 1]
+		list_cont[ 1] = "NÃO EXISTEM CONTAS A LISTAR NESTAS CONDIÇÕES"
+		SELECT contas.situacao+". "+ SUBSTR(ccust2.descricao,1,17)+"  "+ SUBSTR(contas.razaosocia,1,30)+"  "+;
+			contas.numnotadoc+"  "+ DTOC(contas.datavencim)+" "+ STR(contas.valpgtorec,10,2)+"   "+;
+			contas.curso+" "+ area.sigla, contas.numerolanc, contas.valpgtorec FROM contas,;
+			ccust2, area WHERE contas.area == area.codigo AND contas.plano == ccust2.codigo;
+			AND &auxfilt ORDER BY &auxord INTO ARRAY list_cont
+		nrec = ALEN(list_cont) / 3
+		totabe = 0.00
+		FOR i = 1 TO nrec
+			totabe = totabe + list_cont(i,3)
+		ENDFOR
+	ELSE
+		DIMENSION list_cont[ 1, 3]
+		list_cont[ 1, 1] =  ;
+			"SELECIONE UM DOS FILTROS QUE SEJA GERADA A LISTA..."
+		list_cont[ 1, 2] = 0
+		list_cont[ 1, 3] = 0
+	ENDIF
+	SELECT contas
+	RETURN
+	*--
 
-*--
+	*--
 PROCEDURE rel_contas
-SELECT contas
-c = 0
-auxfilt = " "
-auxord = "Contas.Datavencim, Contas.Razaosocia, Contas.Valpgtorec "
-impnota = .F.
-DO CASE
- CASE tipo_dat = 1
-  DO CASE
-   CASE di <> {} .AND. df = {}
-    c = 1
-    auxfilt = "Contas.Datavencim >= Di "
-   CASE di = {} .AND. df <> {}
-    c = 1
-    auxfilt = "Contas.Datavencim <= Df "
-   CASE di <> {} .AND. df <> {}
-    c = 1
-    auxfilt = "Contas.Datavencim >= Di AND Contas.Datavencim <= Df "
-  ENDCASE
- CASE tipo_dat = 2
-  DO CASE
-   CASE di <> {} .AND. df = {}
-    c = 1
-    auxfilt = "Contas.Datapagtos >= Di "
-   CASE di = {} .AND. df <> {}
-    c = 1
-    auxfilt = "Contas.Datapagtos <= Df "
-   CASE di <> {} .AND. df <> {}
-    c = 1
-    auxfilt = "Contas.Datapagtos >= Di AND Contas.Datapagtos <= Df "
-  ENDCASE
- CASE tipo_dat = 3
-  DO CASE
-   CASE di <> {} .AND. df = {}
-    c = 1
-    auxfilt = "Contas.Datalancam >= Di "
-   CASE di = {} .AND. df <> {}
-    c = 1
-    auxfilt = "Contas.Datalancam <= Df "
-   CASE di <> {} .AND. df <> {}
-    c = 1
-    auxfilt = "Contas.Datalancam >= Di AND Contas.Datalancam <= Df "
-  ENDCASE
-ENDCASE
-DO CASE
- CASE SUBSTR(wsit, 1, 1) = "A"
-  IF c = 1
-   auxfilt = auxfilt + "AND "
-  ENDIF
-  c = 1
-  auxfilt = auxfilt +  ;
-            "(Contas.Situacao <> 'L' AND Contas.Situacao <> 'E')"
- CASE SUBSTR(wsit, 1, 1) = "L"
-  IF c = 1
-   auxfilt = auxfilt + "AND "
-  ENDIF
-  c = 1
-  auxfilt = auxfilt +  ;
-            "(Contas.Situacao = 'L' AND Contas.Situacao <> 'E')"
- CASE SUBSTR(wsit, 1, 1) = "V"
-  IF c = 1
-   auxfilt = auxfilt + "AND "
-  ENDIF
-  c = 1
-  auxfilt = auxfilt +  ;
-            "(Contas.Situacao = 'V' AND Contas.Situacao <> 'E')"
-ENDCASE
-IF filt_cede
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt +  ;
-           "Contas.Razaosocia = ALLTRIM(List_for[Fors,1]) "
-ELSE
- IF !ISBLANK(wc_nfor)
-  IF c = 1
-   auxfilt = auxfilt + "AND "
-  ENDIF
-  c = 1
-  auxfilt = auxfilt + "Contas.Razaosocia = Wc_nfor "
- ENDIF
-ENDIF
-IF filt_plan
- wc_ccu = list_ccu(ccus,2)
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Contas.Plano = Wc_ccu "
-ENDIF
-IF filt_area
- wc_area = lst_area(areas,2)
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Contas.Area = Wc_area "
-ENDIF
-IF filt_suba
- wc_suba = lst_suba(subas,2)
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Contas.Subarea = Wc_suba "
-ENDIF
-IF filt_form
- wc_form = list_tip(tips,2)
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Contas.Forma = Wc_form "
-ENDIF
-IF filt_banc
- wc_ban = list_ban(bans,2)
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Contas.Codigobanc = Wc_ban "
-ENDIF
-IF lempr
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "empresa_id = List_emp[emps,2] "
-ENDIF
-IF filt_nota
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- IF !ISBLANK(wnota) .AND. !ISBLANK(wnotaf)
-  auxfilt = auxfilt +  ;
-            "Contas.Numnotadoc >= Wnota AND			 Contas.Numnotadoc <= Wnotaf "
-  auxord = "Contas.Numnotadoc, Contas.Datavencim, Contas.Valpgtorec "
-  impnota = .T.
- ELSE
-  auxfilt = auxfilt + "Contas.Numnotadoc = Wnota "
- ENDIF
-ENDIF
-IF filt_valo
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Contas.Valpgtorec = Wvalor "
-ENDIF
-IF filt_obs
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "UPPER(ALLTRIM(wobs)) $ UPPER(Contas.Obs) "
-ENDIF
-IF c = 1 .OR. wcopia
- IF wcopia
-  SELECT contas.razaosocia, contas.situacao, contas.datavencim, contas.valpgtorec,;
-contas.numnotadoc, contas.valorliqui, contas.curso FROM contas WHERE contas.codigobanc;
-== list_ban[Bans,2] AND contas.copia == ws_cop ORDER BY &auxord INTO CURSOR;
-cont_imp
-  ws_comp = ALLTRIM(list_ban(bans,1)) + " - " + ws_comp
-  SELECT cont_imp
-  REPORT FORM copia_cq.frx TO PRINTER &cvisual
- ELSE
-  SELECT contas.razaosocia, contas.situacao, contas.datavencim, contas.valpgtorec,;
-contas.numnotadoc, contas.valorliqui, contas.plano, contas.area, contas.datapagtos,;
-contas.codigobanc, contas.forma,contas.curso, contas.obs, ccust2.descricao;
-AS ccust, area.sigla FROM contas, ccust2, area WHERE contas.plano == ccust2.codigo;
-AND contas.area == area.codigo AND &auxfilt ORDER BY &auxord INTO CURSOR;
-cont_imp
-  conf_rel = winconf("ATENÇÃO","Relatório Quebrado por Mês?")
-  IF conf_rel
-   n_clientes = 0
-   IF filt_area .AND. filt_suba
-    SELECT clicurso
-    CALCULATE FOR clicurso.codarea = wc_area .AND.  ;
-              clicurso.codsub = wc_suba .AND.  ;
-              ALLTRIM(clicurso.situacao) $  ;
-              "ATIVO-BOLSISTA-CONCLUIDO" CNT() TO n_clientes
-   ENDIF
-   SELECT cont_imp
-   crel = winconf("ATENÇÃO","Relatório com Observações?")
-   IF crel
-    warea = lst_area(areas,1)
-    wsub = lst_suba(subas,1)
-    REPORT FORM cnt_obs.frx TO PRINTER &cvisual
-   ELSE
-    REPORT FORM cnt_mes.frx TO PRINTER &cvisual
-   ENDIF
-  ELSE
-   IF impnota
-    REPORT FORM cnt_docs.frx TO PRINTER &cvisual
-   ELSE
-    crel = winconf("ATENÇÃO","Agrupado por Fornecedor?")
-    IF crel
-     REPORT FORM cont_for.frx TO PRINTER &cvisual
-    ELSE
-     REPORT FORM contas.frx TO PRINTER &cvisual
-    ENDIF
-   ENDIF
-  ENDIF
- ENDIF
-ELSE
- WAIT WINDOW "DADOS INSUFICIENTES PARA EMISSÃO DO RELATÓRIO"
-ENDIF
-RETURN
-*--
+	SELECT contas
+	C = 0
+	auxfilt = " "
+	auxord = "Contas.Datavencim, Contas.Razaosocia, Contas.Valpgtorec "
+	impnota = .F.
+	DO CASE
+	CASE tipo_dat = 1
+		DO CASE
+		CASE di <> {} .AND. df = {}
+			C = 1
+			auxfilt = "Contas.Datavencim >= Di "
+		CASE di = {} .AND. df <> {}
+			C = 1
+			auxfilt = "Contas.Datavencim <= Df "
+		CASE di <> {} .AND. df <> {}
+			C = 1
+			auxfilt = "Contas.Datavencim >= Di AND Contas.Datavencim <= Df "
+		ENDCASE
+	CASE tipo_dat = 2
+		DO CASE
+		CASE di <> {} .AND. df = {}
+			C = 1
+			auxfilt = "Contas.Datapagtos >= Di "
+		CASE di = {} .AND. df <> {}
+			C = 1
+			auxfilt = "Contas.Datapagtos <= Df "
+		CASE di <> {} .AND. df <> {}
+			C = 1
+			auxfilt = "Contas.Datapagtos >= Di AND Contas.Datapagtos <= Df "
+		ENDCASE
+	CASE tipo_dat = 3
+		DO CASE
+		CASE di <> {} .AND. df = {}
+			C = 1
+			auxfilt = "Contas.Datalancam >= Di "
+		CASE di = {} .AND. df <> {}
+			C = 1
+			auxfilt = "Contas.Datalancam <= Df "
+		CASE di <> {} .AND. df <> {}
+			C = 1
+			auxfilt = "Contas.Datalancam >= Di AND Contas.Datalancam <= Df "
+		ENDCASE
+	ENDCASE
+	DO CASE
+	CASE SUBSTR(wsit, 1, 1) = "A"
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt +  ;
+			"(Contas.Situacao <> 'L' AND Contas.Situacao <> 'E')"
+	CASE SUBSTR(wsit, 1, 1) = "L"
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt +  ;
+			"(Contas.Situacao = 'L' AND Contas.Situacao <> 'E')"
+	CASE SUBSTR(wsit, 1, 1) = "V"
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt +  ;
+			"(Contas.Situacao = 'V' AND Contas.Situacao <> 'E')"
+	ENDCASE
+	IF filt_cede
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt +  ;
+			"Contas.Razaosocia = ALLTRIM(List_for[Fors,1]) "
+	ELSE
+		IF !isblank(wc_nfor)
+			IF C = 1
+				auxfilt = auxfilt + "AND "
+			ENDIF
+			C = 1
+			auxfilt = auxfilt + "Contas.Razaosocia = Wc_nfor "
+		ENDIF
+	ENDIF
+	IF filt_plan
+		wc_ccu = list_ccu(ccus,2)
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Contas.Plano = Wc_ccu "
+	ENDIF
+	IF filt_area
+		wc_area = lst_area(areas,2)
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Contas.Area = Wc_area "
+	ENDIF
+	IF filt_suba
+		wc_suba = lst_suba(subas,2)
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Contas.Subarea = Wc_suba "
+	ENDIF
+	IF filt_form
+		wc_form = list_tip(tips,2)
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Contas.Forma = Wc_form "
+	ENDIF
+	IF filt_banc
+		wc_ban = list_ban(bans,2)
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Contas.Codigobanc = Wc_ban "
+	ENDIF
+	IF lempr
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "empresa_id = List_emp[emps,2] "
+	ENDIF
+	IF filt_nota
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		IF !isblank(wnota) .AND. !isblank(wnotaf)
+			auxfilt = auxfilt +  ;
+				"Contas.Numnotadoc >= Wnota AND			 Contas.Numnotadoc <= Wnotaf "
+			auxord = "Contas.Numnotadoc, Contas.Datavencim, Contas.Valpgtorec "
+			impnota = .T.
+		ELSE
+			auxfilt = auxfilt + "Contas.Numnotadoc = Wnota "
+		ENDIF
+	ENDIF
+	IF filt_valo
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Contas.Valpgtorec = Wvalor "
+	ENDIF
+	IF filt_obs
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "UPPER(ALLTRIM(wobs)) $ UPPER(Contas.Obs) "
+	ENDIF
+	IF C = 1 .OR. wcopia
+		IF wcopia
+			SELECT contas.razaosocia, contas.situacao, contas.datavencim, contas.valpgtorec,;
+				contas.numnotadoc, contas.valorliqui, contas.curso FROM contas WHERE contas.codigobanc;
+				== list_ban[Bans,2] AND contas.copia == ws_cop ORDER BY &auxord INTO CURSOR;
+				cont_imp
+			ws_comp = ALLTRIM(list_ban(bans,1)) + " - " + ws_comp
+			SELECT cont_imp
+			REPORT FORM copia_cq.frx TO PRINTER &cvisual
+		ELSE
+			SELECT contas.razaosocia, contas.situacao, contas.datavencim, contas.valpgtorec,;
+				contas.numnotadoc, contas.valorliqui, contas.plano, contas.area, contas.datapagtos,;
+				contas.codigobanc, contas.forma,contas.curso, contas.obs, ccust2.descricao;
+				AS ccust, area.sigla FROM contas, ccust2, area WHERE contas.plano == ccust2.codigo;
+				AND contas.area == area.codigo AND &auxfilt ORDER BY &auxord INTO CURSOR;
+				cont_imp
+			conf_rel = winconf("ATENÇÃO","Relatório Quebrado por Mês?")
+			IF conf_rel
+				n_clientes = 0
+				IF filt_area .AND. filt_suba
+					SELECT clicurso
+					CALCULATE FOR clicurso.codarea = wc_area .AND.  ;
+						clicurso.codsub = wc_suba .AND.  ;
+						ALLTRIM(clicurso.situacao) $  ;
+						"ATIVO-BOLSISTA-CONCLUIDO" CNT() TO n_clientes
+				ENDIF
+				SELECT cont_imp
+				crel = winconf("ATENÇÃO","Relatório com Observações?")
+				IF crel
+					warea = lst_area(areas,1)
+					wsub = lst_suba(subas,1)
+					REPORT FORM cnt_obs.frx TO PRINTER &cvisual
+				ELSE
+					REPORT FORM cnt_mes.frx TO PRINTER &cvisual
+				ENDIF
+			ELSE
+				IF impnota
+					REPORT FORM cnt_docs.frx TO PRINTER &cvisual
+				ELSE
+					crel = winconf("ATENÇÃO","Agrupado por Fornecedor?")
+					IF crel
+						REPORT FORM cont_for.frx TO PRINTER &cvisual
+					ELSE
+						REPORT FORM contas.frx TO PRINTER &cvisual
+					ENDIF
+				ENDIF
+			ENDIF
+		ENDIF
+	ELSE
+		WAIT WINDOW "DADOS INSUFICIENTES PARA EMISSÃO DO RELATÓRIO"
+	ENDIF
+	RETURN
+	*--
 
-*--
+	*--
 PROCEDURE ced_list
-DO CASE
- CASE wtipo_ced = 1
-  SELECT fornecs.nome, fornecs.codigo, fornecs.plano FROM  ;
-         fornecs ORDER BY fornecs.nome INTO ARRAY list_for
- CASE wtipo_ced = 2
-  SELECT funcs.nome, funcs.codigo, "0101" FROM funcs WHERE  ;
-         funcs.status <> "X" ORDER BY funcs.nome INTO ARRAY  ;
-         list_for
- CASE wtipo_ced = 3
-  SELECT prof.nome, prof.codigo, "0301" FROM prof ORDER BY  ;
-         prof.nome INTO ARRAY list_for
-ENDCASE
-fors = 1
-IF !ISBLANK(list_for(fors,3))
- ccus = ASCAN(rec_ccu, ALLTRIM(list_for(fors,3)))
-ENDIF
-SHOW GETS
-RETURN
-*--
+	DO CASE
+	CASE wtipo_ced = 1
+		SELECT fornecs.nome, fornecs.codigo, fornecs.plano FROM  ;
+			fornecs ORDER BY fornecs.nome INTO ARRAY list_for
+	CASE wtipo_ced = 2
+		SELECT funcs.nome, funcs.codigo, "0101" FROM funcs WHERE  ;
+			funcs.status <> "X" ORDER BY funcs.nome INTO ARRAY  ;
+			list_for
+	CASE wtipo_ced = 3
+		SELECT prof.nome, prof.codigo, "0301" FROM prof ORDER BY  ;
+			prof.nome INTO ARRAY list_for
+	ENDCASE
+	fors = 1
+	IF !isblank(list_for(fors,3))
+		ccus = ASCAN(rec_ccu, ALLTRIM(list_for(fors,3)))
+	ENDIF
+	SHOW GETS
+	RETURN
+	*--
 
-*--
+	*--
 PROCEDURE for_list
-SELECT STR(tip_paga.codigo, 1) + " - " + tip_paga.descricao,  ;
-       tip_paga.codigo FROM tip_paga ORDER BY tip_paga.codigo  ;
-       INTO ARRAY list_tip
-SELECT bancos.nome, bancos.codigo FROM bancos ORDER BY  ;
-       bancos.nome INTO ARRAY list_ban
-SELECT cartao.descricao, cartao.id FROM cartao ORDER BY  ;
-       cartao.descricao INTO ARRAY list_cart
-SELECT ccust2.codigo + " " + ccust2.descricao, ccust2.codigo  ;
-       FROM ccust2 ORDER BY ccust2.codigo INTO ARRAY list_ccu
-SELECT ccust2.codigo FROM ccust2 ORDER BY ccust2.codigo INTO  ;
-       ARRAY rec_ccu
-RETURN
-*--
+	SELECT STR(tip_paga.codigo, 1) + " - " + tip_paga.descricao,  ;
+		tip_paga.codigo FROM tip_paga ORDER BY tip_paga.codigo  ;
+		INTO ARRAY list_tip
+	SELECT bancos.nome, bancos.codigo FROM bancos ORDER BY  ;
+		bancos.nome INTO ARRAY list_ban
+	SELECT cartao.descricao, cartao.id FROM cartao ORDER BY  ;
+		cartao.descricao INTO ARRAY list_cart
+	SELECT ccust2.codigo + " " + ccust2.descricao, ccust2.codigo  ;
+		FROM ccust2 ORDER BY ccust2.codigo INTO ARRAY list_ccu
+	SELECT ccust2.codigo FROM ccust2 ORDER BY ccust2.codigo INTO  ;
+		ARRAY rec_ccu
+	RETURN
+	*--
 
-*--
+	*--
 PROCEDURE aj_vcto
-FOR i = 1 TO vencs
- aux_par = "Venc" + ALLTRIM(STR(i, 2))
- SHOW GET &aux_par ENABLE
-ENDFOR
-FOR i = 10 TO vencs + 1 STEP -1
- aux_par = "Venc" + ALLTRIM(STR(i, 2))
- SHOW GET &aux_par DISABLE
- &aux_par = 0
-ENDFOR
-RETURN
-*--
+	FOR i = 1 TO vencs
+		aux_par = "Venc" + ALLTRIM(STR(i, 2))
+		SHOW GET &aux_par ENABLE
+	ENDFOR
+	FOR i = 10 TO vencs + 1 STEP -1
+		aux_par = "Venc" + ALLTRIM(STR(i, 2))
+		SHOW GET &aux_par DISABLE
+		&aux_par = 0
+	ENDFOR
+	RETURN
+	*--
 
-*--
+	*--
 PROCEDURE adiciona
-conf = winconf("AVISO", ;
-       "TEM CERTEZA QUE DESEJA INCLUIR ESTA CONTA?")
-IF conf
- auxcond = SPACE(33)
- FOR i = 1 TO vencs
-  aux_venc = "Venc" + ALLTRIM(STR(i, 2))
-  auxcond = auxcond + STR(&aux_venc,3)
- ENDFOR
- auxdes2 = STUFF(ALLTRIM(STR(vencs, 2)), 1, 0, REPLICATE("0", 2 -  ;
-           LEN(ALLTRIM(STR(vencs, 4)))))
- FOR i = 1 TO vencs
-  aux_dat = "I_data" + ALLTRIM(STR(i, 2))
-  aux_val = "I_val" + ALLTRIM(STR(i, 2))
-  SELECT contas
-  CALCULATE MAX(numerolanc) TO ultnum
-  APPEND BLANK
-  REPLACE contas.numerolanc WITH ultnum + 1
-  REPLACE contas.situacao WITH "A"
-  REPLACE contas.modulo WITH wmodulo
-  REPLACE contas.tipo WITH wtipo
-  REPLACE contas.cartao_id WITH list_cart(carts,2)
-  REPLACE contas.datalancam WITH wdatemiss
-  REPLACE contas.datavencim WITH &aux_dat
-  REPLACE contas.valpgtorec WITH &aux_val
-  REPLACE contas.numnotadoc WITH wnota
-  REPLACE contas.curso WITH lst_suba(subas,1)
-  REPLACE contas.razaosocia WITH list_for(fors,1)
-  REPLACE contas.codfor WITH list_for(fors,2)
-  REPLACE contas.forma WITH VAL(SUBSTR(list_tip(tips), 1, 1))
-  REPLACE contas.plano WITH SUBSTR(list_ccu(ccus), 1, 4)
-  REPLACE contas.area WITH lst_area(areas,2)
-  REPLACE contas.subarea WITH lst_suba(subas,2)
-  REPLACE contas.codigobanc WITH list_ban(bans,2)
-  auxdes = STUFF(ALLTRIM(STR(i, 2)), 1, 0, REPLICATE("0", 2 -  ;
-           LEN(ALLTRIM(STR(i, 4))))) + auxdes2
-  REPLACE contas.numdesmemb WITH auxdes
-  REPLACE contas.condipagto WITH auxcond
-  REPLACE contas.obs WITH wobs
-  REPLACE contas.contab WITH wcontab
-  REPLACE contas.empresa_id WITH list_emp(emps,2)
-  REPLACE contas.tipo_ced WITH wtipo_ced
- ENDFOR
-ENDIF
-DO zera_var
-_CUROBJ = OBJNUM(fors)
-RETURN
-*--
+	CONF = winconf("AVISO", ;
+		"TEM CERTEZA QUE DESEJA INCLUIR ESTA CONTA?")
+	IF CONF
+		auxcond = SPACE(33)
+		FOR i = 1 TO vencs
+			aux_venc = "Venc" + ALLTRIM(STR(i, 2))
+			auxcond = auxcond + STR(&aux_venc,3)
+		ENDFOR
+		auxdes2 = STUFF(ALLTRIM(STR(vencs, 2)), 1, 0, REPLICATE("0", 2 -  ;
+			LEN(ALLTRIM(STR(vencs, 4)))))
+		FOR i = 1 TO vencs
+			aux_dat = "I_data" + ALLTRIM(STR(i, 2))
+			aux_val = "I_val" + ALLTRIM(STR(i, 2))
+			SELECT contas
+			CALCULATE MAX(numerolanc) TO ultnum
+			APPEND BLANK
+			REPLACE contas.numerolanc WITH ultnum + 1
+			REPLACE contas.situacao WITH "A"
+			REPLACE contas.modulo WITH wmodulo
+			REPLACE contas.tipo WITH wtipo
+			REPLACE contas.cartao_id WITH list_cart(carts,2)
+			REPLACE contas.datalancam WITH wdatemiss
+			REPLACE contas.dataemiss WITH wdatanf
+			REPLACE contas.datavencim WITH &aux_dat
+			REPLACE contas.valpgtorec WITH &aux_val
+			REPLACE contas.numnotadoc WITH wnota
+			REPLACE contas.curso WITH lst_suba(subas,1)
+			REPLACE contas.razaosocia WITH list_for(fors,1)
+			REPLACE contas.codfor WITH list_for(fors,2)
+			REPLACE contas.forma WITH VAL(SUBSTR(list_tip(tips), 1, 1))
+			REPLACE contas.plano WITH SUBSTR(list_ccu(ccus), 1, 4)
+			REPLACE contas.area WITH lst_area(areas,2)
+			REPLACE contas.subarea WITH lst_suba(subas,2)
+			REPLACE contas.codigobanc WITH list_ban(bans,2)
+			auxdes = STUFF(ALLTRIM(STR(i, 2)), 1, 0, REPLICATE("0", 2 -  ;
+				LEN(ALLTRIM(STR(i, 4))))) + auxdes2
+			REPLACE contas.numdesmemb WITH auxdes
+			REPLACE contas.condipagto WITH auxcond
+			REPLACE contas.obs WITH wobs
+			REPLACE contas.contab WITH wcontab
+			REPLACE contas.empresa_id WITH list_emp(emps,2)
+			REPLACE contas.tipo_ced WITH wtipo_ced
+		ENDFOR
+	ENDIF
+	DO zera_var
+	_CUROBJ = OBJNUM(fors)
+	RETURN
+	*--
 
-*--
+	*--
 PROCEDURE ad_unica
-conf = winconf("AVISO", ;
-       "TEM CERTEZA QUE DESEJA INCLUIR ESTA CONTA?")
-IF conf
- aux_day = DAY(wdatalanc)
- aux_data = wdatalanc
- FOR i = 1 TO wnparc
-  IF i > 1
-   mes_ano = CTOD("01" + SUBSTR(DTOC(aux_data), 3, 8)) + 35
-   wmes = MONTH(mes_ano)
-   DO CASE
-    CASE aux_day = 31
-     DO CASE
-      CASE wmes = 2
-       aux_data = CTOD("28" + SUBSTR(DTOC(mes_ano), 3, 8))
-      CASE wnes = 4 .OR. wnes = 6 .OR. wnes = 9 .OR. wnes = 11
-       aux_data = CTOD("30" + SUBSTR(DTOC(mes_ano), 3, 8))
-      OTHERWISE
-       aux_data = CTOD("31" + SUBSTR(DTOC(mes_ano), 3, 8))
-     ENDCASE
-    CASE aux_day = 30
-     DO CASE
-      CASE wmes = 2
-       aux_data = CTOD("28" + SUBSTR(DTOC(mes_ano), 3, 8))
-      OTHERWISE
-       aux_data = CTOD("30" + SUBSTR(DTOC(mes_ano), 3, 8))
-     ENDCASE
-    OTHERWISE
-     IF aux_day < 10
-      aux_data = CTOD("0" + STR(aux_day, 1) +  ;
-                 SUBSTR(DTOC(mes_ano), 3, 8))
-     ELSE
-      aux_data = CTOD(STR(aux_day, 2) + SUBSTR(DTOC(mes_ano), 3,  ;
-                 8))
-     ENDIF
-   ENDCASE
-  ENDIF
-  SELECT contas
-  CALCULATE MAX(numerolanc) TO ultnum
-  APPEND BLANK
-  REPLACE contas.numerolanc WITH ultnum + 1
-  REPLACE contas.situacao WITH "A"
-  REPLACE contas.modulo WITH wmodulo
-  REPLACE contas.tipo WITH wtipo
-  REPLACE contas.cartao_id WITH list_cart(carts,2)
-  REPLACE contas.datalancam WITH wdatemiss
-  REPLACE contas.datavencim WITH aux_data
-  REPLACE contas.valpgtorec WITH wvalor
-  REPLACE contas.numnotadoc WITH wnota
-  REPLACE contas.curso WITH lst_suba(subas,1)
-  REPLACE contas.razaosocia WITH list_for(fors,1)
-  REPLACE contas.codfor WITH list_for(fors,2)
-  REPLACE contas.forma WITH list_tip(tips,2)
-  REPLACE contas.plano WITH list_ccu(ccus,2)
-  REPLACE contas.area WITH lst_area(areas,2)
-  REPLACE contas.subarea WITH lst_suba(subas,2)
-  REPLACE contas.codigobanc WITH list_ban(bans,2)
-  REPLACE contas.numdesmemb WITH "0101"
-  REPLACE contas.obs WITH wobs
-  REPLACE contas.contab WITH wcontab
-  REPLACE contas.empresa_id WITH list_emp(emps,2)
-  REPLACE contas.tipo_ced WITH wtipo_ced
-  IF llancquit
-   SELECT contas
-   REPLACE contas.situacao WITH "L"
-   REPLACE contas.datapagtos WITH wdatalanc
-   REPLACE contas.valorliqui WITH contas.valpgtorec
-   SELECT extrato
-   CALCULATE MAX(numerolanc) TO ult
-   APPEND BLANK
-   REPLACE extrato.numerolanc WITH ult + 1
-   REPLACE extrato.data WITH wdatalanc
-   REPLACE extrato.historico WITH ALLTRIM(SUBSTR(list_ccu(ccus, ;
-           1), 6, 20)) + " - " + contas.razaosocia
-   REPLACE extrato.valor WITH contas.valpgtorec
-   REPLACE extrato.debito WITH "-"
-   REPLACE extrato.destino WITH contas.codigobanc
-   REPLACE extrato.dinheiro WITH "DN"
-   SELECT contas
-   REPLACE contas.cx_key WITH ult + 1
-  ENDIF
-  SELECT contas
- ENDFOR
-ENDIF
-DO zera_var
-_CUROBJ = OBJNUM(fors)
-RETURN
-*--
+	CONF = winconf("AVISO", ;
+		"TEM CERTEZA QUE DESEJA INCLUIR ESTA CONTA?")
+	IF CONF
+		aux_day = DAY(wdatalanc)
+		aux_data = wdatalanc
+		FOR i = 1 TO wnparc
+			IF i > 1
+				mes_ano = CTOD("01" + SUBSTR(DTOC(aux_data), 3, 8)) + 35
+				wmes = MONTH(mes_ano)
+				DO CASE
+				CASE aux_day = 31
+					DO CASE
+					CASE wmes = 2
+						aux_data = CTOD("28" + SUBSTR(DTOC(mes_ano), 3, 8))
+					CASE wnes = 4 .OR. wnes = 6 .OR. wnes = 9 .OR. wnes = 11
+						aux_data = CTOD("30" + SUBSTR(DTOC(mes_ano), 3, 8))
+					OTHERWISE
+						aux_data = CTOD("31" + SUBSTR(DTOC(mes_ano), 3, 8))
+					ENDCASE
+				CASE aux_day = 30
+					DO CASE
+					CASE wmes = 2
+						aux_data = CTOD("28" + SUBSTR(DTOC(mes_ano), 3, 8))
+					OTHERWISE
+						aux_data = CTOD("30" + SUBSTR(DTOC(mes_ano), 3, 8))
+					ENDCASE
+				OTHERWISE
+					IF aux_day < 10
+						aux_data = CTOD("0" + STR(aux_day, 1) +  ;
+							SUBSTR(DTOC(mes_ano), 3, 8))
+					ELSE
+						aux_data = CTOD(STR(aux_day, 2) + SUBSTR(DTOC(mes_ano), 3,  ;
+							8))
+					ENDIF
+				ENDCASE
+			ENDIF
+			SELECT contas
+			CALCULATE MAX(numerolanc) TO ultnum
+			APPEND BLANK
+			REPLACE contas.numerolanc WITH ultnum + 1
+			REPLACE contas.situacao WITH "A"
+			REPLACE contas.modulo WITH wmodulo
+			REPLACE contas.tipo WITH wtipo
+			REPLACE contas.cartao_id WITH list_cart(carts,2)
+			REPLACE contas.datalancam WITH wdatemiss
+			REPLACE contas.dataemiss WITH wdatanf
+			REPLACE contas.datavencim WITH aux_data
+			REPLACE contas.valpgtorec WITH wvalor
+			REPLACE contas.numnotadoc WITH wnota
+			REPLACE contas.curso WITH lst_suba(subas,1)
+			REPLACE contas.razaosocia WITH list_for(fors,1)
+			REPLACE contas.codfor WITH list_for(fors,2)
+			REPLACE contas.forma WITH list_tip(tips,2)
+			REPLACE contas.plano WITH list_ccu(ccus,2)
+			REPLACE contas.area WITH lst_area(areas,2)
+			REPLACE contas.subarea WITH lst_suba(subas,2)
+			REPLACE contas.codigobanc WITH list_ban(bans,2)
+			REPLACE contas.numdesmemb WITH "0101"
+			REPLACE contas.obs WITH wobs
+			REPLACE contas.contab WITH wcontab
+			REPLACE contas.empresa_id WITH list_emp(emps,2)
+			REPLACE contas.tipo_ced WITH wtipo_ced
+			IF llancquit
+				SELECT contas
+				REPLACE contas.situacao WITH "L"
+				REPLACE contas.datapagtos WITH wdatalanc
+				REPLACE contas.valorliqui WITH contas.valpgtorec
+				SELECT extrato
+				CALCULATE MAX(numerolanc) TO ult
+				APPEND BLANK
+				REPLACE extrato.numerolanc WITH ult + 1
+				REPLACE extrato.data WITH wdatalanc
+				REPLACE extrato.historico WITH ALLTRIM(SUBSTR(list_ccu(ccus, ;
+					1), 6, 20)) + " - " + contas.razaosocia
+				REPLACE extrato.valor WITH contas.valpgtorec
+				REPLACE extrato.debito WITH "-"
+				REPLACE extrato.destino WITH contas.codigobanc
+				REPLACE extrato.dinheiro WITH "DN"
+				SELECT contas
+				REPLACE contas.cx_key WITH ult + 1
+			ENDIF
+			SELECT contas
+		ENDFOR
+	ENDIF
+	DO zera_var
+	_CUROBJ = OBJNUM(fors)
+	RETURN
+	*--
 
-*--
+	*--
 PROCEDURE rel_ccus
-IF FILE("c:\action\CCUSTO.DBF")
- DELETE FILE C:\action\ccusto.dbf
-ENDIF
-auxfilt = ""
-DO filt_ger
-IF !ISBLANK(auxfilt)
- SELECT area.descricao AS area, ccust2.descricao AS plano, area.codigo AS;
-cod_area, ccust2.codigo AS cod_plan, ccust2.verba, ccust2.liberado, SUM(contas.valpgtorec);
-AS valor, SPACE(20) AS gruplan, contas.curso FROM contas, area, ccust2 WHERE;
-area.codigo = contas.area AND ccust2.codigo = contas.plano AND &auxfilt GROUP;
-BY area.codigo, contas.curso, ccust2.codigo ORDER BY area.codigo, contas.curso,;
-ccust2.codigo INTO TABLE C:\action\ccusto
- SET EXACT ON
- SELECT ccusto
- SCAN
-  SELECT ccust2
-  SEEK SUBSTR(ccusto.cod_plan, 1, 2)
-  SELECT ccusto
-  REPLACE ccusto.gruplan WITH ccust2.descricao
- ENDSCAN
- SELECT ccusto
- REPORT FORM ccusto TO PRINTER &cvisual
- SELECT ccusto
- USE
-ELSE
- DO winalert WITH "AVISO",  ;
-    "O RELATÓRIO NÃO FOI GERADO. ESCOLHA UM FILTRO."
-ENDIF
-RETURN
-*--
+	IF FILE("c:\action\CCUSTO.DBF")
+		DELETE FILE C:\action\ccusto.dbf
+	ENDIF
+	auxfilt = ""
+	DO filt_ger
+	IF !isblank(auxfilt)
+		SELECT area.descricao AS area, ccust2.descricao AS plano, area.codigo AS;
+			cod_area, ccust2.codigo AS cod_plan, ccust2.verba, ccust2.liberado, SUM(contas.valpgtorec);
+			AS valor, SPACE(20) AS gruplan, contas.curso FROM contas, area, ccust2 WHERE;
+			area.codigo = contas.area AND ccust2.codigo = contas.plano AND &auxfilt GROUP;
+			BY area.codigo, contas.curso, ccust2.codigo ORDER BY area.codigo, contas.curso,;
+			ccust2.codigo INTO TABLE C:\action\ccusto
+		SET EXACT ON
+		SELECT ccusto
+		SCAN
+			SELECT ccust2
+			SEEK SUBSTR(ccusto.cod_plan, 1, 2)
+			SELECT ccusto
+			REPLACE ccusto.gruplan WITH ccust2.descricao
+		ENDSCAN
+		SELECT ccusto
+		REPORT FORM ccusto TO PRINTER &cvisual
+		SELECT ccusto
+		USE
+	ELSE
+		DO winalert WITH "AVISO",  ;
+			"O RELATÓRIO NÃO FOI GERADO. ESCOLHA UM FILTRO."
+	ENDIF
+	RETURN
+	*--
 
-*--
+	*--
 PROCEDURE cnt_ccus
-IF FILE("c:\action\CCUSTO.DBF")
- DELETE FILE C:\action\ccusto.dbf
-ENDIF
-auxfilt = ""
-DO filt_ger
-IF !ISBLANK(auxfilt)
- SELECT area.descricao AS area, ccust2.descricao AS plano, area.codigo AS;
-cod_area, ccust2.codigo AS cod_plan, ccust2.verba, ccust2.liberado, SUM(contas.valpgtorec);
-AS valor, SPACE(20) AS gruplan, contas.curso FROM contas, area, ccust2 WHERE;
-area.codigo = contas.area AND ccust2.codigo = contas.plano AND &auxfilt GROUP;
-BY ccust2.codigo ORDER BY ccust2.codigo INTO TABLE C:\action\ccusto
- SET EXACT ON
- SELECT ccusto
- SCAN
-  SELECT ccust2
-  SEEK SUBSTR(ccusto.cod_plan, 1, 2)
-  SELECT ccusto
-  REPLACE ccusto.gruplan WITH ccust2.descricao
- ENDSCAN
- SELECT ccusto
- REPORT FORM ccust3 TO PRINTER &cvisual
- SELECT ccusto
- USE
-ELSE
- DO winalert WITH "AVISO",  ;
-    "O RELATÓRIO NÃO FOI GERADO. ESCOLHA UM FILTRO."
-ENDIF
-RETURN
-*--
+	IF FILE("c:\action\CCUSTO.DBF")
+		DELETE FILE C:\action\ccusto.dbf
+	ENDIF
+	auxfilt = ""
+	DO filt_ger
+	IF !isblank(auxfilt)
+		SELECT area.descricao AS area, ccust2.descricao AS plano, area.codigo AS;
+			cod_area, ccust2.codigo AS cod_plan, ccust2.verba, ccust2.liberado, SUM(contas.valpgtorec);
+			AS valor, SPACE(20) AS gruplan, contas.curso FROM contas, area, ccust2 WHERE;
+			area.codigo = contas.area AND ccust2.codigo = contas.plano AND &auxfilt GROUP;
+			BY ccust2.codigo ORDER BY ccust2.codigo INTO TABLE C:\action\ccusto
+		SET EXACT ON
+		SELECT ccusto
+		SCAN
+			SELECT ccust2
+			SEEK SUBSTR(ccusto.cod_plan, 1, 2)
+			SELECT ccusto
+			REPLACE ccusto.gruplan WITH ccust2.descricao
+		ENDSCAN
+		SELECT ccusto
+		REPORT FORM ccust3 TO PRINTER &cvisual
+		SELECT ccusto
+		USE
+	ELSE
+		DO winalert WITH "AVISO",  ;
+			"O RELATÓRIO NÃO FOI GERADO. ESCOLHA UM FILTRO."
+	ENDIF
+	RETURN
+	*--
 
-*--
+	*--
 PROCEDURE quitall
-conf = winconf("ATENCAO", ;
-       "TEM CERTEZA QUE DESEJA QUITAR ESTA PARCELA?")
-IF conf
- FOR i = 1 TO ALEN(list_rec)
-  SELECT contas
-  GOTO list_rec(i)
-  wq_din = 1
-  SELECT contas
-  REPLACE contas.situacao WITH "L"
-  REPLACE contas.datapagtos WITH wdatalanc
-  REPLACE contas.valorliqui WITH contas.valpgtorec
-  IF contas.codigobanc = "09"
-   SELECT extrato
-   APPEND BLANK
-   REPLACE extrato.numerolanc WITH contas.numerolanc
-   REPLACE extrato.data WITH wdatalanc
-   REPLACE extrato.historico WITH contas.razaosocia
-   REPLACE extrato.valor WITH contas.valpgtorec
-   REPLACE extrato.debito WITH "-"
-   REPLACE extrato.destino WITH contas.codigobanc
-   REPLACE extrato.dinheiro WITH IIF(wq_din = 1, "DN", "CH")
-  ENDIF
- ENDFOR
-ENDIF
-DO filtra
-SHOW GETS
-RETURN
-*--
+	CONF = winconf("ATENCAO", ;
+		"TEM CERTEZA QUE DESEJA QUITAR ESTA PARCELA?")
+	IF CONF
+		FOR i = 1 TO ALEN(list_rec)
+			SELECT contas
+			GOTO list_rec(i)
+			wq_din = 1
+			SELECT contas
+			REPLACE contas.situacao WITH "L"
+			REPLACE contas.datapagtos WITH wdatalanc
+			REPLACE contas.valorliqui WITH contas.valpgtorec
+			IF contas.codigobanc = "09"
+				SELECT extrato
+				APPEND BLANK
+				REPLACE extrato.numerolanc WITH contas.numerolanc
+				REPLACE extrato.data WITH wdatalanc
+				REPLACE extrato.historico WITH contas.razaosocia
+				REPLACE extrato.valor WITH contas.valpgtorec
+				REPLACE extrato.debito WITH "-"
+				REPLACE extrato.destino WITH contas.codigobanc
+				REPLACE extrato.dinheiro WITH IIF(wq_din = 1, "DN", "CH")
+			ENDIF
+		ENDFOR
+	ENDIF
+	DO filtra
+	SHOW GETS
+	RETURN
+	*--
 
-*--
+	*--
 PROCEDURE altall
-conf = winconf("ATENCAO", ;
-       "TEM CERTEZA QUE DESEJA ALTERAR ESTAS PARCELA?")
-IF conf
- FOR i = 1 TO ALEN(list_rec)
-  SELECT contas
-  GOTO list_rec(i)
-  SELECT contas
-  IF !ISBLANK(wnota)
-   REPLACE contas.numnotadoc WITH wnota
-  ENDIF
-  REPLACE contas.forma WITH VAL(SUBSTR(list_tip(tips), 1, 1))
-  REPLACE contas.codigobanc WITH list_ban(bans,2)
- ENDFOR
-ENDIF
-DO filtra
-SHOW GETS
-RETURN
-*--
+	CONF = winconf("ATENCAO", ;
+		"TEM CERTEZA QUE DESEJA ALTERAR ESTAS PARCELA?")
+	IF CONF
+		FOR i = 1 TO ALEN(list_rec)
+			SELECT contas
+			GOTO list_rec(i)
+			SELECT contas
+			IF !isblank(wnota)
+				REPLACE contas.numnotadoc WITH wnota
+			ENDIF
+			REPLACE contas.forma WITH VAL(SUBSTR(list_tip(tips), 1, 1))
+			REPLACE contas.codigobanc WITH list_ban(bans,2)
+		ENDFOR
+	ENDIF
+	DO filtra
+	SHOW GETS
+	RETURN
+	*--
 
-*--
+	*--
 PROCEDURE an_ccusto
-IF FILE("c:\action\CCUSTO.DBF")
- DELETE FILE C:\action\ccusto.dbf
-ENDIF
-auxfilt = ""
-DO filt_ger
-IF !ISBLANK(auxfilt)
- SELECT area.descricao AS area, ccust2.descricao AS plano, area.codigo AS;
-cod_area, ccust2.codigo AS cod_plan, contas.valpgtorec AS valor, SPACE(20);
-AS gruplan, contas.curso, contas.obs, contas.razaosocia FROM contas, area,;
-ccust2 WHERE area.codigo = contas.area AND ccust2.codigo = contas.plano AND;
-&auxfilt ORDER BY area.codigo, contas.curso, ccust2.codigo, ccust2.descricao;
-INTO TABLE C:\action\ccusto
- SET EXACT ON
- SELECT ccusto
- SCAN
-  SELECT ccust2
-  SEEK SUBSTR(ccusto.cod_plan, 1, 2)
-  SELECT ccusto
-  REPLACE ccusto.gruplan WITH ccust2.descricao
- ENDSCAN
- SELECT ccusto
- REPORT FORM an_ccust TO PRINTER &cvisual
- SELECT ccusto
- USE
-ELSE
- DO winalert WITH "AVISO",  ;
-    "O RELATÓRIO NÃO FOI GERADO. ESCOLHA UM FILTRO."
-ENDIF
-RETURN
-*--
+	IF FILE("c:\action\CCUSTO.DBF")
+		DELETE FILE C:\action\ccusto.dbf
+	ENDIF
+	auxfilt = ""
+	DO filt_ger
+	IF !isblank(auxfilt)
+		SELECT area.descricao AS area, ccust2.descricao AS plano, area.codigo AS;
+			cod_area, ccust2.codigo AS cod_plan, contas.valpgtorec AS valor, SPACE(20);
+			AS gruplan, contas.curso, contas.obs, contas.razaosocia FROM contas, area,;
+			ccust2 WHERE area.codigo = contas.area AND ccust2.codigo = contas.plano AND;
+			&auxfilt ORDER BY area.codigo, contas.curso, ccust2.codigo, ccust2.descricao;
+			INTO TABLE C:\action\ccusto
+		SET EXACT ON
+		SELECT ccusto
+		SCAN
+			SELECT ccust2
+			SEEK SUBSTR(ccusto.cod_plan, 1, 2)
+			SELECT ccusto
+			REPLACE ccusto.gruplan WITH ccust2.descricao
+		ENDSCAN
+		SELECT ccusto
+		REPORT FORM an_ccust TO PRINTER &cvisual
+		SELECT ccusto
+		USE
+	ELSE
+		DO winalert WITH "AVISO",  ;
+			"O RELATÓRIO NÃO FOI GERADO. ESCOLHA UM FILTRO."
+	ENDIF
+	RETURN
+	*--
 
-*--
+	*--
 PROCEDURE rel_parc
-IF !ISBLANK(di) .AND. !ISBLANK(df)
- SELECT parc_cab
- LOCATE FOR parc_cab.plano == SUBSTR(list_ccu(ccus,1), 1, 4)
- rot_tit = parc_cab.titulo
- SELECT parc_itm
- tot_parc = 0.00
- SCAN FOR parc_itm.cod_parc == parc_cab.codigo
-  auxarea = parc_itm.area
-  SELECT area
-  SEEK auxarea
-  auxsubarea = parc_itm.subarea
-  SELECT subarea
-  SEEK auxsubarea
-  SELECT recebs.razaosocia AS cliente, recebs.datavencim,  ;
-         recebs.datapagtos, IIF(recebs.valpgtorec -  ;
-         recebs.valdescont > recebs.valorliqui,  ;
-         recebs.valorliqui, recebs.valpgtorec -  ;
-         recebs.valdescont) AS valpgtorec FROM recebs WHERE  ;
-         recebs.datapagtos >= di AND recebs.datapagtos <= df AND  ;
-         recebs.valpgtorec > 100.00  AND recebs.area = auxarea  ;
-         AND recebs.subarea = auxsubarea AND recebs.situacao =  ;
-         "L" ORDER BY recebs.razaosocia, datavencim INTO CURSOR  ;
-         cont_imp
-  auxval = 0.00
-  SELECT cont_imp
-  SCAN
-   auxval = auxval + cont_imp.valpgtorec
-  ENDSCAN
-  rot_curso = ALLTRIM(subarea.sigla) + "-" + ALLTRIM(area.sigla)
-  auxcomis = parc_itm.comissao
-  tot_parc = tot_parc + (auxval * (auxcomis / 100))
-  SELECT cont_imp
-  nrec = RECCOUNT()
-  IF nrec > 0
-   REPORT FORMAT parc_imp.frx TO PRINTER NOCONSOLE
-  ENDIF
- ENDSCAN
-ENDIF
-RETURN
-*--
+	IF !isblank(di) .AND. !isblank(df)
+		SELECT parc_cab
+		LOCATE FOR parc_cab.plano == SUBSTR(list_ccu(ccus,1), 1, 4)
+		rot_tit = parc_cab.titulo
+		SELECT parc_itm
+		tot_parc = 0.00
+		SCAN FOR parc_itm.cod_parc == parc_cab.codigo
+			auxarea = parc_itm.area
+			SELECT area
+			SEEK auxarea
+			auxsubarea = parc_itm.subarea
+			SELECT subarea
+			SEEK auxsubarea
+			SELECT recebs.razaosocia AS cliente, recebs.datavencim,  ;
+				recebs.datapagtos, IIF(recebs.valpgtorec -  ;
+				recebs.valdescont > recebs.valorliqui,  ;
+				recebs.valorliqui, recebs.valpgtorec -  ;
+				recebs.valdescont) AS valpgtorec FROM recebs WHERE  ;
+				recebs.datapagtos >= di AND recebs.datapagtos <= df AND  ;
+				recebs.valpgtorec > 100.00  AND recebs.area = auxarea  ;
+				AND recebs.subarea = auxsubarea AND recebs.situacao =  ;
+				"L" ORDER BY recebs.razaosocia, datavencim INTO CURSOR  ;
+				cont_imp
+			auxval = 0.00
+			SELECT cont_imp
+			SCAN
+				auxval = auxval + cont_imp.valpgtorec
+			ENDSCAN
+			rot_curso = ALLTRIM(subarea.sigla) + "-" + ALLTRIM(area.sigla)
+			auxcomis = parc_itm.comissao
+			tot_parc = tot_parc + (auxval * (auxcomis / 100))
+			SELECT cont_imp
+			nrec = RECCOUNT()
+			IF nrec > 0
+				REPORT FORMAT parc_imp.frx TO PRINTER NOCONSOLE
+			ENDIF
+		ENDSCAN
+	ENDIF
+	RETURN
+	*--
 
-*--
+	*--
 PROCEDURE filt_ger
-auxfilt = ""
-c = 0
-IF tipo_dat = 1
- DO CASE
-  CASE di <> {} .AND. df = {}
-   c = 1
-   auxfilt = "Contas.Datavencim >= Di "
-  CASE di = {} .AND. df <> {}
-   c = 1
-   auxfilt = "Contas.Datavencim <= Df "
-  CASE di <> {} .AND. df <> {}
-   c = 1
-   auxfilt = "Contas.Datavencim >= Di AND Contas.Datavencim <= Df "
- ENDCASE
-ELSE
- DO CASE
-  CASE di <> {} .AND. df = {}
-   c = 1
-   auxfilt = "Contas.Datapagtos >= Di "
-  CASE di = {} .AND. df <> {}
-   c = 1
-   auxfilt = "Contas.Datapagtos <= Df "
-  CASE di <> {} .AND. df <> {}
-   c = 1
-   auxfilt = "Contas.Datapagtos >= Di AND Contas.Datapagtos <= Df "
- ENDCASE
-ENDIF
-DO CASE
- CASE SUBSTR(wsit, 1, 1) = "A"
-  IF c = 1
-   auxfilt = auxfilt + "AND "
-  ENDIF
-  c = 1
-  auxfilt = auxfilt +  ;
-            "(Contas.Situacao <> 'L' AND Contas.Situacao <> 'E')"
- CASE SUBSTR(wsit, 1, 1) = "L"
-  IF c = 1
-   auxfilt = auxfilt + "AND "
-  ENDIF
-  c = 1
-  auxfilt = auxfilt +  ;
-            "(Contas.Situacao = 'L' AND Contas.Situacao <> 'E')"
- CASE SUBSTR(wsit, 1, 1) = "V"
-  IF c = 1
-   auxfilt = auxfilt + "AND "
-  ENDIF
-  c = 1
-  auxfilt = auxfilt +  ;
-            "(Contas.Situacao = 'V' AND Contas.Situacao <> 'E')"
-ENDCASE
-IF filt_cede
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt +  ;
-           "Contas.Razaosocia = ALLTRIM(List_for[Fors,1]) "
-ELSE
- IF !ISBLANK(wc_nfor)
-  IF c = 1
-   auxfilt = auxfilt + "AND "
-  ENDIF
-  c = 1
-  auxfilt = auxfilt + "Contas.Razaosocia = Wc_nfor "
- ENDIF
-ENDIF
-IF filt_plan
- wc_ccu = list_ccu(ccus,2)
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Contas.Plano = Wc_ccu "
-ENDIF
-IF filt_area
- wc_area = lst_area(areas,2)
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Contas.Area = Wc_area "
-ENDIF
-IF filt_suba
- wc_suba = lst_suba(subas,2)
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Contas.Subarea = Wc_suba "
-ENDIF
-IF filt_form
- wc_form = list_tip(tips,2)
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Contas.Forma = Wc_form "
-ENDIF
-IF filt_banc
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Codigobanc = List_ban[bans,2] "
-ENDIF
-IF lempr
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "empresa_id = List_emp[emps,2] "
-ENDIF
-IF filt_nota
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- IF !ISBLANK(wnota) .AND. !ISBLANK(wnotaf)
-  auxfilt = auxfilt +  ;
-            "Contas.Numnotadoc >= Wnota AND			 Contas.Numnotadoc <= Wnotaf "
-  auxord = "Contas.Numnotadoc, Contas.Datavencim, Contas.Valpgtorec "
- ELSE
-  auxfilt = auxfilt + "Contas.Numnotadoc = Wnota "
- ENDIF
-ENDIF
-IF filt_valo
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "Contas.Valpgtorec = Wvalor "
-ENDIF
-IF filt_obs
- IF c = 1
-  auxfilt = auxfilt + "AND "
- ENDIF
- c = 1
- auxfilt = auxfilt + "UPPER(ALLTRIM(wobs)) $ UPPER(Contas.Obs) "
-ENDIF
-RETURN
-*--
+	auxfilt = ""
+	C = 0
+	IF tipo_dat = 1
+		DO CASE
+		CASE di <> {} .AND. df = {}
+			C = 1
+			auxfilt = "Contas.Datavencim >= Di "
+		CASE di = {} .AND. df <> {}
+			C = 1
+			auxfilt = "Contas.Datavencim <= Df "
+		CASE di <> {} .AND. df <> {}
+			C = 1
+			auxfilt = "Contas.Datavencim >= Di AND Contas.Datavencim <= Df "
+		ENDCASE
+	ELSE
+		DO CASE
+		CASE di <> {} .AND. df = {}
+			C = 1
+			auxfilt = "Contas.Datapagtos >= Di "
+		CASE di = {} .AND. df <> {}
+			C = 1
+			auxfilt = "Contas.Datapagtos <= Df "
+		CASE di <> {} .AND. df <> {}
+			C = 1
+			auxfilt = "Contas.Datapagtos >= Di AND Contas.Datapagtos <= Df "
+		ENDCASE
+	ENDIF
+	DO CASE
+	CASE SUBSTR(wsit, 1, 1) = "A"
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt +  ;
+			"(Contas.Situacao <> 'L' AND Contas.Situacao <> 'E')"
+	CASE SUBSTR(wsit, 1, 1) = "L"
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt +  ;
+			"(Contas.Situacao = 'L' AND Contas.Situacao <> 'E')"
+	CASE SUBSTR(wsit, 1, 1) = "V"
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt +  ;
+			"(Contas.Situacao = 'V' AND Contas.Situacao <> 'E')"
+	ENDCASE
+	IF filt_cede
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt +  ;
+			"Contas.Razaosocia = ALLTRIM(List_for[Fors,1]) "
+	ELSE
+		IF !isblank(wc_nfor)
+			IF C = 1
+				auxfilt = auxfilt + "AND "
+			ENDIF
+			C = 1
+			auxfilt = auxfilt + "Contas.Razaosocia = Wc_nfor "
+		ENDIF
+	ENDIF
+	IF filt_plan
+		wc_ccu = list_ccu(ccus,2)
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Contas.Plano = Wc_ccu "
+	ENDIF
+	IF filt_area
+		wc_area = lst_area(areas,2)
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Contas.Area = Wc_area "
+	ENDIF
+	IF filt_suba
+		wc_suba = lst_suba(subas,2)
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Contas.Subarea = Wc_suba "
+	ENDIF
+	IF filt_form
+		wc_form = list_tip(tips,2)
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Contas.Forma = Wc_form "
+	ENDIF
+	IF filt_banc
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Codigobanc = List_ban[bans,2] "
+	ENDIF
+	IF lempr
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "empresa_id = List_emp[emps,2] "
+	ENDIF
+	IF filt_nota
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		IF !isblank(wnota) .AND. !isblank(wnotaf)
+			auxfilt = auxfilt +  ;
+				"Contas.Numnotadoc >= Wnota AND			 Contas.Numnotadoc <= Wnotaf "
+			auxord = "Contas.Numnotadoc, Contas.Datavencim, Contas.Valpgtorec "
+		ELSE
+			auxfilt = auxfilt + "Contas.Numnotadoc = Wnota "
+		ENDIF
+	ENDIF
+	IF filt_valo
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "Contas.Valpgtorec = Wvalor "
+	ENDIF
+	IF filt_obs
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		C = 1
+		auxfilt = auxfilt + "UPPER(ALLTRIM(wobs)) $ UPPER(Contas.Obs) "
+	ENDIF
+	RETURN
+	*--
 
-*--
+	*--
 PROCEDURE sem_ccus
-IF FILE("c:\action\CCUSTO.DBF")
- DELETE FILE C:\action\ccusto.dbf
-ENDIF
-IF FILE("c:\action\SEM_CCUS.DBF")
- DELETE FILE C:\action\sem_ccus.dbf
-ENDIF
-auxfilt = ""
-DO filt_ger
-IF !ISBLANK(auxfilt)
- SELECT SUBSTR(DTOC(contas.datavencim),4,7) AS periodo, contas.datavencim,;
-ccust2.descricao AS plano, ccust2.codigo AS cod_plan, SUM(contas.valpgtorec);
-AS valor, SPACE(20) AS gruplan FROM contas, area, ccust2 WHERE area.codigo;
-= contas.area AND ccust2.codigo = contas.plano AND &auxfilt GROUP BY 1, ccust2.codigo;
-ORDER BY ccust2.codigo INTO TABLE C:\action\ccusto
- SET EXACT ON
- SELECT ccusto
- SCAN
-  SELECT ccust2
-  SEEK SUBSTR(ccusto.cod_plan, 1, 2)
-  SELECT ccusto
-  REPLACE ccusto.gruplan WITH ccust2.descricao
- ENDSCAN
- SELECT DISTINCT ccusto.periodo FROM ccusto ORDER BY  ;
-        ccusto.datavencim INTO CURSOR per_ccus
- SELECT per_ccus
- IF RECCOUNT() > 0
-  DIMENSION list_per[ RECCOUNT()]
-  c = 0
-  SELECT per_ccus
-  SCAN
-   c = c + 1
-   aux_rotm = "Rotm" + STR(c, 1)
-   &aux_rotm = per_ccus.periodo
-   list_per[ c] = per_ccus.periodo
-  ENDSCAN
-  IF c < 6
-   FOR i = c + 1 TO 6
-    aux_rotm = "Rotm" + STR(i, 1)
-    &aux_rotm = ''
-   ENDFOR
-  ENDIF
-  CREATE DBF C:\action\sem_ccus (cod_plan C (4), gruplan C (20),  ;
-         plano C (20), m1 N (12, 2), m2 N (12, 2), m3 N (12, 2),  ;
-         m4 N (12, 2), m5 N (12, 2), m6 N (12, 2))
-  SELECT sem_ccus
-  INDEX ON cod_plan TAG cod_plan
-  SELECT ccusto
-  SCAN
-   SELECT sem_ccus
-   SEEK ccusto.cod_plan
-   IF !FOUND()
-    APPEND BLANK
-    REPLACE sem_ccus.cod_plan WITH ccusto.cod_plan
-    REPLACE sem_ccus.gruplan WITH ccusto.gruplan
-    REPLACE sem_ccus.plano WITH ccusto.plano
-   ENDIF
-   num_col = ASCAN(list_per, ccusto.periodo)
-   aux_m = "M" + STR(num_col, 1)
-   REPLACE &aux_m                WITH ccusto.valor
-   SELECT ccusto
-  ENDSCAN
-  SELECT sem_ccus
-  REPORT FORM sem_ccus TO PRINTER &cvisual
-  SELECT sem_ccus
-  USE
- ENDIF
- SELECT ccusto
- USE
-ELSE
- DO winalert WITH "AVISO",  ;
-    "O RELATÓRIO NÃO FOI GERADO. ESCOLHA UM FILTRO."
-ENDIF
-RETURN
-*--
+	IF FILE("c:\action\CCUSTO.DBF")
+		DELETE FILE C:\action\ccusto.dbf
+	ENDIF
+	IF FILE("c:\action\SEM_CCUS.DBF")
+		DELETE FILE C:\action\sem_ccus.dbf
+	ENDIF
+	auxfilt = ""
+	DO filt_ger
+	IF !isblank(auxfilt)
+		SELECT SUBSTR(DTOC(contas.datavencim),4,7) AS periodo, contas.datavencim,;
+			ccust2.descricao AS plano, ccust2.codigo AS cod_plan, SUM(contas.valpgtorec);
+			AS valor, SPACE(20) AS gruplan FROM contas, area, ccust2 WHERE area.codigo;
+			= contas.area AND ccust2.codigo = contas.plano AND &auxfilt GROUP BY 1, ccust2.codigo;
+			ORDER BY ccust2.codigo INTO TABLE C:\action\ccusto
+		SET EXACT ON
+		SELECT ccusto
+		SCAN
+			SELECT ccust2
+			SEEK SUBSTR(ccusto.cod_plan, 1, 2)
+			SELECT ccusto
+			REPLACE ccusto.gruplan WITH ccust2.descricao
+		ENDSCAN
+		SELECT DISTINCT ccusto.periodo FROM ccusto ORDER BY  ;
+			ccusto.datavencim INTO CURSOR per_ccus
+		SELECT per_ccus
+		IF RECCOUNT() > 0
+			DIMENSION list_per[ RECCOUNT()]
+			C = 0
+			SELECT per_ccus
+			SCAN
+				C = C + 1
+				aux_rotm = "Rotm" + STR(C, 1)
+				&aux_rotm = per_ccus.periodo
+				list_per[ c] = per_ccus.periodo
+			ENDSCAN
+			IF C < 6
+				FOR i = C + 1 TO 6
+					aux_rotm = "Rotm" + STR(i, 1)
+					&aux_rotm = ''
+				ENDFOR
+			ENDIF
+			CREATE DBF C:\action\sem_ccus (cod_plan C (4), gruplan C (20),  ;
+				plano C (20), m1 N (12, 2), m2 N (12, 2), m3 N (12, 2),  ;
+				m4 N (12, 2), m5 N (12, 2), m6 N (12, 2))
+			SELECT sem_ccus
+			INDEX ON cod_plan TAG cod_plan
+			SELECT ccusto
+			SCAN
+				SELECT sem_ccus
+				SEEK ccusto.cod_plan
+				IF !FOUND()
+					APPEND BLANK
+					REPLACE sem_ccus.cod_plan WITH ccusto.cod_plan
+					REPLACE sem_ccus.gruplan WITH ccusto.gruplan
+					REPLACE sem_ccus.plano WITH ccusto.plano
+				ENDIF
+				num_col = ASCAN(list_per, ccusto.periodo)
+				aux_m = "M" + STR(num_col, 1)
+				REPLACE &aux_m                WITH ccusto.valor
+				SELECT ccusto
+			ENDSCAN
+			SELECT sem_ccus
+			REPORT FORM sem_ccus TO PRINTER &cvisual
+			SELECT sem_ccus
+			USE
+		ENDIF
+		SELECT ccusto
+		USE
+	ELSE
+		DO winalert WITH "AVISO",  ;
+			"O RELATÓRIO NÃO FOI GERADO. ESCOLHA UM FILTRO."
+	ENDIF
+	RETURN
+	*--
 
 
 *       *********************************************************
@@ -1716,7 +1728,7 @@ RETURN
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   13    
+*       * From Screen:         CONTAS,     Record Number:   17    
 *       * Variable:            fors                               
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Popup                              
@@ -1739,7 +1751,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   21    
+*       * From Screen:         CONTAS,     Record Number:   25    
 *       * Variable:            ccus                               
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Popup                              
@@ -1770,7 +1782,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   24    
+*       * From Screen:         CONTAS,     Record Number:   29    
 *       * Variable:            wnparc                             
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Field                              
@@ -1793,7 +1805,7 @@ ENDIF
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   26    
+*       * From Screen:         CONTAS,     Record Number:   31    
 *       * Variable:            wmodulo                            
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Field                              
@@ -1816,7 +1828,7 @@ ENDIF
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   29    
+*       * From Screen:         CONTAS,     Record Number:   34    
 *       * Variable:            adi                                
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
@@ -1853,7 +1865,7 @@ ENDIF
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   34    
+*       * From Screen:         CONTAS,     Record Number:   39    
 *       * Variable:            filt_area                          
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Check Box                          
@@ -1878,7 +1890,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   35    
+*       * From Screen:         CONTAS,     Record Number:   40    
 *       * Variable:            filt_suba                          
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Check Box                          
@@ -1903,7 +1915,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   36    
+*       * From Screen:         CONTAS,     Record Number:   41    
 *       * Variable:            filt_mod                           
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Check Box                          
@@ -1928,7 +1940,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   45    
+*       * From Screen:         CONTAS,     Record Number:   50    
 *       * Variable:            di                                 
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Field                              
@@ -1949,7 +1961,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   47    
+*       * From Screen:         CONTAS,     Record Number:   52    
 *       * Variable:            fil                                
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
@@ -1970,7 +1982,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   48    
+*       * From Screen:         CONTAS,     Record Number:   53    
 *       * Variable:            list                               
 *       * Called By:           VALID Clause                       
 *       * Object Type:         List                               
@@ -1997,7 +2009,7 @@ ENDIF
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   49    
+*       * From Screen:         CONTAS,     Record Number:   54    
 *       * Variable:            menu1                              
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
@@ -2054,7 +2066,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   52    
+*       * From Screen:         CONTAS,     Record Number:   57    
 *       * Variable:            lvisual                            
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Check Box                          
@@ -2078,7 +2090,7 @@ ENDIF
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   54    
+*       * From Screen:         CONTAS,     Record Number:   59    
 *       * Variable:            bt_ced                             
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        

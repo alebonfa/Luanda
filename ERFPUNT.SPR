@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 21/04/2013            ERFPUNT.SPR              22:30:07 
+*       * 29/04/2013            ERFPUNT.SPR              09:03:06 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -38,8 +38,8 @@ SET READBORDER ON
 *       *********************************************************
 *
 
-IF NOT WEXIST("_3rm1cbwe1")
-	DEFINE WINDOW _3rm1cbwe1 ;
+IF NOT WEXIST("_3ru0jecls")
+	DEFINE WINDOW _3ru0jecls ;
 		AT  0.000, 0.000  ;
 		SIZE 35.714,117.800 ;
 		TITLE "Itens Imobilizados" ;
@@ -48,7 +48,7 @@ IF NOT WEXIST("_3rm1cbwe1")
 		NOCLOSE ;
 		NOMINIMIZE ;
 		SYSTEM
-	MOVE WINDOW _3rm1cbwe1 CENTER
+	MOVE WINDOW _3ru0jecls CENTER
 ENDIF
 
 
@@ -76,10 +76,10 @@ DO puntLij
 *
 
 #REGION 1
-IF WVISIBLE("_3rm1cbwe1")
-	ACTIVATE WINDOW _3rm1cbwe1 SAME
+IF WVISIBLE("_3ru0jecls")
+	ACTIVATE WINDOW _3ru0jecls SAME
 ELSE
-	ACTIVATE WINDOW _3rm1cbwe1 NOSHOW
+	ACTIVATE WINDOW _3ru0jecls NOSHOW
 ENDIF
 @ 0.000,0.000 TO 3.500,117.800 ;
 	PATTERN 1 ;
@@ -128,19 +128,19 @@ ENDIF
 	SIZE 1.143,10.400,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3rm1cbwgt()
+	VALID _3ru0jecmk()
 @ 10.857,17.600 GET keuzeNaam ;
 	PICTURE "@^ Iniciando...;Contendo..." ;
 	SIZE 1.500,21.800 ;
 	DEFAULT "Iniciando..." ;
 	FONT "Arial", 8 ;
-	VALID _3rm1cbwhk()
+	VALID _3ru0jecmm()
 @ 10.929,41.400 GET gefNaam ;
 	SIZE 1.000,72.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
-	VALID _3rm1cbwhl() ;
+	VALID _3ru0jecn5() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 14.143,3.400 GET lokPunt ;
  	PICTURE "@&N" ;
@@ -148,7 +148,7 @@ ENDIF
 	SIZE 14.857,79.286 ;
 	DEFAULT 1 ;
 	FONT "Courier New", 8 ;
-	VALID _3rm1cbwin() ;
+	VALID _3ru0jecn6() ;
 	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
 @ 29.500,3.200 GET visIndruk ;
 	PICTURE "@*C Visualiza" ;
@@ -162,16 +162,16 @@ ENDIF
 	SIZE 1.643,37.000,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3rm1cbwiq()
+	VALID _3ru0jecn9()
 
-IF NOT WVISIBLE("_3rm1cbwe1")
-	ACTIVATE WINDOW _3rm1cbwe1
+IF NOT WVISIBLE("_3ru0jecls")
+	ACTIVATE WINDOW _3ru0jecls
 ENDIF
 
 READ CYCLE ;
-	WHEN _3rm1cbwjx()
+	WHEN _3ru0jecnc()
 
-RELEASE WINDOW _3rm1cbwe1
+RELEASE WINDOW _3ru0jecls
 
 #REGION 0
 
@@ -300,7 +300,7 @@ RETURN
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1CBWGT           knopSalie VALID                    
+*       * _3RU0JECMK           knopSalie VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -313,7 +313,7 @@ RETURN
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1cbwgt     &&  knopSalie VALID
+FUNCTION _3ru0jecmk     &&  knopSalie VALID
 #REGION 1
 DO CASE
 CASE knopsalie = 1
@@ -333,7 +333,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1CBWHK           keuzeNaam VALID                    
+*       * _3RU0JECMM           keuzeNaam VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -346,14 +346,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1cbwhk     &&  keuzeNaam VALID
+FUNCTION _3ru0jecmm     &&  keuzeNaam VALID
 #REGION 1
 DO puntLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1CBWHL           gefNaam VALID                      
+*       * _3RU0JECN5           gefNaam VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -366,14 +366,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1cbwhl     &&  gefNaam VALID
+FUNCTION _3ru0jecn5     &&  gefNaam VALID
 #REGION 1
 DO puntLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1CBWIN           lokPunt VALID                      
+*       * _3RU0JECN6           lokPunt VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -386,14 +386,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1cbwin     &&  lokPunt VALID
+FUNCTION _3ru0jecn6     &&  lokPunt VALID
 #REGION 1
 DO overlagPunt
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1CBWIQ           knopPunt VALID                     
+*       * _3RU0JECN9           knopPunt VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -406,7 +406,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1cbwiq     &&  knopPunt VALID
+FUNCTION _3ru0jecn9     &&  knopPunt VALID
 #REGION 1
 DO CASE
 CASE knopPunt = 1
@@ -430,7 +430,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1CBWJX           Read Level When                    
+*       * _3RU0JECNC           Read Level When                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -442,7 +442,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1cbwjx     && Read Level When
+FUNCTION _3ru0jecnc     && Read Level When
 *
 * When Code from screen: ERFPUNT
 *

@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 21/04/2013           CONT_LOG.SPR              22:27:58 
+*       * 29/04/2013           CONT_LOG.SPR              09:02:17 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -236,7 +236,7 @@ ENDIF
 	SIZE 22.857,113.000 ;
 	DEFAULT 1 ;
 	FONT "Courier New", 8 ;
-	VALID _3rm1c6bu9() ;
+	VALID _3ru0jda62() ;
 	COLOR RGB(,,,255,255,255),RGB(,,,255,255,255)
 @ 36.077,137.200 SAY wctotal ;
 	SIZE 1.000,15.333 ;
@@ -436,7 +436,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3RM1C6BU9           pags VALID                         
+*       * _3RU0JDA62           pags VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -449,7 +449,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3rm1c6bu9     &&  pags VALID
+FUNCTION _3ru0jda62     &&  pags VALID
 #REGION 1
 bevestigt = winconf('ATENÇÃO','Tem certeza que deseja excluir este lançamento?')
 IF bevestigt
