@@ -60,11 +60,11 @@ SCAN FOR parc_itm.cod_parc == parc_cab.codigo
 	ENDSCAN
 
 	IF ISBLANK(gravaUnidade)
-		narq = 'C:\' + LEFT(ALLTRIM(area.sigla), 2) + LEFT(ALLTRIM(STUFF(ALLTRIM(subarea.sigla), LEN(ALLTRIM(subarea.sigla)) - 1, 2, '')), 5) + RIGHT(ALLTRIM(subarea.sigla), 1)
+		narq = 'C:\' + LEFT(ALLTRIM(area.sigla), 2) + LEFT(ALLTRIM(STUFF(ALLTRIM(subarea.sigla), LEN(ALLTRIM(subarea.sigla)) - 2, 2, '')), 5) + RIGHT(ALLTRIM(subarea.sigla), 2)
 		file_name = narq
 		out_file = PUTFILE( 'Nome do Arquivo:', file_name,  'XLS')
 	ELSE
-		out_file = gravaUnidade + ':\' + LEFT(ALLTRIM(area.sigla), 2) + LEFT(ALLTRIM(STUFF(ALLTRIM(subarea.sigla), LEN(ALLTRIM(subarea.sigla)) - 1, 2, '')), 5) + RIGHT(ALLTRIM(subarea.sigla), 1)
+		out_file = gravaUnidade + ':\' + LEFT(ALLTRIM(area.sigla), 2) + LEFT(ALLTRIM(STUFF(ALLTRIM(subarea.sigla), LEN(ALLTRIM(subarea.sigla)) - 2, 2, '')), 5) + RIGHT(ALLTRIM(subarea.sigla), 2)
 	ENDIF	
 
 	WAIT WINDOW NOWAIT out_file
