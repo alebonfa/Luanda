@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 22/05/2013           BUSC_MOD.SPR              08:42:49 
+*       * 28/05/2013           BUSC_MOD.SPR              09:45:57 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -239,7 +239,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "T" ;
-	VALID _3sh0iocow() ;
+	VALID _3sn0kxjiy() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 
 IF NOT WVISIBLE("_2vo0yodxv")
@@ -303,14 +303,27 @@ PROCEDURE mod_busc
 	IF !isblank(auxfilt)
 		DIMENSION list_bmod[ 1]
 		list_bmod[ 1] = "Não existem módulos neste período..."
-		SELECT DTOC(mod_cab.dat_ini) + ' ' +  DTOC(mod_cab.dat_fim) + '  ' +;
-			STR(mod_cab.numero,2) + '  C' +  STR(mod_cab.camtasia,1) + ' ' + area.descricao + ' ' +  subarea.sigla;
-			+ ' ' +  LEFT(prof.nome,35)  + '  ' +  LEFT(discip.descricao,35), mod_cab.primario;
-			FROM mod_disc, mod_cab, modulos, area, subarea, prof, discip WHERE mod_disc.modulo;
-			== mod_cab.primario AND mod_cab.curso_id == modulos.primario AND mod_disc.id_prof;
-			== prof.codigo AND mod_disc.id_disc == discip.codigo AND modulos.area ==;
-			area.codigo AND modulos.subarea == subarea.codigo &auxfilt GROUP BY mod_cab.primario,;
-			mod_disc.id_prof   ORDER BY mod_cab.dat_ini, area.descricao  INTO ARRAY list_bmod
+		SELECT DTOC(mod_cab.dat_ini) + ' ' +  ;
+				DTOC(mod_cab.dat_fim) + '  ' + ;
+				STR(mod_cab.numero,2) + '  C' + ;
+				STR(mod_cab.camtasia,1) + ' ' + ;
+				area.descricao + ' ' + ;
+				subarea.sigla + ' ' + ;
+				LEFT(prof.nome,35) + '  ' + ;
+				LEFT(discip.descricao,35), ;
+				mod_cab.primario ;
+			FROM mod_disc, mod_cab, modulos, area, subarea, prof, discip ;
+			WHERE mod_disc.modulo == mod_cab.primario AND ;
+				mod_cab.curso_id == modulos.primario AND ;
+				mod_disc.id_prof == prof.codigo AND ;
+				mod_disc.id_disc == discip.codigo AND ;
+				modulos.area ==	area.codigo AND ;
+				modulos.subarea == subarea.codigo ;
+				&auxfilt ;
+			GROUP BY mod_cab.primario, mod_disc.id_prof ;
+			ORDER BY mod_cab.dat_ini, area.descricao ;
+			INTO ARRAY list_bmod
+			
 		IF bmods > ALEN(list_bmod) / 2
 			bmods = 1
 		ENDIF
@@ -988,7 +1001,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IOCOW           booCamtasia VALID                  
+*       * _3SN0KXJIY           booCamtasia VALID                  
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1001,7 +1014,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iocow     &&  booCamtasia VALID
+FUNCTION _3sn0kxjiy     &&  booCamtasia VALID
 #REGION 1
 DO mod_busc
 SHOW GETS
