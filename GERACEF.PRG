@@ -1,54 +1,54 @@
 PARAMETER nomarq, prog
 DO CASE
      CASE prog = 1
-          IF FILE('z:\CAIXA\M80V13\TITULOS.TXT')
+          IF FILE('z:\M80V13\TITULOS.TXT')
                DELETE FILE  ;
-                      z:\CAIXA\M80V13\TITULOS.TXT
+                      z:\M80V13\TITULOS.TXT
           ENDIF
           SET TEXTMERGE ON
-          SET TEXTMERGE TO z:\CAIXA\M80V13\TITULOS.TXT
+          SET TEXTMERGE TO z:\M80V13\TITULOS.TXT
      CASE prog = 2
-          IF FILE('z:\CAIXA\M8052Z\TITULOS.TXT')
+          IF FILE('z:\M8052Z\TITULOS.TXT')
                DELETE FILE  ;
-                      z:\CAIXA\M8052Z\TITULOS.TXT
+                      z:\M8052Z\TITULOS.TXT
           ENDIF
           SET TEXTMERGE ON
-          SET TEXTMERGE TO z:\CAIXA\M8052Z\TITULOS.TXT
+          SET TEXTMERGE TO z:\M8052Z\TITULOS.TXT
      CASE prog = 3
-          IF FILE('z:\CAIXA\M81O91\TITULOS.TXT')
+          IF FILE('z:\M81O91\TITULOS.TXT')
                DELETE FILE  ;
-                      z:\CAIXA\M81O91\TITULOS.TXT
+                      z:\M81O91\TITULOS.TXT
           ENDIF
           SET TEXTMERGE ON
-          SET TEXTMERGE TO z:\CAIXA\M81O91\TITULOS.TXT
+          SET TEXTMERGE TO z:\M81O91\TITULOS.TXT
      CASE prog = 4
-          IF FILE('z:\CAIXA\M81O72\TITULOS.TXT')
+          IF FILE('z:\M81O72\TITULOS.TXT')
                DELETE FILE  ;
-                      z:\CAIXA\M81O72\TITULOS.TXT
+                      z:\M81O72\TITULOS.TXT
           ENDIF
           SET TEXTMERGE ON
-          SET TEXTMERGE TO z:\CAIXA\M81O72\TITULOS.TXT
+          SET TEXTMERGE TO z:\M81O72\TITULOS.TXT
      CASE prog = 5
-          IF FILE('z:\CAIXA\M82DAB\TITULOS.TXT')
+          IF FILE('z:\M82DAB\TITULOS.TXT')
                DELETE FILE  ;
-                      z:\CAIXA\M82DAB\TITULOS.TXT
+                      z:\M82DAB\TITULOS.TXT
           ENDIF
           SET TEXTMERGE ON
-          SET TEXTMERGE TO z:\CAIXA\M82DAB\TITULOS.TXT
+          SET TEXTMERGE TO z:\M82DAB\TITULOS.TXT
      CASE prog = 6
-          IF FILE('z:\CAIXA\M82C98\TITULOS.TXT')
+          IF FILE('z:\M82C98\TITULOS.TXT')
                DELETE FILE  ;
-                      z:\CAIXA\M82C98\TITULOS.TXT
+                      z:\M82C98\TITULOS.TXT
           ENDIF
           SET TEXTMERGE ON
-          SET TEXTMERGE TO z:\CAIXA\M82C98\TITULOS.TXT
+          SET TEXTMERGE TO z:\M82C98\TITULOS.TXT
      CASE prog = 7
-          IF FILE('z:\CAIXA\M92DAD\TITULOS.TXT')
+          IF FILE('z:\M82DAD\TITULOS.TXT')
                DELETE FILE  ;
-                      z:\CAIXA\M92DAD\TITULOS.TXT
+                      z:\M82DAD\TITULOS.TXT
           ENDIF
           SET TEXTMERGE ON
-          SET TEXTMERGE TO z:\CAIXA\M92DAD\TITULOS.TXT
+          SET TEXTMERGE TO z:\M82DAD\TITULOS.TXT
 ENDCASE
 SELECT * FROM Recebs WHERE  NOT  ;
          recebs.boleto ORDER BY  ;
@@ -160,54 +160,54 @@ ENDSCAN
 SET TEXTMERGE OFF
 DO CASE
      CASE prog = 1
-          IF FILE('z:\CAIXA\M80V13\CLIENTES.TXT')
+          IF FILE('z:\M80V13\CLIENTES.TXT')
                DELETE FILE  ;
-                      z:\CAIXA\M80V13\CLIENTES.TXT
+                      z:\M80V13\CLIENTES.TXT
           ENDIF
           SET TEXTMERGE ON
-          SET TEXTMERGE TO z:\CAIXA\M80V13\CLIENTES.TXT
+          SET TEXTMERGE TO z:\M80V13\CLIENTES.TXT
      CASE prog = 2
-          IF FILE('z:\CAIXA\M8052Z\CLIENTES.TXT')
+          IF FILE('z:\M8052Z\CLIENTES.TXT')
                DELETE FILE  ;
-                      z:\CAIXA\M8052Z\CLIENTES.TXT
+                      z:\M8052Z\CLIENTES.TXT
           ENDIF
           SET TEXTMERGE ON
-          SET TEXTMERGE TO z:\CAIXA\M8052Z\CLIENTES.TXT
+          SET TEXTMERGE TO z:\M8052Z\CLIENTES.TXT
      CASE prog = 3
-          IF FILE('z:\CAIXA\M81O91\CLIENTES.TXT')
+          IF FILE('z:\M81O91\CLIENTES.TXT')
                DELETE FILE  ;
-                      z:\CAIXA\M81O91\CLIENTES.TXT
+                      z:\M81O91\CLIENTES.TXT
           ENDIF
           SET TEXTMERGE ON
-          SET TEXTMERGE TO z:\CAIXA\M81O91\CLIENTES.TXT
+          SET TEXTMERGE TO z:\M81O91\CLIENTES.TXT
      CASE prog = 4
-          IF FILE('z:\CAIXA\M81O72\CLIENTES.TXT')
+          IF FILE('z:\M81O72\CLIENTES.TXT')
                DELETE FILE  ;
-                      z:\CAIXA\M81O72\CLIENTES.TXT
+                      z:\M81O72\CLIENTES.TXT
           ENDIF
           SET TEXTMERGE ON
-          SET TEXTMERGE TO z:\CAIXA\M81O72\CLIENTES.TXT
+          SET TEXTMERGE TO z:\M81O72\CLIENTES.TXT
      CASE prog = 5
-          IF FILE('z:\CAIXA\M82DAB\CLIENTES.TXT')
+          IF FILE('z:\M82DAB\CLIENTES.TXT')
                DELETE FILE  ;
-                      z:\CAIXA\M82DAB\CLIENTES.TXT
+                      z:\M82DAB\CLIENTES.TXT
           ENDIF
           SET TEXTMERGE ON
-          SET TEXTMERGE TO z:\CAIXA\M82DAB\CLIENTES.TXT
+          SET TEXTMERGE TO z:\M82DAB\CLIENTES.TXT
      CASE prog = 6
-          IF FILE('z:\CAIXA\M82C98\CLIENTES.TXT')
+          IF FILE('z:\M82C98\CLIENTES.TXT')
                DELETE FILE  ;
-                      z:\CAIXA\M82C98\CLIENTES.TXT
+                      z:\M82C98\CLIENTES.TXT
           ENDIF
           SET TEXTMERGE ON
-          SET TEXTMERGE TO z:\CAIXA\M82C98\CLIENTES.TXT
+          SET TEXTMERGE TO z:\M82C98\CLIENTES.TXT
      CASE prog = 7
-          IF FILE('z:\CAIXA\M92DAD\CLIENTES.TXT')
+          IF FILE('z:\M82DAD\CLIENTES.TXT')
                DELETE FILE  ;
-                      z:\CAIXA\M92DAD\CLIENTES.TXT
+                      z:\M82DAD\CLIENTES.TXT
           ENDIF
           SET TEXTMERGE ON
-          SET TEXTMERGE TO z:\CAIXA\M92DAD\CLIENTES.TXT
+          SET TEXTMERGE TO z:\M82DAD\CLIENTES.TXT
 ENDCASE
 SELECT cliente.* FROM Cliente,  ;
        Recebs WHERE  ;
