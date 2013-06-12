@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 22/05/2013           QUITA_CO.SPR              08:43:57 
+*       * 12/06/2013           QUITA_CO.SPR              09:38:45 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -83,6 +83,8 @@ wq_venc = contas.datavencim
 wvalor = contas.valpgtorec
 wq_cop = contas.copia
 wtipo2 = contas.tipo
+wqpatual = int(val(left(contas.numdesmemb,2)))
+wqptotal = int(val(right(contas.numdesmemb,2)))
 wq_din = 1
 pags = 1
 bans = 1
@@ -414,12 +416,32 @@ ENDIF
 	SIZE 1.000,13.600 ;
 	DEFAULT {  /  /  } ;
 	FONT "Arial", 8 ;
-	VALID _3sh0ipt1u() ;
+	VALID _3t20koacs() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 15.462,149.600 SAY "Data:" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,,,,)
+@ 12.692,125.600 SAY "Parcela" ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,128,128,,,,)
+@ 12.846,135.800 GET wqpatual ;
+	SPINNER 1.000, 1, 99 ;
+	PICTURE "@K" ;
+	SIZE 0.846, 5.200 ;
+	DEFAULT 1.000 ;
+	VALID _3t20koacu() ;
+	FONT "MS Sans Serif", 8 ;
+	COLOR ,RGB(,,,255,255,255)
+@ 12.846,147.000 GET wqptotal ;
+	SPINNER 1.000, 1, 99 ;
+	PICTURE "@K" ;
+	SIZE 0.846, 5.200 ;
+	DEFAULT 1.000 ;
+	VALID _3t20koacw() ;
+	FONT "MS Sans Serif", 8 ;
+	COLOR ,RGB(,,,255,255,255)
 
 IF NOT WVISIBLE("_2vo0yp993")
 	ACTIVATE WINDOW _2vo0yp993
@@ -1021,7 +1043,7 @@ REPLACE contas.empresa_id WITH list_emp(qo_emp,2)
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IPT1U           wq_emiss VALID                     
+*       * _3T20KOACS           wq_emiss VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1034,10 +1056,54 @@ REPLACE contas.empresa_id WITH list_emp(qo_emp,2)
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ipt1u     &&  wq_emiss VALID
+FUNCTION _3t20koacs     &&  wq_emiss VALID
 #REGION 1
 SELECT contas
 REPLACE contas.dataemiss WITH wq_emiss
+
+
+*       *********************************************************
+*       *                                                         
+*       * _3T20KOACU           wqpatual VALID                     
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         QUITA_CO,     Record Number:   55  
+*       * Variable:            wqpatual                           
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      21                                 
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _3t20koacu     &&  wqpatual VALID
+#REGION 1
+auxdes2 = STUFF(ALLTRIM(STR(wqptotal, 2)), 1, 0, REPLICATE("0", 2 - LEN(ALLTRIM(STR(wqptotal, 2)))))
+auxdes = STUFF(ALLTRIM(STR(wqpatual, 2)), 1, 0, REPLICATE("0", 2 - LEN(ALLTRIM(STR(wqpatual, 2))))) + auxdes2
+SELECT contas
+REPLACE contas.numdesmemb WITH auxdes
+
+
+*       *********************************************************
+*       *                                                         
+*       * _3T20KOACW           wqptotal VALID                     
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         QUITA_CO,     Record Number:   56  
+*       * Variable:            wqptotal                           
+*       * Called By:           VALID Clause                       
+*       * Snippet Number:      22                                 
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _3t20koacw     &&  wqptotal VALID
+#REGION 1
+auxdes2 = STUFF(ALLTRIM(STR(wqptotal, 2)), 1, 0, REPLICATE("0", 2 - LEN(ALLTRIM(STR(wqptotal, 2)))))
+auxdes = STUFF(ALLTRIM(STR(wqpatual, 2)), 1, 0, REPLICATE("0", 2 - LEN(ALLTRIM(STR(wqpatual, 2)))))  + auxdes2
+SELECT contas
+REPLACE contas.numdesmemb WITH auxdes
 
 
 *       *********************************************************
@@ -1050,7 +1116,7 @@ REPLACE contas.dataemiss WITH wq_emiss
 *       * From Platform:       Windows                            
 *       * From Screen:         QUITA_CO                           
 *       * Called By:           READ Statement                     
-*       * Snippet Number:      21                                 
+*       * Snippet Number:      23                                 
 *       *                                                         
 *       *********************************************************
 *
@@ -1083,7 +1149,7 @@ SHOW GETS
 *       * From Platform:       Windows                            
 *       * From Screen:         QUITA_CO                           
 *       * Called By:           READ Statement                     
-*       * Snippet Number:      22                                 
+*       * Snippet Number:      24                                 
 *       *                                                         
 *       *********************************************************
 *

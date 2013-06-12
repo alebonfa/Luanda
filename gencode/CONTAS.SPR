@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 28/05/2013            CONTAS.SPR               09:45:58 
+*       * 12/06/2013            CONTAS.SPR               09:46:22 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -205,6 +205,7 @@ lvisual = .F.
 cvisual = "PROMPT NOCONSOLE"
 wmodulo = 0
 tip_nome = 1
+store 1 to wpatual, wptotal
 DIMENSION list_cart[ 1]
 carts = 1
 wtipo_ced = 1
@@ -292,6 +293,10 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,,,,)
+@ 6.385,106.400 SAY "Parcela" ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,128,128,,,,)
 @ 6.154,18.000 GET fors ;
 	PICTURE "@^" ;
 	FROM list_for ;
@@ -322,17 +327,29 @@ ENDIF
 	FONT "Arial", 8 ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 6.385,68.800 GET wnota ;
-	SIZE 1.000,17.200 ;
+	SIZE 1.000,15.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!T XXXXXXXX" ;
 	COLOR ,RGB(0,0,0,255,255,255)
-@ 6.385,89.200 GET wnotaf ;
-	SIZE 1.000,17.200 ;
+@ 6.385,86.800 GET wnotaf ;
+	SIZE 1.000,15.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!T XXXXXXXX" ;
 	COLOR ,RGB(0,0,0,255,255,255)
+@ 6.538,116.600 GET wpatual ;
+	SPINNER 1.000, 1, 99 ;
+	PICTURE "@K" ;
+	SIZE 0.846, 2.800 ;
+	DEFAULT 1.000 ;
+	FONT "MS Sans Serif", 8
+@ 6.538,124.600 GET wptotal ;
+	SPINNER 1.000, 1, 99 ;
+	PICTURE "@K" ;
+	SIZE 0.846, 2.800 ;
+	DEFAULT 1.000 ;
+	FONT "MS Sans Serif", 8
 @ 8.615,68.400 GET areas ;
 	PICTURE "@^" ;
 	FROM lst_area ;
@@ -714,7 +731,7 @@ PROCEDURE expcontab
 				DTOC(contas.datalancam) AS Contrata, ;
 				empresas.nome AS Referente, ;
 				contas.valpgtorec AS inicial, ;
-				1 AS parcela, ;
+				contas.numdesmemb AS parcela, ;
 				0.00 AS multa, ;
 				contas.valorjuros AS juros, ;
 				contas.valorliqui AS pago, ;
@@ -1239,8 +1256,8 @@ PROCEDURE adiciona
 			aux_venc = "Venc" + ALLTRIM(STR(i, 2))
 			auxcond = auxcond + STR(&aux_venc,3)
 		ENDFOR
-		auxdes2 = STUFF(ALLTRIM(STR(vencs, 2)), 1, 0, REPLICATE("0", 2 -  ;
-			LEN(ALLTRIM(STR(vencs, 4)))))
+		auxdes2 = STUFF(ALLTRIM(STR(wptotal, 2)), 1, 0, REPLICATE("0", 2 -  ;
+			LEN(ALLTRIM(STR(wptotal, 4)))))
 		FOR i = 1 TO vencs
 			aux_dat = "I_data" + ALLTRIM(STR(i, 2))
 			aux_val = "I_val" + ALLTRIM(STR(i, 2))
@@ -1265,8 +1282,7 @@ PROCEDURE adiciona
 			REPLACE contas.area WITH lst_area(areas,2)
 			REPLACE contas.subarea WITH lst_suba(subas,2)
 			REPLACE contas.codigobanc WITH list_ban(bans,2)
-			auxdes = STUFF(ALLTRIM(STR(i, 2)), 1, 0, REPLICATE("0", 2 -  ;
-				LEN(ALLTRIM(STR(i, 4))))) + auxdes2
+			auxdes = STUFF(ALLTRIM(STR(wpatual, 2)), 1, 0, REPLICATE("0", 2 - LEN(ALLTRIM(STR(wpatual, 4))))) + auxdes2
 			REPLACE contas.numdesmemb WITH auxdes
 			REPLACE contas.condipagto WITH auxcond
 			REPLACE contas.obs WITH wobs
@@ -1339,7 +1355,9 @@ PROCEDURE ad_unica
 			REPLACE contas.area WITH lst_area(areas,2)
 			REPLACE contas.subarea WITH lst_suba(subas,2)
 			REPLACE contas.codigobanc WITH list_ban(bans,2)
-			REPLACE contas.numdesmemb WITH "0101"
+			auxdes2 = STUFF(ALLTRIM(STR(wptotal, 2)), 1, 0, REPLICATE("0", 2 - LEN(ALLTRIM(STR(wptotal, 2)))))
+			auxdes = STUFF(ALLTRIM(STR(wpatual, 2)), 1, 0, REPLICATE("0", 2 - LEN(ALLTRIM(STR(wpatual, 2))))) + auxdes2
+			REPLACE contas.numdesmemb WITH auxdes
 			REPLACE contas.obs WITH wobs
 			REPLACE contas.contab WITH wcontab
 			REPLACE contas.empresa_id WITH list_emp(emps,2)
@@ -1825,7 +1843,7 @@ PROCEDURE sem_ccus
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   17    
+*       * From Screen:         CONTAS,     Record Number:   18    
 *       * Variable:            fors                               
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Popup                              
@@ -1848,7 +1866,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   25    
+*       * From Screen:         CONTAS,     Record Number:   28    
 *       * Variable:            ccus                               
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Popup                              
@@ -1879,7 +1897,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   29    
+*       * From Screen:         CONTAS,     Record Number:   32    
 *       * Variable:            wnparc                             
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Field                              
@@ -1902,7 +1920,7 @@ ENDIF
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   31    
+*       * From Screen:         CONTAS,     Record Number:   34    
 *       * Variable:            wmodulo                            
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Field                              
@@ -1925,7 +1943,7 @@ ENDIF
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   34    
+*       * From Screen:         CONTAS,     Record Number:   37    
 *       * Variable:            adi                                
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
@@ -1962,7 +1980,7 @@ ENDIF
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   39    
+*       * From Screen:         CONTAS,     Record Number:   42    
 *       * Variable:            filt_area                          
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Check Box                          
@@ -1987,7 +2005,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   40    
+*       * From Screen:         CONTAS,     Record Number:   43    
 *       * Variable:            filt_suba                          
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Check Box                          
@@ -2012,7 +2030,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   41    
+*       * From Screen:         CONTAS,     Record Number:   44    
 *       * Variable:            filt_mod                           
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Check Box                          
@@ -2037,7 +2055,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   50    
+*       * From Screen:         CONTAS,     Record Number:   53    
 *       * Variable:            di                                 
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Field                              
@@ -2058,7 +2076,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   52    
+*       * From Screen:         CONTAS,     Record Number:   55    
 *       * Variable:            fil                                
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
@@ -2079,7 +2097,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   53    
+*       * From Screen:         CONTAS,     Record Number:   56    
 *       * Variable:            list                               
 *       * Called By:           VALID Clause                       
 *       * Object Type:         List                               
@@ -2106,7 +2124,7 @@ ENDIF
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   54    
+*       * From Screen:         CONTAS,     Record Number:   57    
 *       * Variable:            menu1                              
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
@@ -2169,7 +2187,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   57    
+*       * From Screen:         CONTAS,     Record Number:   60    
 *       * Variable:            lvisual                            
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Check Box                          
@@ -2193,7 +2211,7 @@ ENDIF
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   59    
+*       * From Screen:         CONTAS,     Record Number:   62    
 *       * Variable:            bt_ced                             
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
