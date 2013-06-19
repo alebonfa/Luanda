@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 12/06/2013            CONTAS.SPR               09:46:22 
+*       * 14/06/2013            CONTAS.SPR               09:59:17 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -526,7 +526,7 @@ ENDIF
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 24.385,129.200 GET tipo_dat ;
 	PICTURE "@*RHN Vencimento;Pagamento;Lancamento;Emissão" ;
-	SIZE 1.214,16.400,0.400 ;
+	SIZE 1.214,16.600,0.400 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
@@ -728,6 +728,7 @@ PROCEDURE expcontab
 				contas.razaosocia AS Fornecedor, ;
 				contas.numnotadoc AS NF, ;
 				DTOC(contas.dataemiss) AS Emissao, ;
+				DTOC(contas.datavencim) AS Vencim, ;
 				DTOC(contas.datalancam) AS Contrata, ;
 				empresas.nome AS Referente, ;
 				contas.valpgtorec AS inicial, ;
