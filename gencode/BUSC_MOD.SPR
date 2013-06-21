@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 28/05/2013           BUSC_MOD.SPR              09:45:57 
+*       * 21/06/2013           BUSC_MOD.SPR              09:20:59 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -239,7 +239,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "T" ;
-	VALID _3sn0kxjiy() ;
+	VALID _3tb0k1fqo() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 
 IF NOT WVISIBLE("_2vo0yodxv")
@@ -320,7 +320,7 @@ PROCEDURE mod_busc
 				modulos.area ==	area.codigo AND ;
 				modulos.subarea == subarea.codigo ;
 				&auxfilt ;
-			GROUP BY mod_cab.primario, mod_disc.id_prof ;
+			GROUP BY mod_cab.primario, mod_disc.id_prof, mod_disc.id_disc ;
 			ORDER BY mod_cab.dat_ini, area.descricao ;
 			INTO ARRAY list_bmod
 			
@@ -387,7 +387,7 @@ PROCEDURE impCamtasia
 				modulos.area ==	area.codigo AND ;
 				modulos.subarea == subarea.codigo ;
 				&auxfilt ;
-			GROUP BY mod_cab.primario, mod_disc.id_prof ;
+			GROUP BY mod_cab.primario, mod_disc.id_prof, mod_disc.id_disc ;
 			ORDER BY discip.descricao, prof.nome ;
 			INTO CURSOR imp_mod
 		ENDIF
@@ -427,7 +427,7 @@ PARAMETER tip_rel
 				modulos.area ==	area.codigo AND ;
 				modulos.subarea == subarea.codigo ;
 				&auxfilt ;
-			GROUP BY mod_cab.primario, mod_disc.id_prof ;
+			GROUP BY mod_cab.primario, mod_disc.id_prof, mod_disc.id_disc ;
 			ORDER BY mod_cab.dat_ini, area.descricao ;
 			INTO CURSOR imp_mod
 
@@ -1001,7 +1001,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SN0KXJIY           booCamtasia VALID                  
+*       * _3TB0K1FQO           booCamtasia VALID                  
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1014,7 +1014,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sn0kxjiy     &&  booCamtasia VALID
+FUNCTION _3tb0k1fqo     &&  booCamtasia VALID
 #REGION 1
 DO mod_busc
 SHOW GETS

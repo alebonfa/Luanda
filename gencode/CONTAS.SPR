@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 14/06/2013            CONTAS.SPR               09:59:17 
+*       * 21/06/2013            CONTAS.SPR               10:04:43 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -305,27 +305,13 @@ ENDIF
 	FONT "Arial", 8 ;
 	VALID _2VO0YOHV1() ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 8.615,18.000 GET bans ;
-	PICTURE "@^" ;
-	FROM list_ban ;
-	SIZE 1.500,29.000 ;
+@ 6.154,46.800 GET bt_ced ;
+	PICTURE "@*HN FO" ;
+	SIZE 1.500,4.600,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 11.077,18.000 GET carts ;
-	PICTURE "@^" ;
-	FROM list_cart ;
-	SIZE 1.500,29.000 ;
-	DEFAULT 1 ;
-	FONT "Arial", 8 ;
-	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 13.538,18.000 GET tips ;
-	PICTURE "@^" ;
-	FROM list_tip ;
-	SIZE 1.500,29.000 ;
-	DEFAULT 1 ;
-	FONT "Arial", 8 ;
-	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
+	VALID _2VO0YOHVU() ;
+	COLOR ,,,,,,,,RGB(128,128,128,,,,)
 @ 6.385,68.800 GET wnota ;
 	SIZE 1.000,15.600 ;
 	DEFAULT " " ;
@@ -350,28 +336,6 @@ ENDIF
 	SIZE 0.846, 2.800 ;
 	DEFAULT 1.000 ;
 	FONT "MS Sans Serif", 8
-@ 8.615,68.400 GET areas ;
-	PICTURE "@^" ;
-	FROM lst_area ;
-	SIZE 1.500,62.200 ;
-	DEFAULT 1 ;
-	FONT "Arial", 8 ;
-	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 11.077,68.400 GET subas ;
-	PICTURE "@^" ;
-	FROM lst_suba ;
-	SIZE 1.500,62.200 ;
-	DEFAULT 1 ;
-	FONT "Arial", 8 ;
-	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 13.538,68.400 GET ccus ;
-	PICTURE "@^" ;
-	FROM list_ccu ;
-	SIZE 1.500,62.200 ;
-	DEFAULT 1 ;
-	FONT "Arial", 8 ;
-	VALID _2VO0YOHV4() ;
-	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 6.385,154.000 GET wdatemiss ;
 	SIZE 1.000,12.800 ;
 	DEFAULT {  /  /  } ;
@@ -382,11 +346,39 @@ ENDIF
 	DEFAULT {  /  /  } ;
 	FONT "Arial", 8 ;
 	COLOR ,RGB(0,0,0,255,255,255)
+@ 8.615,18.000 GET bans ;
+	PICTURE "@^" ;
+	FROM list_ban ;
+	SIZE 1.500,29.000 ;
+	DEFAULT 1 ;
+	FONT "Arial", 8 ;
+	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
+@ 8.615,68.400 GET areas ;
+	PICTURE "@^" ;
+	FROM lst_area ;
+	SIZE 1.500,62.200 ;
+	DEFAULT 1 ;
+	FONT "Arial", 8 ;
+	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 8.846,154.000 GET wdatalanc ;
 	SIZE 1.000,19.600 ;
 	DEFAULT {  /  /  } ;
 	FONT "Arial", 8 ;
 	COLOR ,RGB(0,0,0,255,255,255)
+@ 11.077,18.000 GET carts ;
+	PICTURE "@^" ;
+	FROM list_cart ;
+	SIZE 1.500,29.000 ;
+	DEFAULT 1 ;
+	FONT "Arial", 8 ;
+	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
+@ 11.077,68.400 GET subas ;
+	PICTURE "@^" ;
+	FROM lst_suba ;
+	SIZE 1.500,62.200 ;
+	DEFAULT 1 ;
+	FONT "Arial", 8 ;
+	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 11.308,154.000 GET wnparc ;
 	SIZE 1.000,3.600 ;
 	DEFAULT 0 ;
@@ -400,6 +392,21 @@ ENDIF
 	FONT "Arial", 8 ;
 	PICTURE "@K 99,999,999.99" ;
 	COLOR ,RGB(0,0,0,255,255,255)
+@ 13.538,18.000 GET tips ;
+	PICTURE "@^" ;
+	FROM list_tip ;
+	SIZE 1.500,29.000 ;
+	DEFAULT 1 ;
+	FONT "Arial", 8 ;
+	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
+@ 13.538,68.400 GET ccus ;
+	PICTURE "@^" ;
+	FROM list_ccu ;
+	SIZE 1.500,62.200 ;
+	DEFAULT 1 ;
+	FONT "Arial", 8 ;
+	VALID _2VO0YOHV4() ;
+	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 13.615,154.000 GET wmodulo ;
 	SIZE 1.000,7.400 ;
 	DEFAULT 0 ;
@@ -407,16 +414,30 @@ ENDIF
 	PICTURE "@K 99" ;
 	VALID _2VO0YOHV7() ;
 	COLOR ,RGB(0,0,0,255,255,255)
+@ 13.615,56.400 GET filt_plan ;
+	PICTURE "@*C Plano" ;
+	SIZE 1.214,9.800 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 16.308,18.400 GET wobs ;
 	SIZE 1.000,111.600 ;
 	DEFAULT {  /  /  } ;
 	FONT "Arial", 8 ;
 	PICTURE "@K" ;
 	COLOR ,RGB(0,0,0,255,255,255)
-@ 15.923,153.600 GET wtipo ;
+@ 16.231,153.600 GET wtipo ;
 	PICTURE "@^ Normal;Previsão;Pendente" ;
 	SIZE 1.500,20.600 ;
 	DEFAULT "Normal" ;
+	FONT "Arial", 8 ;
+	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
+@ 18.462,18.000 GET emps ;
+	PICTURE "@^" ;
+	FROM list_emp ;
+	SIZE 1.500,112.600 ;
+	DEFAULT 1 ;
 	FONT "Arial", 8 ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 18.462,180.800 GET adi ;
@@ -426,86 +447,27 @@ ENDIF
 	FONT "Arial", 8 ;
 	VALID _2VO0YOHV9() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,)
-@ 6.231,4.800 GET filt_cede ;
-	PICTURE "@*C Nome" ;
-	SIZE 1.214,10.000 ;
+@ 18.538,4.800 GET lempr ;
+	PICTURE "@*C Empresa" ;
+	SIZE 1.214,13.000 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
-@ 8.692,4.800 GET filt_banc ;
-	PICTURE "@*C Banco" ;
-	SIZE 1.214,10.800 ;
+@ 18.538,140.400 GET wcontab ;
+	PICTURE "@*C Contabilidade" ;
+	SIZE 1.214,17.400 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
-@ 11.154,4.800 GET filt_cart ;
-	PICTURE "@*C Cartão" ;
-	SIZE 1.214,11.000 ;
-	DEFAULT 0 ;
+	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
+@ 24.385,129.200 GET tipo_dat ;
+	PICTURE "@*RHN Vencimento;Pagamento;Lancamento;Emissão" ;
+	SIZE 1.214,16.400,0.400 ;
+	DEFAULT 1 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
-@ 13.615,4.800 GET filt_form ;
-	PICTURE "@*C Forma" ;
-	SIZE 1.214,10.600 ;
-	DEFAULT 0 ;
-	FONT "Arial", 8 ;
-	STYLE "T" ;
-	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
-@ 8.692,56.400 GET filt_area ;
-	PICTURE "@*C Área" ;
-	SIZE 1.214,9.400 ;
-	DEFAULT 0 ;
-	FONT "Arial", 8 ;
-	STYLE "T" ;
-	VALID _2VO0YOHVC() ;
-	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
-@ 11.154,56.400 GET filt_suba ;
-	PICTURE "@*C Curso" ;
-	SIZE 1.214,10.400 ;
-	DEFAULT 0 ;
-	FONT "Arial", 8 ;
-	STYLE "T" ;
-	VALID _2VO0YOHVE() ;
-	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
-@ 13.615,140.400 GET filt_mod ;
-	PICTURE "@*C Módulo" ;
-	SIZE 1.214,11.400 ;
-	DEFAULT 0 ;
-	FONT "Arial", 8 ;
-	STYLE "T" ;
-	VALID _2VO0YOHVG() ;
-	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
-@ 6.231,56.400 GET filt_nota ;
-	PICTURE "@*C Nota" ;
-	SIZE 1.214,9.000 ;
-	DEFAULT 0 ;
-	FONT "Arial", 8 ;
-	STYLE "T" ;
-	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
-@ 13.615,56.400 GET filt_plan ;
-	PICTURE "@*C Plano" ;
-	SIZE 1.214,9.800 ;
-	DEFAULT 0 ;
-	FONT "Arial", 8 ;
-	STYLE "T" ;
-	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
-@ 11.154,140.400 GET filt_valo ;
-	PICTURE "@*C Valor" ;
-	SIZE 1.214,9.800 ;
-	DEFAULT 0 ;
-	FONT "Arial", 8 ;
-	STYLE "T" ;
-	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
-@ 16.154,140.400 GET filt_tipo ;
-	PICTURE "@*C Tipo" ;
-	SIZE 1.214,8.600 ;
-	DEFAULT 0 ;
-	FONT "Arial", 8 ;
-	STYLE "T" ;
-	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
+	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 25.846,4.800 GET wsit ;
 	PICTURE "@^ Geral;Abertas;Liquidadas;Vencidas" ;
 	SIZE 1.500,29.000 ;
@@ -518,19 +480,19 @@ ENDIF
 	DEFAULT "Iniciando por..." ;
 	FONT "Arial", 8 ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
+@ 25.923,100.800 GET lcontab ;
+	PICTURE "@*C Contábeis" ;
+	SIZE 1.214,14.200 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 26.077,62.000 GET wc_nfor ;
 	SIZE 1.000,33.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!T" ;
 	COLOR ,RGB(0,0,0,255,255,255)
-@ 24.385,129.200 GET tipo_dat ;
-	PICTURE "@*RHN Vencimento;Pagamento;Lancamento;Emissão" ;
-	SIZE 1.214,16.600,0.400 ;
-	DEFAULT 1 ;
-	FONT "Arial", 8 ;
-	STYLE "T" ;
-	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 26.077,136.400 GET di ;
 	SIZE 1.000,13.600 ;
 	DEFAULT {  /  /  } ;
@@ -557,13 +519,14 @@ ENDIF
 	FONT "Courier New", 8 ;
 	VALID _2VO0YOHVM() ;
 	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
-@ 48.923,4.800 GET menu1 ;
-	PICTURE "@*HN Listagem;Cópia de Cheque;Rel. Centro Custo;Fornecedores;Exporta Contab;Sair >>" ;
-	SIZE 1.500,31.400,0.000 ;
-	DEFAULT 1 ;
+@ 45.615,4.800 GET lvisual ;
+	PICTURE "@*C Visualiza" ;
+	SIZE 1.214,13.400 ;
+	DEFAULT 0 ;
 	FONT "Arial", 8 ;
-	VALID _2VO0YOHVN() ;
-	COLOR ,,,,,,,,RGB(128,128,128,,,,)
+	STYLE "T" ;
+	VALID _2VO0YOHVQ() ;
+	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 45.615,23.200 GET llancquit ;
 	PICTURE "@*C Lançar Quitando" ;
 	SIZE 1.214,20.600 ;
@@ -578,26 +541,84 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
-@ 45.615,4.800 GET lvisual ;
-	PICTURE "@*C Visualiza" ;
-	SIZE 1.214,13.400 ;
-	DEFAULT 0 ;
-	FONT "Arial", 8 ;
-	STYLE "T" ;
-	VALID _2VO0YOHVQ() ;
-	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 45.923,163.600 SAY totabe ;
 	SIZE 1.000,25.600 ;
 	FONT "Arial", 8 ;
 	PICTURE "999,999,999,999.99" ;
 	COLOR RGB(255,255,255,0,128,128)
-@ 6.154,46.800 GET bt_ced ;
-	PICTURE "@*HN FO" ;
-	SIZE 1.500,4.600,0.800 ;
+@ 48.923,4.800 GET menu1 ;
+	PICTURE "@*HN Listagem;Cópia de Cheque;Rel. Centro Custo;Fornecedores;Exporta Contab;Sair >>" ;
+	SIZE 1.500,31.400,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _2VO0YOHVU() ;
+	VALID _2VO0YOHVN() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,)
+@ 6.231,4.800 GET filt_cede ;
+	PICTURE "@*C Nome" ;
+	SIZE 1.214,10.000 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
+@ 6.231,56.400 GET filt_nota ;
+	PICTURE "@*C Nota" ;
+	SIZE 1.214,9.000 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
+@ 8.692,4.800 GET filt_banc ;
+	PICTURE "@*C Banco" ;
+	SIZE 1.214,10.800 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
+@ 8.692,56.400 GET filt_area ;
+	PICTURE "@*C Área" ;
+	SIZE 1.214,9.400 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	VALID _2VO0YOHVC() ;
+	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
+@ 11.154,4.800 GET filt_cart ;
+	PICTURE "@*C Cartão" ;
+	SIZE 1.214,11.000 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
+@ 11.154,56.400 GET filt_suba ;
+	PICTURE "@*C Curso" ;
+	SIZE 1.214,10.400 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	VALID _2VO0YOHVE() ;
+	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
+@ 11.154,140.400 GET filt_valo ;
+	PICTURE "@*C Valor" ;
+	SIZE 1.214,9.800 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
+@ 13.615,4.800 GET filt_form ;
+	PICTURE "@*C Forma" ;
+	SIZE 1.214,10.600 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
+@ 13.615,140.400 GET filt_mod ;
+	PICTURE "@*C Módulo" ;
+	SIZE 1.214,11.400 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	VALID _2VO0YOHVG() ;
+	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 16.077,4.800 GET filt_obs ;
 	PICTURE "@*C Obs" ;
 	SIZE 1.214,8.600 ;
@@ -605,34 +626,13 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
-@ 18.538,140.400 GET wcontab ;
-	PICTURE "@*C Contabilidade" ;
-	SIZE 1.214,17.400 ;
-	DEFAULT 0 ;
-	FONT "Arial", 8 ;
-	STYLE "T" ;
-	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 18.462,18.000 GET emps ;
-	PICTURE "@^" ;
-	FROM list_emp ;
-	SIZE 1.500,112.600 ;
-	DEFAULT 1 ;
-	FONT "Arial", 8 ;
-	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 18.538,4.800 GET lempr ;
-	PICTURE "@*C Empresa" ;
-	SIZE 1.214,13.000 ;
+@ 16.154,140.400 GET filt_tipo ;
+	PICTURE "@*C Tipo" ;
+	SIZE 1.214,8.600 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
-@ 25.923,100.800 GET lcontab ;
-	PICTURE "@*C Contábeis" ;
-	SIZE 1.214,14.200 ;
-	DEFAULT 0 ;
-	FONT "Arial", 8 ;
-	STYLE "T" ;
-	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 
 IF NOT WVISIBLE("_2vo0yohum")
 	ACTIVATE WINDOW _2vo0yohum
@@ -726,6 +726,7 @@ PROCEDURE expcontab
 	IF C = 1
 		SELECT ' ' AS setor, ;
 				contas.razaosocia AS Fornecedor, ;
+				ccust2.descricao AS Plano, ;
 				contas.numnotadoc AS NF, ;
 				DTOC(contas.dataemiss) AS Emissao, ;
 				DTOC(contas.datavencim) AS Vencim, ;
@@ -737,8 +738,9 @@ PROCEDURE expcontab
 				contas.valorjuros AS juros, ;
 				contas.valorliqui AS pago, ;
 				LEFT(contas.obs,100) AS obs ;
-			FROM contas, empresas ;
+			FROM contas, empresas, ccust2 ;
 			WHERE contas.empresa_id == empresas.id ;
+				AND contas.plano == ccust2.codigo ;
 				AND &auxfilt ;
 			ORDER BY &auxord ;
 			INTO CURSOR auxcont
@@ -1304,6 +1306,11 @@ PROCEDURE ad_unica
 	IF CONF
 		aux_day = DAY(wdatalanc)
 		aux_data = wdatalanc
+		IF wnparc > 1
+			auxdes2 = STUFF(ALLTRIM(STR(wnparc, 2)), 1, 0, REPLICATE("0", 2 - LEN(ALLTRIM(STR(wnparc, 2)))))
+		ELSE
+			auxdes2 = STUFF(ALLTRIM(STR(wptotal, 2)), 1, 0, REPLICATE("0", 2 - LEN(ALLTRIM(STR(wptotal, 2)))))
+		ENDIF
 		FOR i = 1 TO wnparc
 			IF i > 1
 				mes_ano = CTOD("01" + SUBSTR(DTOC(aux_data), 3, 8)) + 35
@@ -1356,8 +1363,11 @@ PROCEDURE ad_unica
 			REPLACE contas.area WITH lst_area(areas,2)
 			REPLACE contas.subarea WITH lst_suba(subas,2)
 			REPLACE contas.codigobanc WITH list_ban(bans,2)
-			auxdes2 = STUFF(ALLTRIM(STR(wptotal, 2)), 1, 0, REPLICATE("0", 2 - LEN(ALLTRIM(STR(wptotal, 2)))))
-			auxdes = STUFF(ALLTRIM(STR(wpatual, 2)), 1, 0, REPLICATE("0", 2 - LEN(ALLTRIM(STR(wpatual, 2))))) + auxdes2
+			IF wnparc > 1
+				auxdes = STUFF(ALLTRIM(STR(i, 2)), 1, 0, REPLICATE("0", 2 - LEN(ALLTRIM(STR(i, 2))))) + auxdes2
+			ELSE
+				auxdes = STUFF(ALLTRIM(STR(wpatual, 2)), 1, 0, REPLICATE("0", 2 - LEN(ALLTRIM(STR(wpatual, 2))))) + auxdes2
+			ENDIF
 			REPLACE contas.numdesmemb WITH auxdes
 			REPLACE contas.obs WITH wobs
 			REPLACE contas.contab WITH wcontab
@@ -1862,16 +1872,71 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
+*       * _2VO0YOHVU           bt_ced VALID                       
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         CONTAS,     Record Number:   19    
+*       * Variable:            bt_ced                             
+*       * Called By:           VALID Clause                       
+*       * Object Type:         Push Button                        
+*       * Snippet Number:      2                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _2VO0YOHVU     &&  bt_ced VALID
+#REGION 1
+DO CASE
+ CASE wtipo_ced = 1
+  wtipo_ced = 2
+  SHOW GET bt_ced, 1 PROMPT "FU"
+ CASE wtipo_ced = 2
+  wtipo_ced = 3
+  SHOW GET bt_ced, 1 PROMPT "PR"
+ CASE wtipo_ced = 3
+  wtipo_ced = 1
+  SHOW GET bt_ced, 1 PROMPT "FO"
+ENDCASE
+DO ced_list
+SHOW GETS
+*--
+
+*       *********************************************************
+*       *                                                         
+*       * _2VO0YOHV6           wnparc VALID                       
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         CONTAS,     Record Number:   31    
+*       * Variable:            wnparc                             
+*       * Called By:           VALID Clause                       
+*       * Object Type:         Field                              
+*       * Snippet Number:      3                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _2VO0YOHV6     &&  wnparc VALID
+#REGION 1
+IF wnparc < 1
+ wnparc = 1
+ SHOW GETS
+ENDIF
+*--
+
+*       *********************************************************
+*       *                                                         
 *       * _2VO0YOHV4           ccus VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   28    
+*       * From Screen:         CONTAS,     Record Number:   34    
 *       * Variable:            ccus                               
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Popup                              
-*       * Snippet Number:      2                                  
+*       * Snippet Number:      4                                  
 *       *                                                         
 *       *********************************************************
 *
@@ -1893,39 +1958,16 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _2VO0YOHV6           wnparc VALID                       
-*       *                                                         
-*       * Function Origin:                                        
-*       *                                                         
-*       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   32    
-*       * Variable:            wnparc                             
-*       * Called By:           VALID Clause                       
-*       * Object Type:         Field                              
-*       * Snippet Number:      3                                  
-*       *                                                         
-*       *********************************************************
-*
-FUNCTION _2VO0YOHV6     &&  wnparc VALID
-#REGION 1
-IF wnparc < 1
- wnparc = 1
- SHOW GETS
-ENDIF
-*--
-
-*       *********************************************************
-*       *                                                         
 *       * _2VO0YOHV7           wmodulo VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   34    
+*       * From Screen:         CONTAS,     Record Number:   35    
 *       * Variable:            wmodulo                            
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Field                              
-*       * Snippet Number:      4                                  
+*       * Snippet Number:      5                                  
 *       *                                                         
 *       *********************************************************
 *
@@ -1944,110 +1986,36 @@ ENDIF
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   37    
+*       * From Screen:         CONTAS,     Record Number:   40    
 *       * Variable:            adi                                
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
-*       * Snippet Number:      5                                  
+*       * Snippet Number:      6                                  
 *       *                                                         
 *       *********************************************************
 *
 FUNCTION _2VO0YOHV9     &&  adi VALID
 #REGION 1
-access = veracess(wcoduser,17,"INC")
-IF access
- IF vencs > 1
-  IF wvalor <> 0.00  .AND. vencs <> 0
-   DO ad_conta.spr
-  ELSE
-   DO winconf WITH "ATENÇÃO", "Faltam dados para o Cadastro!"
-  ENDIF
- ELSE
-  IF lrateio
-   DO cont_rat.spr
-  ELSE
-   DO ad_unica
-  ENDIF
- ENDIF
- DO filtra
- SHOW GETS
+ACCESS = veracess(wcoduser,17,"INC")
+IF ACCESS
+	IF vencs > 1
+		IF wvalor <> 0.00  .AND. vencs <> 0
+			DO ad_conta.spr
+		ELSE
+			DO winconf WITH "ATENÇÃO", "Faltam dados para o Cadastro!"
+		ENDIF
+	ELSE
+		IF lrateio
+			DO cont_rat.spr
+		ELSE
+			DO ad_unica
+		ENDIF
+	ENDIF
+	DO filtra
+	SHOW GETS
 ENDIF
 *--
 
-*       *********************************************************
-*       *                                                         
-*       * _2VO0YOHVC           filt_area VALID                    
-*       *                                                         
-*       * Function Origin:                                        
-*       *                                                         
-*       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   42    
-*       * Variable:            filt_area                          
-*       * Called By:           VALID Clause                       
-*       * Object Type:         Check Box                          
-*       * Snippet Number:      6                                  
-*       *                                                         
-*       *********************************************************
-*
-FUNCTION _2VO0YOHVC     &&  filt_area VALID
-#REGION 1
-IF filt_mod
- IF !filt_area
-  filt_mod = .F.
- ENDIF
-ENDIF
-SHOW GETS
-*--
-
-*       *********************************************************
-*       *                                                         
-*       * _2VO0YOHVE           filt_suba VALID                    
-*       *                                                         
-*       * Function Origin:                                        
-*       *                                                         
-*       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   43    
-*       * Variable:            filt_suba                          
-*       * Called By:           VALID Clause                       
-*       * Object Type:         Check Box                          
-*       * Snippet Number:      7                                  
-*       *                                                         
-*       *********************************************************
-*
-FUNCTION _2VO0YOHVE     &&  filt_suba VALID
-#REGION 1
-IF filt_mod
- IF !filt_suba
-  filt_mod = .F.
- ENDIF
-ENDIF
-SHOW GETS
-*--
-
-*       *********************************************************
-*       *                                                         
-*       * _2VO0YOHVG           filt_mod VALID                     
-*       *                                                         
-*       * Function Origin:                                        
-*       *                                                         
-*       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   44    
-*       * Variable:            filt_mod                           
-*       * Called By:           VALID Clause                       
-*       * Object Type:         Check Box                          
-*       * Snippet Number:      8                                  
-*       *                                                         
-*       *********************************************************
-*
-FUNCTION _2VO0YOHVG     &&  filt_mod VALID
-#REGION 1
-IF filt_mod
- IF !filt_area .OR. !filt_suba
-  filt_mod = .F.
- ENDIF
-ENDIF
-SHOW GETS
-*--
 
 *       *********************************************************
 *       *                                                         
@@ -2056,11 +2024,11 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   53    
+*       * From Screen:         CONTAS,     Record Number:   48    
 *       * Variable:            di                                 
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Field                              
-*       * Snippet Number:      9                                  
+*       * Snippet Number:      7                                  
 *       *                                                         
 *       *********************************************************
 *
@@ -2077,11 +2045,11 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   55    
+*       * From Screen:         CONTAS,     Record Number:   50    
 *       * Variable:            fil                                
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
-*       * Snippet Number:      10                                 
+*       * Snippet Number:      8                                  
 *       *                                                         
 *       *********************************************************
 *
@@ -2098,11 +2066,11 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   56    
+*       * From Screen:         CONTAS,     Record Number:   51    
 *       * Variable:            list                               
 *       * Called By:           VALID Clause                       
 *       * Object Type:         List                               
-*       * Snippet Number:      11                                 
+*       * Snippet Number:      9                                  
 *       *                                                         
 *       *********************************************************
 *
@@ -2120,16 +2088,40 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
+*       * _2VO0YOHVQ           lvisual VALID                      
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         CONTAS,     Record Number:   52    
+*       * Variable:            lvisual                            
+*       * Called By:           VALID Clause                       
+*       * Object Type:         Check Box                          
+*       * Snippet Number:      10                                 
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _2VO0YOHVQ     &&  lvisual VALID
+#REGION 1
+IF lvisual
+ cvisual = "PREVIEW"
+ELSE
+ cvisual = "PROMPT NOCONSOLE"
+ENDIF
+*--
+
+*       *********************************************************
+*       *                                                         
 *       * _2VO0YOHVN           menu1 VALID                        
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   57    
+*       * From Screen:         CONTAS,     Record Number:   56    
 *       * Variable:            menu1                              
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
-*       * Snippet Number:      12                                 
+*       * Snippet Number:      11                                 
 *       *                                                         
 *       *********************************************************
 *
@@ -2183,57 +2175,76 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _2VO0YOHVQ           lvisual VALID                      
+*       * _2VO0YOHVC           filt_area VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
 *       * From Screen:         CONTAS,     Record Number:   60    
-*       * Variable:            lvisual                            
+*       * Variable:            filt_area                          
+*       * Called By:           VALID Clause                       
+*       * Object Type:         Check Box                          
+*       * Snippet Number:      12                                 
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _2VO0YOHVC     &&  filt_area VALID
+#REGION 1
+IF filt_mod
+ IF !filt_area
+  filt_mod = .F.
+ ENDIF
+ENDIF
+SHOW GETS
+*--
+
+*       *********************************************************
+*       *                                                         
+*       * _2VO0YOHVE           filt_suba VALID                    
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         CONTAS,     Record Number:   62    
+*       * Variable:            filt_suba                          
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Check Box                          
 *       * Snippet Number:      13                                 
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _2VO0YOHVQ     &&  lvisual VALID
+FUNCTION _2VO0YOHVE     &&  filt_suba VALID
 #REGION 1
-IF lvisual
- cvisual = "PREVIEW"
-ELSE
- cvisual = "PROMPT NOCONSOLE"
+IF filt_mod
+ IF !filt_suba
+  filt_mod = .F.
+ ENDIF
 ENDIF
+SHOW GETS
 *--
 
 *       *********************************************************
 *       *                                                         
-*       * _2VO0YOHVU           bt_ced VALID                       
+*       * _2VO0YOHVG           filt_mod VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CONTAS,     Record Number:   62    
-*       * Variable:            bt_ced                             
+*       * From Screen:         CONTAS,     Record Number:   65    
+*       * Variable:            filt_mod                           
 *       * Called By:           VALID Clause                       
-*       * Object Type:         Push Button                        
+*       * Object Type:         Check Box                          
 *       * Snippet Number:      14                                 
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _2VO0YOHVU     &&  bt_ced VALID
+FUNCTION _2VO0YOHVG     &&  filt_mod VALID
 #REGION 1
-DO CASE
- CASE wtipo_ced = 1
-  wtipo_ced = 2
-  SHOW GET bt_ced, 1 PROMPT "FU"
- CASE wtipo_ced = 2
-  wtipo_ced = 3
-  SHOW GET bt_ced, 1 PROMPT "PR"
- CASE wtipo_ced = 3
-  wtipo_ced = 1
-  SHOW GET bt_ced, 1 PROMPT "FO"
-ENDCASE
-DO ced_list
+IF filt_mod
+ IF !filt_area .OR. !filt_suba
+  filt_mod = .F.
+ ENDIF
+ENDIF
 SHOW GETS
 *--
 
