@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 22/05/2013           CAD_PROF.SPR              08:42:56 
+*       * 02/07/2013           CAD_PROF.SPR              11:13:07 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -90,6 +90,8 @@ wbanc = ""
 WTIT = ""
 winst = ""
 wembarque = ""
+wlattes = ''
+STORE .F. TO larea_peq, larea_grd, larea_slv
 STORE 0.00  TO whonor1, whonor2
 STORE .F. TO lprofessor, lorientado, ldoc_fic, ldoc_cur,  ;
 	ldoc_dip
@@ -113,6 +115,11 @@ IF WVISIBLE("_2vo0yofhg")
 ELSE
 	ACTIVATE WINDOW _2vo0yofhg NOSHOW
 ENDIF
+@ 12.692,132.400 SAY whonor1+whonor2 ;
+	SIZE 1.000,13.600 ;
+	FONT "Arial", 8 ;
+	PICTURE "99,999.99" ;
+	COLOR RGB(0,0,0,255,255,255)
 @ 0.000,0.000 TO 3.769,198.000 ;
 	PATTERN 1 ;
 	PEN 1, 8 ;
@@ -121,11 +128,11 @@ ENDIF
 	FONT "Arial", 14 ;
 	STYLE "T" ;
 	COLOR RGB(255,255,255,,,,)
-@ 6.231,156.800 SAY "CPF" ;
+@ 21.308,85.600 SAY "CPF" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,255,255,0)
-@ 8.385,156.800 SAY "RG" ;
+@ 21.308,123.200 SAY "RG" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,255,255,0)
@@ -165,11 +172,11 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "BT" ;
 	COLOR RGB(128,128,128,,,,)
-@ 22.231,3.200 SAY "Filtro" ;
+@ 24.385,3.200 SAY "Filtro" ;
 	FONT "Arial", 8 ;
 	STYLE "BT" ;
 	COLOR RGB(128,128,128,,,,)
-@ 24.077,3.200 SAY "Nome" ;
+@ 26.231,3.200 SAY "Nome" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,,,,)
@@ -189,15 +196,15 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,255,255,0)
-@ 17.000,157.600 SAY "Atividade" ;
+@ 19.154,156.000 SAY "Atividade" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,,,,)
-@ 10.846,156.800 SAY "Documentos" ;
+@ 12.692,155.200 SAY "Documentos" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,,,,)
-@ 23.769,84.800 SAY "Atividade" ;
+@ 25.923,84.800 SAY "Atividade" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,,,,)
@@ -227,17 +234,25 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,255,255,0)
-@ 21.231,0.000 TO 21.231,197.600 ;
+@ 23.385,0.000 TO 23.385,197.600 ;
 	PEN 1, 8 ;
 	STYLE "1" ;
 	COLOR RGB(0,128,128,0,128,128)
-@ 26.462,0.000 TO 26.462,197.600 ;
+@ 28.615,0.000 TO 28.615,197.600 ;
 	PEN 1, 8 ;
 	STYLE "1" ;
 	COLOR RGB(0,128,128,0,128,128)
-@ 12.615,132.000 TO 13.846,144.200 ;
+@ 12.615,132.000 TO 13.846,146.600 ;
 	PEN 1, 8 ;
 	COLOR RGB(0,128,128,,,,)
+@ 21.308,3.200 SAY "Lattes" ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,128,128,255,255,0)
+@ 6.231,155.200 SAY "Área" ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,128,128,,,,)
 @ 6.231,17.200 GET wnome ;
 	SIZE 1.000,59.200 ;
 	DEFAULT " " ;
@@ -283,7 +298,7 @@ ENDIF
 	SIZE 1.143,3.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0iohym()
+	VALID _3tm0o1mpy()
 @ 19.154,17.200 GET wcep ;
 	SIZE 1.000,20.800 ;
 	DEFAULT 0 ;
@@ -296,13 +311,19 @@ ENDIF
 	FONT "Arial", 8 ;
 	PICTURE "@K!T XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" ;
 	COLOR ,RGB(0,0,0,255,255,255)
+@ 21.308,17.200 GET wlattes ;
+	SIZE 1.000,59.200 ;
+	DEFAULT " " ;
+	FONT "Arial", 8 ;
+	PICTURE "@K" ;
+	COLOR ,RGB(0,0,0,255,255,255)
 @ 6.231,102.000 GET wfone1 ;
 	SIZE 1.000,18.400 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@KR 99 9999-9999" ;
 	COLOR ,RGB(0,0,0,255,255,255)
-@ 6.231,125.200 GET wfone2 ;
+@ 6.231,127.600 GET wfone2 ;
 	SIZE 1.000,18.400 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
@@ -314,14 +335,14 @@ ENDIF
 	FONT "Arial", 8 ;
 	PICTURE "@KR 99 9999-9999" ;
 	COLOR ,RGB(0,0,0,255,255,255)
-@ 8.385,125.200 GET wcelular2 ;
+@ 8.385,127.600 GET wcelular2 ;
 	SIZE 1.000,18.400 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@KR 99 9999-9999" ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 10.538,102.000 GET wemail ;
-	SIZE 1.000,41.600 ;
+	SIZE 1.000,44.000 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@KT" ;
@@ -331,120 +352,102 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	PICTURE "@K" ;
-	VALID _3sh0iohyr() ;
+	VALID _3tm0o1mqj() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 12.692,116.400 GET whonor2 ;
 	SIZE 1.000,11.200 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	PICTURE "@K" ;
-	VALID _3sh0iohyt() ;
+	VALID _3tm0o1mqo() ;
 	COLOR ,RGB(0,0,0,255,255,255)
-@ 12.692,132.400 SAY whonor1+whonor2 ;
-	SIZE 1.000,11.200 ;
-	FONT "Arial", 8 ;
-	PICTURE "99,999.99" ;
-	COLOR RGB(0,0,0,255,255,255)
 @ 14.846,102.000 GET wbanc ;
-	SIZE 1.000,41.600 ;
+	SIZE 1.000,44.000 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!T XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 17.000,102.000 GET wfavor ;
-	SIZE 1.000,41.600 ;
+	SIZE 1.000,44.000 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!T XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 19.154,102.000 EDIT wfobs ;
-	SIZE 1.000,42.200,0.000 ;
+	SIZE 1.000,44.600,0.000 ;
 	PICTURE "@K" ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	SCROLL ;
 	COLOR ,RGB(,,,255,255,255)
-@ 6.231,171.600 GET wcgc ;
-	SIZE 1.000,23.200 ;
+@ 21.308,102.000 GET wcgc ;
+	SIZE 1.000,17.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@KR 999.999.999-99" ;
 	COLOR ,RGB(0,0,0,255,255,255)
-@ 8.385,171.600 GET winsc ;
-	SIZE 1.000,23.200 ;
+@ 21.308,129.200 GET winsc ;
+	SIZE 1.000,16.800 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@KT" ;
 	COLOR ,RGB(0,0,0,255,255,255)
-@ 10.846,171.200 GET ldoc_fic ;
+@ 6.231,169.600 GET larea_peq ;
+	PICTURE "@*C Pequenos" ;
+	SIZE 1.214,14.200 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
+@ 8.077,169.600 GET larea_grd ;
+	PICTURE "@*C Grandes" ;
+	SIZE 1.214,13.000 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
+@ 9.923,169.600 GET larea_slv ;
+	PICTURE "@*C Selvagens e Exóticos" ;
+	SIZE 1.214,25.400 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
+@ 12.692,169.600 GET ldoc_fic ;
 	PICTURE "@*C Ficha Cadastral" ;
 	SIZE 1.214,19.600 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 12.692,171.200 GET ldoc_cur ;
+@ 14.538,169.600 GET ldoc_cur ;
 	PICTURE "@*C Curriculum Lathes" ;
 	SIZE 1.214,22.000 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 14.538,171.200 GET ldoc_dip ;
+@ 16.385,169.600 GET ldoc_dip ;
 	PICTURE "@*C Diploma" ;
 	SIZE 1.214,12.000 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 17.000,171.200 GET lprofessor ;
+@ 19.154,169.600 GET lprofessor ;
 	PICTURE "@*C Professor" ;
 	SIZE 1.214,14.200 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 18.846,171.200 GET lorientado ;
+@ 21.000,169.600 GET lorientado ;
 	PICTURE "@*C Orientador" ;
 	SIZE 1.214,14.800 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 23.692,16.800 GET tipobusc ;
-	PICTURE "@^ Iniciando por...;Contendo..." ;
-	SIZE 1.500,21.800 ;
-	DEFAULT "Iniciando por..." ;
-	FONT "Arial", 8 ;
-	VALID _2VO0YOFIF() ;
-	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 23.769,43.600 GET fnome ;
-	SIZE 1.000,32.800 ;
-	DEFAULT " " ;
-	FONT "Arial", 8 ;
-	PICTURE "@K!T" ;
-	VALID _2VO0YOFIG() ;
-	COLOR ,RGB(0,0,0,255,255,255)
-@ 23.385,101.600 GET tip_ativ ;
-	PICTURE "@^ Geral;Somente Professores;Somente Orientadores" ;
-	SIZE 1.500,43.400 ;
-	DEFAULT "Geral" ;
-	FONT "Arial", 8 ;
-	VALID _2VO0YOFII()
-@ 27.462,2.600 GET Profs ;
- 	PICTURE "@&N" ;
-	FROM Lst_prof ;
-	SIZE 16.000,137.000 ;
-	DEFAULT 1 ;
-	FONT "Courier New", 8 ;
-	VALID _2VO0YOFIZ() ;
-	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
-@ 48.923,2.400 GET menu ;
-	PICTURE "@*HN Adiciona;Cancela;Exclusão;Impressão;Listagem;Orientações...;Disciplinas...;Exporta;Sair >>" ;
-	SIZE 1.571,21.400,0.000 ;
-	DEFAULT 1 ;
-	FONT "Arial", 8 ;
-	VALID _2VO0YOFJ1()
 @ 45.615,3.200 GET vis_impr ;
 	PICTURE "@*C Visualiza" ;
 	SIZE 1.214,13.400 ;
@@ -452,6 +455,40 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
+@ 29.385,2.600 GET Profs ;
+ 	PICTURE "@&N" ;
+	FROM Lst_prof ;
+	SIZE 14.857,137.000 ;
+	DEFAULT 1 ;
+	FONT "Courier New", 8 ;
+	VALID _2VO0YOFIZ() ;
+	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
+@ 25.846,16.800 GET tipobusc ;
+	PICTURE "@^ Iniciando por...;Contendo..." ;
+	SIZE 1.500,21.800 ;
+	DEFAULT "Iniciando por..." ;
+	FONT "Arial", 8 ;
+	VALID _2VO0YOFIF() ;
+	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
+@ 25.923,43.600 GET fnome ;
+	SIZE 1.000,32.800 ;
+	DEFAULT " " ;
+	FONT "Arial", 8 ;
+	PICTURE "@K!T" ;
+	VALID _2VO0YOFIG() ;
+	COLOR ,RGB(0,0,0,255,255,255)
+@ 25.538,101.600 GET tip_ativ ;
+	PICTURE "@^ Geral;Somente Professores;Somente Orientadores" ;
+	SIZE 1.500,43.400 ;
+	DEFAULT "Geral" ;
+	FONT "Arial", 8 ;
+	VALID _2VO0YOFII()
+@ 48.923,2.400 GET menu ;
+	PICTURE "@*HN Adiciona;Cancela;Exclusão;Impressão;Listagem;Orientações...;Disciplinas...;Exporta;Sair >>" ;
+	SIZE 1.571,21.400,0.000 ;
+	DEFAULT 1 ;
+	FONT "Arial", 8 ;
+	VALID _2VO0YOFJ1()
 
 IF NOT WVISIBLE("_2vo0yofhg")
 	ACTIVATE WINDOW _2vo0yofhg
@@ -459,7 +496,7 @@ ENDIF
 
 READ CYCLE ;
 	WHEN _2VO0YOFJ2() ;
-	SHOW _3sh0iohz2()
+	SHOW _3tm0o1mqv()
 
 RELEASE WINDOW _2vo0yofhg
 
@@ -538,11 +575,54 @@ PROCEDURE prof_lst
 	*--
 PROCEDURE prof_exp
 	DO filtra
-	SELECT prof.nome,  prof.fone1 AS telefone,  prof.celular AS celular,;
-		prof.email FROM prof &auxfilt ORDER BY prof.nome INTO CURSOR aux_prof
+	SELECT prof.nome, ;
+			prof.fone1 AS telefone, ;
+			prof.celular AS celular, ;
+			prof.email ;
+		FROM prof &auxfilt ORDER BY prof.nome INTO CURSOR aux_prof
 	SELECT aux_prof
 	COPY TO C:\prof TYPE XLS
 	DO winalert WITH "AVISO", "ARQUIVO CRIADO EM C:\PROF.XLS"
+	RETURN
+	*--
+
+	*--
+PROCEDURE exp_prof
+	DO filtra
+	auxfilt = "WHERE prof.codigo == profdisc.prof_id AND " + ;
+		"discip.codigo == profdisc.disc_id " + ;
+		IIF(ISBLANK(auxfilt), '', 'AND ' + SUBSTR(auxfilt, 7, LEN(auxfilt)))
+	SELECT prof.nome, ;
+			prof.instituto,;
+			prof.cidade,;
+			prof.fone1,;
+			prof.fone2,;
+			prof.celular1,;
+			prof.celular2,;
+			prof.lattes,;
+			prof.titulo,;
+			IIF(prof.area_peq, 'PEQUENOS ', ' ') + ;
+			IIF(prof.area_grd, 'GRANDES ', ' ') + ;
+			IIF(prof.area_slv, 'SELVAGENS E EXÓTICOS ', ' ') + SPACE(40) AS area, ;
+			prof.email, ;
+			discip.descricao AS Disciplina;
+		FROM prof, discip, profdisc ;
+		&auxfilt ;
+		ORDER BY prof.nome ;
+		INTO CURSOR aux_prof
+	SELECT aux_prof
+	
+	out_file = PUTFILE( 'Nome do Arquivo:', 'C:\PROF.XLS',  'XLS')
+
+	IF EMPTY(out_file)
+		DO winalert WITH  'ATENÇÃO', 'PLANILHA NÃO GRAVADA.'
+	ELSE
+		COPY TO &out_file TYPE XLS
+	ENDIF
+	USE
+	SELECT parc_itm
+	
+	DO winalert WITH "AVISO", "ARQUIVO CRIADO EM " + out_file
 	RETURN
 	*--
 
@@ -576,6 +656,10 @@ PROCEDURE mudancas
 		REPLACE prof.honor1 WITH whonor1
 		REPLACE prof.honor2 WITH whonor2
 		REPLACE prof.embarque WITH wembarque
+		REPLACE prof.lattes WITH wlattes
+		REPLACE prof.area_peq WITH larea_peq
+		REPLACE prof.area_grd WITH larea_grd
+		REPLACE prof.area_slv WITH larea_slv
 		REPLACE prof.professor WITH lprofessor
 		REPLACE prof.orientador WITH lorientado
 		REPLACE prof.doc_fic WITH ldoc_fic
@@ -612,6 +696,10 @@ PROCEDURE consulta
 	whonor1 = prof.honor1
 	whonor2 = prof.honor2
 	wembarque = prof.embarque
+	wlattes = prof.lattes
+	larea_peq = prof.area_peq
+	larea_grd = prof.area_grd
+	larea_slv = prof.area_slv
 	lprofessor = prof.professor
 	lorientado = prof.orientador
 	ldoc_fic = prof.doc_fic
@@ -644,6 +732,8 @@ PROCEDURE zera_var
 	wtitulo = ""
 	winst = ""
 	wembarque = ""
+	wlattes = ''
+	STORE .F. TO larea_peq, larea_grd, larea_slv
 	STORE 0.00  TO whonor1, whonor2
 	STORE .F. TO lprofessor, lorientado, ldoc_fic, ldoc_cur,  ;
 		ldoc_dip
@@ -688,12 +778,12 @@ PROCEDURE list_prof
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IOHYM           mudanome VALID                     
+*       * _3TM0O1MPY           mudanome VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_PROF,     Record Number:   41  
+*       * From Screen:         CAD_PROF,     Record Number:   44  
 *       * Variable:            mudanome                           
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
@@ -701,7 +791,7 @@ PROCEDURE list_prof
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iohym     &&  mudanome VALID
+FUNCTION _3tm0o1mpy     &&  mudanome VALID
 #REGION 1
 STORE '' TO terugStaat, terugStad
 DO zoekStad.SPR
@@ -717,12 +807,12 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IOHYR           whonor1 VALID                      
+*       * _3TM0O1MQJ           whonor1 VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_PROF,     Record Number:   49  
+*       * From Screen:         CAD_PROF,     Record Number:   53  
 *       * Variable:            whonor1                            
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Field                              
@@ -730,18 +820,18 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iohyr     &&  whonor1 VALID
+FUNCTION _3tm0o1mqj     &&  whonor1 VALID
 #REGION 1
 show gets
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IOHYT           whonor2 VALID                      
+*       * _3TM0O1MQO           whonor2 VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_PROF,     Record Number:   50  
+*       * From Screen:         CAD_PROF,     Record Number:   54  
 *       * Variable:            whonor2                            
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Field                              
@@ -749,9 +839,32 @@ show gets
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iohyt     &&  whonor2 VALID
+FUNCTION _3tm0o1mqo     &&  whonor2 VALID
 #REGION 1
 show gets
+
+*       *********************************************************
+*       *                                                         
+*       * _2VO0YOFIZ           Profs VALID                        
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         CAD_PROF,     Record Number:   69  
+*       * Variable:            Profs                              
+*       * Called By:           VALID Clause                       
+*       * Object Type:         List                               
+*       * Snippet Number:      4                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _2VO0YOFIZ     &&  Profs VALID
+#REGION 1
+SELECT prof
+SEEK (lst_prof(profs,2))
+DO consulta
+SHOW GETS
+*--
 
 *       *********************************************************
 *       *                                                         
@@ -760,11 +873,11 @@ show gets
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_PROF,     Record Number:   62  
+*       * From Screen:         CAD_PROF,     Record Number:   70  
 *       * Variable:            tipobusc                           
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Popup                              
-*       * Snippet Number:      4                                  
+*       * Snippet Number:      5                                  
 *       *                                                         
 *       *********************************************************
 *
@@ -781,11 +894,11 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_PROF,     Record Number:   63  
+*       * From Screen:         CAD_PROF,     Record Number:   71  
 *       * Variable:            fnome                              
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Field                              
-*       * Snippet Number:      5                                  
+*       * Snippet Number:      6                                  
 *       *                                                         
 *       *********************************************************
 *
@@ -802,11 +915,11 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_PROF,     Record Number:   64  
+*       * From Screen:         CAD_PROF,     Record Number:   72  
 *       * Variable:            tip_ativ                           
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Popup                              
-*       * Snippet Number:      6                                  
+*       * Snippet Number:      7                                  
 *       *                                                         
 *       *********************************************************
 *
@@ -818,35 +931,12 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _2VO0YOFIZ           Profs VALID                        
-*       *                                                         
-*       * Function Origin:                                        
-*       *                                                         
-*       * From Platform:       Windows                            
-*       * From Screen:         CAD_PROF,     Record Number:   65  
-*       * Variable:            Profs                              
-*       * Called By:           VALID Clause                       
-*       * Object Type:         List                               
-*       * Snippet Number:      7                                  
-*       *                                                         
-*       *********************************************************
-*
-FUNCTION _2VO0YOFIZ     &&  Profs VALID
-#REGION 1
-SELECT prof
-SEEK (lst_prof(profs,2))
-DO consulta
-SHOW GETS
-*--
-
-*       *********************************************************
-*       *                                                         
 *       * _2VO0YOFJ1           menu VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_PROF,     Record Number:   66  
+*       * From Screen:         CAD_PROF,     Record Number:   73  
 *       * Variable:            menu                               
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
@@ -857,65 +947,66 @@ SHOW GETS
 FUNCTION _2VO0YOFJ1     &&  menu VALID
 #REGION 1
 DO CASE
- CASE menu = 1
-  IF inclui
-   access = veracess(wcoduser,25,"INC")
-  ELSE
-   access = veracess(wcoduser,25,"ALT")
-  ENDIF
-  IF access
-   DO mudancas
-  ENDIF
- CASE menu = 2
-  WAIT WINDOW TIMEOUT 1 "ALTERAÇÕES CANCELADAS"
-  DO zera_var
- CASE menu = 3
-  access = veracess(wcoduser,25,"EXC")
-  IF access
-   SELECT prof
-   SEEK (lst_prof(profs,2))
-   conf = winconf("Atenção", ;
-          "Tem certeza que deseja excluir este professor?")
-   IF conf
-    DELETE
-    DO prof_lst
-    SHOW GETS
-   ENDIF
-  ENDIF
- CASE menu = 4
-  access = veracess(wcoduser,25,"IMP")
-  IF access
-   DO imp_ficha
-  ENDIF
- CASE menu = 5
-  access = veracess(wcoduser,25,"IMP")
-  IF access
-   DO list_prof
-  ENDIF
- CASE menu = 6
-  access = veracess(wcoduser,32,"IMP")
-  IF access
-   SELECT * FROM Tcc WHERE tcc.orient_id == lst_prof(profs,2)  ;
-            INTO CURSOR Auxtcc
-   SELECT cliente.nome, cliente.codigo, subarea.sigla,  ;
-          area.descricao FROM Auxtcc, Cliente, Modulos, Subarea,  ;
-          Area WHERE auxtcc.codcli == cliente.codigo AND  ;
-          auxtcc.curso_id == modulos.primario AND  ;
-          modulos.subarea == subarea.codigo AND modulos.area ==  ;
-          area.codigo
-  ENDIF
- CASE menu = 7
-  access = veracess(wcoduser,32,"IMP")
-  IF access
-   DO Profdisc.SPR
-  ENDIF
- CASE menu = 8
-  DO prof_exp
- CASE menu = 9
-  CLEAR READ
+CASE MENU = 1
+	IF inclui
+		ACCESS = veracess(wcoduser,25,"INC")
+	ELSE
+		ACCESS = veracess(wcoduser,25,"ALT")
+	ENDIF
+	IF ACCESS
+		DO mudancas
+	ENDIF
+CASE MENU = 2
+	WAIT WINDOW TIMEOUT 1 "ALTERAÇÕES CANCELADAS"
+	DO zera_var
+CASE MENU = 3
+	ACCESS = veracess(wcoduser,25,"EXC")
+	IF ACCESS
+		SELECT prof
+		SEEK (lst_prof(profs,2))
+		CONF = winconf("Atenção", ;
+			"Tem certeza que deseja excluir este professor?")
+		IF CONF
+			DELETE
+			DO prof_lst
+			SHOW GETS
+		ENDIF
+	ENDIF
+CASE MENU = 4
+	ACCESS = veracess(wcoduser,25,"IMP")
+	IF ACCESS
+		DO imp_ficha
+	ENDIF
+CASE MENU = 5
+	ACCESS = veracess(wcoduser,25,"IMP")
+	IF ACCESS
+		DO list_prof
+	ENDIF
+CASE MENU = 6
+	ACCESS = veracess(wcoduser,32,"IMP")
+	IF ACCESS
+		SELECT * FROM tcc WHERE tcc.orient_id == lst_prof(profs,2)  ;
+			INTO CURSOR auxtcc
+		SELECT cliente.nome, cliente.codigo, subarea.sigla,  ;
+			area.descricao FROM auxtcc, cliente, modulos, subarea,  ;
+			area WHERE auxtcc.codcli == cliente.codigo AND  ;
+			auxtcc.curso_id == modulos.primario AND  ;
+			modulos.subarea == subarea.codigo AND modulos.area ==  ;
+			area.codigo
+	ENDIF
+CASE MENU = 7
+	ACCESS = veracess(wcoduser,32,"IMP")
+	IF ACCESS
+		DO profdisc.spr
+	ENDIF
+CASE MENU = 8
+	DO exp_prof
+CASE MENU = 9
+	CLEAR READ
 ENDCASE
 SHOW GETS
 *--
+
 
 *       *********************************************************
 *       *                                                         
@@ -942,7 +1033,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IOHZ2           Read Level Show                    
+*       * _3TM0O1MQV           Read Level Show                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -954,7 +1045,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iohz2     && Read Level Show
+FUNCTION _3tm0o1mqv     && Read Level Show
 PRIVATE currwind
 STORE WOUTPUT() TO currwind
 *
@@ -963,6 +1054,11 @@ STORE WOUTPUT() TO currwind
 #REGION 1
 IF SYS(2016) = "_2VO0YOFHG" OR SYS(2016) = "*"
 	ACTIVATE WINDOW _2vo0yofhg SAME
+	@ 12.692,132.400 SAY whonor1+whonor2 ;
+		SIZE 1.000,13.600, 0.000 ;
+		FONT "Arial", 8 ;
+		PICTURE "99,999.99" ;
+		COLOR RGB(0,0,0,255,255,255)
 	@ 17.000,17.200 SAY wcidade ;
 		SIZE 1.000,35.200, 0.000 ;
 		FONT "Arial", 8 ;
@@ -972,11 +1068,6 @@ IF SYS(2016) = "_2VO0YOFHG" OR SYS(2016) = "*"
 		SIZE 1.000,8.800, 0.000 ;
 		FONT "Arial", 8 ;
 		PICTURE "@!T" ;
-		COLOR RGB(0,0,0,255,255,255)
-	@ 12.692,132.400 SAY whonor1+whonor2 ;
-		SIZE 1.000,11.200, 0.000 ;
-		FONT "Arial", 8 ;
-		PICTURE "99,999.99" ;
 		COLOR RGB(0,0,0,255,255,255)
 ENDIF
 IF NOT EMPTY(currwind)
