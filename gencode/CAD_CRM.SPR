@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 22/05/2013            CAD_CRM.SPR              08:43:33 
+*       * 15/07/2013            CAD_CRM.SPR              10:30:26 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -126,7 +126,7 @@ ELSE
 	STORE 0 TO lokBend
 ENDIF
 
-STORE .F. TO lcrmpend
+STORE .F. TO lcrmpend, lcrmposit
 
 *       *********************************************************
 *       *                                                         
@@ -380,7 +380,7 @@ ENDIF
 	SIZE 1.500,8.200,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0ipaj3()
+	VALID _3tz0miqq1()
 @ 21.846,105.600 GET ares ;
 	PICTURE "@^" ;
 	FROM List_are ;
@@ -393,7 +393,7 @@ ENDIF
 	SIZE 1.500,8.200,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0ipaj6()
+	VALID _3tz0miqq4()
 @ 21.923,150.800 EDIT wobs ;
 	SIZE 8.000,42.800,0.000 ;
 	PICTURE "@K" ;
@@ -407,7 +407,7 @@ ENDIF
 	SIZE 5.714,33.400 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0ipaj8() ;
+	VALID _3tz0miqq6() ;
 	COLOR RGB(0,0,0,255,255,255),RGB(0,0,0,255,255,255)
 @ 24.385,105.800 GET iares ;
  	PICTURE "@&N" ;
@@ -415,7 +415,7 @@ ENDIF
 	SIZE 5.714,39.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0ipajq() ;
+	VALID _3tz0miqq8() ;
 	COLOR RGB(0,0,0,255,255,255),RGB(0,0,0,255,255,255)
 @ 32.385,3.200 GET lcrmpend ;
 	PICTURE "@*C Somente os Pendentes" ;
@@ -423,7 +423,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3sh0ipajt() ;
+	VALID _3tz0miqqq() ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 34.231,3.400 GET listcrm ;
  	PICTURE "@&N" ;
@@ -444,13 +444,13 @@ ENDIF
 	SIZE 1.500,3.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0ipak0()
+	VALID _3tz0miqqy()
 @ 15.692,190.000 GET knopHoof ;
 	PICTURE "@*HN ..." ;
 	SIZE 1.500,3.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0ipak2()
+	VALID _3tz0miqqz()
 @ 14.538,19.600 EDIT wctexto2 ;
 	SIZE 4.000,89.400,0.000 ;
 	PICTURE "@K" ;
@@ -458,14 +458,22 @@ ENDIF
 	FONT "Arial", 8 ;
 	SCROLL ;
 	COLOR ,RGB(0,128,128,255,255,255)
+@ 32.385,32.000 GET lcrmposit ;
+	PICTURE "@*C Somente os Positivos" ;
+	SIZE 1.214,25.200 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	VALID _3tz0miqr2() ;
+	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 
 IF NOT WVISIBLE("_2vo0yowc3")
 	ACTIVATE WINDOW _2vo0yowc3
 ENDIF
 
-READ CYCLE MODAL ;
+READ CYCLE ;
 	WHEN _2VO0YOWDC() ;
-	SHOW _3sh0ipakl()
+	SHOW _3tz0miqrk()
 
 RELEASE WINDOW _2vo0yowc3
 
@@ -639,6 +647,10 @@ PROCEDURE crm_list
 	ENDIF
 	IF lcrmpend
 		auxfilt = auxfilt + "AND !ISBLANK(Crmcli.dataagen) AND ISBLANK(Crmcli.dataconc) "
+	ENDIF
+
+	IF lcrmposit
+		auxfilt = auxfilt + "AND Crmcli.positivo "
 	ENDIF
 
 	SELECT crmcli.dataagen, ;
@@ -891,7 +903,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IPAJ3           btIntCurso VALID                   
+*       * _3TZ0MIQQ1           btIntCurso VALID                   
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -904,7 +916,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ipaj3     &&  btIntCurso VALID
+FUNCTION _3tz0miqq1     &&  btIntCurso VALID
 #REGION 1
 SELECT int_suba
 SET ORDER TO TAG Cliente
@@ -930,7 +942,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IPAJ6           btIntArea VALID                    
+*       * _3TZ0MIQQ4           btIntArea VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -943,7 +955,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ipaj6     &&  btIntArea VALID
+FUNCTION _3tz0miqq4     &&  btIntArea VALID
 #REGION 1
 SELECT int_area
 SET ORDER TO TAG Cliente
@@ -969,7 +981,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IPAJ8           icurs VALID                        
+*       * _3TZ0MIQQ6           icurs VALID                        
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -982,7 +994,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ipaj8     &&  icurs VALID
+FUNCTION _3tz0miqq6     &&  icurs VALID
 #REGION 1
 Conf = WINCONF("ATENÇÃO","Tem certeza que deseja excluir este interesse?")
 IF Conf
@@ -996,7 +1008,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IPAJQ           iares VALID                        
+*       * _3TZ0MIQQ8           iares VALID                        
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1009,7 +1021,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ipajq     &&  iares VALID
+FUNCTION _3tz0miqq8     &&  iares VALID
 #REGION 1
 CONF = winconf("ATENÇÃO","Tem certeza que deseja excluir este interesse?")
 IF CONF
@@ -1027,7 +1039,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IPAJT           lcrmpend VALID                     
+*       * _3TZ0MIQQQ           lcrmpend VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1040,7 +1052,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ipajt     &&  lcrmpend VALID
+FUNCTION _3tz0miqqq     &&  lcrmpend VALID
 #REGION 1
 DO crm_list
 SHOW GETS
@@ -1130,7 +1142,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IPAK0           knopBend VALID                     
+*       * _3TZ0MIQQY           knopBend VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1143,7 +1155,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ipak0     &&  knopBend VALID
+FUNCTION _3tz0miqqy     &&  knopBend VALID
 #REGION 1
 wcurso = list_cur[bends,1]
 lokBend = list_cur[bends,2]
@@ -1151,7 +1163,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IPAK2           knopHoof VALID                     
+*       * _3TZ0MIQQZ           knopHoof VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1164,11 +1176,32 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ipak2     &&  knopHoof VALID
+FUNCTION _3tz0miqqz     &&  knopHoof VALID
 #REGION 1
 wlocal = list_are[hoofs,1]
 lokHoof = list_are[hoofs,2]
 SHOW GETS
+
+*       *********************************************************
+*       *                                                         
+*       * _3TZ0MIQR2           lcrmposit VALID                    
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         CAD_CRM,     Record Number:   63   
+*       * Variable:            lcrmposit                          
+*       * Called By:           VALID Clause                       
+*       * Object Type:         Check Box                          
+*       * Snippet Number:      17                                 
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _3tz0miqr2     &&  lcrmposit VALID
+#REGION 1
+DO crm_list
+SHOW GETS
+
 
 *       *********************************************************
 *       *                                                         
@@ -1180,7 +1213,7 @@ SHOW GETS
 *       * From Platform:       Windows                            
 *       * From Screen:         CAD_CRM                            
 *       * Called By:           READ Statement                     
-*       * Snippet Number:      17                                 
+*       * Snippet Number:      18                                 
 *       *                                                         
 *       *********************************************************
 *
@@ -1201,7 +1234,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IPAKL           Read Level Show                    
+*       * _3TZ0MIQRK           Read Level Show                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1209,11 +1242,11 @@ SHOW GETS
 *       * From Platform:       Windows                            
 *       * From Screen:         CAD_CRM                            
 *       * Called By:           READ Statement                     
-*       * Snippet Number:      18                                 
+*       * Snippet Number:      19                                 
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ipakl     && Read Level Show
+FUNCTION _3tz0miqrk     && Read Level Show
 PRIVATE currwind
 STORE WOUTPUT() TO currwind
 *
