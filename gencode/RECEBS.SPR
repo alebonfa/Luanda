@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 22/05/2013            RECEBS.SPR               08:42:57 
+*       * 31/07/2013            RECEBS.SPR               10:36:00 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -157,6 +157,9 @@ STORE 0.00 TO lokBelang
 
 STORE 1 TO lokDebits
 DECLARE lijDebit[1]
+
+DECLARE lst_parc[1]
+cr_parcs = 1
 
 *       *********************************************************
 *       *                                                         
@@ -340,15 +343,15 @@ ENDIF
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 7.154,22.400 GET filt_area ;
-	PICTURE "@*C Área" ;
-	SIZE 1.214,9.400 ;
+	PICTURE "@*C Local" ;
+	SIZE 1.214,9.800 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 7.154,68.000 GET filt_suba ;
-	PICTURE "@*C Sub-Área" ;
-	SIZE 1.214,14.000 ;
+	PICTURE "@*C Turma" ;
+	SIZE 1.214,10.600 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
@@ -401,7 +404,7 @@ ENDIF
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 15.462,36.800 GET tipdat ;
 	PICTURE "@*RVN Vecto;Pagto" ;
-	SIZE 1.214,10.600,0.714 ;
+	SIZE 1.214,10.400,0.714 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
@@ -475,7 +478,7 @@ ENDIF
 	PICTURE "99,999,999.99" ;
 	COLOR RGB(0,0,0,255,255,255)
 @ 48.923,3.800 GET menu ;
-	PICTURE "@*HN Exclui Todos;Listagem;Transf. Boleto;Exporta Boletos;Limpa Lista;Retorno...;Cartas;Lista Cobrança;Negociação...;Sair" ;
+	PICTURE "@*HN Exclui Todos;Listagem;Transf. Boleto;Exporta Boletos;Limpa Lista;Retorno...;Cartas;Lista Cobrança;Troca em Lote;Sair" ;
 	SIZE 1.500,19.000,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
@@ -1229,6 +1232,35 @@ PROCEDURE troca_dia
 	RETURN
 	*--
 
+PROCEDURE list_troca
+	IF !filt_clie OR wcodcli = 0
+		DO WINALERT WITH 'ATENÇÃO', 'VOCÊ DEVE FILTRAR UM CLIENTE'
+	ELSE
+		IF !filt_area
+			DO WINALERT WITH 'ATENÇÃO', 'VOCÊ DEVE FILTRAR UM LOCAL'
+		ELSE
+			IF !filt_suba
+				DO WINALERT WITH 'ATENÇÃO', 'VOCÊ DEVE FILTRAR UMA TURMA'
+			ELSE
+				DO Filtra
+				IF ALEN(list_cont) = 1
+					DO WINALERT WITH 'ATENÇÃO', 'NÃO EXISTEM PARCELAS A SEREM ALTERADAS NESTE FILTRO'
+				ELSE
+					DECLARE lst_parc[ALEN(list_cont)/8,2]
+					FOR i = 1 TO ALEN(list_cont) / 8
+						lst_parc[i,1] = list_cont[i,3] + '     '
+						lst_parc[i,1] = lst_parc[i,1] + STR(list_cont[i,2],10) + '     '
+						lst_parc[i,1] = lst_parc[i,1] + DTOC(list_cont[i,4]) + '     '
+						lst_parc[i,1] = lst_parc[i,1] + STR(list_cont[i,5],8,2)
+						lst_parc[i,2] = list_cont[i,2]
+					NEXT i
+					DO cr_troca.SPR
+				ENDIF
+			ENDIF
+		ENDIF
+	ENDIF
+	RETURN
+	*--
 
 PROCEDURE briefVanCharge
 
@@ -1589,7 +1621,7 @@ CASE MENU = 8
 CASE MENU = 9
 	ACCESS = veracess(wcoduser,19,"ALT")
 	IF ACCESS
-		DO cr_negoc.SPR
+		DO list_troca.SPR
 	ENDIF
 	
 CASE MENU = 10

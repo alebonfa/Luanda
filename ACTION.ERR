@@ -1,6 +1,9 @@
 Screen Set c:\xampp\htdocs\luanda\int_cons.spr has the following errors:
     Unknown LIST_UF - Undefined
 
+Screen Set c:\xampp\htdocs\luanda\recebs.spr has the following errors:
+    Screen Set LIST_TROCA - Undefined
+
 Screen Set c:\xampp\htdocs\luanda\cad_area.spr has the following errors:
     Unknown LIST_UF - Undefined
 
@@ -95,4 +98,9 @@ Report c:\xampp\htdocs\luanda\relcob.frx has the following errors:
 Report c:\xampp\htdocs\luanda\afdstud2.frx has the following errors:
     Unknown LST_AREA - Undefined
     Unknown LST_SUBA - Undefined
+
+Screen Set c:\xampp\htdocs\luanda\cr_troca.spr has the following errors:
+    Unknown LST_AREA - Undefined
+    Unknown LST_SUBA - Undefined
+    Unknown LST_PARC - Undefined
 
