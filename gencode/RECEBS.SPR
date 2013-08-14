@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 31/07/2013            RECEBS.SPR               10:36:00 
+*       * 14/08/2013            RECEBS.SPR               22:21:29 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -68,6 +68,7 @@ ENDIF
 
 #REGION 1
 ldevper = .F.
+lserasa = .F.
 isperm1 = .T.
 isperm2 = .T.
 vis_impr = .F.
@@ -452,34 +453,34 @@ ENDIF
 	FONT "Arial", 8 ;
 	VALID _2VO0YOGB8() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,)
-@ 23.769,4.200 GET list ;
+@ 26.000,4.200 GET list ;
  	PICTURE "@&N" ;
 	FROM List_cont ;
-	SIZE 19.429,135.571 ;
+	SIZE 17.143,135.857 ;
 	DEFAULT 1 ;
 	FONT "Courier New", 8 ;
 	VALID _2VO0YOGB9() ;
 	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
-@ 45.308,84.000 GET sotot ;
+@ 45.308,96.000 GET sotot ;
 	PICTURE "@*C Totais" ;
 	SIZE 1.214,10.400 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(128,128,128,128,0,0),RGB(128,128,128,128,0,0)
-@ 45.308,109.400 SAY totabe ;
+@ 45.462,108.600 SAY totabe ;
 	SIZE 1.000,15.000 ;
 	FONT "Arial", 8 ;
 	PICTURE "99,999,999.99" ;
 	COLOR RGB(0,0,0,255,255,255)
-@ 45.308,126.000 SAY totliq ;
+@ 45.462,125.200 SAY totliq ;
 	SIZE 1.000,15.000 ;
 	FONT "Arial", 8 ;
 	PICTURE "99,999,999.99" ;
 	COLOR RGB(0,0,0,255,255,255)
 @ 48.923,3.800 GET menu ;
-	PICTURE "@*HN Exclui Todos;Listagem;Transf. Boleto;Exporta Boletos;Limpa Lista;Retorno...;Cartas;Lista Cobrança;Troca em Lote;Sair" ;
-	SIZE 1.500,19.000,0.000 ;
+	PICTURE "@*HN Exclui Todos;Listagem;Transf. Boleto;Exporta Boletos;Limpa Lista;Retorno...;Cartas;Lista Cobrança;Sair" ;
+	SIZE 1.500,21.200,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
 	VALID _2VO0YOGBC() ;
@@ -516,7 +517,7 @@ ENDIF
 	FONT "Arial", 8 ;
 	PICTURE "@K 999.99" ;
 	COLOR ,RGB(0,0,0,255,255,255)
-@ 45.308,142.800 SAY totjur ;
+@ 45.462,142.000 SAY totjur ;
 	SIZE 1.000,15.000 ;
 	FONT "Arial", 8 ;
 	PICTURE "99,999,999.99" ;
@@ -535,6 +536,24 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
+@ 45.308,56.000 GET lserasa ;
+	PICTURE "@*C Incluso no Serasa" ;
+	SIZE 1.214,22.000 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
+@ 23.769,4.000 SAY "Alterações em Lote" ;
+	FONT "Arial", 8 ;
+	STYLE "BT" ;
+	COLOR RGB(128,128,128,,,,)
+@ 23.692,28.000 GET btnLote ;
+	PICTURE "@*HN Turma;Cobrança;Serasa" ;
+	SIZE 1.286,16.200,0.000 ;
+	DEFAULT 1 ;
+	FONT "Arial", 8 ;
+	VALID _3ut1iyadl() ;
+	COLOR ,,,,,,,,RGB(128,128,128,,,,)
 
 IF NOT WVISIBLE("_2vo0yogag")
 	ACTIVATE WINDOW _2vo0yogag
@@ -770,6 +789,13 @@ PROCEDURE filtra
 		auxfilt = auxfilt + "Valpgtorec = WRvalor "
 		C = C + 1
 	ENDIF
+	IF lserasa
+		IF C = 1
+			auxfilt = auxfilt + "AND "
+		ENDIF
+		auxfilt = auxfilt + "Serasa "
+		C = C + 1
+	ENDIF
 	une_cli = .F.
 	IF !isblank(wcid)
 		IF C > 0
@@ -936,6 +962,42 @@ PROCEDURE isoleert
 	RETURN
 	*--
 
+
+PROCEDURE loteCobranca
+	IF ALEN(list_cont) >= 8
+		Conf = WINCONF('ATENÇÃO','Tem certeza que deseja enviar estes títulos para a cobrança ' + ALLT(listCob[Cobs,1]) + '?')
+		IF Conf
+			FOR i = 1 TO ALEN(list_cont)/8
+				SELECT recnum
+				SEEK (list_cont(i,2))
+				REPLACE recnum.cob_id WITH listCob[Cobs,2]
+			NEXT i
+			DO WINALERT WITH 'AVISO','TÍTULOS ENVIADOS PARA COBRANÇA COM SUCESSO!'
+		ENDIF
+	ELSE
+		DO WINALERT WITH 'AVISO','NÃO EXISTEM TÍTULOS NO FILTRO A SEREM PROCESSADOS!'
+	ENDIF
+
+	RETURN
+	*--
+
+PROCEDURE loteSerasa
+	IF ALEN(list_cont) >= 8
+		Conf = WINCONF('ATENÇÃO','Tem certeza que deseja enviar estes títulos para o SERASA?')
+		IF Conf
+			FOR i = 1 TO ALEN(list_cont)/8
+				SELECT recnum
+				SEEK (list_cont(i,2))
+				REPLACE recnum.serasa WITH .T.
+			NEXT i
+			DO WINALERT WITH 'AVISO','TÍTULOS ENVIADOS PARA O SERASA COM SUCESSO!'
+		ENDIF
+	ELSE
+		DO WINALERT WITH 'AVISO','NÃO EXISTEM TÍTULOS NO FILTRO A SEREM PROCESSADOS!'
+	ENDIF
+
+	RETURN
+	*--
 
 	*--
 PROCEDURE imp_recebs
@@ -1619,18 +1681,45 @@ CASE MENU = 8
 	ENDIF
 	
 CASE MENU = 9
-	ACCESS = veracess(wcoduser,19,"ALT")
-	IF ACCESS
-		DO list_troca.SPR
-	ENDIF
-	
-CASE MENU = 10
 	SELECT recebs
 	SET FILTER TO
 	CLEAR READ
 ENDCASE
 SHOW GETS
 *--
+
+
+*       *********************************************************
+*       *                                                         
+*       * _3UT1IYADL           btnLote VALID                      
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         RECEBS,     Record Number:   67    
+*       * Variable:            btnLote                            
+*       * Called By:           VALID Clause                       
+*       * Object Type:         Push Button                        
+*       * Snippet Number:      9                                  
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _3ut1iyadl     &&  btnLote VALID
+#REGION 1
+ACCESS = veracess(wcoduser,19,"ALT")
+IF ACCESS
+	DO CASE
+		CASE btnLote = 1
+			DO list_troca.SPR
+		CASE btnLote = 2
+			DO loteCobranca
+		CASE btnLote = 3
+			DO loteSerasa
+	ENDCASE
+	DO Filtra
+	SHOW GETS
+ENDIF
+	
 
 
 *       *********************************************************
@@ -1643,7 +1732,7 @@ SHOW GETS
 *       * From Platform:       Windows                            
 *       * From Screen:         RECEBS                             
 *       * Called By:           READ Statement                     
-*       * Snippet Number:      9                                  
+*       * Snippet Number:      10                                 
 *       *                                                         
 *       *********************************************************
 *
@@ -1670,7 +1759,7 @@ SHOW GETS
 *       * From Platform:       Windows                            
 *       * From Screen:         RECEBS                             
 *       * Called By:           READ Statement                     
-*       * Snippet Number:      10                                 
+*       * Snippet Number:      11                                 
 *       *                                                         
 *       *********************************************************
 *
@@ -1694,7 +1783,7 @@ ON KEY LABEL F8 DO Troca_AP
 *       * From Platform:       Windows                            
 *       * From Screen:         RECEBS                             
 *       * Called By:           READ Statement                     
-*       * Snippet Number:      11                                 
+*       * Snippet Number:      12                                 
 *       *                                                         
 *       *********************************************************
 *
@@ -1718,7 +1807,7 @@ ON KEY LABEL F8
 *       * From Platform:       Windows                            
 *       * From Screen:         RECEBS                             
 *       * Called By:           READ Statement                     
-*       * Snippet Number:      12                                 
+*       * Snippet Number:      13                                 
 *       *                                                         
 *       *********************************************************
 *
@@ -1756,17 +1845,17 @@ IF SYS(2016) = "_2VO0YOGAG" OR SYS(2016) = "*"
 		SIZE 1.000,58.800, 0.000 ;
 		FONT "Arial", 8 ;
 		COLOR RGB(0,0,0,255,255,255)
-	@ 45.308,109.400 SAY totabe ;
+	@ 45.462,108.600 SAY totabe ;
 		SIZE 1.000,15.000, 0.000 ;
 		FONT "Arial", 8 ;
 		PICTURE "99,999,999.99" ;
 		COLOR RGB(0,0,0,255,255,255)
-	@ 45.308,126.000 SAY totliq ;
+	@ 45.462,125.200 SAY totliq ;
 		SIZE 1.000,15.000, 0.000 ;
 		FONT "Arial", 8 ;
 		PICTURE "99,999,999.99" ;
 		COLOR RGB(0,0,0,255,255,255)
-	@ 45.308,142.800 SAY totjur ;
+	@ 45.462,142.000 SAY totjur ;
 		SIZE 1.000,15.000, 0.000 ;
 		FONT "Arial", 8 ;
 		PICTURE "99,999,999.99" ;

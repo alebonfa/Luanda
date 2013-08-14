@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 12/07/2013           CAD_PROF.SPR              09:39:03 
+*       * 07/08/2013           CAD_PROF.SPR              08:54:09 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -91,7 +91,7 @@ WTIT = ""
 winst = ""
 wembarque = ""
 wlattes = ''
-STORE .F. TO larea_peq, larea_grd, larea_slv
+STORE .F. TO larea_peq, larea_grd, larea_slv, larea_sp
 STORE 0.00  TO whonor1, whonor2
 STORE .F. TO lprofessor, lorientado, ldoc_fic, ldoc_cur,  ;
 	ldoc_dip
@@ -127,11 +127,6 @@ IF WVISIBLE("_2vo0yofhg")
 ELSE
 	ACTIVATE WINDOW _2vo0yofhg NOSHOW
 ENDIF
-@ 12.692,132.400 SAY whonor1+whonor2 ;
-	SIZE 1.000,13.600 ;
-	FONT "Arial", 8 ;
-	PICTURE "99,999.99" ;
-	COLOR RGB(0,0,0,255,255,255)
 @ 0.000,0.000 TO 3.769,198.000 ;
 	PATTERN 1 ;
 	PEN 1, 8 ;
@@ -261,6 +256,11 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,,,,)
+@ 12.692,132.400 SAY whonor1+whonor2 ;
+	SIZE 1.000,13.600 ;
+	FONT "Arial", 8 ;
+	PICTURE "99,999.99" ;
+	COLOR RGB(0,0,0,255,255,255)
 @ 6.231,17.200 GET wnome ;
 	SIZE 1.000,59.200 ;
 	DEFAULT " " ;
@@ -306,7 +306,7 @@ ENDIF
 	SIZE 1.143,3.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3tw0konnc()
+	VALID _3um0j2xqh()
 @ 19.154,17.200 GET wcep ;
 	SIZE 1.000,20.800 ;
 	DEFAULT 0 ;
@@ -360,14 +360,14 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	PICTURE "@K" ;
-	VALID _3tw0konnx() ;
+	VALID _3um0j2xql() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 12.692,116.400 GET whonor2 ;
 	SIZE 1.000,11.200 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	PICTURE "@K" ;
-	VALID _3tw0konny() ;
+	VALID _3um0j2xqn() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 14.846,102.000 GET wbanc ;
 	SIZE 1.000,44.000 ;
@@ -407,16 +407,23 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 8.077,169.600 GET larea_grd ;
+@ 7.462,169.600 GET larea_grd ;
 	PICTURE "@*C Grandes" ;
 	SIZE 1.214,13.000 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 9.923,169.600 GET larea_slv ;
+@ 8.692,169.600 GET larea_slv ;
 	PICTURE "@*C Selvagens e Exóticos" ;
 	SIZE 1.214,25.400 ;
+	DEFAULT 0 ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
+@ 9.923,169.600 GET larea_sp ;
+	PICTURE "@*C Saúde Pública" ;
+	SIZE 1.214,18.200 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
@@ -503,7 +510,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3tw0konoe() ;
+	VALID _3um0j2xs1() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 24.000,85.600 GET filt_disc ;
 	PICTURE "@*C Disciplina" ;
@@ -511,7 +518,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3tw0konog() ;
+	VALID _3um0j2xs4() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 25.846,85.600 GET discs ;
 	PICTURE "@^" ;
@@ -527,7 +534,7 @@ ENDIF
 
 READ CYCLE ;
 	WHEN _2VO0YOFJ2() ;
-	SHOW _3tw0konok()
+	SHOW _3um0j2xs8()
 
 RELEASE WINDOW _2vo0yofhg
 
@@ -653,7 +660,8 @@ PROCEDURE exp_prof
 			prof.titulo,;
 			IIF(prof.area_peq, 'PEQUENOS ', ' ') + ;
 			IIF(prof.area_grd, 'GRANDES ', ' ') + ;
-			IIF(prof.area_slv, 'SELVAGENS E EXÓTICOS ', ' ') + SPACE(40) AS area, ;
+			IIF(prof.area_sp, 'SAUDE PÚBLICA ', ' ') + ;
+			IIF(prof.area_slv, 'SELVAGENS E EXÓTICOS ', ' ') + SPACE(55) AS area, ;
 			prof.email, ;
 			discip.descricao AS Disciplina;
 		FROM prof, discip, profdisc ;
@@ -710,6 +718,7 @@ PROCEDURE mudancas
 		REPLACE prof.area_peq WITH larea_peq
 		REPLACE prof.area_grd WITH larea_grd
 		REPLACE prof.area_slv WITH larea_slv
+		REPLACE prof.area_sp WITH larea_sp
 		REPLACE prof.professor WITH lprofessor
 		REPLACE prof.orientador WITH lorientado
 		REPLACE prof.doc_fic WITH ldoc_fic
@@ -750,6 +759,7 @@ PROCEDURE consulta
 	larea_peq = prof.area_peq
 	larea_grd = prof.area_grd
 	larea_slv = prof.area_slv
+	larea_sp = prof.area_sp
 	lprofessor = prof.professor
 	lorientado = prof.orientador
 	ldoc_fic = prof.doc_fic
@@ -783,7 +793,7 @@ PROCEDURE zera_var
 	winst = ""
 	wembarque = ""
 	wlattes = ''
-	STORE .F. TO larea_peq, larea_grd, larea_slv
+	STORE .F. TO larea_peq, larea_grd, larea_slv, larea_sp
 	STORE 0.00  TO whonor1, whonor2
 	STORE .F. TO lprofessor, lorientado, ldoc_fic, ldoc_cur,  ;
 		ldoc_dip
@@ -828,7 +838,7 @@ PROCEDURE list_prof
 
 *       *********************************************************
 *       *                                                         
-*       * _3TW0KONNC           mudanome VALID                     
+*       * _3UM0J2XQH           mudanome VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -841,7 +851,7 @@ PROCEDURE list_prof
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3tw0konnc     &&  mudanome VALID
+FUNCTION _3um0j2xqh     &&  mudanome VALID
 #REGION 1
 STORE '' TO terugStaat, terugStad
 DO zoekStad.SPR
@@ -858,7 +868,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3TW0KONNX           whonor1 VALID                      
+*       * _3UM0J2XQL           whonor1 VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -871,13 +881,13 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3tw0konnx     &&  whonor1 VALID
+FUNCTION _3um0j2xql     &&  whonor1 VALID
 #REGION 1
 show gets
 
 *       *********************************************************
 *       *                                                         
-*       * _3TW0KONNY           whonor2 VALID                      
+*       * _3UM0J2XQN           whonor2 VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -890,7 +900,7 @@ show gets
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3tw0konny     &&  whonor2 VALID
+FUNCTION _3um0j2xqn     &&  whonor2 VALID
 #REGION 1
 show gets
 
@@ -901,7 +911,7 @@ show gets
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_PROF,     Record Number:   68  
+*       * From Screen:         CAD_PROF,     Record Number:   69  
 *       * Variable:            Profs                              
 *       * Called By:           VALID Clause                       
 *       * Object Type:         List                               
@@ -924,7 +934,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_PROF,     Record Number:   69  
+*       * From Screen:         CAD_PROF,     Record Number:   70  
 *       * Variable:            tipobusc                           
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Popup                              
@@ -945,7 +955,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_PROF,     Record Number:   70  
+*       * From Screen:         CAD_PROF,     Record Number:   71  
 *       * Variable:            fnome                              
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Field                              
@@ -966,7 +976,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_PROF,     Record Number:   71  
+*       * From Screen:         CAD_PROF,     Record Number:   72  
 *       * Variable:            tip_ativ                           
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Popup                              
@@ -987,7 +997,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_PROF,     Record Number:   72  
+*       * From Screen:         CAD_PROF,     Record Number:   73  
 *       * Variable:            menu                               
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
@@ -1061,12 +1071,12 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3TW0KONOE           filt_uf VALID                      
+*       * _3UM0J2XS1           filt_uf VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_PROF,     Record Number:   73  
+*       * From Screen:         CAD_PROF,     Record Number:   74  
 *       * Variable:            filt_uf                            
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Check Box                          
@@ -1074,19 +1084,19 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3tw0konoe     &&  filt_uf VALID
+FUNCTION _3um0j2xs1     &&  filt_uf VALID
 #REGION 1
 DO prof_lst
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3TW0KONOG           filt_disc VALID                    
+*       * _3UM0J2XS4           filt_disc VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_PROF,     Record Number:   74  
+*       * From Screen:         CAD_PROF,     Record Number:   75  
 *       * Variable:            filt_disc                          
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Check Box                          
@@ -1094,7 +1104,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3tw0konog     &&  filt_disc VALID
+FUNCTION _3um0j2xs4     &&  filt_disc VALID
 #REGION 1
 DO prof_lst
 SHOW GETS
@@ -1106,7 +1116,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_PROF,     Record Number:   75  
+*       * From Screen:         CAD_PROF,     Record Number:   76  
 *       * Variable:            discs                              
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Popup                              
@@ -1145,7 +1155,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3TW0KONOK           Read Level Show                    
+*       * _3UM0J2XS8           Read Level Show                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1157,7 +1167,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3tw0konok     && Read Level Show
+FUNCTION _3um0j2xs8     && Read Level Show
 PRIVATE currwind
 STORE WOUTPUT() TO currwind
 *

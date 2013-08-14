@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 22/05/2013           QUITA_CR.SPR              08:43:50 
+*       * 13/08/2013           QUITA_CR.SPR              15:03:30 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -87,6 +87,7 @@ wq_venc = recebs.datavencim
 wq_obs = recebs.obs
 wtaxas = recebs.taxas
 wacordo = recebs.acordo
+wq_serasa = recebs.serasa
 wcobresp = SPACE(15)
 pags = 1
 isediting = .F.
@@ -290,7 +291,7 @@ ENDIF
 	SIZE 1.500,50.600 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0ipnr2() ;
+	VALID _3us0dtu4x() ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 25.615,29.200 SAY wq_lanc ;
 	SIZE 1.000,13.600 ;
@@ -385,6 +386,14 @@ ENDIF
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
 	VALID _2VO0YP5D2()
+@ 19.769,82.400 GET wq_serasa ;
+	PICTURE "@*C SERASA" ;
+	SIZE 1.308,12.667 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 8 ;
+	STYLE "BT" ;
+	VALID _3us0dtu5w() ;
+	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 
 IF NOT WVISIBLE("_2vo0yp5b7")
 	ACTIVATE WINDOW _2vo0yp5b7
@@ -556,7 +565,7 @@ REPLACE recebs.banco WITH list_ban(bans,2)
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IPNR2           cobs VALID                         
+*       * _3US0DTU4X           cobs VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -569,7 +578,7 @@ REPLACE recebs.banco WITH list_ban(bans,2)
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ipnr2     &&  cobs VALID
+FUNCTION _3us0dtu4x     &&  cobs VALID
 #REGION 1
 SELECT recebs
 REPLACE recebs.cob_id WITH listCob(cobs,2)
@@ -998,6 +1007,26 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
+*       * _3US0DTU5W           wq_serasa VALID                    
+*       *                                                         
+*       * Function Origin:                                        
+*       *                                                         
+*       * From Platform:       Windows                            
+*       * From Screen:         QUITA_CR,     Record Number:   48  
+*       * Variable:            wq_serasa                          
+*       * Called By:           VALID Clause                       
+*       * Object Type:         Check Box                          
+*       * Snippet Number:      15                                 
+*       *                                                         
+*       *********************************************************
+*
+FUNCTION _3us0dtu5w     &&  wq_serasa VALID
+#REGION 1
+SELECT recebs
+REPLACE recebs.serasa WITH wq_serasa
+
+*       *********************************************************
+*       *                                                         
 *       * _2VO0YP5DU           Read Level When                    
 *       *                                                         
 *       * Function Origin:                                        
@@ -1006,7 +1035,7 @@ SHOW GETS
 *       * From Platform:       Windows                            
 *       * From Screen:         QUITA_CR                           
 *       * Called By:           READ Statement                     
-*       * Snippet Number:      15                                 
+*       * Snippet Number:      16                                 
 *       *                                                         
 *       *********************************************************
 *
@@ -1057,7 +1086,7 @@ SHOW GETS
 *       * From Platform:       Windows                            
 *       * From Screen:         QUITA_CR                           
 *       * Called By:           READ Statement                     
-*       * Snippet Number:      16                                 
+*       * Snippet Number:      17                                 
 *       *                                                         
 *       *********************************************************
 *

@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 22/05/2013           REL_FATU.SPR              08:42:59 
+*       * 14/08/2013           REL_FATU.SPR              23:18:22 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -47,7 +47,7 @@ IF NOT WEXIST("_2vo0y5u1q") ;
 	OR UPPER(WTITLE("_2VO0Y5U1Q")) == "_2VO0Y5U1Q.QPR"
 	DEFINE WINDOW _2vo0y5u1q ;
 		AT  0.000, 0.000  ;
-		SIZE 40.692,137.800 ;
+		SIZE 42.615,138.200 ;
 		TITLE "Cadastro de Cursos" ;
 		FONT "MS Sans Serif", 8 ;
 		FLOAT ;
@@ -71,7 +71,7 @@ STORE .F. TO lcurso, larea, linad, ldesc, vis_impr, lempresa
 STORE 1 TO subas, areas, mes_is
 STORE 12 TO mes_fs
 STORE INT(VAL(SUBSTR(DTOC(DATE()), 7, 4))) TO ano_is, ano_fs
-STORE 0.00  TO wtotal, wtot_inad
+STORE 0.00  TO wtotal, wtot_inad, wtot_fundo, wtot_serasa, wtot_cobranca
 STORE "" TO wrotulo
 DIMENSION lst_area[ 1]
 SELECT descricao, codigo FROM area ORDER BY descricao INTO ARRAY  ;
@@ -193,14 +193,14 @@ ENDIF
 	DEFAULT 2003.000 ;
 	FONT "Arial", 8 ;
 	COLOR ,RGB(0,0,0,255,255,255)
-@ 13.077,2.600 GET Rels ;
+@ 14.615,2.600 GET Rels ;
  	PICTURE "@&N" ;
 	FROM List_rel ;
-	SIZE 19.429,94.143 ;
+	SIZE 18.286,94.143 ;
 	DEFAULT 1 ;
 	FONT "Courier New", 8 ;
 	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
-@ 38.154,1.600 GET m_rel ;
+@ 40.308,1.600 GET m_rel ;
 	PICTURE "@*HN Filtrar;Imprimir;Sair" ;
 	SIZE 1.643,44.800,0.000 ;
 	DEFAULT 1 ;
@@ -251,31 +251,49 @@ ENDIF
 	STYLE "T" ;
 	VALID _2VO0Y5U2L() ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 35.154,78.800 SAY wtotal ;
+@ 35.154,14.800 SAY wtotal ;
 	SIZE 1.000,18.400 ;
 	FONT "Arial", 8 ;
 	PICTURE "999,999,999.99" ;
 	COLOR RGB(,,,255,255,255)
-@ 35.154,66.800 SAY "Totais" ;
-	SIZE 1.000,11.200 ;
+@ 35.154,2.800 SAY "Totais" ;
+	SIZE 1.000,9.600 ;
 	FONT "Arial", 8 ;
 	COLOR RGB(,,,255,255,255)
-@ 35.154,100.400 SAY wtot_inad ;
+@ 35.154,35.600 SAY wtot_inad ;
 	SIZE 1.000,18.400 ;
 	FONT "Arial", 8 ;
 	PICTURE "999,999,999.99" ;
 	COLOR RGB(,,,255,255,255)
-@ 35.154,122.000 SAY (wtot_inad / wtotal) * 100 ;
+@ 35.154,56.400 SAY (wtot_inad / wtotal) * 100 ;
 	SIZE 1.000,8.800 ;
 	FONT "Arial", 8 ;
 	PICTURE "999.99%" ;
 	COLOR RGB(,,,255,255,255)
-@ 35.154,2.400 GET vis_impr ;
+@ 38.538,2.400 GET vis_impr ;
 	PICTURE "@*C Visualiza" ;
 	SIZE 1.214,13.400 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T"
+@ 13.308,2.400 SAY "Data         Principal  Inadimplência  % Inad      F.Perdido         Serasa       Jurídico  " ;
+	FONT "Courier New", 8 ;
+	COLOR RGB(255,255,255,0,128,128)
+@ 35.154,69.200 SAY wtot_fundo ;
+	SIZE 1.000,18.400 ;
+	FONT "Arial", 8 ;
+	PICTURE "999,999,999.99" ;
+	COLOR RGB(,,,255,255,255)
+@ 35.154,90.000 SAY wtot_serasa ;
+	SIZE 1.000,18.400 ;
+	FONT "Arial", 8 ;
+	PICTURE "999,999,999.99" ;
+	COLOR RGB(,,,255,255,255)
+@ 35.154,110.800 SAY wtot_cobranca ;
+	SIZE 1.000,18.400 ;
+	FONT "Arial", 8 ;
+	PICTURE "999,999,999.99" ;
+	COLOR RGB(,,,255,255,255)
 
 IF NOT WVISIBLE("_2vo0y5u1q")
 	ACTIVATE WINDOW _2vo0y5u1q
@@ -319,7 +337,7 @@ PROCEDURE filtra
 		wrotulo = wrotulo + "- FINANCEIRO "
 		auxdat = "Recebs.Datapagtos "
 		auxval = "Recebs.Valorliqui "
-		auxval2 = "000000000.00 "
+		STORE "000000000.00 " TO auxval2, auxval3, auxval4, auxval5
 	ELSE
 		wrotulo = wrotulo + "- ECONÔMICO "
 		auxdat = "Recebs.Datavencim "
@@ -331,9 +349,12 @@ PROCEDURE filtra
 		ENDIF
 		IF linad
 			wrotulo = wrotulo + "- VALORES EM ABERTO "
-			auxval2 = 'SUM(IIF(Recebs.Situacao $ "ABFPV", &Auxval, 000000000.00)) '
+			auxval2 = 'SUM(IIF(Recebs.Situacao $ "APV", &Auxval, 000000000.00)) '
+			auxval3 = 'SUM(IIF(Recebs.Situacao = "F", &Auxval, 000000000.00)) '
+			auxval4 = 'SUM(IIF(Recebs.Situacao $ "APV" AND Recebs.Serasa, &Auxval, 000000000.00)) '
+			auxval5 = 'SUM(IIF(Recebs.Situacao $ "APV" AND Recebs.Cob_id > 1, &Auxval, 000000000.00)) '
 		ELSE
-			auxval2 = "000000000.00 "
+			STORE "000000000.00 " TO auxval2, auxval3, auxval4, auxval5
 		ENDIF
 	ENDIF
 	auxwhere = ""
@@ -351,7 +372,10 @@ PROCEDURE filtra
 	ENDIF
 	SELECT SUBSTR(DTOC(&auxdat),4,7) AS DATA, ;
 		SUM(&auxval) AS valor, ;
-		&auxval2 AS inad ;
+		&auxval2 AS inad, ;
+		&auxval3 AS fundo, ;
+		&auxval4 AS serasa, ;
+		&auxval5 AS cobranca ;
 		FROM recebs, modulos ;
 		WHERE (recebs.area + recebs.subarea == modulos.area + modulos.subarea) ;
 		AND &auxdat >= di ;
@@ -363,12 +387,20 @@ PROCEDURE filtra
 	wtotal = 0.00
 	CALCULATE SUM(aux.valor) TO wtotal
 	CALCULATE SUM(aux.inad) TO wtot_inad
+	CALCULATE SUM(aux.fundo) TO wtot_fundo
+	CALCULATE SUM(aux.serasa) TO wtot_serasa
+	CALCULATE SUM(aux.cobranca) TO wtot_cobranca
 	DIMENSION list_rel[ 1]
 	list_rel[ 1] = "NÃO EXISTE RELATÓRIO DISPONÍVEL NESTE FILTRO..."
-	SELECT aux.data + " " + TRANSFORM(aux.valor, "999,999,999.99") +  ;
-		" " + TRANSFORM(aux.inad, "999,999,999.99") + " " +  ;
-		TRANSFORM((aux.inad / aux.valor) * 100, "999.99%") FROM  ;
-		aux INTO ARRAY list_rel
+	SELECT aux.data + " " + ;
+		TRANSFORM(aux.valor, "999,999,999.99") + " " + ;
+		TRANSFORM(aux.inad, "999,999,999.99") + " " +  ;
+		TRANSFORM((aux.inad / aux.valor) * 100, "999.99%")  + " " +  ;
+		TRANSFORM(aux.fundo, "999,999,999.99") + " " + ;
+		TRANSFORM(aux.serasa, "999,999,999.99") + " " + ;
+		TRANSFORM(aux.cobranca, "999,999,999.99");
+		FROM aux ;
+		INTO ARRAY list_rel
 	RETURN
 	*--
 
@@ -546,24 +578,39 @@ STORE WOUTPUT() TO currwind
 *--
 IF SYS(2016) = "_2VO0Y5U1Q" OR SYS(2016) = "*"
 	ACTIVATE WINDOW _2vo0y5u1q SAME
-	@ 35.154,78.800 SAY wtotal ;
+	@ 35.154,14.800 SAY wtotal ;
 		SIZE 1.000,18.400, 0.000 ;
 		FONT "Arial", 8 ;
 		PICTURE "999,999,999.99" ;
 		COLOR RGB(,,,255,255,255)
-	@ 35.154,66.800 SAY "Totais" ;
-		SIZE 1.000,11.200, 0.000 ;
+	@ 35.154,2.800 SAY "Totais" ;
+		SIZE 1.000,9.600, 0.000 ;
 		FONT "Arial", 8 ;
 		COLOR RGB(,,,255,255,255)
-	@ 35.154,100.400 SAY wtot_inad ;
+	@ 35.154,35.600 SAY wtot_inad ;
 		SIZE 1.000,18.400, 0.000 ;
 		FONT "Arial", 8 ;
 		PICTURE "999,999,999.99" ;
 		COLOR RGB(,,,255,255,255)
-	@ 35.154,122.000 SAY (wtot_inad / wtotal) * 100 ;
+	@ 35.154,56.400 SAY (wtot_inad / wtotal) * 100 ;
 		SIZE 1.000,8.800, 0.000 ;
 		FONT "Arial", 8 ;
 		PICTURE "999.99%" ;
+		COLOR RGB(,,,255,255,255)
+	@ 35.154,69.200 SAY wtot_fundo ;
+		SIZE 1.000,18.400, 0.000 ;
+		FONT "Arial", 8 ;
+		PICTURE "999,999,999.99" ;
+		COLOR RGB(,,,255,255,255)
+	@ 35.154,90.000 SAY wtot_serasa ;
+		SIZE 1.000,18.400, 0.000 ;
+		FONT "Arial", 8 ;
+		PICTURE "999,999,999.99" ;
+		COLOR RGB(,,,255,255,255)
+	@ 35.154,110.800 SAY wtot_cobranca ;
+		SIZE 1.000,18.400, 0.000 ;
+		FONT "Arial", 8 ;
+		PICTURE "999,999,999.99" ;
 		COLOR RGB(,,,255,255,255)
 ENDIF
 IF NOT EMPTY(currwind)

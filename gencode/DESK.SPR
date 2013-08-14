@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 22/05/2013             DESK.SPR                08:42:32 
+*       * 14/08/2013             DESK.SPR                22:21:27 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -187,114 +187,114 @@ DO Mainmenu
 	SIZE 1.643,25.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0inzgi()
+	VALID _3ut1iy9dw()
 @ 1.846,0.000 GET bt_acad ;
 	PICTURE "@*HN Alunos / Interesse" ;
 	SIZE 1.643,25.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0inzgk()
+	VALID _3ut1iy9ee()
 @ 3.692,0.000 GET bt_acad ;
 	PICTURE "@*HN Mapa de Ingressões" ;
 	SIZE 1.643,25.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0inzgm()
+	VALID _3ut1iy9eh()
 @ 5.538,0.000 GET bt_acad ;
 	PICTURE "@*HN CRM - Consulta" ;
 	SIZE 1.643,25.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0inzgo()
+	VALID _3ut1iy9ej()
 @ 7.385,0.000 GET bt_acad ;
 	PICTURE "@*HN Importa - ADMIN" ;
 	SIZE 1.643,25.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0inzgq()
+	VALID _3ut1iy9ek()
 @ 0.000,32.000 GET bt_acad ;
 	PICTURE "@*HN Acadêmico" ;
 	SIZE 1.643,25.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0inzh8()
+	VALID _3ut1iy9em()
 @ 1.846,32.000 GET bt_acad ;
 	PICTURE "@*HN Busca Módulos" ;
 	SIZE 1.643,25.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0inzha()
+	VALID _3ut1iy9eo()
 @ 3.692,32.000 GET bt_acad ;
 	PICTURE "@*HN Locais de Módulos" ;
 	SIZE 1.643,25.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0inzhb()
+	VALID _3ut1iy9er()
 @ 5.538,32.000 GET bt_acad ;
 	PICTURE "@*HN Disciplinas" ;
 	SIZE 1.643,25.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0inzhd()
+	VALID _3ut1iy9f9()
 @ 7.385,32.000 GET bt_acad ;
 	PICTURE "@*HN Palestrantes" ;
 	SIZE 1.643,25.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0inzhf()
+	VALID _3ut1iy9fb()
 @ 0.000,64.000 GET c ;
 	PICTURE "@*HN Contas a Receber" ;
 	SIZE 1.643,25.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0inzhh()
+	VALID _3ut1iy9fd()
 @ 1.846,64.000 GET c ;
 	PICTURE "@*HN Cobrança de Tarifas" ;
 	SIZE 1.643,25.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0inzhj()
+	VALID _3ut1iy9ff()
 @ 3.692,64.000 GET c ;
 	PICTURE "@*HN Relatório" ;
 	SIZE 1.643,25.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0inzhl()
+	VALID _3ut1iy9fh()
 @ 5.538,64.000 GET c ;
 	PICTURE "@*HN Títulos Excluídos" ;
 	SIZE 1.643,25.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0inzhm()
+	VALID _3ut1iy9fi()
 @ 0.000,96.000 GET c ;
 	PICTURE "@*HN Contas a Pagar" ;
 	SIZE 1.643,25.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0inzho()
+	VALID _3ut1iy9fk()
 @ 1.846,96.000 GET c ;
 	PICTURE "@*HN Fluxo de Caixa" ;
 	SIZE 1.643,25.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0inzhq()
+	VALID _3ut1iy9fn()
 @ 0.000,128.000 GET c ;
 	PICTURE "@*HN Tarefas" ;
 	SIZE 1.643,25.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0inzhs()
+	VALID _3ut1iy9g4()
 @ 0.000,180.600 GET c ;
 	PICTURE "@*HN Sair" ;
 	SIZE 1.643,22.600,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0inzhv()
+	VALID _3ut1iy9g6()
 
 
 
 READ CYCLE ;
-	WHEN _3sh0inzhx()
+	WHEN _3ut1iy9g8()
 
 MODIFY WINDOW SCREEN
 SELECT (m.currarea)
@@ -484,7 +484,7 @@ return
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZGI           c VALID                            
+*       * _3UT1IY9DW           c VALID                            
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -497,7 +497,7 @@ return
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzgi     &&  c VALID
+FUNCTION _3ut1iy9dw     &&  c VALID
 #REGION 1
 Access = Veracess(Wcoduser, 1, 'CON')
 IF Access
@@ -509,7 +509,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZGK           bt_acad VALID                      
+*       * _3UT1IY9EE           bt_acad VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -522,7 +522,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzgk     &&  bt_acad VALID
+FUNCTION _3ut1iy9ee     &&  bt_acad VALID
 #REGION 1
 Access = Veracess(Wcoduser, 2, 'IMP')
 IF Access
@@ -533,7 +533,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZGM           bt_acad VALID                      
+*       * _3UT1IY9EH           bt_acad VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -546,7 +546,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzgm     &&  bt_acad VALID
+FUNCTION _3ut1iy9eh     &&  bt_acad VALID
 #REGION 1
 Access = .T.
 IF Access
@@ -557,7 +557,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZGO           bt_acad VALID                      
+*       * _3UT1IY9EJ           bt_acad VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -570,7 +570,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzgo     &&  bt_acad VALID
+FUNCTION _3ut1iy9ej     &&  bt_acad VALID
 #REGION 1
 Access = Veracess(Wcoduser, 2, 'IMP')
 IF Access
@@ -581,7 +581,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZGQ           bt_acad VALID                      
+*       * _3UT1IY9EK           bt_acad VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -594,7 +594,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzgq     &&  bt_acad VALID
+FUNCTION _3ut1iy9ek     &&  bt_acad VALID
 #REGION 1
 DO Abr_cont
 SELE Vendes
@@ -606,7 +606,7 @@ CLOS DATA
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZH8           bt_acad VALID                      
+*       * _3UT1IY9EM           bt_acad VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -619,7 +619,7 @@ CLOS DATA
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzh8     &&  bt_acad VALID
+FUNCTION _3ut1iy9em     &&  bt_acad VALID
 #REGION 1
 Access = Veracess(Wcoduser, 27, 'CON')
 IF Access
@@ -630,7 +630,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZHA           bt_acad VALID                      
+*       * _3UT1IY9EO           bt_acad VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -643,7 +643,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzha     &&  bt_acad VALID
+FUNCTION _3ut1iy9eo     &&  bt_acad VALID
 #REGION 1
 Access = Veracess(Wcoduser, 27, 'CON')
 IF Access
@@ -655,7 +655,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZHB           bt_acad VALID                      
+*       * _3UT1IY9ER           bt_acad VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -668,7 +668,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzhb     &&  bt_acad VALID
+FUNCTION _3ut1iy9er     &&  bt_acad VALID
 #REGION 1
 Access = Veracess(Wcoduser, 27, 'CON')
 IF Access
@@ -680,7 +680,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZHD           bt_acad VALID                      
+*       * _3UT1IY9F9           bt_acad VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -693,7 +693,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzhd     &&  bt_acad VALID
+FUNCTION _3ut1iy9f9     &&  bt_acad VALID
 #REGION 1
 Access = Veracess(Wcoduser, 26, 'CON')
 IF Access
@@ -704,7 +704,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZHF           bt_acad VALID                      
+*       * _3UT1IY9FB           bt_acad VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -717,7 +717,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzhf     &&  bt_acad VALID
+FUNCTION _3ut1iy9fb     &&  bt_acad VALID
 #REGION 1
 Access = Veracess(Wcoduser, 25, 'CON')
 IF Access
@@ -728,7 +728,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZHH           c VALID                            
+*       * _3UT1IY9FD           c VALID                            
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -741,7 +741,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzhh     &&  c VALID
+FUNCTION _3ut1iy9fd     &&  c VALID
 #REGION 1
 Access = Veracess(Wcoduser, 19, 'CON')
 IF Access
@@ -752,7 +752,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZHJ           c VALID                            
+*       * _3UT1IY9FF           c VALID                            
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -765,7 +765,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzhj     &&  c VALID
+FUNCTION _3ut1iy9ff     &&  c VALID
 #REGION 1
 Access = Veracess(Wcoduser, 19, 'CON')
 IF Access
@@ -776,7 +776,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZHL           c VALID                            
+*       * _3UT1IY9FH           c VALID                            
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -789,7 +789,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzhl     &&  c VALID
+FUNCTION _3ut1iy9fh     &&  c VALID
 #REGION 1
 Access = Veracess(Wcoduser, 33, 'CON')
 IF Access
@@ -800,7 +800,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZHM           c VALID                            
+*       * _3UT1IY9FI           c VALID                            
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -813,7 +813,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzhm     &&  c VALID
+FUNCTION _3ut1iy9fi     &&  c VALID
 #REGION 1
 Access = Veracess(Wcoduser, 19, 'CON')
 IF Access
@@ -825,7 +825,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZHO           c VALID                            
+*       * _3UT1IY9FK           c VALID                            
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -838,7 +838,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzho     &&  c VALID
+FUNCTION _3ut1iy9fk     &&  c VALID
 #REGION 1
 Access = Veracess(Wcoduser, 17, 'CON')
 IF Access
@@ -849,7 +849,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZHQ           c VALID                            
+*       * _3UT1IY9FN           c VALID                            
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -862,7 +862,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzhq     &&  c VALID
+FUNCTION _3ut1iy9fn     &&  c VALID
 #REGION 1
 Access = Veracess(Wcoduser, 34, 'CON')
 IF Access
@@ -873,7 +873,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZHS           c VALID                            
+*       * _3UT1IY9G4           c VALID                            
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -886,7 +886,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzhs     &&  c VALID
+FUNCTION _3ut1iy9g4     &&  c VALID
 #REGION 1
 DO Abr_cont
 DO Tarefas.SPR
@@ -895,7 +895,7 @@ CLOS DATA
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZHV           c VALID                            
+*       * _3UT1IY9G6           c VALID                            
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -908,7 +908,7 @@ CLOS DATA
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzhv     &&  c VALID
+FUNCTION _3ut1iy9g6     &&  c VALID
 #REGION 1
 IF FILE('C:\FINANC.CFG')
 	DO Gerainad
@@ -917,7 +917,7 @@ CLEAR READ
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0INZHX           Read Level When                    
+*       * _3UT1IY9G8           Read Level When                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -929,7 +929,7 @@ CLEAR READ
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0inzhx     && Read Level When
+FUNCTION _3ut1iy9g8     && Read Level When
 *
 * When Code from screen: DESK
 *
