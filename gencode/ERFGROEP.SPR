@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 22/05/2013           ERFGROEP.SPR              08:44:34 
+*       * 28/08/2013           ERFGROEP.SPR              15:50:38 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -38,8 +38,8 @@ SET READBORDER ON
 *       *********************************************************
 *
 
-IF NOT WEXIST("_3sh0iqm2i")
-	DEFINE WINDOW _3sh0iqm2i ;
+IF NOT WEXIST("_3v70xymta")
+	DEFINE WINDOW _3v70xymta ;
 		AT  0.000, 0.000  ;
 		SIZE 35.714,117.800 ;
 		TITLE "Itens Imobilizados" ;
@@ -48,7 +48,7 @@ IF NOT WEXIST("_3sh0iqm2i")
 		NOCLOSE ;
 		NOMINIMIZE ;
 		SYSTEM
-	MOVE WINDOW _3sh0iqm2i CENTER
+	MOVE WINDOW _3v70xymta CENTER
 ENDIF
 
 
@@ -76,10 +76,10 @@ DO GroepLij
 *
 
 #REGION 1
-IF WVISIBLE("_3sh0iqm2i")
-	ACTIVATE WINDOW _3sh0iqm2i SAME
+IF WVISIBLE("_3v70xymta")
+	ACTIVATE WINDOW _3v70xymta SAME
 ELSE
-	ACTIVATE WINDOW _3sh0iqm2i NOSHOW
+	ACTIVATE WINDOW _3v70xymta NOSHOW
 ENDIF
 @ 0.000,0.000 TO 3.500,117.800 ;
 	PATTERN 1 ;
@@ -128,19 +128,19 @@ ENDIF
 	SIZE 1.143,10.400,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0iqm2r()
+	VALID _3v70xymu6()
 @ 10.857,17.600 GET keuzeNaam ;
 	PICTURE "@^ Iniciando...;Contendo..." ;
 	SIZE 1.500,21.800 ;
 	DEFAULT "Iniciando..." ;
 	FONT "Arial", 8 ;
-	VALID _3sh0iqm2t()
+	VALID _3v70xymua()
 @ 10.929,41.400 GET gefNaam ;
 	SIZE 1.000,72.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
-	VALID _3sh0iqm2v() ;
+	VALID _3v70xymud() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 14.143,3.400 GET lokgroep ;
  	PICTURE "@&N" ;
@@ -148,7 +148,7 @@ ENDIF
 	SIZE 14.857,79.286 ;
 	DEFAULT 1 ;
 	FONT "Courier New", 8 ;
-	VALID _3sh0iqm2w() ;
+	VALID _3v70xymuq() ;
 	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
 @ 29.500,3.200 GET visIndruk ;
 	PICTURE "@*C Visualiza" ;
@@ -162,16 +162,16 @@ ENDIF
 	SIZE 1.643,37.000,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0iqm2z()
+	VALID _3v70xymus()
 
-IF NOT WVISIBLE("_3sh0iqm2i")
-	ACTIVATE WINDOW _3sh0iqm2i
+IF NOT WVISIBLE("_3v70xymta")
+	ACTIVATE WINDOW _3v70xymta
 ENDIF
 
 READ CYCLE ;
-	WHEN _3sh0iqm32()
+	WHEN _3v70xymuv()
 
-RELEASE WINDOW _3sh0iqm2i
+RELEASE WINDOW _3v70xymta
 
 #REGION 0
 
@@ -300,7 +300,7 @@ RETURN
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQM2R           knopSalie VALID                    
+*       * _3V70XYMU6           knopSalie VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -313,7 +313,7 @@ RETURN
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqm2r     &&  knopSalie VALID
+FUNCTION _3v70xymu6     &&  knopSalie VALID
 #REGION 1
 DO CASE
 CASE knopsalie = 1
@@ -333,7 +333,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQM2T           keuzeNaam VALID                    
+*       * _3V70XYMUA           keuzeNaam VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -346,14 +346,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqm2t     &&  keuzeNaam VALID
+FUNCTION _3v70xymua     &&  keuzeNaam VALID
 #REGION 1
 DO groepLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQM2V           gefNaam VALID                      
+*       * _3V70XYMUD           gefNaam VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -366,14 +366,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqm2v     &&  gefNaam VALID
+FUNCTION _3v70xymud     &&  gefNaam VALID
 #REGION 1
 DO groepLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQM2W           lokgroep VALID                     
+*       * _3V70XYMUQ           lokgroep VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -386,14 +386,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqm2w     &&  lokgroep VALID
+FUNCTION _3v70xymuq     &&  lokgroep VALID
 #REGION 1
 DO overlagGroep
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQM2Z           knopGroep VALID                    
+*       * _3V70XYMUS           knopGroep VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -406,7 +406,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqm2z     &&  knopGroep VALID
+FUNCTION _3v70xymus     &&  knopGroep VALID
 #REGION 1
 DO CASE
 CASE knopGroep = 1
@@ -430,7 +430,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQM32           Read Level When                    
+*       * _3V70XYMUV           Read Level When                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -442,7 +442,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqm32     && Read Level When
+FUNCTION _3v70xymuv     && Read Level When
 *
 * When Code from screen: ERFGROEP
 *

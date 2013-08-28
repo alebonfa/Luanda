@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 22/05/2013            ERFGOED.SPR              08:44:37 
+*       * 28/08/2013            ERFGOED.SPR              15:50:42 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -38,8 +38,8 @@ SET READBORDER ON
 *       *********************************************************
 *
 
-IF NOT WEXIST("_3sh0iqnuf")
-	DEFINE WINDOW _3sh0iqnuf ;
+IF NOT WEXIST("_3v70xyok4")
+	DEFINE WINDOW _3v70xyok4 ;
 		AT  0.000, 0.000  ;
 		SIZE 47.857,198.000 ;
 		TITLE "Itens Imobilizados" ;
@@ -48,7 +48,7 @@ IF NOT WEXIST("_3sh0iqnuf")
 		NOCLOSE ;
 		NOMINIMIZE ;
 		SYSTEM
-	MOVE WINDOW _3sh0iqnuf CENTER
+	MOVE WINDOW _3v70xyok4 CENTER
 ENDIF
 
 
@@ -90,10 +90,10 @@ DO erfLij
 *
 
 #REGION 1
-IF WVISIBLE("_3sh0iqnuf")
-	ACTIVATE WINDOW _3sh0iqnuf SAME
+IF WVISIBLE("_3v70xyok4")
+	ACTIVATE WINDOW _3v70xyok4 SAME
 ELSE
-	ACTIVATE WINDOW _3sh0iqnuf NOSHOW
+	ACTIVATE WINDOW _3v70xyok4 NOSHOW
 ENDIF
 @ 0.000,0.000 TO 3.500,198.000 ;
 	PATTERN 1 ;
@@ -132,7 +132,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	PICTURE "@K" ;
-	VALID _3sh0iqnus() ;
+	VALID _3v70xyoks() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 6.286,34.400 GET knopCode ;
 	PICTURE "@*HN ..." ;
@@ -140,7 +140,7 @@ ENDIF
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "B" ;
-	VALID _3sh0iqnuw()
+	VALID _3v70xyol8()
 @ 6.357,145.200 GET lokAankoop ;
 	SIZE 1.000,13.600 ;
 	DEFAULT " " ;
@@ -158,7 +158,7 @@ ENDIF
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
-	VALID _3sh0iqnuz() ;
+	VALID _3v70xyolc() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 8.571,34.400 GET lokPunt ;
 	PICTURE "@^" ;
@@ -166,20 +166,20 @@ ENDIF
 	SIZE 1.500,83.400 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0iqnv1()
+	VALID _3v70xyolf()
 @ 8.571,118.400 GET schermPunt ;
 	PICTURE "@*HN ..." ;
 	SIZE 1.615,4.167,0.667 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "B" ;
-	VALID _3sh0iqnv3()
+	VALID _3v70xyols()
 @ 8.643,145.400 GET lokReeks ;
 	SIZE 1.000,48.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
-	VALID _3sh0iqnv5() ;
+	VALID _3v70xyolv() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 8.643,3.200 GET booPunt ;
 	PICTURE "@*C Item" ;
@@ -187,7 +187,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3sh0iqnv7() ;
+	VALID _3v70xyolx() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 8.643,131.200 GET booReeks ;
 	PICTURE "@*C Série" ;
@@ -195,14 +195,14 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3sh0iqnv9() ;
+	VALID _3v70xyom7() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 10.929,18.000 GET snelGroep ;
 	SIZE 1.000,13.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
-	VALID _3sh0iqnva() ;
+	VALID _3v70xyoma() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 10.857,34.400 GET lokGroep ;
 	PICTURE "@^" ;
@@ -210,20 +210,20 @@ ENDIF
 	SIZE 1.500,83.400 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0iqnvc()
+	VALID _3v70xyomd()
 @ 10.857,118.400 GET schermGroep ;
 	PICTURE "@*HN ..." ;
 	SIZE 1.615,4.167,0.667 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "B" ;
-	VALID _3sh0iqnve()
+	VALID _3v70xyomg()
 @ 10.929,145.400 GET lokMarca ;
 	SIZE 1.000,48.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
-	VALID _3sh0iqnvh() ;
+	VALID _3v70xyomj() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 10.929,3.200 GET booGroep ;
 	PICTURE "@*C Grupo" ;
@@ -231,7 +231,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3sh0iqnvj() ;
+	VALID _3v70xyomm() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 10.929,131.200 GET booMarca ;
 	PICTURE "@*C Marca" ;
@@ -239,14 +239,14 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3sh0iqnvl() ;
+	VALID _3v70xyomp() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 13.214,18.000 GET snelMagaz ;
 	SIZE 1.000,13.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
-	VALID _3sh0iqnvn() ;
+	VALID _3v70xyoms() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 13.143,34.400 GET lokMagaz ;
 	PICTURE "@^" ;
@@ -254,20 +254,20 @@ ENDIF
 	SIZE 1.500,83.400 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0iqnvp()
+	VALID _3v70xyon3()
 @ 13.143,118.400 GET schermMagazijn ;
 	PICTURE "@*HN ..." ;
 	SIZE 1.615,4.167,0.667 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "B" ;
-	VALID _3sh0iqnvq()
+	VALID _3v70xyon4()
 @ 13.214,145.400 GET lokModelo ;
 	SIZE 1.000,48.600 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!" ;
-	VALID _3sh0iqnvs() ;
+	VALID _3v70xyon6() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 13.214,3.200 GET booMagaz ;
 	PICTURE "@*C Local" ;
@@ -275,7 +275,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3sh0iqnvu() ;
+	VALID _3v70xyon8() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 13.214,131.200 GET booModelo ;
 	PICTURE "@*C Modelo" ;
@@ -283,21 +283,21 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3sh0iqnvx() ;
+	VALID _3v70xyon9() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 15.714,164.800 GET knopErfSalie ;
 	PICTURE "@*HN Adicionar;Cancelar" ;
 	SIZE 1.143,14.600,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0iqnvy()
+	VALID _3v70xyond()
 @ 19.286,3.400 GET lokErf ;
  	PICTURE "@&N" ;
 	FROM lijErf ;
 	SIZE 21.714,136.429 ;
 	DEFAULT 1 ;
 	FONT "Courier New", 8 ;
-	VALID _3sh0iqnw0() ;
+	VALID _3v70xyong() ;
 	COLOR RGB(0,128,128,255,255,255),RGB(0,128,128,255,255,255)
 @ 42.000,3.200 GET visIndruk ;
 	PICTURE "@*C Visualiza" ;
@@ -311,16 +311,16 @@ ENDIF
 	SIZE 1.643,63.800,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0iqnw2()
+	VALID _3v70xyonj()
 
-IF NOT WVISIBLE("_3sh0iqnuf")
-	ACTIVATE WINDOW _3sh0iqnuf
+IF NOT WVISIBLE("_3v70xyok4")
+	ACTIVATE WINDOW _3v70xyok4
 ENDIF
 
 READ CYCLE ;
-	WHEN _3sh0iqnw4()
+	WHEN _3v70xyonm()
 
-RELEASE WINDOW _3sh0iqnuf
+RELEASE WINDOW _3v70xyok4
 
 #REGION 0
 
@@ -595,7 +595,7 @@ RETURN
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNUS           lokCode VALID                      
+*       * _3V70XYOKS           lokCode VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -608,7 +608,7 @@ RETURN
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnus     &&  lokCode VALID
+FUNCTION _3v70xyoks     &&  lokCode VALID
 #REGION 1
 IF lokCode > 0
 	SELECT erfgoed.id ;
@@ -645,7 +645,7 @@ RETURN
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNUW           knopCode VALID                     
+*       * _3V70XYOL8           knopCode VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -658,7 +658,7 @@ RETURN
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnuw     &&  knopCode VALID
+FUNCTION _3v70xyol8     &&  knopCode VALID
 #REGION 1
 SELE erfgoed
 CALC MAX(erfgoed.code) TO lokCode
@@ -667,7 +667,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNUZ           snelPunt VALID                     
+*       * _3V70XYOLC           snelPunt VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -680,7 +680,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnuz     &&  snelPunt VALID
+FUNCTION _3v70xyolc     &&  snelPunt VALID
 #REGION 1
 DO ePuntLij
 IF booPunt
@@ -691,7 +691,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNV1           lokPunt VALID                      
+*       * _3V70XYOLF           lokPunt VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -704,7 +704,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnv1     &&  lokPunt VALID
+FUNCTION _3v70xyolf     &&  lokPunt VALID
 #REGION 1
 IF booPunt
 	DO erfLij
@@ -713,7 +713,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNV3           schermPunt VALID                   
+*       * _3V70XYOLS           schermPunt VALID                   
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -726,7 +726,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnv3     &&  schermPunt VALID
+FUNCTION _3v70xyols     &&  schermPunt VALID
 #REGION 1
 ACCESS = veracess(wcoduser,38, 'CON')
 IF ACCESS
@@ -737,7 +737,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNV5           lokReeks VALID                     
+*       * _3V70XYOLV           lokReeks VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -750,7 +750,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnv5     &&  lokReeks VALID
+FUNCTION _3v70xyolv     &&  lokReeks VALID
 #REGION 1
 IF booReeks
 	DO erfLij
@@ -759,7 +759,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNV7           booPunt VALID                      
+*       * _3V70XYOLX           booPunt VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -772,14 +772,14 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnv7     &&  booPunt VALID
+FUNCTION _3v70xyolx     &&  booPunt VALID
 #REGION 1
 DO erfLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNV9           booReeks VALID                     
+*       * _3V70XYOM7           booReeks VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -792,14 +792,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnv9     &&  booReeks VALID
+FUNCTION _3v70xyom7     &&  booReeks VALID
 #REGION 1
 DO erfLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNVA           snelGroep VALID                    
+*       * _3V70XYOMA           snelGroep VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -812,7 +812,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnva     &&  snelGroep VALID
+FUNCTION _3v70xyoma     &&  snelGroep VALID
 #REGION 1
 DO eGroepLij
 IF booGroep
@@ -823,7 +823,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNVC           lokGroep VALID                     
+*       * _3V70XYOMD           lokGroep VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -836,7 +836,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnvc     &&  lokGroep VALID
+FUNCTION _3v70xyomd     &&  lokGroep VALID
 #REGION 1
 IF booGroep
 	DO erfLij
@@ -845,7 +845,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNVE           schermGroep VALID                  
+*       * _3V70XYOMG           schermGroep VALID                  
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -858,7 +858,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnve     &&  schermGroep VALID
+FUNCTION _3v70xyomg     &&  schermGroep VALID
 #REGION 1
 ACCESS = veracess(wcoduser,39, 'CON')
 IF ACCESS
@@ -870,7 +870,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNVH           lokMarca VALID                     
+*       * _3V70XYOMJ           lokMarca VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -883,7 +883,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnvh     &&  lokMarca VALID
+FUNCTION _3v70xyomj     &&  lokMarca VALID
 #REGION 1
 IF booReeks
 	DO erfLij
@@ -892,7 +892,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNVJ           booGroep VALID                     
+*       * _3V70XYOMM           booGroep VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -905,14 +905,14 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnvj     &&  booGroep VALID
+FUNCTION _3v70xyomm     &&  booGroep VALID
 #REGION 1
 DO erfLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNVL           booMarca VALID                     
+*       * _3V70XYOMP           booMarca VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -925,14 +925,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnvl     &&  booMarca VALID
+FUNCTION _3v70xyomp     &&  booMarca VALID
 #REGION 1
 DO erfLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNVN           snelMagaz VALID                    
+*       * _3V70XYOMS           snelMagaz VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -945,7 +945,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnvn     &&  snelMagaz VALID
+FUNCTION _3v70xyoms     &&  snelMagaz VALID
 #REGION 1
 DO eMagazLij
 IF booMagaz
@@ -956,7 +956,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNVP           lokMagaz VALID                     
+*       * _3V70XYON3           lokMagaz VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -969,7 +969,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnvp     &&  lokMagaz VALID
+FUNCTION _3v70xyon3     &&  lokMagaz VALID
 #REGION 1
 IF booMagaz
 	DO erfLij
@@ -978,7 +978,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNVQ           schermMagazijn VALID               
+*       * _3V70XYON4           schermMagazijn VALID               
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -991,7 +991,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnvq     &&  schermMagazijn VALID
+FUNCTION _3v70xyon4     &&  schermMagazijn VALID
 #REGION 1
 ACCESS = veracess(wcoduser,38, 'CON')
 IF ACCESS
@@ -1002,7 +1002,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNVS           lokModelo VALID                    
+*       * _3V70XYON6           lokModelo VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1015,7 +1015,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnvs     &&  lokModelo VALID
+FUNCTION _3v70xyon6     &&  lokModelo VALID
 #REGION 1
 IF booReeks
 	DO erfLij
@@ -1024,7 +1024,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNVU           booMagaz VALID                     
+*       * _3V70XYON8           booMagaz VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1037,14 +1037,14 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnvu     &&  booMagaz VALID
+FUNCTION _3v70xyon8     &&  booMagaz VALID
 #REGION 1
 DO erfLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNVX           booModelo VALID                    
+*       * _3V70XYON9           booModelo VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1057,14 +1057,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnvx     &&  booModelo VALID
+FUNCTION _3v70xyon9     &&  booModelo VALID
 #REGION 1
 DO erfLij
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNVY           knopErfSalie VALID                 
+*       * _3V70XYOND           knopErfSalie VALID                 
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1077,7 +1077,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnvy     &&  knopErfSalie VALID
+FUNCTION _3v70xyond     &&  knopErfSalie VALID
 #REGION 1
 DO CASE
 CASE knopErfSalie = 1
@@ -1097,7 +1097,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNW0           lokErf VALID                       
+*       * _3V70XYONG           lokErf VALID                       
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1110,7 +1110,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnw0     &&  lokErf VALID
+FUNCTION _3v70xyong     &&  lokErf VALID
 #REGION 1
 SELE erfgoed
 SEEK lijErf[lokErf,2]
@@ -1121,7 +1121,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNW2           knopErf VALID                      
+*       * _3V70XYONJ           knopErf VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1134,7 +1134,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnw2     &&  knopErf VALID
+FUNCTION _3v70xyonj     &&  knopErf VALID
 #REGION 1
 DO CASE
 CASE knopErf = 1
@@ -1158,7 +1158,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQNW4           Read Level When                    
+*       * _3V70XYONM           Read Level When                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1170,7 +1170,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqnw4     && Read Level When
+FUNCTION _3v70xyonm     && Read Level When
 *
 * When Code from screen: ERFGOED
 *

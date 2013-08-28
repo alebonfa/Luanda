@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 05/08/2013            CAD_FOR.SPR              08:56:02 
+*       * 28/08/2013            CAD_FOR.SPR              15:49:09 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -264,7 +264,7 @@ ENDIF
 	SIZE 1.143,3.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3uk0j5cnl()
+	VALID _3v70xwm9x()
 @ 17.000,20.400 GET wcep ;
 	SIZE 1.000,20.800 ;
 	DEFAULT 0 ;
@@ -381,7 +381,7 @@ ENDIF
 	SIZE 1.500,21.800 ;
 	DEFAULT "Razão Social" ;
 	FONT "Arial", 8 ;
-	VALID _3uk0j5co4() ;
+	VALID _3v70xwmb4() ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 21.538,126.400 GET tnome ;
 	PICTURE "@^ Iniciando...;Contendo..." ;
@@ -402,7 +402,7 @@ ENDIF
 	SIZE 1.500,4.200,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3uk0j5co9()
+	VALID _3v70xwmbm()
 
 IF NOT WVISIBLE("_2vo0y9wmh")
 	ACTIVATE WINDOW _2vo0y9wmh
@@ -410,7 +410,7 @@ ENDIF
 
 READ CYCLE ;
 	WHEN _2VO0Y9WO7() ;
-	SHOW _3uk0j5cod()
+	SHOW _3v70xwmbq()
 
 RELEASE WINDOW _2vo0y9wmh
 
@@ -562,7 +562,7 @@ PROCEDURE zera_var
 
 *       *********************************************************
 *       *                                                         
-*       * _3UK0J5CNL           mudanome VALID                     
+*       * _3V70XWM9X           mudanome VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -575,7 +575,7 @@ PROCEDURE zera_var
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3uk0j5cnl     &&  mudanome VALID
+FUNCTION _3v70xwm9x     &&  mudanome VALID
 #REGION 1
 STORE '' TO terugStaat, terugStad
 DO zoekStad.SPR
@@ -765,7 +765,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3UK0J5CO4           keuzeVeld VALID                    
+*       * _3V70XWMB4           keuzeVeld VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -778,7 +778,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3uk0j5co4     &&  keuzeVeld VALID
+FUNCTION _3v70xwmb4     &&  keuzeVeld VALID
 #REGION 1
 DO forn_list
 SHOW GETS
@@ -828,7 +828,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3UK0J5CO9           knopBijzon VALID                   
+*       * _3V70XWMBM           knopBijzon VALID                   
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -841,7 +841,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3uk0j5co9     &&  knopBijzon VALID
+FUNCTION _3v70xwmbm     &&  knopBijzon VALID
 #REGION 1
 IF inclui
 	DO winalert WITH 'ATENÇÃO','Inclua o fornecedor primeiro.'
@@ -882,7 +882,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3UK0J5COD           Read Level Show                    
+*       * _3V70XWMBQ           Read Level Show                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -894,7 +894,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3uk0j5cod     && Read Level Show
+FUNCTION _3v70xwmbq     && Read Level Show
 PRIVATE currwind
 STORE WOUTPUT() TO currwind
 *

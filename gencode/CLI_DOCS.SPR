@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 15/07/2013           CLI_DOCS.SPR              10:30:27 
+*       * 28/08/2013           CLI_DOCS.SPR              15:50:26 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -261,8 +261,8 @@ IF NOT WVISIBLE("_2vo0z4rm7")
 	ACTIVATE WINDOW _2vo0z4rm7
 ENDIF
 
-READ CYCLE MODAL ;
-	SHOW _3tz0mirnp()
+READ CYCLE ;
+	SHOW _3v70xyhnz()
 
 RELEASE WINDOW _2vo0z4rm7
 
@@ -336,7 +336,7 @@ ENDCASE
 
 *       *********************************************************
 *       *                                                         
-*       * _3TZ0MIRNP           Read Level Show                    
+*       * _3V70XYHNZ           Read Level Show                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -348,7 +348,7 @@ ENDCASE
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3tz0mirnp     && Read Level Show
+FUNCTION _3v70xyhnz     && Read Level Show
 PRIVATE currwind
 STORE WOUTPUT() TO currwind
 *

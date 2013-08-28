@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 31/07/2013           CR_TROCA.SPR              10:51:59 
+*       * 28/08/2013           CR_TROCA.SPR              15:50:51 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -38,8 +38,8 @@ SET READBORDER ON
 *       *********************************************************
 *
 
-IF NOT WEXIST("_3uf0nagiv")
-	DEFINE WINDOW _3uf0nagiv ;
+IF NOT WEXIST("_3v70xyt15")
+	DEFINE WINDOW _3v70xyt15 ;
 		AT  0.000, 0.000  ;
 		SIZE 30.154,97.400 ;
 		TITLE "Alteração de Turma" ;
@@ -48,7 +48,7 @@ IF NOT WEXIST("_3uf0nagiv")
 		NOCLOSE ;
 		NOMINIMIZE ;
 		SYSTEM
-	MOVE WINDOW _3uf0nagiv CENTER
+	MOVE WINDOW _3v70xyt15 CENTER
 ENDIF
 
 
@@ -79,10 +79,10 @@ cr_parcs = 1
 *
 
 #REGION 1
-IF WVISIBLE("_3uf0nagiv")
-	ACTIVATE WINDOW _3uf0nagiv SAME
+IF WVISIBLE("_3v70xyt15")
+	ACTIVATE WINDOW _3v70xyt15 SAME
 ELSE
-	ACTIVATE WINDOW _3uf0nagiv NOSHOW
+	ACTIVATE WINDOW _3v70xyt15 NOSHOW
 ENDIF
 @ 0.000,0.000 TO 3.769,96.600 ;
 	PATTERN 1 ;
@@ -160,15 +160,15 @@ ENDIF
 	SIZE 1.643,45.600,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3uf0nagj9()
+	VALID _3v70xyt1p()
 
-IF NOT WVISIBLE("_3uf0nagiv")
-	ACTIVATE WINDOW _3uf0nagiv
+IF NOT WVISIBLE("_3v70xyt15")
+	ACTIVATE WINDOW _3v70xyt15
 ENDIF
 
 READ CYCLE MODAL
 
-RELEASE WINDOW _3uf0nagiv
+RELEASE WINDOW _3v70xyt15
 
 #REGION 0
 
@@ -206,7 +206,7 @@ RETURN
 
 *       *********************************************************
 *       *                                                         
-*       * _3UF0NAGJ9           bt_troca VALID                     
+*       * _3V70XYT1P           bt_troca VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -219,7 +219,7 @@ RETURN
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3uf0nagj9     &&  bt_troca VALID
+FUNCTION _3v70xyt1p     &&  bt_troca VALID
 #REGION 1
 DO CASE
 	CASE bt_troca = 1

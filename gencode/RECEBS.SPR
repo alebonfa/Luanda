@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 14/08/2013            RECEBS.SPR               22:21:29 
+*       * 28/08/2013            RECEBS.SPR               15:48:54 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -552,7 +552,7 @@ ENDIF
 	SIZE 1.286,16.200,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3ut1iyadl() ;
+	VALID _3v70xwavo() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,)
 
 IF NOT WVISIBLE("_2vo0yogag")
@@ -1691,7 +1691,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3UT1IYADL           btnLote VALID                      
+*       * _3V70XWAVO           btnLote VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1704,7 +1704,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3ut1iyadl     &&  btnLote VALID
+FUNCTION _3v70xwavo     &&  btnLote VALID
 #REGION 1
 ACCESS = veracess(wcoduser,19,"ALT")
 IF ACCESS

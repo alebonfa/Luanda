@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 22/05/2013           PRAKTIJK.SPR              08:44:38 
+*       * 28/08/2013           PRAKTIJK.SPR              15:50:44 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -38,8 +38,8 @@ SET READBORDER ON
 *       *********************************************************
 *
 
-IF NOT WEXIST("_3sh0iqoq9")
-	DEFINE WINDOW _3sh0iqoq9 ;
+IF NOT WEXIST("_3v70xypg4")
+	DEFINE WINDOW _3v70xypg4 ;
 		AT  0.000, 0.000  ;
 		SIZE 40.000,158.000 ;
 		TITLE "Aula Prática" ;
@@ -48,7 +48,7 @@ IF NOT WEXIST("_3sh0iqoq9")
 		NOCLOSE ;
 		NOMINIMIZE ;
 		SYSTEM
-	MOVE WINDOW _3sh0iqoq9 CENTER
+	MOVE WINDOW _3v70xypg4 CENTER
 ENDIF
 
 
@@ -60,10 +60,10 @@ ENDIF
 *
 
 #REGION 1
-IF WVISIBLE("_3sh0iqoq9")
-	ACTIVATE WINDOW _3sh0iqoq9 SAME
+IF WVISIBLE("_3v70xypg4")
+	ACTIVATE WINDOW _3v70xypg4 SAME
 ELSE
-	ACTIVATE WINDOW _3sh0iqoq9 NOSHOW
+	ACTIVATE WINDOW _3v70xypg4 NOSHOW
 ENDIF
 @ 27.769,3.200 SAY "Observações" ;
 	FONT "Arial", 8 ;
@@ -106,15 +106,15 @@ ENDIF
 	SIZE 1.714,76.000,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0iqor4()
+	VALID _3v70xypgs()
 
-IF NOT WVISIBLE("_3sh0iqoq9")
-	ACTIVATE WINDOW _3sh0iqoq9
+IF NOT WVISIBLE("_3v70xypg4")
+	ACTIVATE WINDOW _3v70xypg4
 ENDIF
 
 READ CYCLE
 
-RELEASE WINDOW _3sh0iqoq9
+RELEASE WINDOW _3v70xypg4
 
 #REGION 0
 
@@ -130,7 +130,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IQOR4           bt_atu VALID                       
+*       * _3V70XYPGS           bt_atu VALID                       
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -143,7 +143,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iqor4     &&  bt_atu VALID
+FUNCTION _3v70xypgs     &&  bt_atu VALID
 #REGION 1
 DO CASE
 CASE bt_atu = 1

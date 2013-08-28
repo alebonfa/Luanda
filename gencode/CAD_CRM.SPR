@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 31/07/2013            CAD_CRM.SPR              09:43:58 
+*       * 28/08/2013            CAD_CRM.SPR              15:49:28 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -380,7 +380,7 @@ ENDIF
 	SIZE 1.500,8.200,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3uf0kuzh0()
+	VALID _3v70xx177()
 @ 21.846,105.600 GET ares ;
 	PICTURE "@^" ;
 	FROM List_are ;
@@ -393,7 +393,7 @@ ENDIF
 	SIZE 1.500,8.200,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3uf0kuzh4()
+	VALID _3v70xx179()
 @ 21.923,150.800 EDIT wobs ;
 	SIZE 8.000,42.800,0.000 ;
 	PICTURE "@K" ;
@@ -407,7 +407,7 @@ ENDIF
 	SIZE 5.714,33.400 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3uf0kuzhn() ;
+	VALID _3v70xx17c() ;
 	COLOR RGB(0,0,0,255,255,255),RGB(0,0,0,255,255,255)
 @ 24.385,105.800 GET iares ;
  	PICTURE "@&N" ;
@@ -415,7 +415,7 @@ ENDIF
 	SIZE 5.714,39.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3uf0kuzhp() ;
+	VALID _3v70xx17f() ;
 	COLOR RGB(0,0,0,255,255,255),RGB(0,0,0,255,255,255)
 @ 32.385,3.200 GET lcrmpend ;
 	PICTURE "@*C Somente os Pendentes" ;
@@ -423,7 +423,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3uf0kuzhr() ;
+	VALID _3v70xx17i() ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 34.231,3.400 GET listcrm ;
  	PICTURE "@&N" ;
@@ -444,13 +444,13 @@ ENDIF
 	SIZE 1.500,3.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3uf0kuzhy()
+	VALID _3v70xx184()
 @ 15.692,190.000 GET knopHoof ;
 	PICTURE "@*HN ..." ;
 	SIZE 1.500,3.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3uf0kuzi0()
+	VALID _3v70xx187()
 @ 14.538,19.600 EDIT wctexto2 ;
 	SIZE 4.000,89.400,0.000 ;
 	PICTURE "@K" ;
@@ -464,7 +464,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3uf0kuzii() ;
+	VALID _3v70xx18a() ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 
 IF NOT WVISIBLE("_2vo0yowc3")
@@ -473,7 +473,7 @@ ENDIF
 
 READ CYCLE MODAL ;
 	WHEN _2VO0YOWDC() ;
-	SHOW _3uf0kuzik()
+	SHOW _3v70xx18d()
 
 RELEASE WINDOW _2vo0yowc3
 
@@ -903,7 +903,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3UF0KUZH0           btIntCurso VALID                   
+*       * _3V70XX177           btIntCurso VALID                   
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -916,7 +916,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3uf0kuzh0     &&  btIntCurso VALID
+FUNCTION _3v70xx177     &&  btIntCurso VALID
 #REGION 1
 SELECT int_suba
 SET ORDER TO TAG Cliente
@@ -942,7 +942,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3UF0KUZH4           btIntArea VALID                    
+*       * _3V70XX179           btIntArea VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -955,7 +955,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3uf0kuzh4     &&  btIntArea VALID
+FUNCTION _3v70xx179     &&  btIntArea VALID
 #REGION 1
 SELECT int_area
 SET ORDER TO TAG Cliente
@@ -981,7 +981,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3UF0KUZHN           icurs VALID                        
+*       * _3V70XX17C           icurs VALID                        
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -994,7 +994,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3uf0kuzhn     &&  icurs VALID
+FUNCTION _3v70xx17c     &&  icurs VALID
 #REGION 1
 Conf = WINCONF("ATENÇÃO","Tem certeza que deseja excluir este interesse?")
 IF Conf
@@ -1008,7 +1008,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3UF0KUZHP           iares VALID                        
+*       * _3V70XX17F           iares VALID                        
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1021,7 +1021,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3uf0kuzhp     &&  iares VALID
+FUNCTION _3v70xx17f     &&  iares VALID
 #REGION 1
 CONF = winconf("ATENÇÃO","Tem certeza que deseja excluir este interesse?")
 IF CONF
@@ -1039,7 +1039,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3UF0KUZHR           lcrmpend VALID                     
+*       * _3V70XX17I           lcrmpend VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1052,7 +1052,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3uf0kuzhr     &&  lcrmpend VALID
+FUNCTION _3v70xx17i     &&  lcrmpend VALID
 #REGION 1
 DO crm_list
 SHOW GETS
@@ -1142,7 +1142,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3UF0KUZHY           knopBend VALID                     
+*       * _3V70XX184           knopBend VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1155,7 +1155,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3uf0kuzhy     &&  knopBend VALID
+FUNCTION _3v70xx184     &&  knopBend VALID
 #REGION 1
 wcurso = list_cur[bends,1]
 lokBend = list_cur[bends,2]
@@ -1163,7 +1163,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3UF0KUZI0           knopHoof VALID                     
+*       * _3V70XX187           knopHoof VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1176,7 +1176,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3uf0kuzi0     &&  knopHoof VALID
+FUNCTION _3v70xx187     &&  knopHoof VALID
 #REGION 1
 wlocal = list_are[hoofs,1]
 lokHoof = list_are[hoofs,2]
@@ -1184,7 +1184,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3UF0KUZII           lcrmposit VALID                    
+*       * _3V70XX18A           lcrmposit VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1197,7 +1197,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3uf0kuzii     &&  lcrmposit VALID
+FUNCTION _3v70xx18a     &&  lcrmposit VALID
 #REGION 1
 DO crm_list
 SHOW GETS
@@ -1234,7 +1234,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3UF0KUZIK           Read Level Show                    
+*       * _3V70XX18D           Read Level Show                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1246,7 +1246,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3uf0kuzik     && Read Level Show
+FUNCTION _3v70xx18d     && Read Level Show
 PRIVATE currwind
 STORE WOUTPUT() TO currwind
 *

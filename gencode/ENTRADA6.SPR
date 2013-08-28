@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 15/07/2013           ENTRADA6.SPR              10:30:37 
+*       * 28/08/2013           ENTRADA6.SPR              15:50:13 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -170,7 +170,7 @@ IF NOT WVISIBLE("_2vo0ypqal")
 	ACTIVATE WINDOW _2vo0ypqal
 ENDIF
 
-READ CYCLE
+READ CYCLE MODAL
 
 RELEASE WINDOW _2vo0ypqal
 

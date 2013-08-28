@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 22/05/2013           CAD_DISC.SPR              08:42:51 
+*       * 28/08/2013           CAD_DISC.SPR              15:48:52 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -70,6 +70,7 @@ ENDIF
 DIMENSION list_disc[ 1]
 wdescricao = ""
 lpratica = .F.
+lterceiros = .F.
 lativ = .F.
 inclui = .T.
 exc = .F.
@@ -159,9 +160,16 @@ ENDIF
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
 	VALID _2VO0YOEQG()
-@ 27.769,37.600 GET lativ ;
+@ 27.769,39.600 GET lativ ;
 	PICTURE "@*C Não permite Atividades Complementares" ;
 	SIZE 1.308,42.333 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 8 ;
+	STYLE "BT" ;
+	COLOR ,,,,,,,,RGB(0,0,128,,,,),RGB(0,0,128,,,,)
+@ 27.769,93.800 GET lterceiros ;
+	PICTURE "@*C Temática de Terceiros" ;
+	SIZE 1.308,25.667 ;
 	DEFAULT 0 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "BT" ;
@@ -209,6 +217,7 @@ PROCEDURE mudancas
 		ENDIF
 		REPLACE discip.descricao WITH wdescricao
 		REPLACE discip.pratica WITH lpratica
+		REPLACE discip.terceiros WITH lterceiros
 		REPLACE discip.ativ WITH lativ
 		DO zera_var
 	ENDIF
@@ -221,6 +230,7 @@ PROCEDURE consulta
 	SELECT discip
 	wdescricao = discip.descricao
 	lpratica = discip.pratica
+	lterceiros = discip.terceiros
 	lativ = discip.ativ
 	inclui = .F.
 	SHOW GET LIST DISABLE
@@ -232,6 +242,7 @@ PROCEDURE consulta
 PROCEDURE zera_var
 	wdescricao = ""
 	lpratica = .F.
+	lterceiros = .F.
 	lativ = .F.
 	inclui = .T.
 	SHOW GET LIST ENABLE

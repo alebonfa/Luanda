@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 22/05/2013           CXBANCOS.SPR              08:43:27 
+*       * 28/08/2013           CXBANCOS.SPR              15:49:22 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -38,8 +38,8 @@ SET READBORDER ON
 *       *********************************************************
 *
 
-IF NOT WEXIST("_3sh0ip645")
-	DEFINE WINDOW _3sh0ip645 ;
+IF NOT WEXIST("_3v70xwwj5")
+	DEFINE WINDOW _3v70xwwj5 ;
 		AT  0.000, 0.000  ;
 		SIZE 42.077,145.000 ;
 		TITLE "Caixa e Bancos" ;
@@ -49,7 +49,7 @@ IF NOT WEXIST("_3sh0ip645")
 		NOMINIMIZE ;
 		SYSTEM ;
 		COLOR RGB(,,,192,192,192)
-	MOVE WINDOW _3sh0ip645 CENTER
+	MOVE WINDOW _3v70xwwj5 CENTER
 ENDIF
 
 
@@ -114,10 +114,10 @@ Wvis_impr = .F.
 *
 
 #REGION 1
-IF WVISIBLE("_3sh0ip645")
-	ACTIVATE WINDOW _3sh0ip645 SAME
+IF WVISIBLE("_3v70xwwj5")
+	ACTIVATE WINDOW _3v70xwwj5 SAME
 ELSE
-	ACTIVATE WINDOW _3sh0ip645 NOSHOW
+	ACTIVATE WINDOW _3v70xwwj5 NOSHOW
 ENDIF
 @ 3.692,2.400 TO 6.923,141.800 ;
 	PEN 1, 8
@@ -219,14 +219,14 @@ ENDIF
 	SIZE 1.385,23.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
-	VALID _3sh0ip656()
+	VALID _3v70xwwk8()
 @ 9.538,28.600 GET dbans ;
 	PICTURE "@^" ;
 	FROM Lst_ban ;
 	SIZE 1.538,69.800 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
-	VALID _3sh0ip65a()
+	VALID _3v70xwwkn()
 @ 9.769,115.600 GET Wdvalor ;
 	SIZE 1.000,22.800 ;
 	DEFAULT 0 ;
@@ -238,20 +238,20 @@ ENDIF
 	SIZE 1.385,23.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
-	VALID _3sh0ip65c()
+	VALID _3v70xwwks()
 @ 14.385,12.200 GET dati ;
 	SIZE 1.000,13.400 ;
 	DEFAULT {  /  /  } ;
 	FONT "MS Sans Serif", 8 ;
 	PICTURE "@K" ;
-	VALID _3sh0ip65f() ;
+	VALID _3v70xwwl7() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 14.385,36.200 GET datf ;
 	SIZE 1.000,13.200 ;
 	DEFAULT {  /  /  } ;
 	FONT "MS Sans Serif", 8 ;
 	PICTURE "@K" ;
-	VALID _3sh0ip65h() ;
+	VALID _3v70xwwlc() ;
 	COLOR ,RGB(,,,255,255,255)
 @ 14.154,64.800 GET bans ;
 	PICTURE "@^" ;
@@ -259,14 +259,14 @@ ENDIF
 	SIZE 1.538,74.200 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
-	VALID _3sh0ip65i()
+	VALID _3v70xwwlq()
 @ 17.615,2.600 GET vens ;
  	PICTURE "@&N" ;
 	FROM Lst_ext ;
 	SIZE 17.143,100.143 ;
 	DEFAULT 1 ;
 	FONT "Courier New", 8 ;
-	VALID _3sh0ip65l() ;
+	VALID _3v70xwwls() ;
 	COLOR RGB(0,0,0,255,255,255),RGB(0,0,0,255,255,255)
 @ 37.000,39.600 GET L200 ;
 	PICTURE "@*C Últimos Lancamentos" ;
@@ -274,7 +274,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "MS Sans Serif", 8 ;
 	STYLE "T" ;
-	VALID _3sh0ip65o() ;
+	VALID _3v70xwwlv() ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
 @ 37.000,2.400 GET Wvis_impr ;
 	PICTURE "@*C Visualiza" ;
@@ -300,17 +300,17 @@ ENDIF
 	SIZE 1.769,46.800,0.000 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
-	VALID _3sh0ip65r()
+	VALID _3v70xwwlz()
 
-IF NOT WVISIBLE("_3sh0ip645")
-	ACTIVATE WINDOW _3sh0ip645
+IF NOT WVISIBLE("_3v70xwwj5")
+	ACTIVATE WINDOW _3v70xwwj5
 ENDIF
 
 READ CYCLE MODAL ;
-	WHEN _3sh0ip65u() ;
-	SHOW _3sh0ip65v()
+	WHEN _3v70xwwmc() ;
+	SHOW _3v70xwwmd()
 
-RELEASE WINDOW _3sh0ip645
+RELEASE WINDOW _3v70xwwj5
 
 #REGION 0
 
@@ -433,7 +433,7 @@ RETURN
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IP656           OK VALID                           
+*       * _3V70XWWK8           OK VALID                           
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -446,7 +446,7 @@ RETURN
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ip656     &&  OK VALID
+FUNCTION _3v70xwwk8     &&  OK VALID
 #REGION 1
 SELE Bancos
 SEEK Lst_ban[Bans,2]
@@ -511,7 +511,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IP65A           dbans VALID                        
+*       * _3V70XWWKN           dbans VALID                        
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -524,7 +524,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ip65a     &&  dbans VALID
+FUNCTION _3v70xwwkn     &&  dbans VALID
 #REGION 1
 Wnbanco = Lst_ban[Dbans,2]
 _CUROBJ = OBJNUM(Wnbanco)
@@ -532,7 +532,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IP65C           Deposi VALID                       
+*       * _3V70XWWKS           Deposi VALID                       
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -545,7 +545,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ip65c     &&  Deposi VALID
+FUNCTION _3v70xwwks     &&  Deposi VALID
 #REGION 1
 Fechado = .T.
 SELE Bancos
@@ -599,7 +599,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IP65F           dati VALID                         
+*       * _3V70XWWL7           dati VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -612,7 +612,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ip65f     &&  dati VALID
+FUNCTION _3v70xwwl7     &&  dati VALID
 #REGION 1
 datf = dati
 do filtra
@@ -620,7 +620,7 @@ show gets
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IP65H           datf VALID                         
+*       * _3V70XWWLC           datf VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -633,14 +633,14 @@ show gets
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ip65h     &&  datf VALID
+FUNCTION _3v70xwwlc     &&  datf VALID
 #REGION 1
 do filtra
 show gets
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IP65I           bans VALID                         
+*       * _3V70XWWLQ           bans VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -653,7 +653,7 @@ show gets
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ip65i     &&  bans VALID
+FUNCTION _3v70xwwlq     &&  bans VALID
 #REGION 1
 IF Lst_ban[Bans,2] = '09'
 	SHOW GET Filtdin ENABLE
@@ -667,7 +667,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IP65L           vens VALID                         
+*       * _3V70XWWLS           vens VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -680,7 +680,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ip65l     &&  vens VALID
+FUNCTION _3v70xwwls     &&  vens VALID
 #REGION 1
 IF !alt
 	Conf = WINCONF('ATENÇÃO','TEM CERTEZA QUE DESEJA EXCLUIR ESTE LANÇAMENTO?')
@@ -702,7 +702,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IP65O           L200 VALID                         
+*       * _3V70XWWLV           L200 VALID                         
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -715,14 +715,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ip65o     &&  L200 VALID
+FUNCTION _3v70xwwlv     &&  L200 VALID
 #REGION 1
 DO Filtra
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IP65R           cadcomesc VALID                    
+*       * _3V70XWWLZ           cadcomesc VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -735,7 +735,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ip65r     &&  cadcomesc VALID
+FUNCTION _3v70xwwlz     &&  cadcomesc VALID
 #REGION 1
 DO CASE
 	CASE Cadcomesc = 1
@@ -752,7 +752,7 @@ ENDCASE
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IP65U           Read Level When                    
+*       * _3V70XWWMC           Read Level When                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -764,7 +764,7 @@ ENDCASE
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ip65u     && Read Level When
+FUNCTION _3v70xwwmc     && Read Level When
 *
 * When Code from screen: CXBANCOS
 *
@@ -780,7 +780,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IP65V           Read Level Show                    
+*       * _3V70XWWMD           Read Level Show                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -792,15 +792,15 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0ip65v     && Read Level Show
+FUNCTION _3v70xwwmd     && Read Level Show
 PRIVATE currwind
 STORE WOUTPUT() TO currwind
 *
 * Show Code from screen: CXBANCOS
 *
 #REGION 1
-IF SYS(2016) = "_3SH0IP645" OR SYS(2016) = "*"
-	ACTIVATE WINDOW _3sh0ip645 SAME
+IF SYS(2016) = "_3V70XWWJ5" OR SYS(2016) = "*"
+	ACTIVATE WINDOW _3v70xwwj5 SAME
 	@ 37.000,109.800 SAY salini ;
 		SIZE 1.000,25.167, 0.000 ;
 		FONT "MS Sans Serif", 8 ;

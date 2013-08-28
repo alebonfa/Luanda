@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 22/05/2013            UPDATEN.SPR              08:44:31 
+*       * 28/08/2013            UPDATEN.SPR              15:50:32 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -38,8 +38,8 @@ SET READBORDER ON
 *       *********************************************************
 *
 
-IF NOT WEXIST("_3sh0iqjit")
-	DEFINE WINDOW _3sh0iqjit ;
+IF NOT WEXIST("_3v70xyk9d")
+	DEFINE WINDOW _3v70xyk9d ;
 		AT  0.000, 0.000  ;
 		SIZE 36.714,139.400 ;
 		TITLE "Atualizações" ;
@@ -48,7 +48,7 @@ IF NOT WEXIST("_3sh0iqjit")
 		NOCLOSE ;
 		MINIMIZE ;
 		SYSTEM
-	MOVE WINDOW _3sh0iqjit CENTER
+	MOVE WINDOW _3v70xyk9d CENTER
 ENDIF
 
 
@@ -70,10 +70,10 @@ wizjis = 1
 *
 
 #REGION 1
-IF WVISIBLE("_3sh0iqjit")
-	ACTIVATE WINDOW _3sh0iqjit SAME
+IF WVISIBLE("_3v70xyk9d")
+	ACTIVATE WINDOW _3v70xyk9d SAME
 ELSE
-	ACTIVATE WINDOW _3sh0iqjit NOSHOW
+	ACTIVATE WINDOW _3v70xyk9d NOSHOW
 ENDIF
 @ 0.000,0.000 TO 3.500,139.400 ;
 	PATTERN 1 ;
@@ -104,13 +104,13 @@ ENDIF
 	DEFAULT 1 ;
 	FONT "Arial", 8
 
-IF NOT WVISIBLE("_3sh0iqjit")
-	ACTIVATE WINDOW _3sh0iqjit
+IF NOT WVISIBLE("_3v70xyk9d")
+	ACTIVATE WINDOW _3v70xyk9d
 ENDIF
 
 READ CYCLE
 
-RELEASE WINDOW _3sh0iqjit
+RELEASE WINDOW _3v70xyk9d
 
 #REGION 0
 

@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 07/08/2013           CAD_PROF.SPR              08:54:09 
+*       * 28/08/2013           CAD_PROF.SPR              15:48:53 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -94,7 +94,7 @@ wlattes = ''
 STORE .F. TO larea_peq, larea_grd, larea_slv, larea_sp
 STORE 0.00  TO whonor1, whonor2
 STORE .F. TO lprofessor, lorientado, ldoc_fic, ldoc_cur,  ;
-	ldoc_dip
+	ldoc_dip, linativo
 DIMENSION lst_prof[ 1]
 profs = 1
 
@@ -203,11 +203,11 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,255,255,0)
-@ 19.154,156.000 SAY "Atividade" ;
+@ 17.231,155.200 SAY "Atividade" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,,,,)
-@ 12.692,155.200 SAY "Documentos" ;
+@ 12.077,155.200 SAY "Documentos" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,,,,)
@@ -306,7 +306,7 @@ ENDIF
 	SIZE 1.143,3.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3um0j2xqh()
+	VALID _3v70xw9z9()
 @ 19.154,17.200 GET wcep ;
 	SIZE 1.000,20.800 ;
 	DEFAULT 0 ;
@@ -360,14 +360,14 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	PICTURE "@K" ;
-	VALID _3um0j2xql() ;
+	VALID _3v70xw9zp() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 12.692,116.400 GET whonor2 ;
 	SIZE 1.000,11.200 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	PICTURE "@K" ;
-	VALID _3um0j2xqn() ;
+	VALID _3v70xw9zs() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 14.846,102.000 GET wbanc ;
 	SIZE 1.000,44.000 ;
@@ -428,35 +428,35 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 12.692,169.600 GET ldoc_fic ;
+@ 12.077,169.600 GET ldoc_fic ;
 	PICTURE "@*C Ficha Cadastral" ;
 	SIZE 1.214,19.600 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 14.538,169.600 GET ldoc_cur ;
+@ 13.462,169.600 GET ldoc_cur ;
 	PICTURE "@*C Curriculum Lathes" ;
 	SIZE 1.214,22.000 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 16.385,169.600 GET ldoc_dip ;
+@ 14.846,169.600 GET ldoc_dip ;
 	PICTURE "@*C Diploma" ;
 	SIZE 1.214,12.000 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 19.154,169.600 GET lprofessor ;
+@ 17.231,169.600 GET lprofessor ;
 	PICTURE "@*C Professor" ;
 	SIZE 1.214,14.200 ;
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
-@ 21.000,169.600 GET lorientado ;
+@ 18.538,169.600 GET lorientado ;
 	PICTURE "@*C Orientador" ;
 	SIZE 1.214,14.800 ;
 	DEFAULT 0 ;
@@ -510,7 +510,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3um0j2xs1() ;
+	VALID _3v70xwa0c() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 24.000,85.600 GET filt_disc ;
 	PICTURE "@*C Disciplina" ;
@@ -518,7 +518,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3um0j2xs4() ;
+	VALID _3v70xwa0f() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 25.846,85.600 GET discs ;
 	PICTURE "@^" ;
@@ -527,6 +527,13 @@ ENDIF
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
 	VALID _2VO0YOFII()
+@ 21.308,169.600 GET linativo ;
+	PICTURE "@*C Inativo" ;
+	SIZE 1.308,11.000 ;
+	DEFAULT 0 ;
+	FONT "MS Sans Serif", 8 ;
+	STYLE "BT" ;
+	COLOR ,,,,,,,,RGB(255,0,0,,,,),RGB(255,0,0,,,,)
 
 IF NOT WVISIBLE("_2vo0yofhg")
 	ACTIVATE WINDOW _2vo0yofhg
@@ -534,7 +541,7 @@ ENDIF
 
 READ CYCLE ;
 	WHEN _2VO0YOFJ2() ;
-	SHOW _3um0j2xs8()
+	SHOW _3v70xwa0l()
 
 RELEASE WINDOW _2vo0yofhg
 
@@ -721,6 +728,7 @@ PROCEDURE mudancas
 		REPLACE prof.area_sp WITH larea_sp
 		REPLACE prof.professor WITH lprofessor
 		REPLACE prof.orientador WITH lorientado
+		REPLACE prof.inativo WITH linativo
 		REPLACE prof.doc_fic WITH ldoc_fic
 		REPLACE prof.doc_cur WITH ldoc_cur
 		REPLACE prof.doc_dip WITH ldoc_dip
@@ -762,6 +770,7 @@ PROCEDURE consulta
 	larea_sp = prof.area_sp
 	lprofessor = prof.professor
 	lorientado = prof.orientador
+	linativo = prof.inativo
 	ldoc_fic = prof.doc_fic
 	ldoc_cur = prof.doc_cur
 	ldoc_dip = prof.doc_dip
@@ -796,7 +805,7 @@ PROCEDURE zera_var
 	STORE .F. TO larea_peq, larea_grd, larea_slv, larea_sp
 	STORE 0.00  TO whonor1, whonor2
 	STORE .F. TO lprofessor, lorientado, ldoc_fic, ldoc_cur,  ;
-		ldoc_dip
+		ldoc_dip, linativo
 	inclui = .T.
 	SHOW GET MENU, 1 PROMPT "Adiciona"
 	RETURN
@@ -838,7 +847,7 @@ PROCEDURE list_prof
 
 *       *********************************************************
 *       *                                                         
-*       * _3UM0J2XQH           mudanome VALID                     
+*       * _3V70XW9Z9           mudanome VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -851,7 +860,7 @@ PROCEDURE list_prof
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3um0j2xqh     &&  mudanome VALID
+FUNCTION _3v70xw9z9     &&  mudanome VALID
 #REGION 1
 STORE '' TO terugStaat, terugStad
 DO zoekStad.SPR
@@ -868,7 +877,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3UM0J2XQL           whonor1 VALID                      
+*       * _3V70XW9ZP           whonor1 VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -881,13 +890,13 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3um0j2xql     &&  whonor1 VALID
+FUNCTION _3v70xw9zp     &&  whonor1 VALID
 #REGION 1
 show gets
 
 *       *********************************************************
 *       *                                                         
-*       * _3UM0J2XQN           whonor2 VALID                      
+*       * _3V70XW9ZS           whonor2 VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -900,7 +909,7 @@ show gets
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3um0j2xqn     &&  whonor2 VALID
+FUNCTION _3v70xw9zs     &&  whonor2 VALID
 #REGION 1
 show gets
 
@@ -1071,7 +1080,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3UM0J2XS1           filt_uf VALID                      
+*       * _3V70XWA0C           filt_uf VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1084,14 +1093,14 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3um0j2xs1     &&  filt_uf VALID
+FUNCTION _3v70xwa0c     &&  filt_uf VALID
 #REGION 1
 DO prof_lst
 SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3UM0J2XS4           filt_disc VALID                    
+*       * _3V70XWA0F           filt_disc VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1104,7 +1113,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3um0j2xs4     &&  filt_disc VALID
+FUNCTION _3v70xwa0f     &&  filt_disc VALID
 #REGION 1
 DO prof_lst
 SHOW GETS
@@ -1155,7 +1164,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3UM0J2XS8           Read Level Show                    
+*       * _3V70XWA0L           Read Level Show                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1167,7 +1176,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3um0j2xs8     && Read Level Show
+FUNCTION _3v70xwa0l     && Read Level Show
 PRIVATE currwind
 STORE WOUTPUT() TO currwind
 *

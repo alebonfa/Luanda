@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 12/06/2013           QUITA_CO.SPR              09:38:45 
+*       * 28/08/2013           QUITA_CO.SPR              15:49:50 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -416,7 +416,7 @@ ENDIF
 	SIZE 1.000,13.600 ;
 	DEFAULT {  /  /  } ;
 	FONT "Arial", 8 ;
-	VALID _3t20koacs() ;
+	VALID _3v70xxif0() ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 15.462,149.600 SAY "Data:" ;
 	FONT "Arial", 8 ;
@@ -431,7 +431,7 @@ ENDIF
 	PICTURE "@K" ;
 	SIZE 0.846, 5.200 ;
 	DEFAULT 1.000 ;
-	VALID _3t20koacu() ;
+	VALID _3v70xxif2() ;
 	FONT "MS Sans Serif", 8 ;
 	COLOR ,RGB(,,,255,255,255)
 @ 12.846,147.000 GET wqptotal ;
@@ -439,7 +439,7 @@ ENDIF
 	PICTURE "@K" ;
 	SIZE 0.846, 5.200 ;
 	DEFAULT 1.000 ;
-	VALID _3t20koacw() ;
+	VALID _3v70xxif6() ;
 	FONT "MS Sans Serif", 8 ;
 	COLOR ,RGB(,,,255,255,255)
 
@@ -1043,7 +1043,7 @@ REPLACE contas.empresa_id WITH list_emp(qo_emp,2)
 
 *       *********************************************************
 *       *                                                         
-*       * _3T20KOACS           wq_emiss VALID                     
+*       * _3V70XXIF0           wq_emiss VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1056,7 +1056,7 @@ REPLACE contas.empresa_id WITH list_emp(qo_emp,2)
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3t20koacs     &&  wq_emiss VALID
+FUNCTION _3v70xxif0     &&  wq_emiss VALID
 #REGION 1
 SELECT contas
 REPLACE contas.dataemiss WITH wq_emiss
@@ -1064,7 +1064,7 @@ REPLACE contas.dataemiss WITH wq_emiss
 
 *       *********************************************************
 *       *                                                         
-*       * _3T20KOACU           wqpatual VALID                     
+*       * _3V70XXIF2           wqpatual VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1076,7 +1076,7 @@ REPLACE contas.dataemiss WITH wq_emiss
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3t20koacu     &&  wqpatual VALID
+FUNCTION _3v70xxif2     &&  wqpatual VALID
 #REGION 1
 auxdes2 = STUFF(ALLTRIM(STR(wqptotal, 2)), 1, 0, REPLICATE("0", 2 - LEN(ALLTRIM(STR(wqptotal, 2)))))
 auxdes = STUFF(ALLTRIM(STR(wqpatual, 2)), 1, 0, REPLICATE("0", 2 - LEN(ALLTRIM(STR(wqpatual, 2))))) + auxdes2
@@ -1086,7 +1086,7 @@ REPLACE contas.numdesmemb WITH auxdes
 
 *       *********************************************************
 *       *                                                         
-*       * _3T20KOACW           wqptotal VALID                     
+*       * _3V70XXIF6           wqptotal VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1098,7 +1098,7 @@ REPLACE contas.numdesmemb WITH auxdes
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3t20koacw     &&  wqptotal VALID
+FUNCTION _3v70xxif6     &&  wqptotal VALID
 #REGION 1
 auxdes2 = STUFF(ALLTRIM(STR(wqptotal, 2)), 1, 0, REPLICATE("0", 2 - LEN(ALLTRIM(STR(wqptotal, 2)))))
 auxdes = STUFF(ALLTRIM(STR(wqpatual, 2)), 1, 0, REPLICATE("0", 2 - LEN(ALLTRIM(STR(wqpatual, 2)))))  + auxdes2

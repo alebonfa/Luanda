@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 22/05/2013           CAD_CURS.SPR              08:42:48 
+*       * 28/08/2013           CAD_CURS.SPR              15:48:48 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -238,7 +238,7 @@ ENDIF
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3sh0iobsa()
+	VALID _3v70xw6cf()
 @ 5.231,173.800 GET stats ;
 	PICTURE "@^" ;
 	FROM list_stat ;
@@ -353,7 +353,7 @@ ENDIF
 	SIZE 1.769,21.600,0.000 ;
 	DEFAULT 1 ;
 	FONT "MS Sans Serif", 8 ;
-	VALID _3sh0iobsp()
+	VALID _3v70xw6cg()
 @ 5.308,3.200 GET lcurso ;
 	PICTURE "@*C Turma" ;
 	SIZE 1.214,10.600 ;
@@ -376,7 +376,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3sh0iobsx() ;
+	VALID _3v70xw6cz() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 5.308,163.200 GET lstatus ;
 	PICTURE "@*C Status" ;
@@ -399,7 +399,7 @@ ENDIF
 	DEFAULT 0 ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
-	VALID _3sh0iobt2() ;
+	VALID _3v70xw6d6() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
 @ 42.846,3.000 SAY totais ;
 	SIZE 1.000,134.857 ;
@@ -438,7 +438,7 @@ ENDIF
 	SIZE 1.143,12.200,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0iobt3()
+	VALID _3v70xw6dj()
 @ 15.846,148.800 GET curs ;
 	PICTURE "@^" ;
 	FROM list_cur ;
@@ -460,7 +460,7 @@ ENDIF
 	SIZE 1.143,20.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3sh0iobt9()
+	VALID _3v70xw6en()
 @ 12.692,146.000 GET lokWaardCoord ;
 	SIZE 1.000,12.600 ;
 	DEFAULT 0 ;
@@ -1079,7 +1079,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IOBSA           wmodalidade VALID                  
+*       * _3V70XW6CF           wmodalidade VALID                  
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1092,7 +1092,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iobsa     &&  wmodalidade VALID
+FUNCTION _3v70xw6cf     &&  wmodalidade VALID
 #REGION 1
 DO cur_list
 SHOW GETS
@@ -1270,7 +1270,7 @@ DO Reposit.SPR
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IOBSP           m_curso VALID                      
+*       * _3V70XW6CG           m_curso VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1283,7 +1283,7 @@ DO Reposit.SPR
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iobsp     &&  m_curso VALID
+FUNCTION _3v70xw6cg     &&  m_curso VALID
 #REGION 1
 DO CASE
 CASE m_curso = 1
@@ -1396,7 +1396,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IOBSX           lmodalidade VALID                  
+*       * _3V70XW6CZ           lmodalidade VALID                  
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1409,7 +1409,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iobsx     &&  lmodalidade VALID
+FUNCTION _3v70xw6cz     &&  lmodalidade VALID
 #REGION 1
 DO cur_list
 SHOW GETS
@@ -1438,7 +1438,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IOBT2           lcert VALID                        
+*       * _3V70XW6D6           lcert VALID                        
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1451,7 +1451,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iobt2     &&  lcert VALID
+FUNCTION _3v70xw6d6     &&  lcert VALID
 #REGION 1
 DO cur_list
 SHOW GETS
@@ -1459,7 +1459,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IOBT3           men_curso VALID                    
+*       * _3V70XW6DJ           men_curso VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1472,7 +1472,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iobt3     &&  men_curso VALID
+FUNCTION _3v70xw6dj     &&  men_curso VALID
 #REGION 1
 DO cur_list
 SHOW GETS
@@ -1521,7 +1521,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3SH0IOBT9           men_curso VALID                    
+*       * _3V70XW6EN           men_curso VALID                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -1534,7 +1534,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3sh0iobt9     &&  men_curso VALID
+FUNCTION _3v70xw6en     &&  men_curso VALID
 #REGION 1
 ACCESS = veracess(wcoduser,27,"ALT")
 IF ACCESS
