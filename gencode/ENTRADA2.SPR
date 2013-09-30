@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 28/08/2013           ENTRADA2.SPR              15:50:01 
+*       * 04/09/2013           ENTRADA2.SPR              09:32:51 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -170,7 +170,7 @@ IF NOT WVISIBLE("_2vo0yph2h")
 	ACTIVATE WINDOW _2vo0yph2h
 ENDIF
 
-READ CYCLE MODAL
+READ CYCLE
 
 RELEASE WINDOW _2vo0yph2h
 

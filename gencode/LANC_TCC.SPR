@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 28/08/2013           LANC_TCC.SPR              15:50:04 
+*       * 04/09/2013           LANC_TCC.SPR              09:32:53 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -410,7 +410,7 @@ IF NOT WVISIBLE("_2vo0ypiry")
 	ACTIVATE WINDOW _2vo0ypiry
 ENDIF
 
-READ CYCLE MODAL ;
+READ CYCLE ;
 	WHEN _2VO0YPISS() ;
 	SHOW _2VO0YPIST()
 

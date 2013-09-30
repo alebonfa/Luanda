@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 28/08/2013           CAD_FUNC.SPR              15:49:04 
+*       * 30/09/2013           CAD_FUNC.SPR              10:57:04 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -76,6 +76,8 @@ wcidade = ""
 wuf = ""
 wcep = ""
 wfone = ""
+wcelular = ""
+areas = 1
 wnasc = {}
 wadm = {}
 wcomiss = 0.00
@@ -99,6 +101,20 @@ auxfilt = ""
 
 lokActief = 1
 STORE .F. TO visIndruk
+
+DIMENSION lst_area[ 1]
+SELECT descricao, codigo ;
+	FROM area ;
+	ORDER BY descricao ;
+	INTO ARRAY lst_area
+areas = 1
+
+DIMENSION rec_area[ 1]
+SELECT codigo ;
+	FROM area ;
+	ORDER BY descricao ;
+	INTO ARRAY rec_area
+
 
 
 
@@ -135,7 +151,7 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,255,255,0)
-@ 8.692,134.400 SAY "Fone" ;
+@ 10.846,133.600 SAY "Fone" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,255,255,0)
@@ -163,15 +179,15 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,255,255,0)
-@ 6.538,134.400 SAY "Situação:" ;
+@ 6.538,133.600 SAY "Situação:" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,255,255,0)
-@ 15.154,134.400 SAY "Histórico" ;
+@ 19.462,3.200 SAY "Histórico" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,255,255,0)
-@ 13.000,134.400 SAY "Dados Bancários" ;
+@ 17.308,133.600 SAY "Dados Bancários" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,255,255,0)
@@ -191,7 +207,7 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,0,0,255)
-@ 10.846,134.400 SAY "e-mail" ;
+@ 15.154,133.600 SAY "e-mail" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,255,255,0)
@@ -209,10 +225,18 @@ ENDIF
 @ 15.077,62.400 TO 16.308,72.200 ;
 	PEN 1, 8 ;
 	COLOR RGB(0,128,128,,,,)
-@ 19.692,0.000 TO 19.692,197.800 ;
+@ 22.769,0.000 TO 22.769,197.800 ;
 	PEN 1, 8 ;
 	STYLE "1" ;
 	COLOR RGB(0,128,128,0,128,128)
+@ 13.000,133.600 SAY "Celular" ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,128,128,255,255,0)
+@ 8.692,133.600 SAY "Polo:" ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,128,128,255,255,0)
 @ 6.538,17.200 GET wnome ;
 	SIZE 1.000,59.200 ;
 	DEFAULT " " ;
@@ -253,7 +277,7 @@ ENDIF
 	SIZE 1.143,3.800,0.800 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3v70xwix4()
+	VALID _3w40nhon0()
 @ 17.308,17.200 GET wcep ;
 	SIZE 1.000,20.800 ;
 	DEFAULT 0 ;
@@ -301,31 +325,43 @@ ENDIF
 	FONT "Arial", 8 ;
 	PICTURE "@K" ;
 	COLOR ,RGB(0,0,0,255,255,255)
-@ 6.154,155.200 GET lokActief ;
+@ 6.462,154.400 GET lokActief ;
 	PICTURE "@^ Ativo;Inativo" ;
 	SIZE 1.500,41.000 ;
 	DEFAULT "Ativo" ;
 	FONT "Arial", 8
-@ 8.692,155.600 GET wfone ;
+@ 8.615,154.400 GET areas ;
+	PICTURE "@^" ;
+	FROM Lst_area ;
+	SIZE 1.500,41.000 ;
+	DEFAULT 1 ;
+	FONT "Arial", 8
+@ 10.846,154.800 GET wfone ;
 	SIZE 1.000,40.000 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
-	PICTURE "@K" ;
+	PICTURE "@KR 99 X9999-9999" ;
 	COLOR ,RGB(0,0,0,255,255,255)
-@ 10.846,155.600 GET wemail ;
+@ 13.000,154.800 GET wcelular ;
+	SIZE 1.000,40.000 ;
+	DEFAULT " " ;
+	FONT "Arial", 8 ;
+	PICTURE "@KR 99 X9999-9999" ;
+	COLOR ,RGB(0,0,0,255,255,255)
+@ 15.154,154.800 GET wemail ;
 	SIZE 1.000,40.000 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@KT XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" ;
 	COLOR ,RGB(0,0,0,255,255,255)
-@ 13.000,155.600 GET wbancario ;
+@ 17.308,154.800 GET wbancario ;
 	SIZE 1.000,40.000 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!T XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" ;
 	COLOR ,RGB(0,0,0,255,255,255)
-@ 15.154,155.600 EDIT wobs ;
-	SIZE 3.000,40.600,0.000 ;
+@ 19.769,17.200 EDIT wobs ;
+	SIZE 2.000,178.200,0.000 ;
 	PICTURE "@K" ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
@@ -337,10 +373,10 @@ ENDIF
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
 	VALID _2VO0YOKVW()
-@ 22.846,3.400 GET list ;
+@ 26.308,3.400 GET list ;
  	PICTURE "@&N" ;
 	FROM List_func ;
-	SIZE 20.571,137.000 ;
+	SIZE 17.143,137.000 ;
 	DEFAULT 1 ;
 	FONT "Courier New", 8 ;
 	VALID _2VO0YOKW3() ;
@@ -353,7 +389,7 @@ ENDIF
 	STYLE "T" ;
 	VALID _2VO0YOKW2() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
-@ 20.385,3.200 GET linat ;
+@ 24.077,3.200 GET linat ;
 	PICTURE "@*C Mostrar Funcionários Inativos" ;
 	SIZE 1.214,33.000 ;
 	DEFAULT 0 ;
@@ -375,7 +411,7 @@ ENDIF
 
 READ CYCLE ;
 	WHEN _2VO0YOKW5() ;
-	SHOW _3v70xwiy6()
+	SHOW _3w40nhonq()
 
 RELEASE WINDOW _2vo0yokve
 
@@ -460,6 +496,8 @@ PROCEDURE mudancas
 		REPLACE funcs.uf WITH wuf
 		REPLACE funcs.cep WITH wcep
 		REPLACE funcs.fone WITH wfone
+		REPLACE funcs.celular WITH wcelular
+		REPLACE funcs.area_id WITH lst_area[areas,2]
 		REPLACE funcs.hist WITH wobs
 		REPLACE funcs.cpf WITH wcpf
 		REPLACE funcs.rg WITH wrg
@@ -496,6 +534,8 @@ PROCEDURE consulta
 	wuf = funcs.uf
 	wcep = funcs.cep
 	wfone = funcs.fone
+	wcelular = funcs.celular
+	areas = ASCAN(rec_area, funcs.area_id)
 	wobs = funcs.hist
 	wcpf = funcs.cpf
 	wrg = funcs.rg
@@ -530,6 +570,7 @@ PROCEDURE zera_var
 	wuf = ""
 	wcep = ""
 	wfone = ""
+	wcelular = ""
 	wnasc = {}
 	wadm = {}
 	wcomiss = 0.00
@@ -582,12 +623,12 @@ FUNCTION cmes
 
 *       *********************************************************
 *       *                                                         
-*       * _3V70XWIX4           mudanome VALID                     
+*       * _3W40NHON0           mudanome VALID                     
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_FUNC,     Record Number:   33  
+*       * From Screen:         CAD_FUNC,     Record Number:   35  
 *       * Variable:            mudanome                           
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
@@ -595,7 +636,7 @@ FUNCTION cmes
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3v70xwix4     &&  mudanome VALID
+FUNCTION _3w40nhon0     &&  mudanome VALID
 #REGION 1
 STORE '' TO terugStaat, terugStad
 DO zoekStad.SPR
@@ -616,7 +657,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_FUNC,     Record Number:   37  
+*       * From Screen:         CAD_FUNC,     Record Number:   39  
 *       * Variable:            wcpf                               
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Field                              
@@ -642,7 +683,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_FUNC,     Record Number:   47  
+*       * From Screen:         CAD_FUNC,     Record Number:   51  
 *       * Variable:            menu                               
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
@@ -714,7 +755,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_FUNC,     Record Number:   48  
+*       * From Screen:         CAD_FUNC,     Record Number:   52  
 *       * Variable:            list                               
 *       * Called By:           VALID Clause                       
 *       * Object Type:         List                               
@@ -737,7 +778,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_FUNC,     Record Number:   49  
+*       * From Screen:         CAD_FUNC,     Record Number:   53  
 *       * Variable:            filt                               
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Check Box                          
@@ -758,7 +799,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         CAD_FUNC,     Record Number:   50  
+*       * From Screen:         CAD_FUNC,     Record Number:   54  
 *       * Variable:            linat                              
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Check Box                          
@@ -798,7 +839,7 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3V70XWIY6           Read Level Show                    
+*       * _3W40NHONQ           Read Level Show                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -810,7 +851,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3v70xwiy6     && Read Level Show
+FUNCTION _3w40nhonq     && Read Level Show
 PRIVATE currwind
 STORE WOUTPUT() TO currwind
 *

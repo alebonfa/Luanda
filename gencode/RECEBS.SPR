@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 28/08/2013            RECEBS.SPR               15:48:54 
+*       * 30/09/2013            RECEBS.SPR               10:04:17 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -162,6 +162,13 @@ DECLARE lijDebit[1]
 DECLARE lst_parc[1]
 cr_parcs = 1
 
+lempr = .f.
+emps = 1
+DIMENSION list_emp[ 1]
+SELECT NOME, id FROM empresas ORDER BY empresas.nome INTO ARRAY  ;
+	list_emp
+
+
 *       *********************************************************
 *       *                                                         
 *       *              RECEBS/Windows Screen Layout               
@@ -207,7 +214,7 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,,,,)
-@ 15.769,117.600 SAY "UF:" ;
+@ 18.231,165.400 SAY "UF:" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR RGB(128,128,128,,,,)
@@ -238,6 +245,22 @@ ENDIF
 @ 15.769,22.400 SAY "Período:" ;
 	FONT "Arial", 8 ;
 	STYLE "T" ;
+	COLOR RGB(128,128,128,,,,)
+@ 12.000,0.000 TO 12.000,198.000 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(0,128,128,0,128,128)
+@ 22.769,0.000 TO 22.769,197.800 ;
+	PEN 1, 8 ;
+	STYLE "1" ;
+	COLOR RGB(0,128,128,0,128,128)
+@ 20.692,68.800 SAY "% Juros" ;
+	FONT "Arial", 8 ;
+	STYLE "T" ;
+	COLOR RGB(128,128,128,,,,)
+@ 23.769,4.000 SAY "Alterações em Lote" ;
+	FONT "Arial", 8 ;
+	STYLE "BT" ;
 	COLOR RGB(128,128,128,,,,)
 @ 4.692,37.000 GET wcodcli ;
 	SIZE 1.000,8.600 ;
@@ -422,29 +445,43 @@ ENDIF
 	FONT "Arial", 8 ;
 	PICTURE "@K" ;
 	COLOR ,RGB(0,0,0,255,255,255)
-@ 13.308,130.800 GET wcgc ;
-	SIZE 1.000,36.000 ;
+@ 13.308,132.200 GET wcgc ;
+	SIZE 1.000,44.800 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!T" ;
 	COLOR ,RGB(0,0,0,255,255,255)
-@ 20.692,130.800 GET wbai ;
-	SIZE 1.000,36.000 ;
-	DEFAULT " " ;
+@ 15.462,117.600 GET lempr ;
+	PICTURE "@*C Empresa" ;
+	SIZE 1.214,13.000 ;
+	DEFAULT 0 ;
 	FONT "Arial", 8 ;
-	PICTURE "@K!T XXXXXXXXXXXXXXXXXXXX" ;
-	COLOR ,RGB(0,0,0,255,255,255)
-@ 18.231,130.800 GET wcid ;
-	SIZE 1.000,36.000 ;
+	STYLE "T" ;
+	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
+@ 15.385,131.800 GET emps ;
+	PICTURE "@^" ;
+	FROM list_emp ;
+	SIZE 1.500,45.800 ;
+	DEFAULT 1 ;
+	FONT "Arial", 8 ;
+	COLOR ,,,,,,,,RGB(0,0,0,,,,),RGB(0,0,0,,,,)
+@ 18.231,132.200 GET wcid ;
+	SIZE 1.000,26.400 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!T XXXXXXXXXXXXXXXXXXXXXXXXX" ;
 	COLOR ,RGB(0,0,0,255,255,255)
-@ 15.769,130.800 GET west ;
+@ 18.231,171.200 GET west ;
 	SIZE 1.000,5.800 ;
 	DEFAULT " " ;
 	FONT "Arial", 8 ;
 	PICTURE "@K!T AA" ;
+	COLOR ,RGB(0,0,0,255,255,255)
+@ 20.692,132.200 GET wbai ;
+	SIZE 1.000,44.600 ;
+	DEFAULT " " ;
+	FONT "Arial", 8 ;
+	PICTURE "@K!T XXXXXXXXXXXXXXXXXXXX" ;
 	COLOR ,RGB(0,0,0,255,255,255)
 @ 20.308,183.200 GET filt ;
 	PICTURE "@*HN Filtra" ;
@@ -499,18 +536,6 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
-@ 12.000,0.000 TO 12.000,198.000 ;
-	PEN 1, 8 ;
-	STYLE "1" ;
-	COLOR RGB(0,128,128,0,128,128)
-@ 22.769,0.000 TO 22.769,197.800 ;
-	PEN 1, 8 ;
-	STYLE "1" ;
-	COLOR RGB(0,128,128,0,128,128)
-@ 20.692,68.800 SAY "% Juros" ;
-	FONT "Arial", 8 ;
-	STYLE "T" ;
-	COLOR RGB(128,128,128,,,,)
 @ 20.692,82.800 GET lokBelang ;
 	SIZE 1.000,7.200 ;
 	DEFAULT 0 ;
@@ -543,16 +568,12 @@ ENDIF
 	FONT "Arial", 8 ;
 	STYLE "T" ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,),RGB(128,128,128,,,,)
-@ 23.769,4.000 SAY "Alterações em Lote" ;
-	FONT "Arial", 8 ;
-	STYLE "BT" ;
-	COLOR RGB(128,128,128,,,,)
 @ 23.692,28.000 GET btnLote ;
 	PICTURE "@*HN Turma;Cobrança;Serasa" ;
 	SIZE 1.286,16.200,0.000 ;
 	DEFAULT 1 ;
 	FONT "Arial", 8 ;
-	VALID _3v70xwavo() ;
+	VALID _3w40ll4oy() ;
 	COLOR ,,,,,,,,RGB(128,128,128,,,,)
 
 IF NOT WVISIBLE("_2vo0yogag")
@@ -783,19 +804,27 @@ PROCEDURE filtra
 		C = C + 1
 	ENDIF
 	IF filt_valo
-		IF C = 1
+		IF C > 0
 			auxfilt = auxfilt + "AND "
 		ENDIF
 		auxfilt = auxfilt + "Valpgtorec = WRvalor "
 		C = C + 1
 	ENDIF
 	IF lserasa
-		IF C = 1
+		IF C > 0
 			auxfilt = auxfilt + "AND "
 		ENDIF
 		auxfilt = auxfilt + "Serasa "
 		C = C + 1
 	ENDIF
+	IF lempr
+		IF C > 0
+			auxfilt = auxfilt + 'AND '
+		ENDIF
+		auxfilt = auxfilt + ' Area+Subarea IN (SELECT Area+Subarea FROM modulos WHERE Empr_id = List_emp[emps,2]) '
+		C = C + 1
+	ENDIF
+	
 	une_cli = .F.
 	IF !isblank(wcid)
 		IF C > 0
@@ -1347,7 +1376,7 @@ PROCEDURE briefVanCharge
 			AND r.numerolanc IN (SELECT code FROM primair) ;
 			AND r.datavencim < DATE() ;
 			AND r.situacao $ 'ACFPV' ;
-		ORDER BY r.codcli, r.subarea, r.area, r.razaosocia, r.codcli ;
+		ORDER BY r.codcli, r.datavencim ;
 		INTO CURSOR tijDebit
 			
 	sele tijDebit
@@ -1398,7 +1427,7 @@ RETURN rMes
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         RECEBS,     Record Number:   18    
+*       * From Screen:         RECEBS,     Record Number:   22    
 *       * Variable:            wcodcli                            
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Field                              
@@ -1433,7 +1462,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         RECEBS,     Record Number:   19    
+*       * From Screen:         RECEBS,     Record Number:   23    
 *       * Variable:            busca_cli                          
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
@@ -1455,7 +1484,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         RECEBS,     Record Number:   31    
+*       * From Screen:         RECEBS,     Record Number:   35    
 *       * Variable:            adi                                
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
@@ -1480,7 +1509,7 @@ ENDIF
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         RECEBS,     Record Number:   32    
+*       * From Screen:         RECEBS,     Record Number:   36    
 *       * Variable:            filt_clie                          
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Check Box                          
@@ -1499,7 +1528,7 @@ FUNCTION _2VO0YOGB2     &&  filt_clie VALID
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         RECEBS,     Record Number:   39    
+*       * From Screen:         RECEBS,     Record Number:   43    
 *       * Variable:            wsit                               
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Popup                              
@@ -1522,7 +1551,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         RECEBS,     Record Number:   50    
+*       * From Screen:         RECEBS,     Record Number:   56    
 *       * Variable:            filt                               
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
@@ -1543,7 +1572,7 @@ SHOW GETS
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         RECEBS,     Record Number:   51    
+*       * From Screen:         RECEBS,     Record Number:   57    
 *       * Variable:            list                               
 *       * Called By:           VALID Clause                       
 *       * Object Type:         List                               
@@ -1576,7 +1605,7 @@ ENDIF
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         RECEBS,     Record Number:   55    
+*       * From Screen:         RECEBS,     Record Number:   61    
 *       * Variable:            menu                               
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
@@ -1691,12 +1720,12 @@ SHOW GETS
 
 *       *********************************************************
 *       *                                                         
-*       * _3V70XWAVO           btnLote VALID                      
+*       * _3W40LL4OY           btnLote VALID                      
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
 *       * From Platform:       Windows                            
-*       * From Screen:         RECEBS,     Record Number:   67    
+*       * From Screen:         RECEBS,     Record Number:   69    
 *       * Variable:            btnLote                            
 *       * Called By:           VALID Clause                       
 *       * Object Type:         Push Button                        
@@ -1704,7 +1733,7 @@ SHOW GETS
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3v70xwavo     &&  btnLote VALID
+FUNCTION _3w40ll4oy     &&  btnLote VALID
 #REGION 1
 ACCESS = veracess(wcoduser,19,"ALT")
 IF ACCESS

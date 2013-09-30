@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 28/08/2013            CLI_FIN.SPR              15:49:57 
+*       * 04/09/2013            CLI_FIN.SPR              09:32:58 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -170,7 +170,7 @@ IF NOT WVISIBLE("_2vo0ypdpm")
 	ACTIVATE WINDOW _2vo0ypdpm
 ENDIF
 
-READ CYCLE MODAL ;
+READ CYCLE ;
 	WHEN _2VO0YPDPU() ;
 	SHOW _2VO0YPDPV()
 

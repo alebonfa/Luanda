@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 28/08/2013           ASSUGRUP.SPR              15:49:59 
+*       * 04/09/2013           ASSUGRUP.SPR              09:32:57 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -128,7 +128,7 @@ exc = .F.
 *--
 
 #REGION 1
-DEFINE POPUP _3v70xxpds ;
+DEFINE POPUP _3ve0kgtm7 ;
 	PROMPT FIELD STR(crm_assu.codigo, 4) + " - " + crm_assu.descricao ;
 	SCROLL
 
@@ -165,7 +165,7 @@ ENDIF
 	COLOR RGB(0,0,0,,,,)
 @ 3.769,2.600 GET list ;
  	PICTURE "@&N" ;
-	POPUP _3v70xxpds ;
+	POPUP _3ve0kgtm7 ;
 	SIZE 13.714,59.857 ;
 	DEFAULT " " ;
 	FONT "Courier New", 8 ;
@@ -199,10 +199,10 @@ IF NOT WVISIBLE("_2vo0ypfd4")
 	ACTIVATE WINDOW _2vo0ypfd4
 ENDIF
 
-READ CYCLE MODAL
+READ CYCLE
 
 RELEASE WINDOW _2vo0ypfd4
-RELEASE POPUPS _3v70xxpds
+RELEASE POPUPS _3ve0kgtm7
 
 #REGION 0
 
