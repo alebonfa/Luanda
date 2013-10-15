@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 30/09/2013           DESKSMSR.SPR              14:31:35 
+*       * 15/10/2013           DESKSMSR.SPR              16:05:37 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -66,10 +66,10 @@ SET SAFE OFF
 SET SYSMENU OFF
 SET TALK ON
 
-USE Setup
-Subdir  = Setup.Drive+sys(2003)
+USE Setupsms
+Subdir  = Setupsms.Drive+sys(2003)
 Dircont = Subdir + "\contas"
-DirSMSr = Dircont + "\SMSr"
+DirSMSr = ALLTR(Setupsms.Dsms)
 USE
 
 DO Abr_cont
@@ -124,7 +124,7 @@ Exps = 1
 
 
 READ CYCLE ;
-	WHEN _3w40v4vae()
+	WHEN _3wj0yhsi2()
 
 MODIFY WINDOW SCREEN
 SELECT (m.currarea)
@@ -144,7 +144,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3W40V4VAE           Read Level When                    
+*       * _3WJ0YHSI2           Read Level When                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -156,11 +156,34 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3w40v4vae     && Read Level When
+FUNCTION _3wj0yhsi2     && Read Level When
 *
 * When Code from screen: DESKSMSR
 *
 #REGION 1
+SHOW GETS
+
+WAIT WINDOW 'Exportando: Colaboradores...' NOWAIT
+auxdest = DirSMSr + '\SMS08'
+SELECT p.Codigo AS sisquali, ;
+		p.nome AS nome, ;
+		p.cidade AS cidade, ;
+		p.uf AS uf, ;
+		p.email AS email, ;
+		p.fone AS telefone, ;
+		p.celular AS celular, ;
+		p.area_id AS polo ;
+	FROM Funcs p ;
+	WHERE ISBLANK(p.status) ;
+		AND !ISBLANK(p.fone) ;
+	INTO TABLE &auxdest
+
+Nrec = 0
+SELE SMS08
+Nrec = RECCOUNT()
+
+DECLARE List_exp[ALEN(List_exp)+1]
+List_exp[ALEN(List_exp)] = "Colaboradores - " + ALLT(STR(Nrec,10)) + " registros."
 SHOW GETS
 
 WAIT WINDOW 'Exportando: Turmas...' NOWAIT
@@ -183,7 +206,8 @@ auxdest = DirSMSr + '\SMS02'
 SELECT a.Codigo AS sisquali, ;
 		a.Descricao AS nome ;
 	FROM Area a ;
-	WHERE a.Codigo IN (SELECT DIST Polo FROM SMS01) ;
+	WHERE ( a.Codigo IN (SELECT DIST Polo FROM SMS01) OR ;
+		a.Codigo IN (SELECT DIST Polo FROM SMS08) ) ;
 	INTO TABLE &auxdest
 
 Nrec = 0
@@ -287,29 +311,6 @@ Nrec = RECCOUNT()
 
 DECLARE List_exp[ALEN(List_exp)+1]
 List_exp[ALEN(List_exp)] = "Palestrantes X Temáticas - " + ALLT(STR(Nrec,10)) + " registros."
-SHOW GETS
-
-WAIT WINDOW 'Exportando: Colaboradores...' NOWAIT
-auxdest = DirSMSr + '\SMS08'
-SELECT p.Codigo AS sisquali, ;
-		p.nome AS nome, ;
-		p.cidade AS cidade, ;
-		p.uf AS uf, ;
-		p.email AS email, ;
-		p.fone AS telefone, ;
-		p.celular AS celular, ;
-		p.area_id AS polo ;
-	FROM Funcs p ;
-	WHERE ISBLANK(p.status) ;
-		AND !ISBLANK(p.fone) ;
-	INTO TABLE &auxdest
-
-Nrec = 0
-SELE SMS08
-Nrec = RECCOUNT()
-
-DECLARE List_exp[ALEN(List_exp)+1]
-List_exp[ALEN(List_exp)] = "Colaboradores - " + ALLT(STR(Nrec,10)) + " registros."
 SHOW GETS
 
 WAIT WINDOW 'Exportando: Alunos x Turmas...' NOWAIT
