@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 15/10/2013           DESKSMSR.SPR              16:05:37 
+*       * 18/11/2013           DESKSMSR.SPR              09:39:43 
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -124,7 +124,7 @@ Exps = 1
 
 
 READ CYCLE ;
-	WHEN _3wj0yhsi2()
+	WHEN _3xh0kpj32()
 
 MODIFY WINDOW SCREEN
 SELECT (m.currarea)
@@ -144,7 +144,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _3WJ0YHSI2           Read Level When                    
+*       * _3XH0KPJ32           Read Level When                    
 *       *                                                         
 *       * Function Origin:                                        
 *       *                                                         
@@ -156,7 +156,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-FUNCTION _3wj0yhsi2     && Read Level When
+FUNCTION _3xh0kpj32     && Read Level When
 *
 * When Code from screen: DESKSMSR
 *
@@ -332,6 +332,16 @@ List_exp[ALEN(List_exp)] = "Alunos X Turmas - " + ALLT(STR(Nrec,10)) + " registr
 SHOW GETS
 
 WAIT WINDOW 'Exportando: Alunos...' NOWAIT
+
+SELECT r.codcli AS codigo, ;
+		MIN(r.datavencim) AS atraso ;
+	FROM recebs r ;
+	WHERE r.situacao $ 'AVPC' ;
+		AND r.datavencim < DATE() ;
+	GROUP BY r.codcli ;
+	ORDER BY r.codcli ;
+	INTO CURSOR deveds
+	
 auxdest = DirSMSr + '\SMS10'
 SELECT c.Codigo AS sisquali, ;
 		c.nome AS nome, ;
@@ -339,14 +349,24 @@ SELECT c.Codigo AS sisquali, ;
 		c.uf AS uf, ;
 		c.email AS email, ;
 		c.fone2 AS telefone, ;
-		{  /  /    } AS atraso ;
+		{  /  /    } AS atraso, ;
+		SPACE(200) AS atrasos ;
 	FROM Cliente c ;
-	WHERE c.Codigo IN (SELECT aluno FROM SMS09) ;
+	WHERE (c.Codigo IN (SELECT aluno FROM SMS09) ;
+		OR c.Codigo IN (SELECT codigo FROM deveds)) ;
 	INTO TABLE &auxdest
 
 SELECT SMS10
 INDEX ON sisquali TAG sisquali
 
+SELECT r.codcli AS sisquali, ;
+		r.datavencim;
+	FROM recebs r, SMS10 s ;
+	WHERE r.codcli == s.sisquali ;
+		AND r.situacao $ 'AVPC' ;
+		AND r.datavencim < DATE() ;
+	ORDER BY r.codcli, r.datavencim ;
+	INTO CURSOR atrasos
 
 SELECT r.codcli AS sisquali, ;
 		MIN(r.datavencim) AS atraso ;
@@ -367,8 +387,22 @@ SCAN
 	WAIT WIND STR(I,10) NOWAIT
 	I = I + 1
 	SELECT SMS10
-	SEEK priatraso.sisquali
+	wcod = priatraso.sisquali
+	SEEK wcod
 	REPLACE SMS10.atraso WITH priatraso.atraso
+	
+	SELECT * FROM atrasos a WHERE a.sisquali = wcod INTO CURSOR atr
+	SELE atr
+	SCAN
+		SELE SMS10
+		IF ISBLANK(ALLTR(SMS10.atrasos))
+			REPLACE SMS10.atrasos WITH DTOC(atr.datavencim)
+		ELSE
+			REPLACE SMS10.atrasos WITH ALLTR(SMS10.atrasos) + ', ' + DTOC(atr.datavencim)
+		ENDIF
+		SELE atr
+	ENDSCAN
+	
 	SELE priatraso
 ENDSCAN
 

@@ -417,7 +417,7 @@ PROCEDURE _28d0u8ovs
 	RETURN
 	*
 PROCEDURE _28d0u8ovt
-	IF wsetor == 'FIN'
+	IF wsetor == 'ADM'
 		DO abr_cont
 		DO cad_user.spr
 		CLOSE DATABASES
